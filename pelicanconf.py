@@ -12,6 +12,9 @@ TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
 
+#Theme
+THEME = "/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/pelican-themes/nest"
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
