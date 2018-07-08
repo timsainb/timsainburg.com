@@ -25,7 +25,7 @@ THEME = "pelican-themes/Flex"
 
 LINKS = (('Gentner Lab', 'http://gentnerlab.ucsd.edu'),('GitHub', 'https://github.com/timsainb'))
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
-SITELOGO = 'assets/img/TSainburg.jpg'
+SITELOGO = 'img/TSainburg.jpg'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
