@@ -499,3 +499,10 @@ ul.social a.sc-bitbucket {
         height: 90px
     }
 }
+
+.ghbutton{
+  position:fixed!important;
+  top: 20px!important;
+  right: 20px!important;
+  border: 0 !important;
+}
