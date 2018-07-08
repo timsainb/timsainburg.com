@@ -5,7 +5,8 @@ from __future__ import unicode_literals
 AUTHOR = 'Tim Sainburg'
 SITENAME = 'Tim Sainburg'
 SITESUBTITLE = 'PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning'
-SITEURL = ''
+SITEURL = '/'
+SITEURL_ABS = 'https://timsainburg.com'
 
 PATH = 'content'
 STATIC_PATHS = ['assets']
