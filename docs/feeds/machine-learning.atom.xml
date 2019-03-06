@@ -2387,1882 +2387,6 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[4]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dims&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[5]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;n_sample&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="c1"&gt;# set network parameters&lt;/span&gt;
-&lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="s1"&gt;&amp;#39;adam_eps&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.0e-8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
-    &lt;span class="s1"&gt;&amp;#39;dims&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;dims&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s1"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s1"&gt;&amp;#39;activation_fn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;elu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="s1"&gt;&amp;#39;learning_rate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;001&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
-    &lt;span class="s1"&gt;&amp;#39;n_hidden&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;# how many neurons in the latent content layer  &lt;/span&gt;
-    &lt;span class="s1"&gt;&amp;#39;beta&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;# parameter corresponding to the emphasis on the latent term&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[6]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;VAE&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# create the model&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Network Initialized
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[7]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# load mnist dataset&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tensorflow.examples.tutorials.mnist&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;input_data&lt;/span&gt;
-&lt;span class="n"&gt;mnist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;input_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_data_sets&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MNIST_data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;one_hot&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;WARNING:tensorflow:From &amp;lt;ipython-input-7-4a7aac60da5c&amp;gt;:3: read_data_sets (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
-WARNING:tensorflow:From /mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py:260: maybe_download (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please write your own downloading logic.
-WARNING:tensorflow:From /mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/base.py:252: _internal_retry.&amp;lt;locals&amp;gt;.wrap.&amp;lt;locals&amp;gt;.wrapped_fn (from tensorflow.contrib.learn.python.learn.datasets.base) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use urllib or similar directly.
-Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
-WARNING:tensorflow:From /mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py:262: extract_images (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use tf.data to implement this functionality.
-Extracting MNIST_data/train-images-idx3-ubyte.gz
-Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
-WARNING:tensorflow:From /mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py:267: extract_labels (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use tf.data to implement this functionality.
-Extracting MNIST_data/train-labels-idx1-ubyte.gz
-Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
-Extracting MNIST_data/t10k-images-idx3-ubyte.gz
-Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
-Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
-WARNING:tensorflow:From /mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py:290: DataSet.__init__ (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
-Instructions for updating:
-Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[8]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;n_samples&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mnist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_examples&lt;/span&gt;
-&lt;span class="n"&gt;n_samples&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
-
-
-
-
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;55000&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[9]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;### For visualization&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot_samples&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sample&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sample&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gray&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;off&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    
-&lt;span class="n"&gt;recon_loss_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;latent_loss_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;example_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mnist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next_batch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;batch_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;nex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="c1"&gt;# number of samples to plot&lt;/span&gt;
-
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;epoch&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tqdm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;51&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-    &lt;span class="n"&gt;recon_loss_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
-    &lt;span class="n"&gt;latent_loss_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;([])&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;batch_i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tqdm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_samples&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])),&lt;/span&gt; &lt;span class="n"&gt;leave&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="n"&gt;batch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mnist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next_batch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-        &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;recon_loss&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lat_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latent_loss&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;feed_dict&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;batch&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
-        &lt;span class="n"&gt;latent_loss_list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lat_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;recon_loss_list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;epoch&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Epoch:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%04d&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;epoch&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;cost=&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{:.9f}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recon_loss_list&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])),&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{:.9f}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;latent_loss_list&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-        &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nrows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ncols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;nex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-        &lt;span class="n"&gt;plot_samples&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;example_data&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;nex&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-        &lt;span class="n"&gt;plot_samples&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;squeeze&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_recon&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;example_data&lt;/span&gt;&lt;span class="p"&gt;}))[:&lt;/span&gt;&lt;span class="n"&gt;nex&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-        &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="cdb787d6-0461-43ce-ac1c-e37850e68e3c"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#cdb787d6-0461-43ce-ac1c-e37850e68e3c');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "2f6f6e907a524042b8515cf7abfb0980", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="e935a6ff-b2cd-45a0-a078-6c9ae0e24e56"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#e935a6ff-b2cd-45a0-a078-6c9ae0e24e56');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Epoch: 0001 cost= 294.877227783 2.233397961
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,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
-"
-&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="e38156b4-f5f3-46f3-bf80-7cfa0c135bdb"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#e38156b4-f5f3-46f3-bf80-7cfa0c135bdb');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="12558590-dc7f-4096-a07b-cee601274bcb"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#12558590-dc7f-4096-a07b-cee601274bcb');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="52de2025-3a73-4e12-b5f9-592cc8162ca3"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#52de2025-3a73-4e12-b5f9-592cc8162ca3');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="ac48a8c8-cf0a-485b-86e3-8bdddf2ad8e6"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#ac48a8c8-cf0a-485b-86e3-8bdddf2ad8e6');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="75c634f5-9132-4f8d-a957-3f33dfdb112a"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#75c634f5-9132-4f8d-a957-3f33dfdb112a');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="a11fe83e-d4c7-41b2-a359-8d55783efb29"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#a11fe83e-d4c7-41b2-a359-8d55783efb29');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="92279cdd-eda1-4452-8ff1-da881fd3ad7a"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#92279cdd-eda1-4452-8ff1-da881fd3ad7a');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="b233e755-c211-4786-b832-c1f46e41b6b1"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#b233e755-c211-4786-b832-c1f46e41b6b1');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="cdfebdb2-f768-455b-89c9-7fbb9283addf"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#cdfebdb2-f768-455b-89c9-7fbb9283addf');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="d3d44f32-8297-4b25-9209-9a4f87aaba8d"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#d3d44f32-8297-4b25-9209-9a4f87aaba8d');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Epoch: 0011 cost= 189.031219482 0.981491089
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,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
-"
-&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="5c498445-7297-429e-8fc3-fd411bb431cf"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#5c498445-7297-429e-8fc3-fd411bb431cf');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="71280c3a-630b-4745-a97c-ed9bbe58d351"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#71280c3a-630b-4745-a97c-ed9bbe58d351');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="68ab9009-bebd-4de2-b6cb-5107f43d43f6"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#68ab9009-bebd-4de2-b6cb-5107f43d43f6');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="5a87dbc0-1bc5-46cf-b00e-1501176a8d17"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#5a87dbc0-1bc5-46cf-b00e-1501176a8d17');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="9c0d2f04-3f88-4fb4-9831-0e94c82e5571"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#9c0d2f04-3f88-4fb4-9831-0e94c82e5571');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-
-
-
- 
- 
-&lt;div id="b97db0b7-fe4b-4298-af82-463dd5a2bfa5"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_widget_view "&gt;
-&lt;script type="text/javascript"&gt;
-var element = $('#b97db0b7-fe4b-4298-af82-463dd5a2bfa5');
-&lt;/script&gt;
-&lt;script type="application/vnd.jupyter.widget-view+json"&gt;
-{"model_id": "9e3df525c7f840d182e73c8cfdf551ab", "version_major": 2, "version_minor": 0}
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;div class="output_area"&gt;
-
-&lt;div class="prompt"&gt;&lt;/div&gt;
-
-
-&lt;div class="output_subarea output_text output_error"&gt;
-&lt;pre&gt;
-&lt;span class="ansi-red-fg"&gt;---------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class="ansi-red-fg"&gt;KeyboardInterrupt&lt;/span&gt;                         Traceback (most recent call last)
-&lt;span class="ansi-green-fg"&gt;&amp;lt;ipython-input-9-b2c21dd6ae67&amp;gt;&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;     14&lt;/span&gt;     latent_loss_list&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;append&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;     15&lt;/span&gt;     &lt;span class="ansi-green-fg"&gt;for&lt;/span&gt; batch_i &lt;span class="ansi-green-fg"&gt;in&lt;/span&gt; tqdm&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;np&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;arange&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;int&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;n_samples&lt;span class="ansi-blue-fg"&gt;/&lt;/span&gt;params&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; leave&lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt;&lt;span class="ansi-green-fg"&gt;False&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;:&lt;/span&gt;
-&lt;span class="ansi-green-fg"&gt;---&amp;gt; 16&lt;/span&gt;&lt;span class="ansi-red-fg"&gt;         &lt;/span&gt;batch &lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt; mnist&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;train&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;next_batch&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;params&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;&lt;span class="ansi-cyan-fg"&gt;0&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;     17&lt;/span&gt;         _&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; recon_loss&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; lat_loss &lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt; model&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;sess&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;run&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;model&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;train&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; model&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;recon_loss&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; model&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;latent_loss&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;,&lt;/span&gt; feed_dict&lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;{&lt;/span&gt;model&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;x_real&lt;span class="ansi-blue-fg"&gt;:&lt;/span&gt; batch&lt;span class="ansi-blue-fg"&gt;}&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;     18&lt;/span&gt;         latent_loss_list&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;-&lt;/span&gt;&lt;span class="ansi-cyan-fg"&gt;1&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;append&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;lat_loss&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;
-
-&lt;span class="ansi-green-fg"&gt;/mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tensorflow/contrib/learn/python/learn/datasets/mnist.py&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;next_batch&lt;/span&gt;&lt;span class="ansi-blue-fg"&gt;(self, batch_size, fake_data, shuffle)&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;    211&lt;/span&gt;         perm &lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt; numpy&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;arange&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;self&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;_num_examples&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;    212&lt;/span&gt;         numpy&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;random&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;shuffle&lt;span class="ansi-blue-fg"&gt;(&lt;/span&gt;perm&lt;span class="ansi-blue-fg"&gt;)&lt;/span&gt;
-&lt;span class="ansi-green-fg"&gt;--&amp;gt; 213&lt;/span&gt;&lt;span class="ansi-red-fg"&gt;         &lt;/span&gt;self&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;_images &lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt; self&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;images&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;perm&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;    214&lt;/span&gt;         self&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;_labels &lt;span class="ansi-blue-fg"&gt;=&lt;/span&gt; self&lt;span class="ansi-blue-fg"&gt;.&lt;/span&gt;labels&lt;span class="ansi-blue-fg"&gt;[&lt;/span&gt;perm&lt;span class="ansi-blue-fg"&gt;]&lt;/span&gt;
-&lt;span class="ansi-green-intense-fg ansi-bold"&gt;    215&lt;/span&gt;       &lt;span class="ansi-red-fg"&gt;# Start next epoch&lt;/span&gt;
-
-&lt;span class="ansi-red-fg"&gt;KeyboardInterrupt&lt;/span&gt;: &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Plot-latent-space-representations"&gt;Plot latent space representations&lt;a class="anchor-link" href="#Plot-latent-space-representations"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;points&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;tqdm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_samples&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;batch_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]))):&lt;/span&gt;
-    &lt;span class="n"&gt;images&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mnist&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;next_batch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;batch_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-    &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-    &lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]}))&lt;/span&gt;
-&lt;span class="n"&gt;points&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;plot_latent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;codes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;codes&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;codes&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_aspect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;equal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    
-&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nrows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ncols&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plot_latent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plot_latent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;points&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="c1"&gt;#for axi in ax: axi.set_ylim([-8,8]);axi.set_xlim([-8,8])&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
- 
-
-
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['$','$'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        " linebreaks: { automatic: true, width: '95% container' }, " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
-        "}); ";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;
-</content><category term="tensorflow"></category><category term="vae"></category><category term="variational autoencoder"></category><category term="python"></category><category term="autoencoder"></category></entry><entry><title>Variational Autoencoder in Tensorflow (Jupyter Notebook)</title><link href="http://timsainburg.com/vae-tensorflow.html" rel="alternate"></link><published>2018-07-07T10:01:00-07:00</published><updated>2018-07-07T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2018-07-07:/vae-tensorflow.html</id><summary type="html">&lt;p&gt;A simple quick Variational Autoencoder in Tensorflow&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
-*
-* IPython notebook
-*
-*/
-/* CSS font colors for translated ANSI colors. */
-.ansibold {
-  font-weight: bold;
-}
-/* use dark versions for foreground, to improve visibility */
-.ansiblack {
-  color: black;
-}
-.ansired {
-  color: darkred;
-}
-.ansigreen {
-  color: darkgreen;
-}
-.ansiyellow {
-  color: #c4a000;
-}
-.ansiblue {
-  color: darkblue;
-}
-.ansipurple {
-  color: darkviolet;
-}
-.ansicyan {
-  color: steelblue;
-}
-.ansigray {
-  color: gray;
-}
-/* and light for background, for the same reason */
-.ansibgblack {
-  background-color: black;
-}
-.ansibgred {
-  background-color: red;
-}
-.ansibggreen {
-  background-color: green;
-}
-.ansibgyellow {
-  background-color: yellow;
-}
-.ansibgblue {
-  background-color: blue;
-}
-.ansibgpurple {
-  background-color: magenta;
-}
-.ansibgcyan {
-  background-color: cyan;
-}
-.ansibggray {
-  background-color: gray;
-}
-div.cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  border-radius: 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  width: 100%;
-  padding: 5px;
-  /* This acts as a spacer between cells, that is outside the border */
-  margin: 0px;
-  outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
-}
-div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
-  border-left-color: #E3F2FD;
-  border-left-width: 1px;
-  padding-left: 5px;
-  border-right-color: #E3F2FD;
-  border-right-width: 1px;
-  background: #E3F2FD;
-}
-@media print {
-  div.cell.jupyter-soft-selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected {
-  border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  div.cell.selected {
-    border-color: transparent;
-  }
-}
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
-.edit_mode div.cell.selected {
-  border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
-}
-@media print {
-  .edit_mode div.cell.selected {
-    border-color: transparent;
-  }
-}
-.prompt {
-  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
-  min-width: 14ex;
-  /* This padding is tuned to match the padding on the CodeMirror editor. */
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace;
-  text-align: right;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-  /* Don't highlight prompt number selection */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  /* Use default cursor */
-  cursor: default;
-}
-@media (max-width: 540px) {
-  .prompt {
-    text-align: left;
-  }
-}
-div.inner_cell {
-  min-width: 0;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_area {
-  border: 1px solid #cfcfcf;
-  border-radius: 2px;
-  background: #f7f7f7;
-  line-height: 1.21429em;
-}
-/* This is needed so that empty prompt areas can collapse to zero height when there
-   is no content in the output_subarea and the prompt. The main purpose of this is
-   to make sure that empty JavaScript output_subareas have no height. */
-div.prompt:empty {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-div.unrecognized_cell {
-  padding: 5px 5px 5px 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.unrecognized_cell .inner_cell {
-  border-radius: 2px;
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-  border: 1px solid #cfcfcf;
-  background: #eaeaea;
-}
-div.unrecognized_cell .inner_cell a {
-  color: inherit;
-  text-decoration: none;
-}
-div.unrecognized_cell .inner_cell a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-@media (max-width: 540px) {
-  div.unrecognized_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.code_cell {
-  /* avoid page breaking on code cells when printing */
-}
-@media print {
-  div.code_cell {
-    page-break-inside: avoid;
-  }
-}
-/* any special styling for code cells that are currently running goes here */
-div.input {
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.input {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-/* input_area and input_prompt must match in top border and margin for alignment */
-div.input_prompt {
-  color: #303F9F;
-  border-top: 1px solid transparent;
-}
-div.input_area &gt; div.highlight {
-  margin: 0.4em;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-div.input_area &gt; div.highlight &gt; pre {
-  margin: 0px;
-  border: none;
-  padding: 0px;
-  background-color: transparent;
-}
-/* The following gets added to the &lt;head&gt; if it is detected that the user has a
- * monospace font with inconsistent normal/bold/italic height.  See
- * notebookmain.js.  Such fonts will have keywords vertically offset with
- * respect to the rest of the text.  The user should select a better font.
- * See: https://github.com/ipython/ipython/issues/1503
- *
- * .CodeMirror span {
- *      vertical-align: bottom;
- * }
- */
-.CodeMirror {
-  line-height: 1.21429em;
-  /* Changed from 1em to our global default */
-  font-size: 14px;
-  height: auto;
-  /* Changed to auto to autogrow */
-  background: none;
-  /* Changed from white to allow our bg to show through */
-}
-.CodeMirror-scroll {
-  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
-  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
-  overflow-y: hidden;
-  overflow-x: auto;
-}
-.CodeMirror-lines {
-  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
-  /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
-}
-.CodeMirror-linenumber {
-  padding: 0 8px 0 4px;
-}
-.CodeMirror-gutters {
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-}
-.CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-}
-/*
-
-Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
-Adapted from GitHub theme
-
-*/
-.highlight-base {
-  color: #000;
-}
-.highlight-variable {
-  color: #000;
-}
-.highlight-variable-2 {
-  color: #1a1a1a;
-}
-.highlight-variable-3 {
-  color: #333333;
-}
-.highlight-string {
-  color: #BA2121;
-}
-.highlight-comment {
-  color: #408080;
-  font-style: italic;
-}
-.highlight-number {
-  color: #080;
-}
-.highlight-atom {
-  color: #88F;
-}
-.highlight-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.highlight-builtin {
-  color: #008000;
-}
-.highlight-error {
-  color: #f00;
-}
-.highlight-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.highlight-meta {
-  color: #AA22FF;
-}
-/* previously not defined, copying from default codemirror */
-.highlight-def {
-  color: #00f;
-}
-.highlight-string-2 {
-  color: #f50;
-}
-.highlight-qualifier {
-  color: #555;
-}
-.highlight-bracket {
-  color: #997;
-}
-.highlight-tag {
-  color: #170;
-}
-.highlight-attribute {
-  color: #00c;
-}
-.highlight-header {
-  color: blue;
-}
-.highlight-quote {
-  color: #090;
-}
-.highlight-link {
-  color: #00c;
-}
-/* apply the same style to codemirror */
-.cm-s-ipython span.cm-keyword {
-  color: #008000;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-atom {
-  color: #88F;
-}
-.cm-s-ipython span.cm-number {
-  color: #080;
-}
-.cm-s-ipython span.cm-def {
-  color: #00f;
-}
-.cm-s-ipython span.cm-variable {
-  color: #000;
-}
-.cm-s-ipython span.cm-operator {
-  color: #AA22FF;
-  font-weight: bold;
-}
-.cm-s-ipython span.cm-variable-2 {
-  color: #1a1a1a;
-}
-.cm-s-ipython span.cm-variable-3 {
-  color: #333333;
-}
-.cm-s-ipython span.cm-comment {
-  color: #408080;
-  font-style: italic;
-}
-.cm-s-ipython span.cm-string {
-  color: #BA2121;
-}
-.cm-s-ipython span.cm-string-2 {
-  color: #f50;
-}
-.cm-s-ipython span.cm-meta {
-  color: #AA22FF;
-}
-.cm-s-ipython span.cm-qualifier {
-  color: #555;
-}
-.cm-s-ipython span.cm-builtin {
-  color: #008000;
-}
-.cm-s-ipython span.cm-bracket {
-  color: #997;
-}
-.cm-s-ipython span.cm-tag {
-  color: #170;
-}
-.cm-s-ipython span.cm-attribute {
-  color: #00c;
-}
-.cm-s-ipython span.cm-header {
-  color: blue;
-}
-.cm-s-ipython span.cm-quote {
-  color: #090;
-}
-.cm-s-ipython span.cm-link {
-  color: #00c;
-}
-.cm-s-ipython span.cm-error {
-  color: #f00;
-}
-.cm-s-ipython span.cm-tab {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
-  background-position: right;
-  background-repeat: no-repeat;
-}
-div.output_wrapper {
-  /* this position must be relative to enable descendents to be absolute within it */
-  position: relative;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  z-index: 1;
-}
-/* class for the output area when it should be height-limited */
-div.output_scroll {
-  /* ideally, this would be max-height, but FF barfs all over that */
-  height: 24em;
-  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
-  width: 100%;
-  overflow: auto;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
-  display: block;
-}
-/* output div while it is collapsed */
-div.output_collapsed {
-  margin: 0px;
-  padding: 0px;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-div.out_prompt_overlay {
-  height: 100%;
-  padding: 0px 0.4em;
-  position: absolute;
-  border-radius: 2px;
-}
-div.out_prompt_overlay:hover {
-  /* use inner shadow to get border that is computed the same on WebKit/FF */
-  -webkit-box-shadow: inset 0 0 1px #000;
-  box-shadow: inset 0 0 1px #000;
-  background: rgba(240, 240, 240, 0.5);
-}
-div.output_prompt {
-  color: #D84315;
-}
-/* This class is the outer container of all output sections. */
-div.output_area {
-  padding: 0px;
-  page-break-inside: avoid;
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-div.output_area .MathJax_Display {
-  text-align: left !important;
-}
-div.output_area 
-div.output_area 
-div.output_area img,
-div.output_area svg {
-  max-width: 100%;
-  height: auto;
-}
-div.output_area img.unconfined,
-div.output_area svg.unconfined {
-  max-width: none;
-}
-/* This is needed to protect the pre formating from global settings such
-   as that of bootstrap */
-.output {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: vertical;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.output_area {
-    /* Old browsers */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: stretch;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    -moz-box-align: stretch;
-    display: box;
-    box-orient: vertical;
-    box-align: stretch;
-    /* Modern browsers */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-div.output_area pre {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  color: black;
-  background-color: transparent;
-  border-radius: 0;
-}
-/* This class is for the output subarea inside the output_area and after
-   the prompt div. */
-div.output_subarea {
-  overflow-x: auto;
-  padding: 0.4em;
-  /* Old browsers */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  /* Modern browsers */
-  flex: 1;
-  max-width: calc(100% - 14ex);
-}
-div.output_scroll div.output_subarea {
-  overflow-x: visible;
-}
-/* The rest of the output_* classes are for special styling of the different
-   output types */
-/* all text output has this class: */
-div.output_text {
-  text-align: left;
-  color: #000;
-  /* This has to match that of the the CodeMirror class line-height below */
-  line-height: 1.21429em;
-}
-/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
-div.output_stderr {
-  background: #fdd;
-  /* very light red background for stderr */
-}
-div.output_latex {
-  text-align: left;
-}
-/* Empty output_javascript divs should have no height */
-div.output_javascript:empty {
-  padding: 0;
-}
-.js-error {
-  color: darkred;
-}
-/* raw_input styles */
-div.raw_input_container {
-  line-height: 1.21429em;
-  padding-top: 5px;
-}
-pre.raw_input_prompt {
-  /* nothing needed here. */
-}
-input.raw_input {
-  font-family: monospace;
-  font-size: inherit;
-  color: inherit;
-  width: auto;
-  /* make sure input baseline aligns with prompt */
-  vertical-align: baseline;
-  /* padding + margin = 0.5em between prompt and cursor */
-  padding: 0em 0.25em;
-  margin: 0em 0.25em;
-}
-input.raw_input:focus {
-  box-shadow: none;
-}
-p.p-space {
-  margin-bottom: 10px;
-}
-div.output_unrecognized {
-  padding: 5px;
-  font-weight: bold;
-  color: red;
-}
-div.output_unrecognized a {
-  color: inherit;
-  text-decoration: none;
-}
-div.output_unrecognized a:hover {
-  color: inherit;
-  text-decoration: none;
-}
-.rendered_html {
-  color: #000;
-  /* any extras will just be numbers: */
-}
-
-
-
-.rendered_html :link {
-  text-decoration: underline;
-}
-.rendered_html :visited {
-  text-decoration: underline;
-}
-
-
-
-
-
-
-.rendered_html h1:first-child {
-  margin-top: 0.538em;
-}
-.rendered_html h2:first-child {
-  margin-top: 0.636em;
-}
-.rendered_html h3:first-child {
-  margin-top: 0.777em;
-}
-.rendered_html h4:first-child {
-  margin-top: 1em;
-}
-.rendered_html h5:first-child {
-  margin-top: 1em;
-}
-.rendered_html h6:first-child {
-  margin-top: 1em;
-}
-
-
-
-
-
-
-
-
-.rendered_html * + ul {
-  margin-top: 1em;
-}
-.rendered_html * + ol {
-  margin-top: 1em;
-}
-
-
-.rendered_html pre,
-
-
-
-.rendered_html tr,
-.rendered_html th,
-
-.rendered_html td,
-
-
-.rendered_html * + table {
-  margin-top: 1em;
-}
-
-.rendered_html * + p {
-  margin-top: 1em;
-}
-
-.rendered_html * + img {
-  margin-top: 1em;
-}
-.rendered_html img,
-
-.rendered_html img.unconfined,
-
-div.text_cell {
-  /* Old browsers */
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-align: stretch;
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-align: stretch;
-  display: box;
-  box-orient: horizontal;
-  box-align: stretch;
-  /* Modern browsers */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-@media (max-width: 540px) {
-  div.text_cell &gt; div.prompt {
-    display: none;
-  }
-}
-div.text_cell_render {
-  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
-  outline: none;
-  resize: none;
-  width: inherit;
-  border-style: none;
-  padding: 0.5em 0.5em 0.5em 0.4em;
-  color: #000;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
-a.anchor-link:link {
-  text-decoration: none;
-  padding: 0px 20px;
-  visibility: hidden;
-}
-h1:hover .anchor-link,
-h2:hover .anchor-link,
-h3:hover .anchor-link,
-h4:hover .anchor-link,
-h5:hover .anchor-link,
-h6:hover .anchor-link {
-  visibility: visible;
-}
-.text_cell.rendered .input_area {
-  display: none;
-}
-.text_cell.rendered 
-.text_cell.unrendered .text_cell_render {
-  display: none;
-}
-.cm-header-1,
-.cm-header-2,
-.cm-header-3,
-.cm-header-4,
-.cm-header-5,
-.cm-header-6 {
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.cm-header-1 {
-  font-size: 185.7%;
-}
-.cm-header-2 {
-  font-size: 157.1%;
-}
-.cm-header-3 {
-  font-size: 128.6%;
-}
-.cm-header-4 {
-  font-size: 110%;
-}
-.cm-header-5 {
-  font-size: 100%;
-  font-style: italic;
-}
-.cm-header-6 {
-  font-size: 100%;
-  font-style: italic;
-}
-&lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Load-packages"&gt;Load packages&lt;a class="anchor-link" href="#Load-packages"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[1]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tensorflow&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tf&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tensorflow&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;layers&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tensorflow.contrib&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tf_contrib&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tqdm&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;tqdm_notebook&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;tqdm&lt;/span&gt; &lt;span class="c1"&gt;# progress bar&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;matplotlib&lt;/span&gt; inline
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Specify-which-GPU-to-use"&gt;Specify which GPU to use&lt;a class="anchor-link" href="#Specify-which-GPU-to-use"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[2]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Allocate GPU&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="n"&gt;gpu_to_use&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CUDA_DEVICE_ORDER&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;PCI_BUS_ID&amp;quot;&lt;/span&gt; 
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;CUDA_VISIBLE_DEVICES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gpu_to_use&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Create-the-Variational-Autoencoder-object"&gt;Create the Variational Autoencoder object&lt;a class="anchor-link" href="#Create-the-Variational-Autoencoder-object"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[3]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;weight_init&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;variance_scaling_initializer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# kaming init for encoder / decoder&lt;/span&gt;
-&lt;span class="n"&gt;weight_regularizer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;l2_regularizer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.0001&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;VAE&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;initialize_network&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;initialize_network&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot; Defines the network architecture&lt;/span&gt;
-&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-        &lt;span class="c1"&gt;# initialize graph and session&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Graph&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ConfigProto&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allow_soft_placement&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;log_device_placement&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;InteractiveSession&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# Global step needs to be defined to coordinate multi-GPU&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;global_step&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_variable&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;global_step&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="n"&gt;initializer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;constant_initializer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;trainable&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;define_network&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# define the network&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;global_variables_initializer&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c1"&gt;# Initialize the network&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;saver&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Saver&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# initialize network saver&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Network Initialized&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;encoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scope&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;encoder&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;variable_scope&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;encoder&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-            &lt;span class="n"&gt;encoder_net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dims&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])])]&lt;/span&gt;
-            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;layer_i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-                &lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fully_connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;num_outputs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="n"&gt;activation_fn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;activation_fn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-            &lt;span class="n"&gt;z_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fully_connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;num_outputs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;n_hidden&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                            &lt;span class="n"&gt;activation_fn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scope&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;z_mean&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="n"&gt;z_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fully_connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoder_net&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;num_outputs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;n_hidden&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                            &lt;span class="n"&gt;activation_fn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scope&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;z_std&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;z_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z_std&lt;/span&gt;
-    
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scope&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;decoder&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="n"&gt;decoder_net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Z&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;layer_i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-                &lt;span class="n"&gt;decoder_net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fully_connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;decoder_net&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;decoder_net&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;num_outputs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="n"&gt;activation_fn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;activation_fn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-        &lt;span class="n"&gt;x_reconstruction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf_contrib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fully_connected&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;decoder_net&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;decoder_net&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;num_outputs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dims&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])),&lt;/span&gt;
-                            &lt;span class="n"&gt;activation_fn&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sigmoid&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x_reconstruction&lt;/span&gt;
-    
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;define_network&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c1"&gt;# define the input&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;placeholder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;batch_size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dims&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])])&lt;/span&gt;
-        &lt;span class="c1"&gt;# run through the encoder&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;samples&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random_normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_std&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;stddev&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_mean&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_std&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;samples&lt;/span&gt;
-        &lt;span class="c1"&gt;# run through the decoder&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_recon&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# losses&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce_sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1e-8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_recon&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; 
-                                              &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_real&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1e-8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_recon&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latent_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce_sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_std&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;square&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_mean&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;z_std&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce_mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;beta&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latent_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latent_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce_mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;latent_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reduce_mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recon_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# prepare optimizers&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AdamOptimizer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;learning_rate&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;learning_rate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;epsilon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;adam_eps&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-        &lt;span class="c1"&gt;# specify loss to parameters&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trainable_params&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trainable_variables&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-        &lt;span class="c1"&gt;# Calculate the gradients for the batch of data&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compute_gradients&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loss&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;var_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trainable_params&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# Apply gradients&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply_gradients&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grads&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;global_step&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;global_step&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="TRAIN"&gt;TRAIN&lt;a class="anchor-link" href="#TRAIN"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -4409,10 +2533,10 @@ h6:hover .anchor-link {
 
  
  
-&lt;div id="84daef2b-d284-434d-bf85-8b2f53d50885"&gt;&lt;/div&gt;
+&lt;div id="b5407260-b578-46bc-8277-4ce48541aeda"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#84daef2b-d284-434d-bf85-8b2f53d50885');
+var element = $('#b5407260-b578-46bc-8277-4ce48541aeda');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -4431,10 +2555,10 @@ var element = $('#84daef2b-d284-434d-bf85-8b2f53d50885');
 
  
  
-&lt;div id="29f16a13-929a-477b-b1c8-c3d5fc91a1b9"&gt;&lt;/div&gt;
+&lt;div id="6513b41a-c57e-4d2e-b320-e49293e3f0ef"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#29f16a13-929a-477b-b1c8-c3d5fc91a1b9');
+var element = $('#6513b41a-c57e-4d2e-b320-e49293e3f0ef');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4479,10 +2603,10 @@ var element = $('#29f16a13-929a-477b-b1c8-c3d5fc91a1b9');
 
  
  
-&lt;div id="99c45fe2-c915-4889-8cdc-f427ce7bb034"&gt;&lt;/div&gt;
+&lt;div id="dff83de3-22e8-481f-834b-17aa20ed4212"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#99c45fe2-c915-4889-8cdc-f427ce7bb034');
+var element = $('#dff83de3-22e8-481f-834b-17aa20ed4212');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4501,10 +2625,10 @@ var element = $('#99c45fe2-c915-4889-8cdc-f427ce7bb034');
 
  
  
-&lt;div id="c44325bc-09d2-45c6-9905-8f6d7db2f6e8"&gt;&lt;/div&gt;
+&lt;div id="9aa0ac99-31e5-4910-9cda-d559891043f2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c44325bc-09d2-45c6-9905-8f6d7db2f6e8');
+var element = $('#9aa0ac99-31e5-4910-9cda-d559891043f2');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4523,10 +2647,10 @@ var element = $('#c44325bc-09d2-45c6-9905-8f6d7db2f6e8');
 
  
  
-&lt;div id="82ec4f70-8d1a-462d-a72a-57fcadab33aa"&gt;&lt;/div&gt;
+&lt;div id="01513349-c732-46f1-8391-02d96022a584"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#82ec4f70-8d1a-462d-a72a-57fcadab33aa');
+var element = $('#01513349-c732-46f1-8391-02d96022a584');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4545,10 +2669,10 @@ var element = $('#82ec4f70-8d1a-462d-a72a-57fcadab33aa');
 
  
  
-&lt;div id="e4e2d190-ce78-4707-b699-19635359f4bb"&gt;&lt;/div&gt;
+&lt;div id="8b673296-c0cf-4dbb-b3a6-da76b2f9ce6b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e4e2d190-ce78-4707-b699-19635359f4bb');
+var element = $('#8b673296-c0cf-4dbb-b3a6-da76b2f9ce6b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4567,10 +2691,10 @@ var element = $('#e4e2d190-ce78-4707-b699-19635359f4bb');
 
  
  
-&lt;div id="b7d81629-6249-45c2-8fc6-dfe28e4d964d"&gt;&lt;/div&gt;
+&lt;div id="a567f97f-d037-4748-a60b-267c000b9441"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b7d81629-6249-45c2-8fc6-dfe28e4d964d');
+var element = $('#a567f97f-d037-4748-a60b-267c000b9441');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4589,10 +2713,10 @@ var element = $('#b7d81629-6249-45c2-8fc6-dfe28e4d964d');
 
  
  
-&lt;div id="c3f5dd38-be1f-43c6-a5b6-04c00fd1f810"&gt;&lt;/div&gt;
+&lt;div id="f8f5e70e-340a-4d5d-991e-ca84142fa66c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c3f5dd38-be1f-43c6-a5b6-04c00fd1f810');
+var element = $('#f8f5e70e-340a-4d5d-991e-ca84142fa66c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4611,10 +2735,10 @@ var element = $('#c3f5dd38-be1f-43c6-a5b6-04c00fd1f810');
 
  
  
-&lt;div id="f053d60b-8c80-42a7-897d-334e1f6f9501"&gt;&lt;/div&gt;
+&lt;div id="4696cead-6005-40f2-b133-b555172add25"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f053d60b-8c80-42a7-897d-334e1f6f9501');
+var element = $('#4696cead-6005-40f2-b133-b555172add25');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4633,10 +2757,10 @@ var element = $('#f053d60b-8c80-42a7-897d-334e1f6f9501');
 
  
  
-&lt;div id="2153f5bb-93d9-44ab-b880-3c035f9f2cea"&gt;&lt;/div&gt;
+&lt;div id="7bd885a7-18c1-4481-9e0e-ba2bf6a8c024"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2153f5bb-93d9-44ab-b880-3c035f9f2cea');
+var element = $('#7bd885a7-18c1-4481-9e0e-ba2bf6a8c024');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4655,10 +2779,10 @@ var element = $('#2153f5bb-93d9-44ab-b880-3c035f9f2cea');
 
  
  
-&lt;div id="1f7c2028-5a2a-4a2e-9a36-aa690e4dedbf"&gt;&lt;/div&gt;
+&lt;div id="56e1d9c4-ea5a-499d-8e2e-461fa072112a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1f7c2028-5a2a-4a2e-9a36-aa690e4dedbf');
+var element = $('#56e1d9c4-ea5a-499d-8e2e-461fa072112a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4677,10 +2801,10 @@ var element = $('#1f7c2028-5a2a-4a2e-9a36-aa690e4dedbf');
 
  
  
-&lt;div id="9c35075b-610f-4ccc-953a-d063a7d45046"&gt;&lt;/div&gt;
+&lt;div id="190ce5f5-f7e5-4402-9c8a-ddfaa5aaa186"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9c35075b-610f-4ccc-953a-d063a7d45046');
+var element = $('#190ce5f5-f7e5-4402-9c8a-ddfaa5aaa186');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4725,10 +2849,10 @@ var element = $('#9c35075b-610f-4ccc-953a-d063a7d45046');
 
  
  
-&lt;div id="fa1e3eaa-658e-4a22-9fb3-3f5e18f0234b"&gt;&lt;/div&gt;
+&lt;div id="d3e23fe8-1aa0-47ae-8b3e-7556daaafa3c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fa1e3eaa-658e-4a22-9fb3-3f5e18f0234b');
+var element = $('#d3e23fe8-1aa0-47ae-8b3e-7556daaafa3c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4747,10 +2871,10 @@ var element = $('#fa1e3eaa-658e-4a22-9fb3-3f5e18f0234b');
 
  
  
-&lt;div id="21b8163e-87b8-454e-bc31-0b94af1df2d8"&gt;&lt;/div&gt;
+&lt;div id="a8410b21-32b3-4807-8005-5967c945ce0c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#21b8163e-87b8-454e-bc31-0b94af1df2d8');
+var element = $('#a8410b21-32b3-4807-8005-5967c945ce0c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4769,10 +2893,10 @@ var element = $('#21b8163e-87b8-454e-bc31-0b94af1df2d8');
 
  
  
-&lt;div id="9326ecdb-1fd0-41f4-aaee-fcf7739a3c62"&gt;&lt;/div&gt;
+&lt;div id="254145d4-0125-44f9-9cea-93f6199a32f9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9326ecdb-1fd0-41f4-aaee-fcf7739a3c62');
+var element = $('#254145d4-0125-44f9-9cea-93f6199a32f9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4791,10 +2915,10 @@ var element = $('#9326ecdb-1fd0-41f4-aaee-fcf7739a3c62');
 
  
  
-&lt;div id="515f9c68-b04b-4f8b-8584-f5a7d3d85d80"&gt;&lt;/div&gt;
+&lt;div id="9eb60b40-46f8-4add-ac3f-71c83657ba18"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#515f9c68-b04b-4f8b-8584-f5a7d3d85d80');
+var element = $('#9eb60b40-46f8-4add-ac3f-71c83657ba18');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4813,10 +2937,10 @@ var element = $('#515f9c68-b04b-4f8b-8584-f5a7d3d85d80');
 
  
  
-&lt;div id="69460c3d-bf0b-4994-b6a6-d7282353abe6"&gt;&lt;/div&gt;
+&lt;div id="2026b6e0-de7b-4526-8cc2-276b15cef84d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#69460c3d-bf0b-4994-b6a6-d7282353abe6');
+var element = $('#2026b6e0-de7b-4526-8cc2-276b15cef84d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4835,10 +2959,10 @@ var element = $('#69460c3d-bf0b-4994-b6a6-d7282353abe6');
 
  
  
-&lt;div id="3ab6ecdc-784b-48ef-89fc-d838da9bf6bb"&gt;&lt;/div&gt;
+&lt;div id="11c1542b-b4a9-4ba7-9423-777aa8272626"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3ab6ecdc-784b-48ef-89fc-d838da9bf6bb');
+var element = $('#11c1542b-b4a9-4ba7-9423-777aa8272626');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4857,10 +2981,10 @@ var element = $('#3ab6ecdc-784b-48ef-89fc-d838da9bf6bb');
 
  
  
-&lt;div id="653e28ad-98c0-4d06-87a3-3fc3869bff33"&gt;&lt;/div&gt;
+&lt;div id="16df4a02-4827-4710-98fc-72277f4916bc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#653e28ad-98c0-4d06-87a3-3fc3869bff33');
+var element = $('#16df4a02-4827-4710-98fc-72277f4916bc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4879,10 +3003,10 @@ var element = $('#653e28ad-98c0-4d06-87a3-3fc3869bff33');
 
  
  
-&lt;div id="cc6f56f7-b979-4d03-92cc-d0338f21eb48"&gt;&lt;/div&gt;
+&lt;div id="55a2bcb2-6c2a-43f9-ae58-ae992f3984ac"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cc6f56f7-b979-4d03-92cc-d0338f21eb48');
+var element = $('#55a2bcb2-6c2a-43f9-ae58-ae992f3984ac');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4901,10 +3025,10 @@ var element = $('#cc6f56f7-b979-4d03-92cc-d0338f21eb48');
 
  
  
-&lt;div id="be0df507-2431-4e99-8f7d-98319a17f652"&gt;&lt;/div&gt;
+&lt;div id="c74a0537-6fb8-4d91-b887-125c71a9261e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#be0df507-2431-4e99-8f7d-98319a17f652');
+var element = $('#c74a0537-6fb8-4d91-b887-125c71a9261e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4923,10 +3047,10 @@ var element = $('#be0df507-2431-4e99-8f7d-98319a17f652');
 
  
  
-&lt;div id="7efe392f-e262-47ad-b60c-479faa309897"&gt;&lt;/div&gt;
+&lt;div id="9f2f662f-f0f8-4e9c-a3c6-6b3637a0f315"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7efe392f-e262-47ad-b60c-479faa309897');
+var element = $('#9f2f662f-f0f8-4e9c-a3c6-6b3637a0f315');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4971,10 +3095,10 @@ var element = $('#7efe392f-e262-47ad-b60c-479faa309897');
 
  
  
-&lt;div id="339573ab-490f-41a3-89be-122f1357fc4e"&gt;&lt;/div&gt;
+&lt;div id="a0b96e59-d09a-46b9-a487-94fc0d4174c6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#339573ab-490f-41a3-89be-122f1357fc4e');
+var element = $('#a0b96e59-d09a-46b9-a487-94fc0d4174c6');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4993,10 +3117,10 @@ var element = $('#339573ab-490f-41a3-89be-122f1357fc4e');
 
  
  
-&lt;div id="64c415fb-539e-485a-9b2d-98c5f8805d05"&gt;&lt;/div&gt;
+&lt;div id="229f5d5e-d842-4359-a805-6bfc8ac737ba"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#64c415fb-539e-485a-9b2d-98c5f8805d05');
+var element = $('#229f5d5e-d842-4359-a805-6bfc8ac737ba');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5015,10 +3139,10 @@ var element = $('#64c415fb-539e-485a-9b2d-98c5f8805d05');
 
  
  
-&lt;div id="5ba8e914-b9c3-4435-b91c-521eb331437e"&gt;&lt;/div&gt;
+&lt;div id="2c8861b6-a7ff-45b0-a0ba-a04a5d6599c1"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5ba8e914-b9c3-4435-b91c-521eb331437e');
+var element = $('#2c8861b6-a7ff-45b0-a0ba-a04a5d6599c1');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5037,10 +3161,10 @@ var element = $('#5ba8e914-b9c3-4435-b91c-521eb331437e');
 
  
  
-&lt;div id="36d1547b-b1bf-4449-8ec9-f978444d1a09"&gt;&lt;/div&gt;
+&lt;div id="911b5f21-a39c-429d-b7bd-3e1e01d929aa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#36d1547b-b1bf-4449-8ec9-f978444d1a09');
+var element = $('#911b5f21-a39c-429d-b7bd-3e1e01d929aa');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5059,10 +3183,10 @@ var element = $('#36d1547b-b1bf-4449-8ec9-f978444d1a09');
 
  
  
-&lt;div id="d0291160-7c37-4bb0-ba69-6c065a567e44"&gt;&lt;/div&gt;
+&lt;div id="c31b56b7-578c-49b1-9a90-99ab4395532b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d0291160-7c37-4bb0-ba69-6c065a567e44');
+var element = $('#c31b56b7-578c-49b1-9a90-99ab4395532b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5081,10 +3205,10 @@ var element = $('#d0291160-7c37-4bb0-ba69-6c065a567e44');
 
  
  
-&lt;div id="44a1e314-e10e-407b-a18a-af30b42e28c0"&gt;&lt;/div&gt;
+&lt;div id="b7b16285-578b-40d0-bc3a-20d460f82994"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#44a1e314-e10e-407b-a18a-af30b42e28c0');
+var element = $('#b7b16285-578b-40d0-bc3a-20d460f82994');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5103,10 +3227,10 @@ var element = $('#44a1e314-e10e-407b-a18a-af30b42e28c0');
 
  
  
-&lt;div id="82cdec3d-7513-4e08-8f1f-8203b3cf30b6"&gt;&lt;/div&gt;
+&lt;div id="ec18d6b2-4e71-4687-9d47-743606089265"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#82cdec3d-7513-4e08-8f1f-8203b3cf30b6');
+var element = $('#ec18d6b2-4e71-4687-9d47-743606089265');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5125,10 +3249,10 @@ var element = $('#82cdec3d-7513-4e08-8f1f-8203b3cf30b6');
 
  
  
-&lt;div id="ba29f04b-cc63-49e2-825c-92a242cc3f2e"&gt;&lt;/div&gt;
+&lt;div id="c930858b-6717-4ae5-8973-5ddfdd974fc8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ba29f04b-cc63-49e2-825c-92a242cc3f2e');
+var element = $('#c930858b-6717-4ae5-8973-5ddfdd974fc8');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5147,10 +3271,10 @@ var element = $('#ba29f04b-cc63-49e2-825c-92a242cc3f2e');
 
  
  
-&lt;div id="bb7a73ab-1fb0-4006-b1ef-eaedcb5c1f7b"&gt;&lt;/div&gt;
+&lt;div id="30a6181c-4087-4541-ba07-0364b442ccfb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bb7a73ab-1fb0-4006-b1ef-eaedcb5c1f7b');
+var element = $('#30a6181c-4087-4541-ba07-0364b442ccfb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5169,10 +3293,10 @@ var element = $('#bb7a73ab-1fb0-4006-b1ef-eaedcb5c1f7b');
 
  
  
-&lt;div id="a70fb4f4-533f-4617-9225-38b7ead0f529"&gt;&lt;/div&gt;
+&lt;div id="86441332-cd4c-4b4d-9b31-e1633d9bdf9f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a70fb4f4-533f-4617-9225-38b7ead0f529');
+var element = $('#86441332-cd4c-4b4d-9b31-e1633d9bdf9f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5217,10 +3341,10 @@ var element = $('#a70fb4f4-533f-4617-9225-38b7ead0f529');
 
  
  
-&lt;div id="5cdc25a7-5e1c-4f5e-8014-2b5bff504fc5"&gt;&lt;/div&gt;
+&lt;div id="aee2ba73-54bc-4119-bcbf-d63831bfa96a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5cdc25a7-5e1c-4f5e-8014-2b5bff504fc5');
+var element = $('#aee2ba73-54bc-4119-bcbf-d63831bfa96a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5239,10 +3363,10 @@ var element = $('#5cdc25a7-5e1c-4f5e-8014-2b5bff504fc5');
 
  
  
-&lt;div id="ff8c87f1-634f-4454-b73a-0be6b0107ba6"&gt;&lt;/div&gt;
+&lt;div id="8ae2b924-72a7-499e-b164-2eea649ce226"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ff8c87f1-634f-4454-b73a-0be6b0107ba6');
+var element = $('#8ae2b924-72a7-499e-b164-2eea649ce226');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5261,10 +3385,10 @@ var element = $('#ff8c87f1-634f-4454-b73a-0be6b0107ba6');
 
  
  
-&lt;div id="b384aa3d-4c45-4247-be91-a8e4004267ae"&gt;&lt;/div&gt;
+&lt;div id="3d8a0156-cce7-430f-bedb-dc36528986a4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b384aa3d-4c45-4247-be91-a8e4004267ae');
+var element = $('#3d8a0156-cce7-430f-bedb-dc36528986a4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5283,10 +3407,10 @@ var element = $('#b384aa3d-4c45-4247-be91-a8e4004267ae');
 
  
  
-&lt;div id="e1c2a25b-10f3-4a79-a726-8f5286ea2efc"&gt;&lt;/div&gt;
+&lt;div id="3530c158-1498-4c81-a2fc-75aa4cdfe1a5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e1c2a25b-10f3-4a79-a726-8f5286ea2efc');
+var element = $('#3530c158-1498-4c81-a2fc-75aa4cdfe1a5');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5305,10 +3429,10 @@ var element = $('#e1c2a25b-10f3-4a79-a726-8f5286ea2efc');
 
  
  
-&lt;div id="95e1e84c-9f0c-472f-b26b-0a9abf1686e8"&gt;&lt;/div&gt;
+&lt;div id="5088fff9-32e5-41b1-b7dc-d9d0ee21c24d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#95e1e84c-9f0c-472f-b26b-0a9abf1686e8');
+var element = $('#5088fff9-32e5-41b1-b7dc-d9d0ee21c24d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5327,10 +3451,10 @@ var element = $('#95e1e84c-9f0c-472f-b26b-0a9abf1686e8');
 
  
  
-&lt;div id="5e21def9-77af-4799-b19a-7f506ea503bc"&gt;&lt;/div&gt;
+&lt;div id="f36920c0-12df-4386-9eda-daf7c68c0c4b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5e21def9-77af-4799-b19a-7f506ea503bc');
+var element = $('#f36920c0-12df-4386-9eda-daf7c68c0c4b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5349,10 +3473,10 @@ var element = $('#5e21def9-77af-4799-b19a-7f506ea503bc');
 
  
  
-&lt;div id="2e559a87-a804-43aa-9692-a11a4c6783bd"&gt;&lt;/div&gt;
+&lt;div id="b0490cb4-c974-417e-b620-afc1b66bb82a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2e559a87-a804-43aa-9692-a11a4c6783bd');
+var element = $('#b0490cb4-c974-417e-b620-afc1b66bb82a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5371,10 +3495,10 @@ var element = $('#2e559a87-a804-43aa-9692-a11a4c6783bd');
 
  
  
-&lt;div id="734f7c77-7c98-4e97-aae6-259d12159872"&gt;&lt;/div&gt;
+&lt;div id="33f709ea-0da2-4a3b-bebc-2bb7f6f514c8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#734f7c77-7c98-4e97-aae6-259d12159872');
+var element = $('#33f709ea-0da2-4a3b-bebc-2bb7f6f514c8');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5393,10 +3517,10 @@ var element = $('#734f7c77-7c98-4e97-aae6-259d12159872');
 
  
  
-&lt;div id="d5ba6d7b-04c2-42a1-b98b-6d13eabc0107"&gt;&lt;/div&gt;
+&lt;div id="385c8a01-ca20-4781-8c9d-dbf51bc7592d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d5ba6d7b-04c2-42a1-b98b-6d13eabc0107');
+var element = $('#385c8a01-ca20-4781-8c9d-dbf51bc7592d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5415,10 +3539,10 @@ var element = $('#d5ba6d7b-04c2-42a1-b98b-6d13eabc0107');
 
  
  
-&lt;div id="30a1abd6-718a-43a4-8d6f-f83ea15cdf72"&gt;&lt;/div&gt;
+&lt;div id="15701b79-5df4-4ce7-ac43-2a47b6da14ad"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#30a1abd6-718a-43a4-8d6f-f83ea15cdf72');
+var element = $('#15701b79-5df4-4ce7-ac43-2a47b6da14ad');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5463,10 +3587,10 @@ var element = $('#30a1abd6-718a-43a4-8d6f-f83ea15cdf72');
 
  
  
-&lt;div id="16071f37-603a-4a54-954f-ceae5dcc5b44"&gt;&lt;/div&gt;
+&lt;div id="0db583c0-5c33-460c-9380-5f06ccfbb014"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#16071f37-603a-4a54-954f-ceae5dcc5b44');
+var element = $('#0db583c0-5c33-460c-9380-5f06ccfbb014');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5485,10 +3609,10 @@ var element = $('#16071f37-603a-4a54-954f-ceae5dcc5b44');
 
  
  
-&lt;div id="7279cc5b-21ad-4fd5-80b8-ba9435868413"&gt;&lt;/div&gt;
+&lt;div id="61fd94d6-6fe4-42e3-b573-00e3d2dd5014"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7279cc5b-21ad-4fd5-80b8-ba9435868413');
+var element = $('#61fd94d6-6fe4-42e3-b573-00e3d2dd5014');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5507,10 +3631,10 @@ var element = $('#7279cc5b-21ad-4fd5-80b8-ba9435868413');
 
  
  
-&lt;div id="c1dd0a0b-7656-4c38-86ca-7e821da3ba7b"&gt;&lt;/div&gt;
+&lt;div id="3107c501-605e-4b95-bbc6-afe76e66a3e4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c1dd0a0b-7656-4c38-86ca-7e821da3ba7b');
+var element = $('#3107c501-605e-4b95-bbc6-afe76e66a3e4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5529,10 +3653,10 @@ var element = $('#c1dd0a0b-7656-4c38-86ca-7e821da3ba7b');
 
  
  
-&lt;div id="f59870d1-efd6-40b5-99f1-f88eb8b49d7c"&gt;&lt;/div&gt;
+&lt;div id="bf1c4ee9-d663-4c02-bc5a-37c1d6eb98af"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f59870d1-efd6-40b5-99f1-f88eb8b49d7c');
+var element = $('#bf1c4ee9-d663-4c02-bc5a-37c1d6eb98af');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5551,10 +3675,10 @@ var element = $('#f59870d1-efd6-40b5-99f1-f88eb8b49d7c');
 
  
  
-&lt;div id="db4ecd4c-84df-4be1-9a0b-297bc3e2a3a3"&gt;&lt;/div&gt;
+&lt;div id="a6d7f4bc-4300-442a-8b6f-fda57c44fd21"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#db4ecd4c-84df-4be1-9a0b-297bc3e2a3a3');
+var element = $('#a6d7f4bc-4300-442a-8b6f-fda57c44fd21');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5573,10 +3697,10 @@ var element = $('#db4ecd4c-84df-4be1-9a0b-297bc3e2a3a3');
 
  
  
-&lt;div id="d5d14a76-af1e-4bb5-ace7-7e4a9dfbb9ce"&gt;&lt;/div&gt;
+&lt;div id="bf8c438e-83b8-4536-9f6b-ff388384867b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d5d14a76-af1e-4bb5-ace7-7e4a9dfbb9ce');
+var element = $('#bf8c438e-83b8-4536-9f6b-ff388384867b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5595,10 +3719,10 @@ var element = $('#d5d14a76-af1e-4bb5-ace7-7e4a9dfbb9ce');
 
  
  
-&lt;div id="4ed25931-1f07-4bdd-9f12-ed35ce5dcadf"&gt;&lt;/div&gt;
+&lt;div id="c6d684c0-81f0-4f13-9caa-d8c82458ef63"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4ed25931-1f07-4bdd-9f12-ed35ce5dcadf');
+var element = $('#c6d684c0-81f0-4f13-9caa-d8c82458ef63');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5617,10 +3741,10 @@ var element = $('#4ed25931-1f07-4bdd-9f12-ed35ce5dcadf');
 
  
  
-&lt;div id="e7d4d247-245e-40d9-9afe-134aecb8f5c7"&gt;&lt;/div&gt;
+&lt;div id="9bb7248a-7ca0-4797-8cf7-8ba3ca9f57ae"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e7d4d247-245e-40d9-9afe-134aecb8f5c7');
+var element = $('#9bb7248a-7ca0-4797-8cf7-8ba3ca9f57ae');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5639,10 +3763,10 @@ var element = $('#e7d4d247-245e-40d9-9afe-134aecb8f5c7');
 
  
  
-&lt;div id="ae862c4c-4e53-4086-8d11-a9648c0fcfd2"&gt;&lt;/div&gt;
+&lt;div id="60928d70-5690-42cb-90fe-ded6a1cbecad"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ae862c4c-4e53-4086-8d11-a9648c0fcfd2');
+var element = $('#60928d70-5690-42cb-90fe-ded6a1cbecad');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5661,10 +3785,10 @@ var element = $('#ae862c4c-4e53-4086-8d11-a9648c0fcfd2');
 
  
  
-&lt;div id="488e89f7-92f0-418a-aede-b97daf0c354d"&gt;&lt;/div&gt;
+&lt;div id="2733bf28-7830-4a3c-842e-e303e50a208f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#488e89f7-92f0-418a-aede-b97daf0c354d');
+var element = $('#2733bf28-7830-4a3c-842e-e303e50a208f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5754,10 +3878,10 @@ var element = $('#488e89f7-92f0-418a-aede-b97daf0c354d');
 
  
  
-&lt;div id="34ad4768-5648-41e9-a77f-657a18e18eeb"&gt;&lt;/div&gt;
+&lt;div id="72499b80-17ee-4b00-85a5-d53e89533e25"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#34ad4768-5648-41e9-a77f-657a18e18eeb');
+var element = $('#72499b80-17ee-4b00-85a5-d53e89533e25');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}
