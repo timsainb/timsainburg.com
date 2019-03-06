@@ -23,7 +23,7 @@ IPYNB_USE_METACELL = True
 IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
 THEME = "pelican-themes/Flex"
-
+#THEME = "pelican-themes/dev-random2"
 LINKS = (('Gentner Lab', 'http://gentnerlab.ucsd.edu'),('GitHub', 'https://github.com/timsainb'))
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
 SITELOGO = 'img/TSainburg.jpg'

@@ -22,12 +22,12 @@
 
 
 <meta name="author" content="Tim Sainburg" />
-<meta name="description" content="Code for creating, and inverting, spectrograms and MFCCs from wav files in python." />
+<meta name="description" content="Code for creating, Mel scaling, and inverting spectrograms from wav files in python." />
 <meta name="keywords" content="griffin-lim, spectrogram, inversion, python, audio">
 
 <meta property="og:site_name" content="Tim Sainburg"/>
-<meta property="og:title" content="Spectrograms, MFCCs, and Inversion in Python"/>
-<meta property="og:description" content="Code for creating, and inverting, spectrograms and MFCCs from wav files in python."/>
+<meta property="og:title" content="Spectrograms, mel scaling, and inversion in Python"/>
+<meta property="og:description" content="Code for creating, Mel scaling, and inverting spectrograms from wav files in python."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/python-mel-compression-inversion.html"/>
 <meta property="og:type" content="article"/>
@@ -42,7 +42,7 @@
 <meta property="article:tag" content="audio"/>
 <meta property="og:image" content="img/TSainburg.jpg">
 
-  <title>Tim Sainburg &ndash; Spectrograms, MFCCs, and Inversion in Python</title>
+  <title>Tim Sainburg &ndash; Spectrograms, mel scaling, and inversion in Python</title>
 
 </head>
 <body>
@@ -80,7 +80,7 @@
 <article class="single">
   <header>
       
-    <h1 id="python-mel-compression-inversion">Spectrograms, MFCCs, and Inversion in Python</h1>
+    <h1 id="python-mel-compression-inversion">Spectrograms, mel scaling, and inversion in Python</h1>
     <p>
           Posted on Sat 07 July 2018 in <a href="/category/signal-processing.html">Signal Processing</a>
 
@@ -1066,7 +1066,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Spectrograms,-mel-scaling,-and-Inversion-demo-in-jupyter/ipython&#182;">Spectrograms, mel scaling, and Inversion demo in jupyter/ipython&#182;<a class="anchor-link" href="#Spectrograms,-mel-scaling,-and-Inversion-demo-in-jupyter/ipython&#182;">&#182;</a></h3><p>This is just a bit of code that shows you how to make a spectrogram/sonogram in python using numpy, scipy, and a few functions written by <a href="https://gist.github.com/kastnerkyle/179d6e9a88202ab0a2fe">Kyle Kastner</a>. I also show you how to invert those spectrograms back into wavform, filter those spectrograms to be mel-scaled, and invert those spectrograms as well. This should prove to be a useful tool for those interested in generative modelling (as I am). For example, running spectrograms through an LSTM, VAE, GAN, <a href="https://github.com/timsainb/Tensorflow-MultiGPU-VAE-GAN">VAE-GAN</a>, or experimenting with your own audio/waveform models. Check out the <a href="http://www.openslr.org/12/">LibriSpeech dataset</a>. for a 1000 hr dataset of transcripted speech from open source audio books.</p>
+<h3 id="Spectrograms,-mel-scaling,-and-inversion-demo-in-jupyter/ipython&#182;">Spectrograms, mel scaling, and inversion demo in jupyter/ipython&#182;<a class="anchor-link" href="#Spectrograms,-mel-scaling,-and-inversion-demo-in-jupyter/ipython&#182;">&#182;</a></h3><p>This is just a bit of code that shows you how to make a spectrogram/sonogram in python using numpy, scipy, and a few functions written by <a href="https://gist.github.com/kastnerkyle/179d6e9a88202ab0a2fe">Kyle Kastner</a>. I also show you how to invert those spectrograms back into wavform, filter those spectrograms to be mel-scaled, and invert those spectrograms as well. This should prove to be a useful tool for those interested in generative modelling (as I am). For example, running spectrograms through an LSTM, VAE, GAN, <a href="https://github.com/timsainb/Tensorflow-MultiGPU-VAE-GAN">VAE-GAN</a>, or experimenting with your own audio/waveform models. Check out the <a href="http://www.openslr.org/12/">LibriSpeech dataset</a>. for a 1000 hr dataset of transcripted speech from open source audio books.</p>
 
 </div>
 </div>
