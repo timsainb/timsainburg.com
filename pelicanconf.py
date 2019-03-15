@@ -24,7 +24,7 @@ IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
 THEME = "pelican-themes/Flex"
 
-LINKS = (('Gentner Lab', 'http://gentnerlab.ucsd.edu'),('GitHub', 'https://github.com/timsainb'))
+LINKS = (('Gentner Lab', 'http://gentnerlab.ucsd.edu'),('GitHub', 'https://github.com/timsainb'), ('tsainbur@ucsd.edu', 'mailto:tsainbur@ucsd.edu'))
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
 SITELOGO = 'img/TSainburg.jpg'
 
