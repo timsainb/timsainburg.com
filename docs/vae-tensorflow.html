@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
   <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/academicons/css/academicons.css">
 
 
 
@@ -61,15 +62,15 @@
           <li><a href="/pages/about-me.html#about-me">About me</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
-          <li><a href="https://github.com/timsainb" target="_blank">GitHub</a></li>
-          <li><a href="mailto:tsainbur@ucsd.edu" target="_blank">tsainbur@ucsd.edu</a></li>
         </ul>
       </nav>
 
 
       <ul class="social">
-        <li><a class="sc-You can add links in your config file" href="#" target="_blank"><i class="fa fa-You can add links in your config file"></i></a></li>
-        <li><a class="sc-Another social link" href="#" target="_blank"><i class="fa fa-Another social link"></i></a></li>
+        <li><a class="sc-twitter" href="http://twitter.com/tim_sainburg" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="http://github.com/timsainb" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:tsainbur@ucsd.edu" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-google-scholar" href="https://scholar.google.com/citations?user=Koqjwg8AAAAJ" target="_blank"><i class="fa fa-google-scholar"></i></a></li>
       </ul>
     </div>
 
@@ -1105,9 +1106,10 @@ h6:hover .anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Allocate GPU</span>
 <span class="kn">import</span> <span class="nn">os</span>
+
 <span class="n">gpu_to_use</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_DEVICE_ORDER&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;PCI_BUS_ID&quot;</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">gpu_to_use</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_DEVICE_ORDER&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;PCI_BUS_ID&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">gpu_to_use</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1128,8 +1130,11 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight_init</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">variance_scaling_initializer</span><span class="p">()</span> <span class="c1"># kaming init for encoder / decoder</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weight_init</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">variance_scaling_initializer</span><span class="p">()</span>
+<span class="p">)</span>  <span class="c1"># kaming init for encoder / decoder</span>
 <span class="n">weight_regularizer</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">l2_regularizer</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">VAE</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
@@ -1140,59 +1145,101 @@ h6:hover .anchor-link {
         <span class="sd">&quot;&quot;&quot; Defines the network architecture</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># initialize graph and session</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">(</span><span class="n">allow_soft_placement</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_device_placement</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">InteractiveSession</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span><span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">(</span>
+            <span class="n">allow_soft_placement</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_device_placement</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">InteractiveSession</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
         <span class="c1"># Global step needs to be defined to coordinate multi-GPU</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s1">&#39;global_step&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant_initializer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">define_network</span><span class="p">()</span> <span class="c1"># define the network</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span> <span class="c1"># Initialize the network</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span> <span class="c1"># initialize network saver</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Network Initialized&#39;</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">encoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s1">&#39;encoder&#39;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span>
+            <span class="s2">&quot;global_step&quot;</span><span class="p">,</span> <span class="p">[],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant_initializer</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">define_network</span><span class="p">()</span>  <span class="c1"># define the network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>  <span class="c1"># Initialize the network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>  <span class="c1"># initialize network saver</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Network Initialized&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">encoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;encoder&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s2">&quot;encoder&quot;</span><span class="p">):</span>
-            <span class="n">encoder_net</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dims&#39;</span><span class="p">])])]</span>
+            <span class="n">encoder_net</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dims&quot;</span><span class="p">])])</span>
+            <span class="p">]</span>
             <span class="k">for</span> <span class="n">layer_i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-                <span class="n">encoder_net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_outputs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-                            <span class="n">activation_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;activation_fn&#39;</span><span class="p">]))</span>
-            <span class="n">z_mean</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;n_hidden&#39;</span><span class="p">],</span>
-                            <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scope</span> <span class="o">=</span> <span class="s1">&#39;z_mean&#39;</span><span class="p">)</span>
-            <span class="n">z_std</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;n_hidden&#39;</span><span class="p">],</span>
-                            <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scope</span> <span class="o">=</span> <span class="s1">&#39;z_std&#39;</span><span class="p">)</span>
+                <span class="n">encoder_net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span>
+                        <span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="n">num_outputs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                        <span class="n">activation_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;activation_fn&quot;</span><span class="p">],</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">z_mean</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span>
+                <span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">],</span>
+                <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;z_mean&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">z_std</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span>
+                <span class="n">encoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">encoder_net</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">],</span>
+                <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;z_std&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="n">z_mean</span><span class="p">,</span> <span class="n">z_std</span>
-    
-    <span class="k">def</span> <span class="nf">decoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s1">&#39;decoder&#39;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">decoder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="s2">&quot;decoder&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">decoder_net</span> <span class="o">=</span> <span class="p">[</span><span class="n">Z</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">layer_i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-                <span class="n">decoder_net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_outputs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-                            <span class="n">activation_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;activation_fn&#39;</span><span class="p">]))</span>
-        <span class="n">x_reconstruction</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">num_outputs</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dims&#39;</span><span class="p">])),</span>
-                            <span class="n">activation_fn</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)</span>
+            <span class="n">decoder_net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span>
+                    <span class="n">decoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="n">num_outputs</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                    <span class="n">activation_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;activation_fn&quot;</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">x_reconstruction</span> <span class="o">=</span> <span class="n">tf_contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">fully_connected</span><span class="p">(</span>
+            <span class="n">decoder_net</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">decoder_net</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">num_outputs</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dims&quot;</span><span class="p">])),</span>
+            <span class="n">activation_fn</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">x_reconstruction</span>
-    
+
     <span class="k">def</span> <span class="nf">define_network</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># define the input</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x_real</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;dims&#39;</span><span class="p">])])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_real</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;dims&quot;</span><span class="p">])]</span>
+        <span class="p">)</span>
         <span class="c1"># run through the encoder</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">z_mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_real</span><span class="p">)</span>
-        <span class="n">samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_std</span><span class="p">),</span><span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stddev</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_std</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_mean</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_std</span><span class="p">))</span> <span class="o">*</span> <span class="n">samples</span>
         <span class="c1"># run through the decoder</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x_recon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
         <span class="c1"># losses</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x_real</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-8</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_recon</span><span class="p">)</span> <span class="o">+</span> 
-                                              <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">x_real</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-8</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_recon</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_std</span> <span class="o">-</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_mean</span><span class="p">)</span> <span class="o">-</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_std</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x_real</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-8</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_recon</span><span class="p">)</span>
+            <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_real</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-8</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_recon</span><span class="p">),</span>
+            <span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span>
+            <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_std</span> <span class="o">-</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_mean</span><span class="p">)</span> <span class="o">-</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z_std</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;beta&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latent_loss</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">recon_loss</span><span class="p">)</span>
         <span class="c1"># prepare optimizers</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">],</span> <span class="n">epsilon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;adam_eps&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">],</span> <span class="n">epsilon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;adam_eps&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
         <span class="c1"># specify loss to parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">trainable_params</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()</span>
         <span class="c1"># Calculate the gradients for the batch of data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">grads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">,</span> <span class="n">var_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grads</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">,</span> <span class="n">var_list</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trainable_params</span>
+        <span class="p">)</span>
         <span class="c1"># Apply gradients</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">train</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grads</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">global_step</span><span class="p">)</span>
 </pre></div>
@@ -1215,7 +1262,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -1231,13 +1278,13 @@ h6:hover .anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_sample</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="c1"># set network parameters</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;adam_eps&#39;</span><span class="p">:</span> <span class="mf">1.0e-8</span><span class="p">,</span> 
-    <span class="s1">&#39;dims&#39;</span><span class="p">:</span> <span class="n">dims</span><span class="p">,</span>
-    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-    <span class="s1">&#39;activation_fn&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">elu</span><span class="p">,</span>
-    <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span><span class="o">.</span><span class="mi">001</span><span class="p">,</span> 
-    <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># how many neurons in the latent content layer  </span>
-    <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1"># parameter corresponding to the emphasis on the latent term</span>
+    <span class="s2">&quot;adam_eps&quot;</span><span class="p">:</span> <span class="mf">1.0e-8</span><span class="p">,</span>
+    <span class="s2">&quot;dims&quot;</span><span class="p">:</span> <span class="n">dims</span><span class="p">,</span>
+    <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;activation_fn&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">elu</span><span class="p">,</span>
+    <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s2">&quot;n_hidden&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># how many neurons in the latent content layer</span>
+    <span class="s2">&quot;beta&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>  <span class="c1"># parameter corresponding to the emphasis on the latent term</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1251,7 +1298,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">VAE</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="c1"># create the model</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">VAE</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>  <span class="c1"># create the model</span>
 </pre></div>
 
 </div>
@@ -1266,7 +1313,8 @@ h6:hover .anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load mnist dataset</span>
 <span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s1">&#39;MNIST_data&#39;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">&quot;MNIST_data&quot;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1315,28 +1363,43 @@ h6:hover .anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### For visualization</span>
 <span class="k">def</span> <span class="nf">plot_samples</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">samples</span><span class="p">):</span>
-  <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-    
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">samples</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+
 <span class="n">recon_loss_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">latent_loss_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">example_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">nex</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># number of samples to plot</span>
+<span class="n">nex</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># number of samples to plot</span>
 
 <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">51</span><span class="p">)):</span>
     <span class="n">recon_loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
     <span class="n">latent_loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
-    <span class="k">for</span> <span class="n">batch_i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span><span class="o">/</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">])),</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="n">batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">recon_loss</span><span class="p">,</span> <span class="n">lat_loss</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">((</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">recon_loss</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">latent_loss</span><span class="p">),</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">batch</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">batch_i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">])),</span> <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">recon_loss</span><span class="p">,</span> <span class="n">lat_loss</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">recon_loss</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">latent_loss</span><span class="p">),</span>
+            <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">batch</span><span class="p">},</span>
+        <span class="p">)</span>
         <span class="n">latent_loss_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lat_loss</span><span class="p">)</span>
         <span class="n">recon_loss_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recon_loss</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch:&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;cost=&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.9f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">recon_loss_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="s2">&quot;</span><span class="si">{:.9f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">latent_loss_list</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Epoch:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;</span><span class="si">%04d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="s2">&quot;cost=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;</span><span class="si">{:.9f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">recon_loss_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span>
+            <span class="s2">&quot;</span><span class="si">{:.9f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">latent_loss_list</span><span class="p">)),</span>
+        <span class="p">)</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">nex</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">nex</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-        <span class="n">plot_samples</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">example_data</span><span class="p">[:</span><span class="n">nex</span><span class="p">])</span>
-        <span class="n">plot_samples</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">x_recon</span><span class="p">],</span> <span class="p">{</span> <span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">example_data</span><span class="p">}))[:</span><span class="n">nex</span><span class="p">])</span>
+        <span class="n">plot_samples</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">example_data</span><span class="p">[:</span><span class="n">nex</span><span class="p">])</span>
+        <span class="n">plot_samples</span><span class="p">(</span>
+            <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">x_recon</span><span class="p">],</span> <span class="p">{</span><span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">example_data</span><span class="p">}))[</span>
+                <span class="p">:</span><span class="n">nex</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -1358,10 +1421,10 @@ h6:hover .anchor-link {
 
  
  
-<div id="3e24bb8c-963d-4c1f-bbc6-4877c71e081b"></div>
+<div id="98c3e5cb-4696-4710-b16d-d65ea588ed68"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3e24bb8c-963d-4c1f-bbc6-4877c71e081b');
+var element = $('#98c3e5cb-4696-4710-b16d-d65ea588ed68');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -1380,10 +1443,10 @@ var element = $('#3e24bb8c-963d-4c1f-bbc6-4877c71e081b');
 
  
  
-<div id="59fee2eb-2332-4022-a643-050c86a5f4e3"></div>
+<div id="aedd0da7-11b2-4cd6-b76c-89608a053009"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#59fee2eb-2332-4022-a643-050c86a5f4e3');
+var element = $('#aedd0da7-11b2-4cd6-b76c-89608a053009');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1428,10 +1491,10 @@ var element = $('#59fee2eb-2332-4022-a643-050c86a5f4e3');
 
  
  
-<div id="397465d9-7d29-4075-86d5-639a56332336"></div>
+<div id="7322c6ff-df42-49f6-9397-9346b7562718"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#397465d9-7d29-4075-86d5-639a56332336');
+var element = $('#7322c6ff-df42-49f6-9397-9346b7562718');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1450,10 +1513,10 @@ var element = $('#397465d9-7d29-4075-86d5-639a56332336');
 
  
  
-<div id="fe07cc4d-bd78-4815-b321-c71ee55b0582"></div>
+<div id="0122bd8d-1f14-4457-99ce-c420b6750472"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fe07cc4d-bd78-4815-b321-c71ee55b0582');
+var element = $('#0122bd8d-1f14-4457-99ce-c420b6750472');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1472,10 +1535,10 @@ var element = $('#fe07cc4d-bd78-4815-b321-c71ee55b0582');
 
  
  
-<div id="3bd82f90-e631-4e1e-b740-ad4644e7d4a3"></div>
+<div id="37cb210c-7e39-44a5-9be5-78a374d12ba6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3bd82f90-e631-4e1e-b740-ad4644e7d4a3');
+var element = $('#37cb210c-7e39-44a5-9be5-78a374d12ba6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1494,10 +1557,10 @@ var element = $('#3bd82f90-e631-4e1e-b740-ad4644e7d4a3');
 
  
  
-<div id="5a9dc595-f0bc-47d1-861d-ee8cb27bf530"></div>
+<div id="a3316ecb-fdfa-4a8e-b71d-dc10c416cb90"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5a9dc595-f0bc-47d1-861d-ee8cb27bf530');
+var element = $('#a3316ecb-fdfa-4a8e-b71d-dc10c416cb90');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1516,10 +1579,10 @@ var element = $('#5a9dc595-f0bc-47d1-861d-ee8cb27bf530');
 
  
  
-<div id="4b063575-00e1-4683-96e5-465837e642b5"></div>
+<div id="816e4a39-a0ea-4178-b150-4fe6ab164cca"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4b063575-00e1-4683-96e5-465837e642b5');
+var element = $('#816e4a39-a0ea-4178-b150-4fe6ab164cca');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1538,10 +1601,10 @@ var element = $('#4b063575-00e1-4683-96e5-465837e642b5');
 
  
  
-<div id="46a5e1e2-3924-4120-9ab0-386da5549296"></div>
+<div id="bb3c2d5b-404a-449d-afad-926a5bdaffe8"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#46a5e1e2-3924-4120-9ab0-386da5549296');
+var element = $('#bb3c2d5b-404a-449d-afad-926a5bdaffe8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1560,10 +1623,10 @@ var element = $('#46a5e1e2-3924-4120-9ab0-386da5549296');
 
  
  
-<div id="44a9f47c-d6bf-489a-93ac-4b5b786a97ae"></div>
+<div id="0309c6e9-b3b1-45c2-91fb-482a3f95c7b7"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#44a9f47c-d6bf-489a-93ac-4b5b786a97ae');
+var element = $('#0309c6e9-b3b1-45c2-91fb-482a3f95c7b7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1582,10 +1645,10 @@ var element = $('#44a9f47c-d6bf-489a-93ac-4b5b786a97ae');
 
  
  
-<div id="eab523ea-1565-44c0-82f5-db0bb7286e5b"></div>
+<div id="50a38652-feb4-4cb4-891a-ba5f9b049bbf"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#eab523ea-1565-44c0-82f5-db0bb7286e5b');
+var element = $('#50a38652-feb4-4cb4-891a-ba5f9b049bbf');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1604,10 +1667,10 @@ var element = $('#eab523ea-1565-44c0-82f5-db0bb7286e5b');
 
  
  
-<div id="2d172cee-78d0-4da9-be29-2d59cdd92baa"></div>
+<div id="a199b1da-61da-4110-8318-ee3d67360953"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2d172cee-78d0-4da9-be29-2d59cdd92baa');
+var element = $('#a199b1da-61da-4110-8318-ee3d67360953');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1626,10 +1689,10 @@ var element = $('#2d172cee-78d0-4da9-be29-2d59cdd92baa');
 
  
  
-<div id="545aae67-0d22-4895-8722-39da6887a617"></div>
+<div id="01dc536f-4bad-4679-b228-804f8873754e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#545aae67-0d22-4895-8722-39da6887a617');
+var element = $('#01dc536f-4bad-4679-b228-804f8873754e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1674,10 +1737,10 @@ var element = $('#545aae67-0d22-4895-8722-39da6887a617');
 
  
  
-<div id="d3064774-34b6-45b9-a56a-752baf24498f"></div>
+<div id="f29a1345-7f34-45dc-9b35-dda9f4819610"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d3064774-34b6-45b9-a56a-752baf24498f');
+var element = $('#f29a1345-7f34-45dc-9b35-dda9f4819610');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1696,10 +1759,10 @@ var element = $('#d3064774-34b6-45b9-a56a-752baf24498f');
 
  
  
-<div id="d3800508-58bf-4b2c-a3f6-251d2742b8f4"></div>
+<div id="da7053e8-51cc-4371-b400-8fc7b1c6a7c7"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d3800508-58bf-4b2c-a3f6-251d2742b8f4');
+var element = $('#da7053e8-51cc-4371-b400-8fc7b1c6a7c7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1718,10 +1781,10 @@ var element = $('#d3800508-58bf-4b2c-a3f6-251d2742b8f4');
 
  
  
-<div id="97260f4c-2a4a-4d9d-a1c5-81ae84587a51"></div>
+<div id="70e4eea1-4bdb-4f3b-8511-563cc4fb7acd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#97260f4c-2a4a-4d9d-a1c5-81ae84587a51');
+var element = $('#70e4eea1-4bdb-4f3b-8511-563cc4fb7acd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1740,10 +1803,10 @@ var element = $('#97260f4c-2a4a-4d9d-a1c5-81ae84587a51');
 
  
  
-<div id="616889af-e5da-4920-97d4-94baea6a56aa"></div>
+<div id="7f04ef4e-c2d3-41c1-a831-ebe59eb19b81"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#616889af-e5da-4920-97d4-94baea6a56aa');
+var element = $('#7f04ef4e-c2d3-41c1-a831-ebe59eb19b81');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1762,10 +1825,10 @@ var element = $('#616889af-e5da-4920-97d4-94baea6a56aa');
 
  
  
-<div id="b01edffd-8114-488e-97e9-b5c1d08d8f41"></div>
+<div id="6b1890b4-af05-4b94-9c4c-3acaa3a26e41"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b01edffd-8114-488e-97e9-b5c1d08d8f41');
+var element = $('#6b1890b4-af05-4b94-9c4c-3acaa3a26e41');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1784,10 +1847,10 @@ var element = $('#b01edffd-8114-488e-97e9-b5c1d08d8f41');
 
  
  
-<div id="fbc0db32-32c6-4217-a812-0a008598d454"></div>
+<div id="d0063f81-991c-4404-ae7b-5456a1824473"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fbc0db32-32c6-4217-a812-0a008598d454');
+var element = $('#d0063f81-991c-4404-ae7b-5456a1824473');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1806,10 +1869,10 @@ var element = $('#fbc0db32-32c6-4217-a812-0a008598d454');
 
  
  
-<div id="e26ab2c7-bf75-4c5e-af81-d3cf04ca6547"></div>
+<div id="9f71255d-93dc-4f73-8ff0-eba63c569f78"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e26ab2c7-bf75-4c5e-af81-d3cf04ca6547');
+var element = $('#9f71255d-93dc-4f73-8ff0-eba63c569f78');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1828,10 +1891,10 @@ var element = $('#e26ab2c7-bf75-4c5e-af81-d3cf04ca6547');
 
  
  
-<div id="573db83e-c04b-4ca0-93f0-3c91fd3228e3"></div>
+<div id="5d09dc39-11cf-44aa-811e-c3792dbc2f53"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#573db83e-c04b-4ca0-93f0-3c91fd3228e3');
+var element = $('#5d09dc39-11cf-44aa-811e-c3792dbc2f53');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1850,10 +1913,10 @@ var element = $('#573db83e-c04b-4ca0-93f0-3c91fd3228e3');
 
  
  
-<div id="54ed786c-85ef-4f06-a717-7bf77ea5c47e"></div>
+<div id="c1e0e4b6-363b-4c04-b706-7792ba0e1910"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#54ed786c-85ef-4f06-a717-7bf77ea5c47e');
+var element = $('#c1e0e4b6-363b-4c04-b706-7792ba0e1910');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1872,10 +1935,10 @@ var element = $('#54ed786c-85ef-4f06-a717-7bf77ea5c47e');
 
  
  
-<div id="11b441c4-4e76-46a4-9604-dbacc91e2847"></div>
+<div id="437fc81d-2050-43c4-ba09-63b64e75735c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#11b441c4-4e76-46a4-9604-dbacc91e2847');
+var element = $('#437fc81d-2050-43c4-ba09-63b64e75735c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1920,10 +1983,10 @@ var element = $('#11b441c4-4e76-46a4-9604-dbacc91e2847');
 
  
  
-<div id="51819791-f9b9-462a-beae-0ff29291f74e"></div>
+<div id="8c2d8d17-17a2-46cc-990d-2c40d4dea1b6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#51819791-f9b9-462a-beae-0ff29291f74e');
+var element = $('#8c2d8d17-17a2-46cc-990d-2c40d4dea1b6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1942,10 +2005,10 @@ var element = $('#51819791-f9b9-462a-beae-0ff29291f74e');
 
  
  
-<div id="e2de2f39-2b83-4727-b1da-483272c342f6"></div>
+<div id="1f0ce831-46bd-4b1e-8446-b2e37c3edae6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e2de2f39-2b83-4727-b1da-483272c342f6');
+var element = $('#1f0ce831-46bd-4b1e-8446-b2e37c3edae6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1964,10 +2027,10 @@ var element = $('#e2de2f39-2b83-4727-b1da-483272c342f6');
 
  
  
-<div id="0d54a838-2e94-46f0-b968-3ea15a01beb0"></div>
+<div id="36899b40-666c-49e9-b11b-168626b102f6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0d54a838-2e94-46f0-b968-3ea15a01beb0');
+var element = $('#36899b40-666c-49e9-b11b-168626b102f6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1986,10 +2049,10 @@ var element = $('#0d54a838-2e94-46f0-b968-3ea15a01beb0');
 
  
  
-<div id="8f19790e-7e92-4aa8-99e5-0a2900b7f349"></div>
+<div id="d14d8a96-4532-4264-a6fd-9b0c0972d5a5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#8f19790e-7e92-4aa8-99e5-0a2900b7f349');
+var element = $('#d14d8a96-4532-4264-a6fd-9b0c0972d5a5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2008,10 +2071,10 @@ var element = $('#8f19790e-7e92-4aa8-99e5-0a2900b7f349');
 
  
  
-<div id="5b9b9ee6-39df-4222-a16b-50c0f0c50cdd"></div>
+<div id="6cf96722-5a0e-40ab-9c94-59db95ff88b5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5b9b9ee6-39df-4222-a16b-50c0f0c50cdd');
+var element = $('#6cf96722-5a0e-40ab-9c94-59db95ff88b5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2030,10 +2093,10 @@ var element = $('#5b9b9ee6-39df-4222-a16b-50c0f0c50cdd');
 
  
  
-<div id="d5853f2a-9203-4629-84ec-f8def76dd667"></div>
+<div id="2f74c68b-e39a-4459-8af9-f0a4af958b41"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d5853f2a-9203-4629-84ec-f8def76dd667');
+var element = $('#2f74c68b-e39a-4459-8af9-f0a4af958b41');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2052,10 +2115,10 @@ var element = $('#d5853f2a-9203-4629-84ec-f8def76dd667');
 
  
  
-<div id="4c3c912e-2b53-41b6-8b2a-d2e0ad1a8f57"></div>
+<div id="88610cd7-1f38-4854-a7a3-77c3526419df"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4c3c912e-2b53-41b6-8b2a-d2e0ad1a8f57');
+var element = $('#88610cd7-1f38-4854-a7a3-77c3526419df');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2074,10 +2137,10 @@ var element = $('#4c3c912e-2b53-41b6-8b2a-d2e0ad1a8f57');
 
  
  
-<div id="5b0b0bb5-861e-43f7-adb0-948eebfddc0b"></div>
+<div id="ace7477f-dd17-4665-84d4-769d8f0f92a3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5b0b0bb5-861e-43f7-adb0-948eebfddc0b');
+var element = $('#ace7477f-dd17-4665-84d4-769d8f0f92a3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2096,10 +2159,10 @@ var element = $('#5b0b0bb5-861e-43f7-adb0-948eebfddc0b');
 
  
  
-<div id="1b7d2662-ea4e-456c-9e76-6355fb6e2799"></div>
+<div id="b17994b1-c54b-4baa-9b6a-ac1b5d9ab69d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#1b7d2662-ea4e-456c-9e76-6355fb6e2799');
+var element = $('#b17994b1-c54b-4baa-9b6a-ac1b5d9ab69d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2118,10 +2181,10 @@ var element = $('#1b7d2662-ea4e-456c-9e76-6355fb6e2799');
 
  
  
-<div id="733ebdf1-1be3-4c5a-ac42-012d5e8379e4"></div>
+<div id="a2261e4c-0991-49ca-8cc9-54c1438e8e11"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#733ebdf1-1be3-4c5a-ac42-012d5e8379e4');
+var element = $('#a2261e4c-0991-49ca-8cc9-54c1438e8e11');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2166,10 +2229,10 @@ var element = $('#733ebdf1-1be3-4c5a-ac42-012d5e8379e4');
 
  
  
-<div id="e57db468-61f0-44a7-bebb-5778bcdabb85"></div>
+<div id="714da0f7-350a-45c3-9f24-0934bb21bb3f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e57db468-61f0-44a7-bebb-5778bcdabb85');
+var element = $('#714da0f7-350a-45c3-9f24-0934bb21bb3f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2188,10 +2251,10 @@ var element = $('#e57db468-61f0-44a7-bebb-5778bcdabb85');
 
  
  
-<div id="96289428-c88f-427e-9031-75e18dbbf81d"></div>
+<div id="37209b0b-99d8-43e9-8d97-698aa55c7377"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#96289428-c88f-427e-9031-75e18dbbf81d');
+var element = $('#37209b0b-99d8-43e9-8d97-698aa55c7377');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2210,10 +2273,10 @@ var element = $('#96289428-c88f-427e-9031-75e18dbbf81d');
 
  
  
-<div id="dbb86419-d935-4acd-be8b-3f65e6f78133"></div>
+<div id="578c7170-849c-465f-9010-b510ec23f37b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#dbb86419-d935-4acd-be8b-3f65e6f78133');
+var element = $('#578c7170-849c-465f-9010-b510ec23f37b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2232,10 +2295,10 @@ var element = $('#dbb86419-d935-4acd-be8b-3f65e6f78133');
 
  
  
-<div id="008404b1-6449-4014-a7f8-845ff1cb3b33"></div>
+<div id="4f425494-a982-4f9c-853f-c7ea1b9fa2d6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#008404b1-6449-4014-a7f8-845ff1cb3b33');
+var element = $('#4f425494-a982-4f9c-853f-c7ea1b9fa2d6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2254,10 +2317,10 @@ var element = $('#008404b1-6449-4014-a7f8-845ff1cb3b33');
 
  
  
-<div id="6f62fe02-5af9-4f01-b1ec-3ed0360e29da"></div>
+<div id="19656941-c1fa-4e41-a2fd-7628dc4cd2cc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#6f62fe02-5af9-4f01-b1ec-3ed0360e29da');
+var element = $('#19656941-c1fa-4e41-a2fd-7628dc4cd2cc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2276,10 +2339,10 @@ var element = $('#6f62fe02-5af9-4f01-b1ec-3ed0360e29da');
 
  
  
-<div id="dd3afcc1-0e1b-4bd9-b67c-4478f67b72ee"></div>
+<div id="46591ea5-935b-4d62-aab2-693363559324"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#dd3afcc1-0e1b-4bd9-b67c-4478f67b72ee');
+var element = $('#46591ea5-935b-4d62-aab2-693363559324');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2298,10 +2361,10 @@ var element = $('#dd3afcc1-0e1b-4bd9-b67c-4478f67b72ee');
 
  
  
-<div id="9efac8b1-9a7d-40cd-af17-177835c6c48f"></div>
+<div id="a0e56f1c-9bfd-4eea-93e3-d629c98fae0e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#9efac8b1-9a7d-40cd-af17-177835c6c48f');
+var element = $('#a0e56f1c-9bfd-4eea-93e3-d629c98fae0e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2320,10 +2383,10 @@ var element = $('#9efac8b1-9a7d-40cd-af17-177835c6c48f');
 
  
  
-<div id="8718100e-af92-4879-ae77-ce5f53123a56"></div>
+<div id="6b79ed49-1a04-4ec7-9832-1ff7c93ca6b0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#8718100e-af92-4879-ae77-ce5f53123a56');
+var element = $('#6b79ed49-1a04-4ec7-9832-1ff7c93ca6b0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2342,10 +2405,10 @@ var element = $('#8718100e-af92-4879-ae77-ce5f53123a56');
 
  
  
-<div id="356f56f0-3c3c-4ea3-bd5c-403342a17f0b"></div>
+<div id="b0d5672d-25d4-467b-8417-9db7532369f9"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#356f56f0-3c3c-4ea3-bd5c-403342a17f0b');
+var element = $('#b0d5672d-25d4-467b-8417-9db7532369f9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2364,10 +2427,10 @@ var element = $('#356f56f0-3c3c-4ea3-bd5c-403342a17f0b');
 
  
  
-<div id="60fb8cce-3d6a-422b-b7b3-4e30e1356283"></div>
+<div id="4d272831-ce24-4abb-bc63-e066d90605a6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#60fb8cce-3d6a-422b-b7b3-4e30e1356283');
+var element = $('#4d272831-ce24-4abb-bc63-e066d90605a6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2412,10 +2475,10 @@ var element = $('#60fb8cce-3d6a-422b-b7b3-4e30e1356283');
 
  
  
-<div id="9daee6e3-e09b-4a19-bc36-156b670cda38"></div>
+<div id="2dc193c7-9c20-4a8b-8a23-c8046522e9da"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#9daee6e3-e09b-4a19-bc36-156b670cda38');
+var element = $('#2dc193c7-9c20-4a8b-8a23-c8046522e9da');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2434,10 +2497,10 @@ var element = $('#9daee6e3-e09b-4a19-bc36-156b670cda38');
 
  
  
-<div id="056ae78c-8f8f-4a0c-b792-9823c12da383"></div>
+<div id="b3475946-5d88-4b18-923d-6969103e020f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#056ae78c-8f8f-4a0c-b792-9823c12da383');
+var element = $('#b3475946-5d88-4b18-923d-6969103e020f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2456,10 +2519,10 @@ var element = $('#056ae78c-8f8f-4a0c-b792-9823c12da383');
 
  
  
-<div id="fc06748e-b02f-438f-9079-5fcc2c9dbab4"></div>
+<div id="25d421f1-19cf-4a48-9ec8-da3b143a6b50"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fc06748e-b02f-438f-9079-5fcc2c9dbab4');
+var element = $('#25d421f1-19cf-4a48-9ec8-da3b143a6b50');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2478,10 +2541,10 @@ var element = $('#fc06748e-b02f-438f-9079-5fcc2c9dbab4');
 
  
  
-<div id="dc8a612c-30e2-4c05-a9a0-b5820d3a0ca8"></div>
+<div id="5a062818-e7fc-4d14-85b6-7778a4a0396d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#dc8a612c-30e2-4c05-a9a0-b5820d3a0ca8');
+var element = $('#5a062818-e7fc-4d14-85b6-7778a4a0396d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2500,10 +2563,10 @@ var element = $('#dc8a612c-30e2-4c05-a9a0-b5820d3a0ca8');
 
  
  
-<div id="f74fe7db-af34-4fc0-b604-99d76503188a"></div>
+<div id="b1d7fa83-7504-4921-8de6-53a734c050d0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f74fe7db-af34-4fc0-b604-99d76503188a');
+var element = $('#b1d7fa83-7504-4921-8de6-53a734c050d0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2522,10 +2585,10 @@ var element = $('#f74fe7db-af34-4fc0-b604-99d76503188a');
 
  
  
-<div id="c776a6d8-83af-4dad-afc4-0b9661fef707"></div>
+<div id="6942b509-9dba-44d3-98f5-c33efc663818"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c776a6d8-83af-4dad-afc4-0b9661fef707');
+var element = $('#6942b509-9dba-44d3-98f5-c33efc663818');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2544,10 +2607,10 @@ var element = $('#c776a6d8-83af-4dad-afc4-0b9661fef707');
 
  
  
-<div id="0d8e1a0a-0e6a-49e4-8aab-23f5f3b7e6c6"></div>
+<div id="c599e5fc-3078-4a3a-8b01-50922979e60e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0d8e1a0a-0e6a-49e4-8aab-23f5f3b7e6c6');
+var element = $('#c599e5fc-3078-4a3a-8b01-50922979e60e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2566,10 +2629,10 @@ var element = $('#0d8e1a0a-0e6a-49e4-8aab-23f5f3b7e6c6');
 
  
  
-<div id="2275312d-2591-4a83-b42d-fbc7334ad768"></div>
+<div id="7df02e35-694a-45e6-9403-6227b2057b6b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2275312d-2591-4a83-b42d-fbc7334ad768');
+var element = $('#7df02e35-694a-45e6-9403-6227b2057b6b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2588,10 +2651,10 @@ var element = $('#2275312d-2591-4a83-b42d-fbc7334ad768');
 
  
  
-<div id="c4cb9154-72cd-4d38-8562-2bb58bfbf04b"></div>
+<div id="834a06b3-0e48-4fb9-907f-1b45eaef14c7"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c4cb9154-72cd-4d38-8562-2bb58bfbf04b');
+var element = $('#834a06b3-0e48-4fb9-907f-1b45eaef14c7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2610,10 +2673,10 @@ var element = $('#c4cb9154-72cd-4d38-8562-2bb58bfbf04b');
 
  
  
-<div id="3d395b46-b56d-4456-95ec-6ee6b4018120"></div>
+<div id="92b6bb1f-3b01-4093-a597-b8a798908647"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3d395b46-b56d-4456-95ec-6ee6b4018120');
+var element = $('#92b6bb1f-3b01-4093-a597-b8a798908647');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2678,10 +2741,10 @@ var element = $('#3d395b46-b56d-4456-95ec-6ee6b4018120');
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span><span class="o">/</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">]))):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">/</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">]))):</span>
     <span class="n">images</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">])</span>
     <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">z</span><span class="p">],</span> <span class="p">{</span> <span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]}))</span>
+    <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">z</span><span class="p">],</span> <span class="p">{</span><span class="n">model</span><span class="o">.</span><span class="n">x_real</span><span class="p">:</span> <span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]}))</span>
 <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
 </pre></div>
 
@@ -2703,10 +2766,10 @@ var element = $('#3d395b46-b56d-4456-95ec-6ee6b4018120');
 
  
  
-<div id="b52b249b-833b-49b5-baec-22b79c6e995d"></div>
+<div id="1291eeca-d3fb-4b80-80b7-3acbe6626d1c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b52b249b-833b-49b5-baec-22b79c6e995d');
+var element = $('#1291eeca-d3fb-4b80-80b7-3acbe6626d1c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}
@@ -2736,13 +2799,18 @@ var element = $('#b52b249b-833b-49b5-baec-22b79c6e995d');
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_latent</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">codes</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
-  <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">codes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">codes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
-  <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-    
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">codes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">codes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plot_latent</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
-<span class="n">plot_latent</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)))</span>
-<span class="c1">#for axi in ax: axi.set_ylim([-8,8]);axi.set_xlim([-8,8])</span>
+<span class="n">plot_latent</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)),</span>
+<span class="p">)</span>
+<span class="c1"># for axi in ax: axi.set_ylim([-8,8]);axi.set_xlim([-8,8])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -2838,7 +2906,9 @@ var element = $('#b52b249b-833b-49b5-baec-22b79c6e995d');
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
+
+
 </p>    </footer>
   </main>
 

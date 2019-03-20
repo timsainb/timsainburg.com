@@ -22,9 +22,12 @@ PLUGINS = ['ipynb.markup']
 IPYNB_USE_METACELL = True
 IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
-THEME = "pelican-themes/Flex"
+THEME = "pelican-themes/Flex-TS"
 
-LINKS = (('Gentner Lab', 'http://gentnerlab.ucsd.edu'),('GitHub', 'https://github.com/timsainb'), ('tsainbur@ucsd.edu', 'mailto:tsainbur@ucsd.edu'))
+LINKS = (
+	('Gentner Lab', 'http://gentnerlab.ucsd.edu'),
+#	('tsainbur@ucsd.edu', 'mailto:tsainbur@ucsd.edu')
+	)
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
 SITELOGO = 'img/TSainburg.jpg'
 
@@ -36,10 +39,14 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 COPYRIGHT_NAME="Tim Sainburg"
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('twitter', 'http://twitter.com/tim_sainburg'),
+          ('github', 'http://github.com/timsainb'),
+          ('envelope', 'mailto:tsainbur@ucsd.edu'),
+          ('google-scholar', 'https://scholar.google.com/citations?user=Koqjwg8AAAAJ'),
+          )
 
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+GITHUB_URL = "https://github.com/timsainb"

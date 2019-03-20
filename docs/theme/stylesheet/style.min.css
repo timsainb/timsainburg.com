@@ -1,7 +1,65 @@
+
+
+
+@font-face{font-family:"Inconsolata";font-style:normal;font-weight:400;src:local("Inconsolata"),local("Inconsolata-Regular"),url(../fonts/Inconsolata-Regular.ttf) format("truetype")}
+@font-face{font-family:"Inconsolata";font-style:normal;font-weight:700;src:local("Inconsolata Bold"),local("Inconsolata-Bold"),url(../fonts/Inconsolata-Bold.ttf) format("truetype")}
+@font-face{font-family:"Lato";font-style:normal;font-weight:400;src:local("Lato Regular"),local("Lato-Regular"),url(../fonts/Lato-Regular.ttf) format("truetype")}
+@font-face{font-family:"Lato";font-style:normal;font-weight:700;src:local("Lato Bold"),local("Lato-Bold"),url(../fonts/Lato-Bold.ttf) format("truetype")}
+@font-face{font-family:"Lato";font-style:italic;font-weight:400;src:local("Lato Italic"),local("Lato-Italic"),url(../fonts/Lato-Italic.ttf) format("truetype")}
+@font-face{font-family:"Lato";font-style:italic;font-weight:700;src:local("Lato Bold Italic"),local("Lato-BoldItalic"),url(../fonts/Lato-BoldItalic.ttf) format("truetype")}
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:400;src:local("Roboto Slab Regular"),local("RobotoSlab-Regular"),url(../fonts/RobotoSlab-Regular.ttf) format("truetype")}
+@font-face{font-family:"Roboto Slab";font-style:normal;font-weight:700;src:local("Roboto Slab Bold"),local("RobotoSlab-Bold"),url(../fonts/RobotoSlab-Bold.ttf) format("truetype")}
+
+
+.alert{
+    color: #AC260D;
+    background-color: #F2DEDC;
+    border: #EBCCCF solid 1px;
+    padding:.5em 1em ;
+    margin-bottom:.5em
+}
+.warning{
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border: #faebcc solid 1px;
+    padding:.5em 1em ;
+    margin-bottom:.5em
+}
+
 body,
 html {
     width: 100%;
     height: 100%
+}
+
+body {
+    background: #EEEEEE
+}
+
+article {
+    background: #FFFFFF
+}
+
+main {
+    max-width: 1100px
+}
+
+div.input_prompt {
+    display:none;
+}
+
+.youtube_container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.youtube_video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 h1,
@@ -11,7 +69,8 @@ h4,
 h5,
 h6 {
     font-weight: 300;
-    line-height: 1.1
+    line-height: 1.1;
+    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
 }
 
 h1 {
@@ -41,7 +100,7 @@ h6 {
 body {
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #eee;
     color: #242121;
     font-family: Source Sans Pro, Roboto, Open Sans, Liberation Sans, DejaVu Sans, Verdana, Helvetica, Arial, sans-serif;
     font-size: 1.02em;
@@ -63,7 +122,15 @@ hr {
     height: 1px;
     border: none;
     margin-top: 40px;
-    margin-bottom: 40px
+    margin-bottom: 20px
+}
+
+article hr {
+    margin: 0;
+    margin-top:40px;
+    height:2px;
+    background-color:#eee;
+
 }
 
 img {
@@ -149,7 +216,9 @@ main .social-share p {
 }
 
 main article {
-    margin: 0 8% 2%
+    padding: 2% 8% 2%;
+    font-size:1.1em;
+    line-height:150%;
 }
 
 main article header h1,
@@ -184,6 +253,7 @@ main article pre {
     border-bottom-right-radius: 5px;
     border-left: 8px solid hsla(0, 0%, 50%, .075);
     border-left-width: 10px
+
 }
 
 main article blockquote {
@@ -194,8 +264,8 @@ main article blockquote {
 
 main article pre {
     padding: 4px;
-    font-size: .9em;
-    overflow-x: auto
+    overflow-x: auto;
+    font-size: .8em;
 }
 
 main article samp {
@@ -278,11 +348,11 @@ main footer p {
 }
 
 a.btn {
-    background-color: #d9411e;
+    background-color: #e6e6e6;
     padding: .6em;
     font-size: .8em;
     line-height: 1;
-    color: #fff;
+    color: #000;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
@@ -350,7 +420,7 @@ ul.list li {
 }
 
 ul.social {
-    font-size: 1.6em;
+    font-size: 2.2em;
     padding-top: 20px
 }
 
@@ -358,19 +428,21 @@ ul.social li {
     display: inline
 }
 
+/*
 ul.social a:hover {
     z-index: 1;
     transform: translateY(-5px)
 }
+*/
 
 ul.social a {
     display: inline-block;
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
     border-radius: 100%;
     text-align: center;
     font-size: .8em;
-    line-height: 36px
+    line-height: 46px
 }
 
 ul.social a.sc-facebook {
@@ -413,6 +485,10 @@ ul.social a.sc-twitter {
     background-color: #4da7de
 }
 
+ul.social a.sc-google-scholar {
+    background-color: #0292ea
+}
+
 ul.social a.sc-youtube {
     background-color: #e02a20
 }
@@ -420,6 +496,10 @@ ul.social a.sc-youtube {
 ul.social a.sc-github,
 ul.social a.sc-github-alt {
     background-color: #111010
+}
+
+ul.social a.sc-envelope {
+    background-color: #b32121
 }
 
 ul.social a.sc-envelope-o {
