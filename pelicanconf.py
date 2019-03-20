@@ -31,6 +31,7 @@ LINKS = (
 	)
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
 SITELOGO = 'img/TSainburg.jpg'
+FAVICON = 'theme/img/starling-small.ico'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
