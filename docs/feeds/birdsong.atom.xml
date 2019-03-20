@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - birdsong</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/birdsong.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2019-03-19T10:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>Computational Cognitive Neuroscience 2018 (CCN 2018) Conference presentation: Learned context dependent categorical perception in a songbird</title><link href="http://timsainburg.com/CCN2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/CCN2018.html</id><summary type="html">&lt;p&gt;My conference poster and oral presentation from CCN 2018 on the context dependent categorical perception behavior I designed for songbirds&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - birdsong</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/birdsong.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2019-03-19T10:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>CCN 2018 Conference presentation: Learned context dependent categorical perception in a songbird</title><link href="http://timsainburg.com/CCN2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/CCN2018.html</id><summary type="html">&lt;p&gt;My conference poster and oral presentation from CCN 2018 on the context dependent categorical perception behavior I designed for songbirds&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -985,10 +985,15 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;div style="text-align:center"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/XAU-CKGback"&gt;&lt;/iframe&gt;
-&amp;lt;/div&amp;gt;&lt;/p&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;My presentation at Birdsong 2018&lt;/p&gt;
+&lt;p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;div class="youtube_container"&gt;
+&lt;iframe src="//www.youtube.com/embed/XAU-CKGback" 
+frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;My presentation at CCN 2018&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2020,7 +2025,7 @@ h6:hover .anchor-link {
 &lt;p&gt;&lt;div style="text-align:center"&gt;
 &lt;img src="assets/img/sds.png"  style="width:300p; text-align:center!important; margin:0 auto" /&gt;
 &lt;/div&gt;&lt;/p&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;The flyer for birdsong 2018&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;The flyer for the Birdsong Data Science Workshop 2018&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2055,8 +2060,10 @@ The presentation is embedded below. &lt;/li&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/0T2UU8-NCbM"&gt;&lt;/iframe&gt;
-&lt;/div&gt;  
+&lt;div class="youtube_container"&gt;
+&lt;iframe src="//www.youtube.com/embed/0T2UU8-NCbM" 
+frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;/p&gt; 
 &lt;p style="text-align:center;font-style:italic"&gt;My presentation at Birdsong 2018&lt;/p&gt;
 &lt;/div&gt;
@@ -2093,7 +2100,7 @@ The presentation is embedded below. &lt;/li&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="UMAP"></category><category term="GAIA"></category><category term="GAN"></category><category term="unsupervised learning"></category></entry><entry><title>birdbrain: a library for viewing songbird (and bat) brain atlases</title><link href="http://timsainburg.com/birdbrain-library-python.html" rel="alternate"></link><published>2019-03-15T10:01:00-07:00</published><updated>2019-03-15T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-15:/birdbrain-library-python.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="UMAP"></category><category term="GAIA"></category><category term="GAN"></category><category term="unsupervised learning"></category></entry><entry><title>birdbrain: a library for viewing songbird (and bat) brain atlases</title><link href="http://timsainburg.com/birdbrain-library-python.html" rel="alternate"></link><published>2019-03-15T10:01:00-07:00</published><updated>2019-03-15T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-15:/birdbrain-library-python.html</id><summary type="html">&lt;p&gt;A python package for use with the songbird brain atlases focusing on stereotactic localization of the European starling, Canary, Zebra finch, Pigeon, and Mustached bat.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
