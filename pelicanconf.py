@@ -22,7 +22,7 @@ PLUGINS = ['ipynb.markup']
 IPYNB_USE_METACELL = True
 IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
-THEME = "pelican-themes/Flex-TS"
+THEME = "custom_themes/Flex-TS"
 
 LINKS = (
 	('Gentner Lab', 'http://gentnerlab.ucsd.edu'),
