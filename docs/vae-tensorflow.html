@@ -10,19 +10,30 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/academicons/css/academicons.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/academicons/css/academicons.css">
 
 
+    <link href="http://timsainburg.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Sainburg Atom">
 
 
     <link rel="shortcut icon" href="theme/img/starling-small.ico" type="image/x-icon">
     <link rel="icon" href="theme/img/starling-small.ico" type="image/x-icon">
 
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-136580158-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="Tim Sainburg" />
 <meta name="description" content="A simple quick Variational Autoencoder in Tensorflow" />
@@ -32,11 +43,11 @@
 <meta property="og:title" content="Variational Autoencoder in Tensorflow (Jupyter Notebook)"/>
 <meta property="og:description" content="A simple quick Variational Autoencoder in Tensorflow"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/vae-tensorflow.html"/>
+<meta property="og:url" content="./vae-tensorflow.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2018-07-07 10:01:00-07:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/tim-sainburg.html">
+<meta property="article:author" content="./author/tim-sainburg.html">
 <meta property="article:section" content="Machine Learning"/>
 <meta property="article:tag" content="tensorflow"/>
 <meta property="article:tag" content="vae"/>
@@ -54,15 +65,15 @@
   <aside>
     <div>
       <a href="https://timsainburg.com">
-        <img src="/theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
+        <img src="./theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
       </a>
-      <h2><a href="">Tim Sainburg</a></h2>
+      <h2><a href=".">Tim Sainburg</a></h2>
 
 <p>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</p>
       <nav>
         <ul class="list">
-          <li><a href="/pages/about-me.html#about-me">About me</a></li>
-          <li><a href="/pages/my-timeline.html#my-timeline">My Academic Timeline</a></li>
+          <li><a href="./pages/about-me.html#about-me">About me</a></li>
+          <li><a href="./pages/my-timeline.html#my-timeline">My Academic Timeline</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
         </ul>
@@ -87,7 +98,7 @@
       
     <h1 id="vae-tensorflow">Variational Autoencoder in Tensorflow (Jupyter Notebook)</h1>
     <p>
-          Posted on Sat 07 July 2018 in <a href="/category/machine-learning.html">Machine Learning</a>
+          Posted on Sat 07 July 2018 in <a href="./category/machine-learning.html">Machine Learning</a>
 
 
     </p>
@@ -1424,10 +1435,10 @@ h6:hover .anchor-link {
 
  
  
-<div id="4041ac72-d090-4529-91bd-24a605bcdebb"></div>
+<div id="881e1c7e-1824-4ddd-b80b-8c67a5aa2533"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4041ac72-d090-4529-91bd-24a605bcdebb');
+var element = $('#881e1c7e-1824-4ddd-b80b-8c67a5aa2533');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -1446,10 +1457,10 @@ var element = $('#4041ac72-d090-4529-91bd-24a605bcdebb');
 
  
  
-<div id="829b9f78-e084-40e5-a9fc-fb2257ba862f"></div>
+<div id="cec1910a-2e37-4908-b19d-8d1678619826"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#829b9f78-e084-40e5-a9fc-fb2257ba862f');
+var element = $('#cec1910a-2e37-4908-b19d-8d1678619826');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1494,10 +1505,10 @@ var element = $('#829b9f78-e084-40e5-a9fc-fb2257ba862f');
 
  
  
-<div id="68593a24-a3ee-41f6-8b74-e5e06726ce6c"></div>
+<div id="90c6f051-8730-4f57-9d53-b112661c6d2a"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#68593a24-a3ee-41f6-8b74-e5e06726ce6c');
+var element = $('#90c6f051-8730-4f57-9d53-b112661c6d2a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1516,10 +1527,10 @@ var element = $('#68593a24-a3ee-41f6-8b74-e5e06726ce6c');
 
  
  
-<div id="0ff85a35-4183-40d8-87f5-3840455228d5"></div>
+<div id="f3b632dd-6241-4c99-9a3a-407fe1b9dd72"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0ff85a35-4183-40d8-87f5-3840455228d5');
+var element = $('#f3b632dd-6241-4c99-9a3a-407fe1b9dd72');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1538,10 +1549,10 @@ var element = $('#0ff85a35-4183-40d8-87f5-3840455228d5');
 
  
  
-<div id="b757e12f-7dd9-4789-9447-f1fe2800802f"></div>
+<div id="90243109-6618-4fff-a358-d00d5c8b458d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b757e12f-7dd9-4789-9447-f1fe2800802f');
+var element = $('#90243109-6618-4fff-a358-d00d5c8b458d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1560,10 +1571,10 @@ var element = $('#b757e12f-7dd9-4789-9447-f1fe2800802f');
 
  
  
-<div id="5eec64ba-9ad7-493f-b4b5-7655fe141c47"></div>
+<div id="7d7828a5-9f26-40d2-a2da-56ab84fcedd0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5eec64ba-9ad7-493f-b4b5-7655fe141c47');
+var element = $('#7d7828a5-9f26-40d2-a2da-56ab84fcedd0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1582,10 +1593,10 @@ var element = $('#5eec64ba-9ad7-493f-b4b5-7655fe141c47');
 
  
  
-<div id="182659c5-7adf-4d23-8c1f-62d7cf5b5825"></div>
+<div id="5550bb61-997c-4b4d-a98b-20eaa703ea37"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#182659c5-7adf-4d23-8c1f-62d7cf5b5825');
+var element = $('#5550bb61-997c-4b4d-a98b-20eaa703ea37');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1604,10 +1615,10 @@ var element = $('#182659c5-7adf-4d23-8c1f-62d7cf5b5825');
 
  
  
-<div id="1e5a67a3-b120-4005-80fd-1a8411920200"></div>
+<div id="cf6282d3-383f-4bc9-88f6-fd3ce2cd810a"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#1e5a67a3-b120-4005-80fd-1a8411920200');
+var element = $('#cf6282d3-383f-4bc9-88f6-fd3ce2cd810a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1626,10 +1637,10 @@ var element = $('#1e5a67a3-b120-4005-80fd-1a8411920200');
 
  
  
-<div id="7e6aea72-f426-4be9-83f1-93947131a828"></div>
+<div id="836bc178-c102-418c-ba54-74ea89aee503"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#7e6aea72-f426-4be9-83f1-93947131a828');
+var element = $('#836bc178-c102-418c-ba54-74ea89aee503');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1648,10 +1659,10 @@ var element = $('#7e6aea72-f426-4be9-83f1-93947131a828');
 
  
  
-<div id="4cd61134-9889-4a18-9a5a-12eb03f303a1"></div>
+<div id="4568bd41-66f3-4278-8e03-03d41347d76d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4cd61134-9889-4a18-9a5a-12eb03f303a1');
+var element = $('#4568bd41-66f3-4278-8e03-03d41347d76d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1670,10 +1681,10 @@ var element = $('#4cd61134-9889-4a18-9a5a-12eb03f303a1');
 
  
  
-<div id="bf2636ee-687a-4331-abdf-b34a7723f6ba"></div>
+<div id="2e7a3553-476e-4691-bc5b-02ae0a6ec427"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#bf2636ee-687a-4331-abdf-b34a7723f6ba');
+var element = $('#2e7a3553-476e-4691-bc5b-02ae0a6ec427');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1692,10 +1703,10 @@ var element = $('#bf2636ee-687a-4331-abdf-b34a7723f6ba');
 
  
  
-<div id="b955405e-fff4-47f4-8770-38a22ffa7125"></div>
+<div id="b8f48584-b9f5-43fc-b869-9e6063c1f7d7"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b955405e-fff4-47f4-8770-38a22ffa7125');
+var element = $('#b8f48584-b9f5-43fc-b869-9e6063c1f7d7');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1740,10 +1751,10 @@ var element = $('#b955405e-fff4-47f4-8770-38a22ffa7125');
 
  
  
-<div id="52dbf713-7954-408c-82f1-fce38b9a27bb"></div>
+<div id="42bb8f8f-e2cb-4db8-adb8-e56e5e40881d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#52dbf713-7954-408c-82f1-fce38b9a27bb');
+var element = $('#42bb8f8f-e2cb-4db8-adb8-e56e5e40881d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1762,10 +1773,10 @@ var element = $('#52dbf713-7954-408c-82f1-fce38b9a27bb');
 
  
  
-<div id="07367d33-5ec2-4c32-a8db-1e24cd0d2c6c"></div>
+<div id="b4c60e90-6ea9-43cf-bd17-a16c48c53d59"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#07367d33-5ec2-4c32-a8db-1e24cd0d2c6c');
+var element = $('#b4c60e90-6ea9-43cf-bd17-a16c48c53d59');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1784,10 +1795,10 @@ var element = $('#07367d33-5ec2-4c32-a8db-1e24cd0d2c6c');
 
  
  
-<div id="fa37d431-059d-420d-8d28-dd3803b773d1"></div>
+<div id="217edbce-e620-4965-8cfd-e6ecbd277f90"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fa37d431-059d-420d-8d28-dd3803b773d1');
+var element = $('#217edbce-e620-4965-8cfd-e6ecbd277f90');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1806,10 +1817,10 @@ var element = $('#fa37d431-059d-420d-8d28-dd3803b773d1');
 
  
  
-<div id="29ae31b2-c1ae-4060-819d-bbb1328fcfd9"></div>
+<div id="3c8c6e6b-6a07-4748-bb0b-6d7bbc706270"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#29ae31b2-c1ae-4060-819d-bbb1328fcfd9');
+var element = $('#3c8c6e6b-6a07-4748-bb0b-6d7bbc706270');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1828,10 +1839,10 @@ var element = $('#29ae31b2-c1ae-4060-819d-bbb1328fcfd9');
 
  
  
-<div id="df8107bf-0082-4c0b-a446-4a931f1a92f1"></div>
+<div id="41c8b5a8-863a-452e-bf86-9857904bb6cc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#df8107bf-0082-4c0b-a446-4a931f1a92f1');
+var element = $('#41c8b5a8-863a-452e-bf86-9857904bb6cc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1850,10 +1861,10 @@ var element = $('#df8107bf-0082-4c0b-a446-4a931f1a92f1');
 
  
  
-<div id="d9d162a1-e3ad-499a-b050-208252e496d7"></div>
+<div id="7b6aa3d4-8d8f-4eb5-a0c6-a432fcdf85eb"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d9d162a1-e3ad-499a-b050-208252e496d7');
+var element = $('#7b6aa3d4-8d8f-4eb5-a0c6-a432fcdf85eb');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1872,10 +1883,10 @@ var element = $('#d9d162a1-e3ad-499a-b050-208252e496d7');
 
  
  
-<div id="ab8703bd-d933-4a7b-83b9-0452c93e673c"></div>
+<div id="0a82db0a-aa51-4c70-bbc9-b2605ce10d25"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ab8703bd-d933-4a7b-83b9-0452c93e673c');
+var element = $('#0a82db0a-aa51-4c70-bbc9-b2605ce10d25');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1894,10 +1905,10 @@ var element = $('#ab8703bd-d933-4a7b-83b9-0452c93e673c');
 
  
  
-<div id="81749b33-98bb-4de4-b941-b7affc480478"></div>
+<div id="51a0043d-90d3-4164-860d-0e7480003bcd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#81749b33-98bb-4de4-b941-b7affc480478');
+var element = $('#51a0043d-90d3-4164-860d-0e7480003bcd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1916,10 +1927,10 @@ var element = $('#81749b33-98bb-4de4-b941-b7affc480478');
 
  
  
-<div id="92cd034b-e5c8-4001-bdb6-2b6b7bf01c61"></div>
+<div id="b63d16f6-6cae-4dba-9c7e-e6ddbf8c1297"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#92cd034b-e5c8-4001-bdb6-2b6b7bf01c61');
+var element = $('#b63d16f6-6cae-4dba-9c7e-e6ddbf8c1297');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1938,10 +1949,10 @@ var element = $('#92cd034b-e5c8-4001-bdb6-2b6b7bf01c61');
 
  
  
-<div id="47844477-e598-45c0-8ec8-c906e825ef91"></div>
+<div id="892de851-d056-47e2-961b-eafd00cec8fe"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#47844477-e598-45c0-8ec8-c906e825ef91');
+var element = $('#892de851-d056-47e2-961b-eafd00cec8fe');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1986,10 +1997,10 @@ var element = $('#47844477-e598-45c0-8ec8-c906e825ef91');
 
  
  
-<div id="fefcbf0d-a48d-4738-b835-3314e9d38b20"></div>
+<div id="a659ac3e-e40e-4256-8cec-265dcd1c029c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fefcbf0d-a48d-4738-b835-3314e9d38b20');
+var element = $('#a659ac3e-e40e-4256-8cec-265dcd1c029c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2008,10 +2019,10 @@ var element = $('#fefcbf0d-a48d-4738-b835-3314e9d38b20');
 
  
  
-<div id="c200f0be-9118-4d77-a5df-ac9394cc5f16"></div>
+<div id="98ed71b1-11ef-4013-bbb3-892af5e0e477"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c200f0be-9118-4d77-a5df-ac9394cc5f16');
+var element = $('#98ed71b1-11ef-4013-bbb3-892af5e0e477');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2030,10 +2041,10 @@ var element = $('#c200f0be-9118-4d77-a5df-ac9394cc5f16');
 
  
  
-<div id="f05815cd-ab23-4368-b90e-823f6a310c88"></div>
+<div id="c25f9d22-c5ac-431e-ac5f-d71ed1d3d5cd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f05815cd-ab23-4368-b90e-823f6a310c88');
+var element = $('#c25f9d22-c5ac-431e-ac5f-d71ed1d3d5cd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2052,10 +2063,10 @@ var element = $('#f05815cd-ab23-4368-b90e-823f6a310c88');
 
  
  
-<div id="dcb05169-7ba2-4fca-9837-678366f9d597"></div>
+<div id="5a622e40-c0fc-48d9-a620-5c7cf296e86d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#dcb05169-7ba2-4fca-9837-678366f9d597');
+var element = $('#5a622e40-c0fc-48d9-a620-5c7cf296e86d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2074,10 +2085,10 @@ var element = $('#dcb05169-7ba2-4fca-9837-678366f9d597');
 
  
  
-<div id="a3f8e078-e298-42e7-83ce-9cafeb188e83"></div>
+<div id="24380712-ecdb-4246-ab2b-65f5e5a6eeca"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a3f8e078-e298-42e7-83ce-9cafeb188e83');
+var element = $('#24380712-ecdb-4246-ab2b-65f5e5a6eeca');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2096,10 +2107,10 @@ var element = $('#a3f8e078-e298-42e7-83ce-9cafeb188e83');
 
  
  
-<div id="bdb8bb86-3ae2-480c-bd3d-aeb6b585d94e"></div>
+<div id="7321f851-718c-48b6-ac37-fb630cabc841"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#bdb8bb86-3ae2-480c-bd3d-aeb6b585d94e');
+var element = $('#7321f851-718c-48b6-ac37-fb630cabc841');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2118,10 +2129,10 @@ var element = $('#bdb8bb86-3ae2-480c-bd3d-aeb6b585d94e');
 
  
  
-<div id="33d8bb2c-61ca-4d19-8f72-231fbcce9fae"></div>
+<div id="f375c9a0-3212-4a62-8e4f-71a6dd683f3e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#33d8bb2c-61ca-4d19-8f72-231fbcce9fae');
+var element = $('#f375c9a0-3212-4a62-8e4f-71a6dd683f3e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2140,10 +2151,10 @@ var element = $('#33d8bb2c-61ca-4d19-8f72-231fbcce9fae');
 
  
  
-<div id="6968dfd7-ea1c-49c0-86c2-78338c0d5d53"></div>
+<div id="ec64284b-5482-4416-b386-d5a3bc2b5d88"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#6968dfd7-ea1c-49c0-86c2-78338c0d5d53');
+var element = $('#ec64284b-5482-4416-b386-d5a3bc2b5d88');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2162,10 +2173,10 @@ var element = $('#6968dfd7-ea1c-49c0-86c2-78338c0d5d53');
 
  
  
-<div id="d6583d15-4f47-45a8-8f3c-86fc4b55d148"></div>
+<div id="739dddfc-3f1b-4701-afb1-824fc69b8161"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d6583d15-4f47-45a8-8f3c-86fc4b55d148');
+var element = $('#739dddfc-3f1b-4701-afb1-824fc69b8161');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2184,10 +2195,10 @@ var element = $('#d6583d15-4f47-45a8-8f3c-86fc4b55d148');
 
  
  
-<div id="73d03038-9f3a-4773-8793-2ca6ca9ef964"></div>
+<div id="e666dad2-c294-401b-852b-dd4a0e214253"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#73d03038-9f3a-4773-8793-2ca6ca9ef964');
+var element = $('#e666dad2-c294-401b-852b-dd4a0e214253');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2232,10 +2243,10 @@ var element = $('#73d03038-9f3a-4773-8793-2ca6ca9ef964');
 
  
  
-<div id="f22aedb3-82ee-47a9-8c32-f98e05be739b"></div>
+<div id="722caaa6-7379-4e36-9836-bb7a57819271"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f22aedb3-82ee-47a9-8c32-f98e05be739b');
+var element = $('#722caaa6-7379-4e36-9836-bb7a57819271');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2254,10 +2265,10 @@ var element = $('#f22aedb3-82ee-47a9-8c32-f98e05be739b');
 
  
  
-<div id="3a0244fb-10a8-4c3a-b913-abd91f31cafb"></div>
+<div id="1737902f-ee38-4283-ab33-2cdb192563ec"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3a0244fb-10a8-4c3a-b913-abd91f31cafb');
+var element = $('#1737902f-ee38-4283-ab33-2cdb192563ec');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2276,10 +2287,10 @@ var element = $('#3a0244fb-10a8-4c3a-b913-abd91f31cafb');
 
  
  
-<div id="71de53a7-f43b-4f8a-b664-16763eef773e"></div>
+<div id="189d3718-ca8a-4e5e-990f-e7129a55f59e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#71de53a7-f43b-4f8a-b664-16763eef773e');
+var element = $('#189d3718-ca8a-4e5e-990f-e7129a55f59e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2298,10 +2309,10 @@ var element = $('#71de53a7-f43b-4f8a-b664-16763eef773e');
 
  
  
-<div id="07cb09b8-4196-4cf6-afb2-06a70d4f8ba6"></div>
+<div id="222445d4-e963-4a30-a4e1-78ffefad85d0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#07cb09b8-4196-4cf6-afb2-06a70d4f8ba6');
+var element = $('#222445d4-e963-4a30-a4e1-78ffefad85d0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2320,10 +2331,10 @@ var element = $('#07cb09b8-4196-4cf6-afb2-06a70d4f8ba6');
 
  
  
-<div id="2975b294-6d0b-4def-82f1-97e1dad1cf9a"></div>
+<div id="397c2f33-3b99-4e3e-b73b-b7b5cfd0ecd5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2975b294-6d0b-4def-82f1-97e1dad1cf9a');
+var element = $('#397c2f33-3b99-4e3e-b73b-b7b5cfd0ecd5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2342,10 +2353,10 @@ var element = $('#2975b294-6d0b-4def-82f1-97e1dad1cf9a');
 
  
  
-<div id="88619873-2404-4981-aeb4-64915e97a27f"></div>
+<div id="009960b4-3acb-43db-a717-d1cf7822bead"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#88619873-2404-4981-aeb4-64915e97a27f');
+var element = $('#009960b4-3acb-43db-a717-d1cf7822bead');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2364,10 +2375,10 @@ var element = $('#88619873-2404-4981-aeb4-64915e97a27f');
 
  
  
-<div id="85411cac-1003-47ff-bdb6-0419261b679a"></div>
+<div id="f0da9c5d-79be-4de3-b93f-08b09579e084"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#85411cac-1003-47ff-bdb6-0419261b679a');
+var element = $('#f0da9c5d-79be-4de3-b93f-08b09579e084');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2386,10 +2397,10 @@ var element = $('#85411cac-1003-47ff-bdb6-0419261b679a');
 
  
  
-<div id="bd789f93-2b65-46af-be76-b2654bca4378"></div>
+<div id="8c27ea21-d3a2-4e71-8175-1e2a29891c18"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#bd789f93-2b65-46af-be76-b2654bca4378');
+var element = $('#8c27ea21-d3a2-4e71-8175-1e2a29891c18');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2408,10 +2419,10 @@ var element = $('#bd789f93-2b65-46af-be76-b2654bca4378');
 
  
  
-<div id="b2d797d3-3538-44fb-8309-b37c92d4e417"></div>
+<div id="433972fd-0d76-4529-938b-a398bbc87709"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b2d797d3-3538-44fb-8309-b37c92d4e417');
+var element = $('#433972fd-0d76-4529-938b-a398bbc87709');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2430,10 +2441,10 @@ var element = $('#b2d797d3-3538-44fb-8309-b37c92d4e417');
 
  
  
-<div id="eb59acdc-eb64-408c-a1aa-cbc462397378"></div>
+<div id="e058ed5d-9723-458a-8224-921541529816"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#eb59acdc-eb64-408c-a1aa-cbc462397378');
+var element = $('#e058ed5d-9723-458a-8224-921541529816');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2478,10 +2489,10 @@ var element = $('#eb59acdc-eb64-408c-a1aa-cbc462397378');
 
  
  
-<div id="0536c1ec-6775-424d-86cf-6769e5108486"></div>
+<div id="bc980519-9e1b-489f-9846-f7a577439ddc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0536c1ec-6775-424d-86cf-6769e5108486');
+var element = $('#bc980519-9e1b-489f-9846-f7a577439ddc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2500,10 +2511,10 @@ var element = $('#0536c1ec-6775-424d-86cf-6769e5108486');
 
  
  
-<div id="a0710383-bf7e-4eb7-a663-ff027a437c9e"></div>
+<div id="ff41af4f-7f12-4e5d-8c0d-6277efe7b883"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a0710383-bf7e-4eb7-a663-ff027a437c9e');
+var element = $('#ff41af4f-7f12-4e5d-8c0d-6277efe7b883');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2522,10 +2533,10 @@ var element = $('#a0710383-bf7e-4eb7-a663-ff027a437c9e');
 
  
  
-<div id="ce7a097d-e8ba-4b6e-9d3d-28717932f2c7"></div>
+<div id="46324bc6-9d1c-4a82-874e-c9555cc29cc3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ce7a097d-e8ba-4b6e-9d3d-28717932f2c7');
+var element = $('#46324bc6-9d1c-4a82-874e-c9555cc29cc3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2544,10 +2555,10 @@ var element = $('#ce7a097d-e8ba-4b6e-9d3d-28717932f2c7');
 
  
  
-<div id="6e76c785-5cdf-47d2-b82f-c1bebd8b6b82"></div>
+<div id="5e4082d6-b11c-4fb9-b5eb-628f27e9917f"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#6e76c785-5cdf-47d2-b82f-c1bebd8b6b82');
+var element = $('#5e4082d6-b11c-4fb9-b5eb-628f27e9917f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2566,10 +2577,10 @@ var element = $('#6e76c785-5cdf-47d2-b82f-c1bebd8b6b82');
 
  
  
-<div id="66ef041e-4ec7-490d-a9b2-ef84121e256a"></div>
+<div id="56d02a6b-e908-43fe-b73d-0b7483699cea"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#66ef041e-4ec7-490d-a9b2-ef84121e256a');
+var element = $('#56d02a6b-e908-43fe-b73d-0b7483699cea');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2588,10 +2599,10 @@ var element = $('#66ef041e-4ec7-490d-a9b2-ef84121e256a');
 
  
  
-<div id="647f08e2-9dc2-47a2-b36d-2297bff60e43"></div>
+<div id="92c85c6a-6117-4165-a713-c293ed41a2b0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#647f08e2-9dc2-47a2-b36d-2297bff60e43');
+var element = $('#92c85c6a-6117-4165-a713-c293ed41a2b0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2610,10 +2621,10 @@ var element = $('#647f08e2-9dc2-47a2-b36d-2297bff60e43');
 
  
  
-<div id="c5cddfa7-14a9-447e-8497-4add84963132"></div>
+<div id="faf4049a-cf90-4c9c-a372-db450d1b2796"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c5cddfa7-14a9-447e-8497-4add84963132');
+var element = $('#faf4049a-cf90-4c9c-a372-db450d1b2796');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2632,10 +2643,10 @@ var element = $('#c5cddfa7-14a9-447e-8497-4add84963132');
 
  
  
-<div id="e41ab814-150e-4f94-86c1-ececd96efd69"></div>
+<div id="82dcc881-e829-4db2-879d-df7787b1a525"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e41ab814-150e-4f94-86c1-ececd96efd69');
+var element = $('#82dcc881-e829-4db2-879d-df7787b1a525');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2654,10 +2665,10 @@ var element = $('#e41ab814-150e-4f94-86c1-ececd96efd69');
 
  
  
-<div id="26b67d43-2226-4be2-a060-83c090d00855"></div>
+<div id="6301d559-e4fb-4653-9bd6-96199e2edf28"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#26b67d43-2226-4be2-a060-83c090d00855');
+var element = $('#6301d559-e4fb-4653-9bd6-96199e2edf28');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2676,10 +2687,10 @@ var element = $('#26b67d43-2226-4be2-a060-83c090d00855');
 
  
  
-<div id="251f8247-b3d1-4928-88c0-0037d1cbe2d3"></div>
+<div id="c21030d1-0b76-40a7-844c-6787aa7569f8"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#251f8247-b3d1-4928-88c0-0037d1cbe2d3');
+var element = $('#c21030d1-0b76-40a7-844c-6787aa7569f8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2769,10 +2780,10 @@ var element = $('#251f8247-b3d1-4928-88c0-0037d1cbe2d3');
 
  
  
-<div id="72620e07-7690-484e-84cf-e3463132d272"></div>
+<div id="aaea81a3-29fe-4dc7-897c-154841e922bd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#72620e07-7690-484e-84cf-e3463132d272');
+var element = $('#aaea81a3-29fe-4dc7-897c-154841e922bd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}
@@ -2879,11 +2890,11 @@ var element = $('#72620e07-7690-484e-84cf-e3463132d272');
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="/tag/tensorflow.html">tensorflow</a>
-      <a href="/tag/vae.html">vae</a>
-      <a href="/tag/variational-autoencoder.html">variational autoencoder</a>
-      <a href="/tag/python.html">python</a>
-      <a href="/tag/autoencoder.html">autoencoder</a>
+      <a href="./tag/tensorflow.html">tensorflow</a>
+      <a href="./tag/vae.html">vae</a>
+      <a href="./tag/variational-autoencoder.html">variational autoencoder</a>
+      <a href="./tag/python.html">python</a>
+      <a href="./tag/autoencoder.html">autoencoder</a>
     </p>
   </div>
 
@@ -2923,7 +2934,7 @@ var element = $('#72620e07-7690-484e-84cf-e3463132d272');
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " Tim Sainburg ",
-  "url" : "",
+  "url" : ".",
   "image": "img/TSainburg.jpg",
   "description": ""
 }
