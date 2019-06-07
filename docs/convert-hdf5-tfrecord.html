@@ -71,7 +71,8 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/my-timeline.html#my-timeline">My Academic Timeline</a></li>
+          <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
+          <li><a href="./pages/my-timeline.html#my-timeline">Timeline</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
         </ul>
@@ -1081,7 +1082,6 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>HDF5 is a popular file format for handling large complex datasets, often the type of datasets we want to use to train machine learning models in tensorflow. This example was made because I had to piece together several resources to convert my dataset and read it into tensorflow, so I wanted to put online a very simple and quick example for others.</p>
-
 </div>
 </div>
 </div>
@@ -1089,445 +1089,344 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Making-an-example-hdf5-dataset">Making an example hdf5 dataset<a class="anchor-link" href="#Making-an-example-hdf5-dataset">&#182;</a></h3><p>First, lets make a quick hdf5 dataset out of fashion-MNIST (which we can import from the tensorflow). To make the dataset diverse, we'll use some <code>uint8</code>, <code>float32</code>, <code>int64</code>, and <code>string</code> type data.</p>
-
+<h3 id="Making-an-example-hdf5-dataset">Making an example hdf5 dataset<a class="anchor-link" href="#Making-an-example-hdf5-dataset">¶</a></h3><p>First, lets make a quick hdf5 dataset out of fashion-MNIST (which we can import from the tensorflow). To make the dataset diverse, we'll use some <code>uint8</code>, <code>float32</code>, <code>int64</code>, and <code>string</code> type data.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="c1"># load dataset</span>
 <span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># take a look at the data</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># take a look at the data</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">train_images</span><span class="p">),</span> <span class="n">train_images</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">train_labels</span><span class="p">),</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">dtype</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
 <div class="output_text output_subarea output_execute_result">
-<pre>((60000, 28, 28), dtype(&#39;uint8&#39;), (60000,), dtype(&#39;uint8&#39;))</pre>
-</div>
-
-</div>
-
+<pre>((60000, 28, 28), dtype('uint8'), (60000,), dtype('uint8'))</pre>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets make some text labels for our dataset</span>
-<span class="n">text_label_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;zero&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s2">&quot;four&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s2">&quot;five&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s2">&quot;six&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="s2">&quot;seven&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="s2">&quot;eight&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="s2">&quot;nine&quot;</span><span class="p">}</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># lets make some text labels for our dataset</span>
+<span class="n">text_label_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s2">"zero"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s2">"one"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s2">"two"</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s2">"three"</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s2">"four"</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s2">"five"</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s2">"six"</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="s2">"seven"</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="s2">"eight"</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span><span class="s2">"nine"</span><span class="p">}</span>
 <span class="n">text_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">text_label_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_labels</span><span class="p">]</span>
 <span class="n">text_labels</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;five&#39;, &#39;zero&#39;, &#39;four&#39;]</pre>
-</div>
-
-</div>
-
+<pre>['five', 'zero', 'four']</pre>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets get everything into a dictionary so we can save it using deepdish</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># lets get everything into a dictionary so we can save it using deepdish</span>
 <span class="n">hdf5_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;text_labels&quot;</span><span class="p">:</span> <span class="n">text_labels</span><span class="p">,</span>
-    <span class="s2">&quot;train_images&quot;</span><span class="p">:</span> <span class="n">train_images</span><span class="p">,</span>
-    <span class="s2">&quot;float32_labels&quot;</span><span class="p">:</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
-    <span class="s2">&quot;int64_labels&quot;</span><span class="p">:</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="s2">"text_labels"</span><span class="p">:</span> <span class="n">text_labels</span><span class="p">,</span>
+    <span class="s2">"train_images"</span><span class="p">:</span> <span class="n">train_images</span><span class="p">,</span>
+    <span class="s2">"float32_labels"</span><span class="p">:</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+    <span class="s2">"int64_labels"</span><span class="p">:</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now lets save it as hdf5 using deepdish for simplicity</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># now lets save it as hdf5 using deepdish for simplicity</span>
 <span class="kn">import</span> <span class="nn">deepdish</span> <span class="k">as</span> <span class="nn">dd</span>
-<span class="n">dd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;myhdf5.hdf5&quot;</span><span class="p">,</span> <span class="n">hdf5_dict</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">dd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"myhdf5.hdf5"</span><span class="p">,</span> <span class="n">hdf5_dict</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="converting-the-HDF5-to-tfrecord">converting the HDF5 to tfrecord<a class="anchor-link" href="#converting-the-HDF5-to-tfrecord">&#182;</a></h3><p>Now that our data is HDF5 format, lets load it back up and convert it to tfrecord. First, we need to define functions to convert each "feature" (e.g. "one", 1, or a handwritten digit) into a tensorflow feature object. There are three types of objects, <code>_bytes_feature</code>, <code>_float_feature</code>, or <code>_int64_feature</code>. All of our data needs to be converted into this format.</p>
-
+<h3 id="converting-the-HDF5-to-tfrecord">converting the HDF5 to tfrecord<a class="anchor-link" href="#converting-the-HDF5-to-tfrecord">¶</a></h3><p>Now that our data is HDF5 format, lets load it back up and convert it to tfrecord. First, we need to define functions to convert each "feature" (e.g. "one", 1, or a handwritten digit) into a tensorflow feature object. There are three types of objects, <code>_bytes_feature</code>, <code>_float_feature</code>, or <code>_int64_feature</code>. All of our data needs to be converted into this format.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a bytes_list from a string / byte.&quot;&quot;&quot;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">"""Returns a bytes_list from a string / byte."""</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">bytes_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">BytesList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
 
 
 <span class="k">def</span> <span class="nf">_float_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a float_list from a float / double.&quot;&quot;&quot;</span>
+    <span class="sd">"""Returns a float_list from a float / double."""</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">float_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">FloatList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
 
 
 <span class="k">def</span> <span class="nf">_int64_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns an int64_list from a bool / enum / int / uint.&quot;&quot;&quot;</span>
+    <span class="sd">"""Returns an int64_list from a bool / enum / int / uint."""</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">int64_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Int64List</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets load our data back up</span>
-<span class="n">mydata</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;myhdf5.hdf5&quot;</span><span class="p">)</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># lets load our data back up</span>
+<span class="n">mydata</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"myhdf5.hdf5"</span><span class="p">)</span>
 <span class="n">mydata</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
 <div class="output_text output_subarea output_execute_result">
-<pre>dict_keys([&#39;float32_labels&#39;, &#39;int64_labels&#39;, &#39;text_labels&#39;, &#39;train_images&#39;])</pre>
-</div>
-
-</div>
-
+<pre>dict_keys(['float32_labels', 'int64_labels', 'text_labels', 'train_images'])</pre>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets see what it looks like to convert one sample into a feature</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">&#39;float32_labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">_float_feature</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">&#39;float32_labels&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># lets see what it looks like to convert one sample into a feature</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">'float32_labels'</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">_float_feature</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s1">'float32_labels'</span><span class="p">][</span><span class="mi">0</span><span class="p">])))</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>5.0 &lt;class &#39;tensorflow.core.example.feature_pb2.Feature&#39;&gt;
+<pre>5.0 &lt;class 'tensorflow.core.example.feature_pb2.Feature'&gt;
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, to convert a whole row of samples from our dataset into features, we need to serialize that example. To do this, I wrote a the function <code>serialize_example</code>, which takes as an argument the data, its name, and what type of feature it will be written as.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">serialize_example</span><span class="p">(</span><span class="n">example</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Serialize an item in a dataset</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">serialize_example</span><span class="p">(</span><span class="n">example</span><span class="p">):</span>
+    <span class="sd">"""Serialize an item in a dataset</span>
 <span class="sd">    Arguments:</span>
-<span class="sd">      example {[list]} -- list of dictionaries with fields &quot;name&quot; , &quot;_type&quot;, and &quot;data&quot;</span>
+<span class="sd">      example {[list]} -- list of dictionaries with fields "name" , "_type", and "data"</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">      [type] -- [description]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">dset_item</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">example</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">dset_item</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">example</span><span class="p">[</span><span class="n">feature</span><span class="p">][</span><span class="s2">&quot;_type&quot;</span><span class="p">](</span><span class="n">example</span><span class="p">[</span><span class="n">feature</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+        <span class="n">dset_item</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span> <span class="o">=</span> <span class="n">example</span><span class="p">[</span><span class="n">feature</span><span class="p">][</span><span class="s2">"_type"</span><span class="p">](</span><span class="n">example</span><span class="p">[</span><span class="n">feature</span><span class="p">][</span><span class="s2">"data"</span><span class="p">])</span>
         <span class="n">example_proto</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">dset_item</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">example_proto</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">()</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Lets-test-it-on-a-single-row:">Lets test it on a single row:<a class="anchor-link" href="#Lets-test-it-on-a-single-row:">&#182;</a></h4>
+<h4 id="Lets-test-it-on-a-single-row:">Lets test it on a single row:<a class="anchor-link" href="#Lets-test-it-on-a-single-row:">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">example</span> <span class="o">=</span> <span class="n">serialize_example</span><span class="p">(</span>
     <span class="p">{</span>
-        <span class="s2">&quot;float32_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;float32_labels&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">],</span>
-            <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_float_feature</span><span class="p">,</span>
+        <span class="s2">"float32_labels"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"float32_labels"</span><span class="p">][</span><span class="n">row</span><span class="p">],</span>
+            <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_float_feature</span><span class="p">,</span>
         <span class="p">},</span>
-        <span class="s2">&quot;int64_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;int64_labels&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">],</span>
-            <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">,</span>
+        <span class="s2">"int64_labels"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"int64_labels"</span><span class="p">][</span><span class="n">row</span><span class="p">],</span>
+            <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">,</span>
         <span class="p">},</span>
-        <span class="s2">&quot;text_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;text_labels&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;|S7&quot;</span><span class="p">),</span>
-            <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
+        <span class="s2">"text_labels"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">"text_labels"</span><span class="p">][</span><span class="n">row</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"|S7"</span><span class="p">),</span>
+            <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
         <span class="p">},</span>
-        <span class="s2">&quot;train_images&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;train_images&quot;</span><span class="p">][</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
-            <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
+        <span class="s2">"train_images"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"train_images"</span><span class="p">][</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
+            <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
         <span class="p">},</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">example</span><span class="p">[:</span><span class="mi">100</span><span class="p">]))</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1">...'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">example</span><span class="p">[:</span><span class="mi">100</span><span class="p">]))</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>b&#39;\n\xf6\x06\n\x1a\n\x0efloat32_labels\x12\x08\x12\x06\n\x04\x00\x00\xa0@\n\xa7\x06\n\x0ctrain_images\x12\x96\x06\n\x93\x06\n\x90\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#39;...
+<pre>b'\n\xf6\x06\n\x1a\n\x0efloat32_labels\x12\x08\x12\x06\n\x04\x00\x00\xa0@\n\xa7\x06\n\x0ctrain_images\x12\x96\x06\n\x93\x06\n\x90\x06\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'...
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Write-to-a-tfrecord-file">Write to a tfrecord file<a class="anchor-link" href="#Write-to-a-tfrecord-file">&#182;</a></h3>
+<h3 id="Write-to-a-tfrecord-file">Write to a tfrecord file<a class="anchor-link" href="#Write-to-a-tfrecord-file">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.autonotebook</span> <span class="k">import</span> <span class="n">tqdm</span> <span class="c1"># just a progressbar</span>
-<span class="n">n_observations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;float32_labels&quot;</span><span class="p">])</span>  <span class="c1"># how many items are in your dataset</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.autonotebook</span> <span class="k">import</span> <span class="n">tqdm</span> <span class="c1"># just a progressbar</span>
+<span class="n">n_observations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">"float32_labels"</span><span class="p">])</span>  <span class="c1"># how many items are in your dataset</span>
 <span class="c1"># loop through hdf5 of examples, save to tfrecord</span>
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;myfile.tfrecord&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">'myfile.tfrecord'</span><span class="p">))</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
     <span class="c1"># for each example</span>
     <span class="k">for</span> <span class="n">exi</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_observations</span><span class="p">)):</span>
         <span class="c1"># create an item in the datset converted to the correct formats (float, int, byte)</span>
         <span class="n">example</span> <span class="o">=</span> <span class="n">serialize_example</span><span class="p">(</span>
             <span class="p">{</span>
-                <span class="s2">&quot;float32_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;float32_labels&quot;</span><span class="p">][</span><span class="n">exi</span><span class="p">],</span>
-                    <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_float_feature</span><span class="p">,</span>
+                <span class="s2">"float32_labels"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"float32_labels"</span><span class="p">][</span><span class="n">exi</span><span class="p">],</span>
+                    <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_float_feature</span><span class="p">,</span>
                 <span class="p">},</span>
-                <span class="s2">&quot;int64_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;int64_labels&quot;</span><span class="p">][</span><span class="n">exi</span><span class="p">],</span>
-                    <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">,</span>
+                <span class="s2">"int64_labels"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"int64_labels"</span><span class="p">][</span><span class="n">exi</span><span class="p">],</span>
+                    <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">,</span>
                 <span class="p">},</span>
-                <span class="s2">&quot;text_labels&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;text_labels&quot;</span><span class="p">][</span><span class="n">exi</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;|S7&quot;</span><span class="p">),</span>
-                    <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
+                <span class="s2">"text_labels"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">string_</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">"text_labels"</span><span class="p">][</span><span class="n">exi</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"|S7"</span><span class="p">),</span>
+                    <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
                 <span class="p">},</span>
-                <span class="s2">&quot;train_images&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">&quot;train_images&quot;</span><span class="p">][</span><span class="n">exi</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
-                    <span class="s2">&quot;_type&quot;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
+                <span class="s2">"train_images"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="n">mydata</span><span class="p">[</span><span class="s2">"train_images"</span><span class="p">][</span><span class="n">exi</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
+                    <span class="s2">"_type"</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">,</span>
                 <span class="p">},</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="c1"># write the defined example into the dataset</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tqdm/autonotebook/__init__.py:14: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
-  &#34; (e.g. in jupyter console)&#34;, TqdmExperimentalWarning)
+  " (e.g. in jupyter console)", TqdmExperimentalWarning)
 </pre>
 </div>
 </div>
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
-
-
-
- 
- 
-<div id="25acff0c-aa0c-4b80-876c-775c40d75d87"></div>
-<div class="output_subarea output_widget_view ">
+<div id="c8f7c9c9-b62c-4150-afde-b4992bb85f49"></div>
+<div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#25acff0c-aa0c-4b80-876c-775c40d75d87');
+var element = $('#c8f7c9c9-b62c-4150-afde-b4992bb85f49');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "d9788f25d63e446d874b6b406799b036", "version_major": 2, "version_minor": 0}
 </script>
 </div>
-
 </div>
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 </pre>
 </div>
 </div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reading-the-data-back">Reading the data back<a class="anchor-link" href="#Reading-the-data-back">&#182;</a></h2><p>I'm showing two ways to read the dataset back. The first is a quick way to grab the data, and the second is more relevant for reading  data into your tensorflow pipeline.</p>
-
 </div>
 </div>
 </div>
@@ -1535,194 +1434,166 @@ var element = $('#25acff0c-aa0c-4b80-876c-775c40d75d87');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Read-dataset-with-numpy-+-ParseFromString">Read dataset with numpy + ParseFromString<a class="anchor-link" href="#Read-dataset-with-numpy-+-ParseFromString">&#182;</a></h4>
+<h2 id="Reading-the-data-back">Reading the data back<a class="anchor-link" href="#Reading-the-data-back">¶</a></h2><p>I'm showing two ways to read the dataset back. The first is a quick way to grab the data, and the second is more relevant for reading  data into your tensorflow pipeline.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Read-dataset-with-numpy-+-ParseFromString">Read dataset with numpy + ParseFromString<a class="anchor-link" href="#Read-dataset-with-numpy-+-ParseFromString">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># dataset class https://www.tensorflow.org/api_docs/python/tf/data/TFRecordDataset</span>
-<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;myfile.tfrecord&quot;</span><span class="p">)])</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># dataset class https://www.tensorflow.org/api_docs/python/tf/data/TFRecordDataset</span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="s2">"myfile.tfrecord"</span><span class="p">)])</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a &#39;Dataset&#39; with at most &#39;count&#39; elements</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create a 'Dataset' with at most 'count' elements</span>
 <span class="n">dset</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># grab a single element from that dataset</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># grab a single element from that dataset</span>
 <span class="n">element</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dset</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="c1"># a &quot;Feature message&quot; https://www.tensorflow.org/api_docs/python/tf/train/Example</span>
+<span class="c1"># a "Feature message" https://www.tensorflow.org/api_docs/python/tf/train/Example</span>
 <span class="n">example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">()</span>
 <span class="c1"># parse the element in to the example message</span>
 <span class="n">example</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[15]:</div>
-
-
-
-
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;float32_labels&#39;, &#39;int64_labels&#39;, &#39;text_labels&#39;, &#39;train_images&#39;]</pre>
-</div>
-
-</div>
-
+<pre>['float32_labels', 'int64_labels', 'text_labels', 'train_images']</pre>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="c1"># grab a single element from that dataset</span>
     <span class="n">element</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dset</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span>
-    <span class="c1"># a &quot;Feature message&quot; https://www.tensorflow.org/api_docs/python/tf/train/Example</span>
+    <span class="c1"># a "Feature message" https://www.tensorflow.org/api_docs/python/tf/train/Example</span>
     <span class="n">example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">()</span>
     <span class="c1"># parse the element in to the example message</span>
     <span class="n">example</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
     <span class="c1"># subset the syllable</span>
-    <span class="n">img_buff</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="p">)[</span><span class="s1">&#39;train_images&#39;</span><span class="p">]</span>
+    <span class="n">img_buff</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="p">)[</span><span class="s1">'train_images'</span><span class="p">]</span>
     <span class="c1"># convert the buffer into a uint8</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">decode_raw</span><span class="p">(</span><span class="n">img_buff</span><span class="o">.</span><span class="n">bytes_list</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
     <span class="c1"># show the image</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
-    <span class="n">string_label</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="p">)[</span><span class="s1">&#39;text_labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">bytes_list</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> 
+    <span class="n">string_label</span> <span class="o">=</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="p">)[</span><span class="s1">'text_labels'</span><span class="p">]</span><span class="o">.</span><span class="n">bytes_list</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> 
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">string_label</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,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NXbs2NwLQ/Kq+j43atQol8Xea15xxRUuKy0tddm2DP+IueCCC6q9dubMmdE8weEfWePOGQAAAAAkgOYMAAAAABJAcwYAAAAACaA5AwAAAIAEMBCkhsUeavzrX//qst/+9rcuW7BgQfSc++yzT+6FoU744osvXDZ69OjosXfffbfLWrdu7bLZs2e7bI899nDZpk2bsikxSe+//36hSyga//jHP7I6Ll8DXorBZZdd5rLly5dHj913331dVtVgHdQ/69atc9lRRx2V0zmvuuoql+255545nRPpufXWW10WG/whxQd4DB061GWXXnqpyxo3bpxVPbH3K5L02muvuWzRokUuCyG4LDbgpEePHlnVU0y4cwYAAAAACaA5AwAAAIAE0JwBAAAAQAJozgAAAAAgAQwEqWGxB7tvv/12l82dO9dlVT30e/TRR7vsRz/6kcuOOeYYl8X+xXcUrw8++MBlscEfVfnLX/7isi5dumS1tlmzZllfB3XfAQccUOgSalR5ebnLXn75ZZfFXs9nzpyZ9XViD7Q3bdo06/Wo25555hmXPf/881mvP+6441x2xhln5FISErRx40aXjR071mVVvQeMDf+YPn16tetZs2aNy0444YTosU899VRW5/zJT37isuHDh29bYUWKO2cAAAAAkACaMwAAAABIAM0ZAAAAACSA5gwAAAAAEsBAkDzYfvvtXTZ79myXDRgwILp+4sSJWWWxhzmHDBnispYtW0avg/T97Gc/c1kIIXpsbEBMtsM/isWWLVtc1qCB/5lTVX9HqL5169bV+DmXL1/ustj/43nz5rns/fffd9nnn3/usptuuil67c2bN7usRYsWLuvXr5/LYgM9Nm3aFL3OXnvtFc1R/7z00ksuO/3007Nef8QRR7hs6tSpLmPgTN0Te71auXJl1usnTJjgsg0bNrhs1qxZLosNQHrhhRdc9vHHH0evHRtSEsvOPvtsl8WG7tVF3DkDAAAAgATQnAEAAABAAmjOAAAAACABNGcAAAAAkACaMwAAAABIANMaC6Rnz54uW7BgQfTYUaNGuezBBx902bBhw1z27rvvuuziiy+OXqdVq1bRHIUxf/58l/35z392WWzKkSQdd9xxNV5TamKTGWN/Hz169MhHOXVC8+bNXRb7Oz3yyCNd1rVr15yuHZv4FZu02aiR/9YVm0J7wAEHuGz06NHRa/fq1ctl3bp1c1lsgmP79u1dFpt8Jklt27aN5qjbYtNNDzzwwJzOuccee7gstj9R9zRs2NBlO+64o8tWrFgRXR+bIl7Ve4ls7Lrrri777ne/Gz22rKzMZe3atXNZ9+7dq11PsePOGQAAAAAkgOYMAAAAABJAcwYAAAAACaA5AwAAAIAEMBAkITvttFM0nzFjhstGjBjhsr59+7ps3LhxLnvrrbei15k5c+a3VIh82rhxo8vKy8tdtvPOO0fXDxo0qMZryocvvvjCZZMnT856/bHHHuuyMWPG5FRTfXLNNde4bPfdd3fZ008/XePX7ty5s8tOOukkl8UGIXTq1KnG64l57LHHXBZ76H7PPffMRzkoEjfeeKPLYgONtkVpaWlO61G8mjZt6rJnn33WZVUNnVm1apXLvve977ns1FNPddlpp53mstggmthaKT4QZOTIkdFj6yvunAEAAABAAmjOAAAAACABNGcAAAAAkACaMwAAAABIAANBikDswc/evXu7LPYvxseGK/zud7+LXic2KKRr165ZVIhCiu0PSWrZsmWeK9l2sf3561//2mWXXHJJdH3Hjh1ddtlll7mspKRk24vDv5x++ulZZfXBo48+mtVxw4YNq+VKkKply5a5bNasWdU+35lnnhnN27ZtW+1zou6JfT+MDSuqDYsWLXJZVe81Y4NwGKD0Vdw5AwAAAIAE0JwBAAAAQAJozgAAAAAgATRnAAAAAJAABoIkZPny5dH84YcfdtkLL7zgsthwhZj9998/mnfp0iWr9UjLqaeeWugSshJ7SP6GG25w2S233OKyqh6Inzp1au6FAbVg8ODBhS4BBdKjRw+XrV69Oqu1/fv3d9mUKVNyrgmoTRs3bnRZbPCHJJmZywYOHFjjNRUz7pwBAAAAQAJozgAAAAAgATRnAAAAAJAAmjMAAAAASAADQfJg1apVLrv55ptddscdd0TXL126tNrXbtiwocti/4q8FH9IE4UTQsgqmzFjRnT95ZdfXtMlZe2+++5z2bnnnuuytWvXuuy8885z2YQJE2qmMACoZR9++KHLqhqO8HWlpaUuKykpybkmoDZ9//vfL3QJdQp3zgAAAAAgATRnAAAAAJAAmjMAAAAASADNGQAAAAAkgOYMAAAAABLAtMYcrF+/3mWPPPKIy6655hqXvf322zVez2GHHeay8ePHu+yHP/xhjV8bNS82PTOWVTXNM7bvzjrrLJe1atXKZQsWLHDZbbfd5rJnnnkmeu3Fixe7bPfdd3fZ0KFDXRab1gikLDZFdcmSJdFjd9ttt9ouB3k0evRol23ZsqXa59t3331zKQcoiNdff73QJdQp3DkDAAAAgATQnAEAAABAAmjOAAAAACABNGcAAAAAkAAGgnzNhg0bonlZWZnLTjnlFJfNnz+/xmvq16+fy66++mqX7b///i6LDZBA3bJ58+ZoHhsIMm3aNJdtv/32Lsv14d6BAwe6bMCAAS77+c9/ntN1gBTEXmdzGQqB9Cxbtiyaz5o1y2UNGvifezdp0sRlV155pctatGhRjeqAwnrvvfcKXUKdwp0zAAAAAEgAzRkAAAAAJIDmDAAAAAASQHMGAAAAAAmoNwNBPvvsM5ddcMEFLnv22Wej6998880arefwww932RVXXBE9tlu3bi5r3LhxjdaD9Oy9994u69u3r8ueeOKJrM+5dOlSl1X1oPvX7bDDDi4bOXJk9NjLL78865qAuujJJ5+M5n369MlzJagJ69evj+bZvn527NjRZaWlpbmUBCSjZ8+eLqtqKFJsYA6+ir8hAAAAAEgAzRkAAAAAJIDmDAAAAAASQHMGAAAAAAko+oEgixcvdtl1113nstjQhCVLltR4Pc2bN3fZ2LFjXfbTn/7UZSUlJTVeD4rXd77zHZfNmjXLZXfddVd0/XnnnVfta1977bUuGz58uMvatGlT7WsAdUUIodAlAEDB7LTTTi7bZ599ose+8cYbLlu5cqXLOnXqlHthRYo7ZwAAAACQAJozAAAAAEgAzRkAAAAAJIDmDAAAAAASUPQDQR566CGXTZs2rdrn6969ezQ/8cQTXdaokf/rO+ecc1zWtGnTatcDVNayZUuXxYbLfFMOoPqGDBnisltvvbUAlSCfdtlll2g+aNAglz3yyCO1XQ6QvIkTJ0bz/v37u+ySSy5x2ZQpU1zWrl273AsrAtw5AwAAAIAE0JwBAAAAQAJozgAAAAAgATRnAAAAAJAACyHk83p5vRjqJMvz9dizyBV7FsWGPYtik+89K7Fvv1F5eXk0P/PMM132wAMPuGz48OEumzRpkstKSkqqUV0yovuWO2cAAAAAkACaMwAAAABIAM0ZAAAAACSA5gwAAAAAEkBzBgAAAAAJYFojig1TxFBs2LMoNuxZFBumNRaJ2BTH8ePHu2zs2LEuW7ZsmcvatWtXM4UVBtMaAQAAACBVNGcAAAAAkACaMwAAAABIAM0ZAAAAACSAgSAoNjyojmLDnkWxYc+i2DAQBMWIgSAAAAAAkCqaMwAAAABIAM0ZAAAAACSA5gwAAAAAEpDvgSAAAAAAgAjunAEAAABAAmjOAAAAACABNGcAAAAAkACaMwAAAABIAM0ZAAAAACSA5gwAAAAAEvD/hNeoyUSDgagAAAAASUVORK5CYII=
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="read-the-dataset-directly-into-tensorflow">read the dataset directly into tensorflow<a class="anchor-link" href="#read-the-dataset-directly-into-tensorflow">&#182;</a></h3><p>This will be be more useful for feeding directly into your graph. We need to parse this data back into its original data format, which tensorflow tensorflow doesnt store. The function below is taking an example from the dataset, reading it, and parsing it back into its original data type</p>
-
+<h3 id="read-the-dataset-directly-into-tensorflow">read the dataset directly into tensorflow<a class="anchor-link" href="#read-the-dataset-directly-into-tensorflow">¶</a></h3><p>This will be be more useful for feeding directly into your graph. We need to parse this data back into its original data format, which tensorflow tensorflow doesnt store. The function below is taking an example from the dataset, reading it, and parsing it back into its original data type</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tensorflow.io</span> <span class="k">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_dtype_to_tf_feattype</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; convert tf dtype to correct tffeature format</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_dtype_to_tf_feattype</span><span class="p">(</span><span class="n">dtype</span><span class="p">):</span>
+    <span class="sd">""" convert tf dtype to correct tffeature format</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">]:</span>
         <span class="k">return</span> <span class="n">dtype</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_parse_function</span><span class="p">(</span><span class="n">example_proto</span><span class="p">,</span> <span class="n">data_types</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; parse dataset from tfrecord, and convert to correct format</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_parse_function</span><span class="p">(</span><span class="n">example_proto</span><span class="p">,</span> <span class="n">data_types</span><span class="p">):</span>
+    <span class="sd">""" parse dataset from tfrecord, and convert to correct format</span>
+<span class="sd">    """</span>
     <span class="c1"># list features</span>
     <span class="n">features</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">lab</span><span class="p">:</span> <span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">_dtype_to_tf_feattype</span><span class="p">(</span><span class="n">dtype</span><span class="p">))</span>
@@ -1741,130 +1612,103 @@ var element = $('#25acff0c-aa0c-4b80-876c-775c40d75d87');
     <span class="p">]</span>
     <span class="k">return</span> <span class="n">parse_list</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># read the dataset</span>
-<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;myfile.tfrecord&quot;</span><span class="p">)])</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># read the dataset</span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="s2">"myfile.tfrecord"</span><span class="p">)])</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_types</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;float32_labels&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
-    <span class="s2">&quot;int64_labels&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
-    <span class="s2">&quot;text_labels&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
-    <span class="s2">&quot;train_images&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">data_types</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"float32_labels"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+    <span class="s2">"int64_labels"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+    <span class="s2">"text_labels"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+    <span class="s2">"train_images"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># parse each data type to the raw dataset</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># parse each data type to the raw dataset</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">_parse_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data_types</span><span class="o">=</span><span class="n">data_types</span><span class="p">))</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># shuffle the dataset</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># shuffle the dataset</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="c1"># create batches</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">float32_labs</span><span class="p">,</span> <span class="n">int64_labs</span><span class="p">,</span> <span class="n">string_labs</span><span class="p">,</span> <span class="n">images</span>  <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">float32_labs</span><span class="p">,</span> <span class="n">int64_labs</span><span class="p">,</span> <span class="n">string_labs</span><span class="p">,</span> <span class="n">images</span>  <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="c1"># show the image</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
-    <span class="n">string_label</span> <span class="o">=</span> <span class="n">string_labs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> 
+    <span class="n">string_label</span> <span class="o">=</span> <span class="n">string_labs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> 
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">string_label</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area">
-
 <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA2cAAAC1CAYAAADbVYfcAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADl0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uIDMuMC4yLCBodHRwOi8vbWF0cGxvdGxpYi5vcmcvOIA7rQAAGb1JREFUeJzt3X10VeWVx/G9IUBCAggWeZMXRQUVFDGYQl1QUaZWZHRZ0EJF6nsVpFpHUaAWXSIwOkuEQamiY0VBfGlRK8uKqAhLgbZCC6PyahB5ERCBgIAYnvkjcSaT/QRPcu8997k3389arCW/dc55nos7l7s5OTvqnBMAAAAAQHrVSfcGAAAAAAA0ZwAAAAAQBJozAAAAAAgAzRkAAAAABIDmDAAAAAACQHMGAAAAAAGgOYuRqo5W1RkRjx2nqs+mek/A96FukS2qU8sAAKRDTro3UJs45x5I1rVUtVhErnPOvZWsawI+1C2yRTJrGQCAVODOGQAAAAAEgOYsBVS1taq+rKo7VPVTVR1Znv+/b/lS1atUdaOqfqmqv1XVYlW9oMKl6qvqM6paoqr/raqF5efNFJF2IvKaqu5T1TtjfYHIStQtsomqjlLVzeV1uFpVz69Yy6p6hapuUNXG5b//qapuU9Xm6d05sk0VtVhHVe9S1fXl76UvqGqz8uPfUNURla7xD1W9rPy/O6vqfFXdVX69yysc97SqTlPV18vXW6qqHeN9xcgG1G360JwlmarWEZHXROQfItJGRM4XkVtV9SeVjjtNRB4VkV+ISCsRaVJ+fEX/KiLPi8gxIvKqiPyniIhzbqiIfCYiA5xzBc65f0/ZC0KtQN0im6hqJxEZISI9nHONROQnIlJc8Rjn3BwR+UBEpqjqsSLypJR9y+2OmLeLLHaUWhwpIpeKSB8RaS0iX4nItPLTZonI4ArXOE1E2ovI66qaLyLzy485rvy4R1X19ArLDhaRe0WkqYisE5HxKXp5yFLUbXrRnCVfDxFp7py7zzn3jXNug4g8ISI/r3TcQBF5zTm32Dn3jYjcIyKu0jGLnXPznHOlIjJTRM5M9eZRa1G3yCalItJARE5T1XrOuWLn3HrPccNFpK+IvCtldf3nGPeI2qGqWrxRRMY45z53zh0SkXEiMlBVc0TkTyLSTVXbl1/jFyLyx/LjLhaRYufcfznnvnXOfSgiL0vZe/N3/uicW+ac+1ZEnhORbnG8UGQV6jaNaM6Sr72ItFbV3d/9EpHRItKi0nGtRWTTd79xzn0tIl9WOmZbhf/+WkRyy78AgGSjbpE1nHPrRORWKfvgsF1Vn1fV1p7jdovIiyLSRUT+I9ZNolY4Si22F5E/VXi//VjKPhC3cM6ViMjr8n//OPZzKfuwKuXnFVV6r/6FiLSssGzl9+CC1Lw6ZCvqNr1ozpJvk4h86pw7psKvRs65iyodt1VEjv/uN6qaJyLHVmOdyncrgERQt8gqzrlZzrlzpexDgRORSZWPUdVuInKNiMwWkSnx7hC1RRW1uElEflrpPTfXObe5/LTZIjJYVXuKSJ6IvFOebxKRhZXOK3DO3RTzy0KWo27Th+Ys+ZaJyN7yBynzVLWuqnZR1R6VjntJRAaoai9VrS9l32er1VjnCxE5MUl7BqhbZA1V7aSqfVW1gYgcFJEDUvavuxWPyRWRZ6XsDvHVItJGVW+OfbPIakepxekiMv67bwFT1eaqekmFU+dJ2Yfi+0RkjnPuSHn+ZxE5RVWHqmq98l89VPXU2F4Ush51m140Z0lW/pzNACn7XtlPRWSniMyQssEJFY/7bxG5RcoGJ2wVkRIR2S4ihyIuNUFExpbfHv635OwetRV1iyzTQEQmSlkdb5OyB9BHVzpmgoh87px7rPyZiCtF5H5VPTnWnSLbVVWLj0jZwKQ3VbVERJaISNF3J5XX5B9F5AIpG6LwXV4iIv8iZd8ytqX8mpPK1wGShbpNI3WO7zIKgaoWiMhuETnZOfdpuvcDREHdAgAAJA93ztJIVQeoasPyEaMPichKqTTuGQgNdQsAAJAaNGfpdYmU3d7dIiIni8jPHbcyET7qFgAAIAX4tkYAAAAACAB3zgAAAAAgADRnAAAAABAAmjMAAAAACADNGQAAAAAEgOYMAAAAAAJAcwYAAAAAAaA5AwAAAIAA0JwBAAAAQAByYl6Pn3iNRGnM61GzSBQ1i0xDzSLTxF2zItQtEuetW+6cAQAAAEAAaM4AAAAAIAA0ZwAAAAAQAJozAAAAAAgAzRkAAAAABIDmDAAAAAACQHMGAAAAAAGgOQMAAACAANCcAQAAAEAActK9AQAAss2BAwe8+cUXX2yyHj16mGzixIlJ3xMAIHzcOQMAAACAANCcAQAAAEAAaM4AAAAAIAA0ZwAAAAAQAJozAAAAAAiAOufiXC/WxZCVNOb1qFkkiprNch9//LHJLrjgAu+xW7ZsMdnKlStN1qVLl8Q3VnPULDJN3DUrQt0icd665c4ZAAAAAASA5gwAAAAAAkBzBgAAAAABoDkDAAAAgADkpHsDtYFv6Mo777xjsptuusl7/po1a0zme1j8xhtvNNmwYcNMlpeX512nbt26JlNNxzO2ABAm3/CPnj17mmzPnj3e8y+99FKTnXTSSYlvDACQFbhzBgAAAAABoDkDAAAAgADQnAEAAABAAGjOAAAAACAA6htWkUJZ/9PUDx8+bLKZM2ea7Prrr49jO9UyZswYk919990mq2qgSEzinlCS9TUbmvnz55ts0KBB3mNXrlxpsrZt2yZ9TwmiZjPUli1bTOYb3nHgwAGTNWvWzHvNTZs2maxhw4Y12F1KUbPINOmYXkbdIlHeuuXOGQAAAAAEgOYMAAAAAAJAcwYAAAAAAaA5AwAAAIAA5KR7A5lsz549JuvTp4/JfEMLUqFp06YmKy0tNdnevXu9548fP95kderY/n3cuHHV3xwynq/e586d6z126tSpJjvvvPNM1qVLF5M9+eSTkdYWEfnhD39oss2bN3uPBY7m4MGDJrvmmmtM5hv+kZNj/yqdM2eOd50Ah3/Uar73locffthkZ599tvf8Hj16mMz3HnTccceZbPHixZGuV1BQ4F07ES+99JLJ7r33Xu+xvvfzAQMGmCw/Pz/xjQHgzhkAAAAAhIDmDAAAAAACQHMGAAAAAAGgOQMAAACAAKhzsf6A84z9aepHjhwx2fDhw032+OOPJ33tBg0amGzSpEkmu/baa0324Ycfmsw3tKQqvoeT33vvPZPVr18/8jUT5P1p6imUsTXrs3PnTpMtWLDAZBMmTDDZ2rVrTeYbjhAn30P227ZtS8NOjoqaDYhv8IeIyOjRo03mGwzhc//995tszJgx1dtYWGpNzS5cuNBk559/fuTzfZ+hVJP7x1fV57R0rvOjH/3IZL4/yxjFXbMiMdXthg0bTFZYWGiy999/32SdO3dOyZ7S5ZNPPjHZ9u3bvcf27t071dtJBm/dcucMAAAAAAJAcwYAAAAAAaA5AwAAAIAA0JwBAAAAQAAYCBLR7t27TXbssccmdY02bdp48+nTp5vsoosuinTNr776ymRdu3b1Hrt169ZI19y3b5/J8vLyIp2bBLXmQfVEvfvuuya74YYbTLZu3bqkrz106FCTdejQwWS7du0y2bRp0yKv89xzz5ls8ODBkc+PCTUbkNtuu82bT548OdL5Dz74oMluv/12kyV7WEPMak3N+j4DLVq0yGSzZ8/2nr906VKT+d5nfc466yyTLV++3GTVGdSxf/9+k40aNSrSfk488URv/pvf/MZkvXr1MtkZZ5wRaZ0UydqBICtWrDCZb1hbt27dTOarZRGR3NzcxDeWYh999JHJfAPtDh8+7D3f97k9QAwEAQAAAIBQ0ZwBAAAAQABozgAAAAAgADRnAAAAABAAmjMAAAAACEBOujcQmoMHD3rzO++8M6nr+KYb+qbriVQ9QSmKhg0bmiw/Pz/y+YMGDTJZvXr1arwfJGb79u0mq2q64QMPPGCy0tLSGq991VVXmey3v/2t99j27dubLCfHvt289957JvO9nqpqtnv37t4ctY9vot0zzzxjsilTpnjP902+830N+SbXZfhkxlrN9/+ud+/ekbJUKCoqSuj8P/zhDzU+1zf9VsQ/GRDx8U1hPO+880y2YMECk5199tnea/bv399kd9xxh8maN28eZYuyYcMGk61ZsybSuSL+KeC/+tWvTOabQN6oUaPI62QK7pwBAAAAQABozgAAAAAgADRnAAAAABAAmjMAAAAACID6HqJOoVgXqwnfQ4kiIk2aNKnxNTt16mSyl19+2WSnnnpqjdeoim+dyy+/PPL5voEP48aNS2RLiYr7yfuganbs2LEm8w0tqIpvuMxdd91lsoEDB5qsoKDAZL4hH1XxDTPp2LGjyfbv32+ydu3aea9ZXFwcef00qtU1GxdfHU+aNCny+b6vo7vvvjuhPWUwajYD7Nq1y2S+99SSkhKTDR8+3GSPPPJIcjaWHumYypO2uvUNr3vwwQdNNnnyZO/5u3fvNlmDBg1MFvXveN9+EhlAVh1VDQTxvcYAeeuWO2cAAAAAEACaMwAAAAAIAM0ZAAAAAASA5gwAAAAAAhD9af5aok4df7963HHHmcw34MDHd9yLL75osquvvtp7/ubNm01Wv359k/mGmVx//fVRtlilNm3aJHQ+kuuJJ55I6Pw333zTZL4hIanw7bffmsw3/MOnV69eyd4OMpjv68D3MLxPUVGRN//1r3+d0J6AuK1evdpke/fujXRus2bNkr0dxCg3N9dkvgFuI0eO9J6/fPlyk40ZM8ZkS5YsibQf33DBpk2beo8955xzTHbo0CGTLVy4MNLagwcPjnRcJuHOGQAAAAAEgOYMAAAAAAJAcwYAAAAAAaA5AwAAAIAAqO8hvhRK209TT9Rdd91lsqgPoGeKVq1amWzt2rUmy8vLi2M7VfH+NPUUCqpmH330UZONGDEi8vnXXXedyUaPHm2yDh06VGtfUWzZssVkxx9/fKRz//KXv3jzfv36JbSnmNTqmk3Utm3bTNa2bVuT+QbOnHrqqSZbunSpd51GjRrVYHdZi5rNAE899ZTJbrjhhkjn+oZH/O53v0t4T2kUd82KZFndHj582GS+gXSrVq2KdD3f4A8R/4A933Cwxo0bR1rn888/9+a+z7QB8tYtd84AAAAAIAA0ZwAAAAAQAJozAAAAAAgAzRkAAAAABICBIBF98sknJjv99NPTsJPU+fjjj012yimnpGEnR1WrH1T3PTQ7aNAg77FvvPFGpGs2bdrUZL4BHIWFhZGuVxXfA+jjx483Wbt27Uz20Ucfea/ZsGHDhPYUk1pds9WxceNGk/Xs2dNkW7duNVmTJk1Mtnz5cpOdcMIJNdxdrULNZoCBAweabO7cuSarX7++ydatW2ey1q1bJ2dj6cFAkAzme6/2febwZYsWLfJe01f3AWIgCAAAAACEiuYMAAAAAAJAcwYAAAAAAaA5AwAAAIAA5KR7A5miZcuW6d5CyrVo0SLdW8D3yM/PN9mLL77oPfbWW2812ezZs0321VdfmezCCy802ZVXXmmy22+/3bv2l19+abLp06d7j63snnvuMVmGDP5Agl599VWT+YZ/+Oph3rx5JqvO8I8DBw6YbM+ePSZbtWqVyVasWGGyESNGeNfJzc2NvCdkj5KSkkjHNWrUyGTffPON91jf8CSf/v37myzDh38gyyxcuDDScUVFRSbLkMEf1cKdMwAAAAAIAM0ZAAAAAASA5gwAAAAAAkBzBgAAAAABoDkDAAAAgACocy7O9WJdrCY2bNjgza+++mqTLV68ONXbidWuXbtM1qRJkzTs5Kg05vWCr9nqKC4uNtkDDzxgsueff95k+/btM9kxxxzjXadu3bom801w9E3dW7Jkicm6dOniXSdDULOV+GpJROTkk0822bZt20zWt29fky1YsCDS2qWlpd587NixJps4cWKka/p07tzZm7/yyismO+WUU2q8TorU6ppduXKlyar6bLB9+3aTzZgxw2RffPFFpLV9U5Or+npZvXp1pGsWFBSY7K233jJZYWFhpOsFKu6aFQmsbjPZWWedZbJ//vOfJps8ebLJbrnllpTsKSbeuuXOGQAAAAAEgOYMAAAAAAJAcwYAAAAAAaA5AwAAAIAA1OqBIL4Hw4cNG+Y9dvbs2ZGuedppp5ns2WefNdm0adMiXU9E5KSTTjLZkCFDTLZo0SKTXXnllZHXYSCIV1A1Gxffw++jR4822QsvvJDQOmeeeabJli9fntA1A0TNVvLkk0968+uuuy7S+b4a6dq1q8nmzZtnMl8di4isWrUq0trt27c32caNGyOdKyIydOhQkz3zzDORz49JVtas7++4E0880WQlJSWRr+n7DKWa3D++I0eOePM6dWr+7+s/+MEPTDZw4EDvsdX5vJJGDATJYI0bNzbZ/v37TbZ+/XqTdejQIRVbigsDQQAAAAAgVDRnAAAAABAAmjMAAAAACADNGQAAAAAEICfdG0gn39CDqIM/qtKnTx+T+YYePP744wmt4/Paa68l/ZqonXwPyY8bN85k1RkI4ntw3vdw77vvvmuyoqIi7zXz8vIir49wdOnSJaHzDx06ZLKdO3eabOTIkSYrLi72XrNjx44mGzx4sMmGDx9uslGjRpmsqiEfb7/9tsm2bdtmspYtW3rPR801a9bMZPn5+Sbbt2+fyXzDvkT8g2iWLl1qMl+NrFixwmS//OUvTVbVYK6HH37YZE888YT32Mreeecdk/n+LIBkmzVrlsl8Q3geeughk2X48I/IuHMGAAAAAAGgOQMAAACAANCcAQAAAEAAaM4AAAAAIAC1eiBIdYYZRDVkyJCkX9Nn7969Jvvb3/4Wy9qonWbOnBn5WN+gjuOPP95ka9euNVnfvn1N9vTTT3vXueqqqyLvCeFYs2ZNQuf7HiifMWOGyb7++muT+QY0iYgsW7Ys0vnnnHOOyXx1rKredf7617+ajOEf6bNu3TqT+f4fNW7c2Hv+GWecYbLDhw+brEGDBjXY3dFNnTrVZHPnzjXZjh07TPb666+b7I477kjOxgAR2bJlizcfMWKEyXJzc03Wv3//pO8pU3DnDAAAAAACQHMGAAAAAAGgOQMAAACAANCcAQAAAEAAavVAkER16tTJZIWFhUlfx/eT0wcMGGCy9evXR7re6aef7s3r169fvY0ha/keNH/qqacin//YY4+Z7PLLLzfZtddea7LZs2eb7J577vGuw0CQzNSvXz9v3rBhQ5P5hnJMmTKlxmtfcskl3nzChAkm8w2iKSgoMJlvuFTXrl2967Rq1ep7dog4+YYX9e7dO6FrpmL4h09Ojv0IV6dOtH9z931dAcm0Z8+eyPnPfvYzk3Xu3Dnpe8oU3DkDAAAAgADQnAEAAABAAGjOAAAAACAANGcAAAAAEACaMwAAAAAIANMaE7Bu3TqT+SZ+devWLdL1fv/733vzv//97ybbuXNnpGv6JjM+8sgj3mN9U6uQXQ4fPmwyXx2PHz/eZF988YXJfvzjH3vXufTSS01Wr149k/Xq1ctkvmmNu3fv9q6zceNGk7Vv3957LMLRsmVLb7527VqTtWnTJqlr33fffd5cVU3mm+z43HPPmcw3ZRIAaosjR46YbOLEiZHPv//++5O5nYzHnTMAAAAACADNGQAAAAAEgOYMAAAAAAJAcwYAAAAAAVDnXJzrxbrY9zlw4IDJ+vXr5z32gw8+SPV2UmLWrFkmu+KKK9Kwk6SxT+2nVlA1m6j333/fZOeee26kczt16mSyqr4ucnNzTfbZZ5+ZrHPnzpHWbteunTcvLi6OdH6aUbMRlZaWmuzCCy802VtvvWWywsJCk/Xp0yfy2kOGDDFZ9+7dI5+fZajZDNW6dWuT+YY5TZkyxWTDhw9PyZ5iEnfNilC3/+uVV14x2WWXXRb5/IMHD5rMN0QsC3nrljtnAAAAABAAmjMAAAAACADNGQAAAAAEgOYMAAAAAAKQk+4NpFNeXp7Jxo8f7z22b9++qd5OwtauXWuyE044IQ07QTZavXq1ye68807vsW+//bbJNmzYEGmdtm3bmmz69OmRzkVmq1u3rsnmz5+fhp0AmUnVzhfwZb7PP0BNrVy5MvKxvkFgvhqtzbhzBgAAAAABoDkDAAAAgADQnAEAAABAAGjOAAAAACAAtXogiE/v3r29eUlJicn69etnsiVLliR9T7fddpvJxo4da7ImTZqYjIcsUVGdOvbfY3w14pyLlM2YMSPy2r51fMM/li5darIWLVpEXgcAaqv8/PxIx23atCnFOwH8Bg4caLKcHNqRirhzBgAAAAABoDkDAAAAgADQnAEAAABAAGjOAAAAACAA6nvIP4ViXQxZKe4JJ1lfs/PmzTPZzTffbLKNGzearGPHjt5rjho1ymRt2rQx2UUXXRRli5mOmkWmoWYz1GOPPWayW265xWTLli0zWffu3VOyp5ikY/oZdVuuqKjIZKWlpd5jFy9ebLLc3Nyk7ylDeOuWO2cAAAAAEACaMwAAAAAIAM0ZAAAAAASA5gwAAAAAAsBAEGQaHlRHpqFmkWmo2Qy1Y8cOk7Vq1cpkmzdvNlmLFi1SsqeYMBAkJkuXLjVZz549TTZo0CDv+XPmzEn6njIYA0EAAAAAIFQ0ZwAAAAAQAJozAAAAAAgAzRkAAAAABIDmDAAAAAACkJPuDQAAACBxzZs3N9m3336bhp0gWzVt2tRkw4YNM9nUqVPj2E5W4s4ZAAAAAASA5gwAAAAAAkBzBgAAAAABoDkDAAAAgACocy7O9WJdDFlJY16PmkWiqFlkGmoWmSbumhWhbpE4b91y5wwAAAAAAkBzBgAAAAABoDkDAAAAgADQnAEAAABAAOIeCAIAAAAA8ODOGQAAAAAEgOYMAAAAAAJAcwYAAAAAAaA5AwAAAIAA0JwBAAAAQABozgAAAAAgAP8DsiNr5RePWTEAAAAASUVORK5CYII=
-"
->
-</div>
-
-</div>
-
+"/>
 </div>
 </div>
-
 </div>
- 
-
+</div>
+</div>
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');

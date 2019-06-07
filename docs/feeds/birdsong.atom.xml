@@ -977,7 +977,6 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In September I published a short conference paper at &lt;a href="https://ccneuro.org/2019/"&gt;CCN&lt;/a&gt; 2018, which is a new (2017) conference that is focused on the interface between computational neuroscience, cognitive science, and arfficial intelligence.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://ccneuro.org/2018/Papers/ViewPapers.asp?PaperNum=1147"&gt;My conference paper&lt;/a&gt; was selected for an oral presentation, which is embedded below. The topic of the presentation is part of my PhD thesis, and explores the role of context in categorization, perception, and decision making. We use a novel set of tools that I developed (now located at &lt;a href="https://github.com/timsainb/AVGN"&gt;github.com/timsainb/AVGN&lt;/a&gt;), where latent representations (from variational autoencoders) of birdsong are linearly sampled from to produce smoothly varying stimuli for a category learning task. In this task, we were successfully able to bias categorical perception in songbirds based upon contextual information, and are currently in the process of studying the neural mechanisms underlying that contextual bias in perception.&lt;/p&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -988,8 +987,7 @@ h6:hover .anchor-link {
 &lt;p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;div class="youtube_container"&gt;
-&lt;iframe src="//www.youtube.com/embed/XAU-CKGback" 
-frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
+&lt;iframe allowfullscreen="" class="youtube_video" frameborder="0" src="//www.youtube.com/embed/XAU-CKGback"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/p&gt;
@@ -1002,12 +1000,9 @@ frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I also co-authored &lt;a href="https://ccneuro.org/2018/Papers/ViewPapers.asp?PaperNum=1247"&gt;a second paper&lt;/a&gt; at the same conference with the lead author Marvin Thielk, that goes more into depth about the perceptual and neural representations of acoustic categories in European starlings. Other &lt;a href="https://ccneuro.org/2018/videos.asp"&gt;videos&lt;/a&gt; and &lt;a href="https://ccneuro.org/2018/Papers/AcceptedPapers.asp"&gt;papers&lt;/a&gt; from the conference are available on the CCN website as well!&lt;/p&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
- 
-
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -2014,7 +2009,6 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;As part of &lt;a href="https://dornsife.usc.edu/conferences/birdsong/"&gt;Birdsong 2018: Out on a Limb&lt;/a&gt; satellite to Neuroscience (SfN) 2018 conference last November, &lt;a href="https://github.com/NickleDave"&gt;David Nicholson&lt;/a&gt; organized a Songbird Data Science Workshop discussing new algorithms and methods that sit at the interface between data science, birdsong, and machine learning.&lt;/p&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2023,7 +2017,7 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/sds.png"  style="width:300p; text-align:center!important; margin:0 auto" /&gt;
+&lt;img src="assets/img/sds.png" style="width:300p; text-align:center!important; margin:0 auto"/&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;The flyer for the Birdsong Data Science Workshop 2018&lt;/p&gt;
 &lt;/div&gt;
@@ -2039,7 +2033,6 @@ h6:hover .anchor-link {
 &lt;li&gt;Generating novel syllables to explore the vocalization space of songbirds. 
 The presentation is embedded below. &lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2048,7 +2041,7 @@ The presentation is embedded below. &lt;/li&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="https://github.com/timsainb/AVGN/raw/master/src_img/animalvocalizationfigure.png"  style="width:300p; text-align:center!important; margin:0 auto" /&gt;
+&lt;img src="https://github.com/timsainb/AVGN/raw/master/src_img/animalvocalizationfigure.png" style="width:300p; text-align:center!important; margin:0 auto"/&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;An overview of the AVGN package&lt;/p&gt;
 &lt;/div&gt;
@@ -2061,16 +2054,13 @@ The presentation is embedded below. &lt;/li&gt;
 &lt;p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;div class="youtube_container"&gt;
-&lt;iframe src="//www.youtube.com/embed/0T2UU8-NCbM" 
-frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
+&lt;iframe allowfullscreen="" class="youtube_video" frameborder="0" src="//www.youtube.com/embed/0T2UU8-NCbM"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
-&lt;/p&gt; 
+&lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;My presentation at Birdsong 2018&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
- 
-
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -3077,7 +3067,6 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I wrote a small &lt;a href="https://github.com/timsainb/birdbrain"&gt;python library called birdbrain&lt;/a&gt; for viewing the &lt;a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/"&gt;songbird/bat brain atlas' made available from the Bio-Imaging Lab at the University of Antwerp&lt;/a&gt;. It is currently a work-in-progress, but it works with all of the atlases currently on their website.&lt;/p&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3086,7 +3075,7 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/navigation-example.gif"  style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" /&gt;
+&lt;img src="assets/img/navigation-example.gif" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 1: An example navigation of the European starling dataset&lt;/p&gt;
 &lt;/div&gt;
@@ -3103,7 +3092,6 @@ h6:hover .anchor-link {
 &lt;li&gt;Export high resolution plots of recording sites mapped onto the 2D and 3D images. &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you're interested in any of these, or have new ideas to add to package, let me know!&lt;/p&gt;
-
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3113,18 +3101,16 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-  &lt;img style="float:left",  src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/starling_skull_rotation.gif", width="45%"&gt;
-  &lt;img style="float:left",  src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/field_l.png", width="45%"&gt;
+&lt;img ,="" src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/starling_skull_rotation.gif" style="float:left" width="45%"/&gt;
+&lt;img ,="" src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/field_l.png" style="float:left" width="45%"/&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;Figure 2: (left) Nuclei plotted in their respective brain regions (right) nuclei plotted over 2D MRI image&lt;/p&gt; 
+&lt;p style="text-align:center;font-style:italic"&gt;Figure 2: (left) Nuclei plotted in their respective brain regions (right) nuclei plotted over 2D MRI image&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
- 
-
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -4131,12 +4117,12 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-    &lt;p&gt;
+&lt;p&gt;
         This weekend I updated our &lt;a href="http://gentnerlab.ucsd.edu/"&gt;lab website&lt;/a&gt; to a new HTML/CSS theme and to include all of the current members of the lab.
     &lt;/p&gt;
-       &lt;p&gt;
+&lt;p&gt;
         In addition, I updated a private section of the website that live-plots, scheduling, and animal behavioral information throughout the day. A screenshot is shown below. 
-        &lt;/p&gt; 
+        &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4146,7 +4132,7 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/website.png"  style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" /&gt;
+&lt;img src="assets/img/website.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4156,16 +4142,13 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-
 &lt;p&gt;
            The Alerts section holds warning about any potentially malfunctioning hardware or software. The Bird Duty information shows which labmates are scheduled to take care of husbandry duties each week. We use a web form to keep track of who did behaviors and when, which is shown below bird duty information. In the All Summary section, each different bird, and statistics on their behaviors throughout the day are plotted. Finally, we have a section with custom behavioral plots for each individual bird. 
     &lt;/p&gt;
-    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
- 
-
+&lt;/div&gt;
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
