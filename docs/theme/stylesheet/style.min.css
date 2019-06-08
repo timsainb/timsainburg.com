@@ -11,6 +11,15 @@
 @font-face{font-family:"Roboto Slab";font-style:normal;font-weight:700;src:local("Roboto Slab Bold"),local("RobotoSlab-Bold"),url(../fonts/RobotoSlab-Bold.ttf) format("truetype")}
 
 
+
+div.text_cell_render p code {
+    background-color: hsla(0, 0%, 50%, .05);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* border-left: 8px solid hsla(0, 0%, 50%, .075); */
+    border-left-width: 10px;
+    font-size: 90%;
+}
 .alert{
     color: #AC260D;
     background-color: #F2DEDC;

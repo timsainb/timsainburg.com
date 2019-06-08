@@ -10,7 +10,14 @@ SITEURL = ''
 SITEURL_ABS = 'https://timsainburg.com'
 
 PATH = 'content'
-STATIC_PATHS = ['assets']
+STATIC_PATHS = ['assets', 'content/assets']
+EXTRA_PATH_METADATA = {
+	'assets/html/curriculumvitae.html': {'path':'curriculumvitae.html'}
+}
+
+ARTICLE_EXCLUDES = [
+	'assets/html'
+]
 
 TIMEZONE = 'America/Los_Angeles'
 

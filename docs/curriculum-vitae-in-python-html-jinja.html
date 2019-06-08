@@ -1101,8 +1101,8 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This blog post will walk you through the basics of generating your CV using Python and Jinja. In addition, <a href="https://github.com/timsainb/curriculum_vitae">I have a GitHub repo with a full example</a>. To see a finished product, <a href="https://timsainburg.com/pages/cv.html#cv">see here</a>.</p>
-<p>I've created my Curriculum Vitae (CV) previously in both Word and LaTeX, and found that neither had the flexibility that I wanted. Ideally, I want to future-proof my CV so that it's easy to do things like change formatting without having to manually edit every entry into the CV. To do that, it seems intuitive that You would want a standardized data format to carry your CV <i>data</i> and a template to format that code into your CV design. The data format should look something like json or YAML:</p>
+<p>This blog post will walk you through the basics of generating your CV using Python and Jinja. In addition, <a href="https://github.com/timsainb/curriculum_vitae">I have a GitHub repo with a full example</a>. To see a finished product, <a href="https://timsainburg.com/pages/cv.html#cv">go here</a>.</p>
+<p>I have previously created my Curriculum Vitae (CV) in both Word and LaTeX, and found that neither had the flexibility that I wanted. Ideally, I want to future-proof my CV so that it's easy to do things like change formatting without having to manually edit every entry into the CV. To do that, it seems intuitive that you would want a standardized data format to carry your CV <i>data</i> and a template to format that code into your CV design. The data format should look something like json or YAML:</p>
 </div>
 </div>
 </div>
@@ -1138,7 +1138,7 @@ h6:hover .anchor-link {
 <p>The ideal CV should be fairly future proof:</p>
 <ol>
 <li>It shouldn't rely on software that isn't very well supported.</li>
-<li>The data format should be standardized</li>
+<li>The data format should be standardized.</li>
 <li>It should be really easy to make changes. </li>
 </ol>
 </div>
@@ -1151,10 +1151,10 @@ h6:hover .anchor-link {
 <p>When I searched around I found a few examples that I really liked. The three implementations I liked best were:</p>
 <ol>
 <li><strong><a href="https://jsonresume.org/">JSON resume</a></strong>, takes your resume as a JSON file, and can generate your resume in many different formats. This is probably the most full featured resume builder I found. </li>
-<li><strong><a href="http://bamos.github.io/">Brandon Amos's Resume</a></strong> (<a href="http://bamos.github.io/">example</a>) takes in YAML files and generates MD, LaTeX, PDF, and HTML files from the YAML in Python using Jinja. </li>
-<li><strong><a href="https://github.com/craffel/craffel.github.io">Colin Rafel's Resume</a></strong> (<a href="https://colinraffel.com/">example</a>) takes your CV as a JSON file and generates an HTML file from the JSON in Python using Jinja. </li>
+<li><strong><a href="http://bamos.github.io/">Brandon Amos's Resume</a></strong> (<a href="http://bamos.github.io/">example</a>) takes in YAML files and generates MD, LaTeX, PDF, and HTML files from the YAML. </li>
+<li><strong><a href="https://github.com/craffel/craffel.github.io">Colin Rafel's CV</a></strong> (<a href="https://colinraffel.com/">example</a>) takes your CV as a JSON file and generates an HTML file from the JSON in Python using Jinja. </li>
 </ol>
-<p>The three methods are all pretty similar. I ended up using the Colin Rafel Resume as the basis for my resume because I wanted to rely only on code within the repository and very well supported external software. All this code relies upon is (1) Python and (2) <a href="http://jinja.pocoo.org/">Jinja2</a>.</p>
+<p>The three methods are all pretty similar. I ended up using the Colin Rafel method as the basis for my CV because I wanted to rely only on code that is either (1) self-contained within the repository or (2) very well supported external software. All this code relies upon is (1) Python and (2) <a href="http://jinja.pocoo.org/">Jinja2</a>.</p>
 </div>
 </div>
 </div>
@@ -1171,27 +1171,37 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The resume in formatted around a template file (here <code>.tpl</code>) that is basically just HTML:</p>
-<pre><code>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
-    &lt;head&gt;
-        &lt;title&gt;Tim Sainburg: Curriculum Vitae&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h2&gt;Education&lt;/h2&gt;
-        &lt;div class="block"&gt;
-            {% for item in education %}
-            &lt;div class="item"&gt;
-                &lt;div class="yearrange"&gt;{{item.start}}–{{item.end}}&lt;/div&gt;
-                &lt;div class="yearright"&gt;
-                    &lt;strong&gt;{{item.place}}&lt;/strong&gt;&lt;br /&gt;
-                    {{item.degree}}&lt;br /&gt;
-                    {% if item.lab %}{{item.lab}}&lt;br /&gt;{% endif %}
-                    {% if item.advisor %}Advisor: {{item.advisor}}&lt;br /&gt;{% endif %}
-                &lt;/div&gt;
-            &lt;/div&gt;
-            {% endfor %}
-        &lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">html</span> <span class="n">xmlns</span><span class="o">=</span><span class="s2">"http://www.w3.org/1999/xhtml"</span> <span class="n">xml</span><span class="p">:</span><span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span> <span class="n">lang</span><span class="o">=</span><span class="s2">"en"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Tim</span> <span class="n">Sainburg</span><span class="p">:</span> <span class="n">Curriculum</span> <span class="n">Vitae</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="n">Education</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"block"</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">education</span> <span class="o">%</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"item"</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"yearrange"</span><span class="o">&gt;</span><span class="p">{{</span><span class="n">item</span><span class="o">.</span><span class="n">start</span><span class="p">}}</span><span class="o">&amp;</span><span class="c1">#8211;{{item.end}}&lt;/div&gt;</span>
+                <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"yearright"</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="p">{{</span><span class="n">item</span><span class="o">.</span><span class="n">place</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+                    <span class="p">{{</span><span class="n">item</span><span class="o">.</span><span class="n">degree</span><span class="p">}}</span><span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span>
+                    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">lab</span> <span class="o">%</span><span class="p">}{{</span><span class="n">item</span><span class="o">.</span><span class="n">lab</span><span class="p">}}</span><span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+                    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">advisor</span> <span class="o">%</span><span class="p">}</span><span class="n">Advisor</span><span class="p">:</span> <span class="p">{{</span><span class="n">item</span><span class="o">.</span><span class="n">advisor</span><span class="p">}}</span><span class="o">&lt;</span><span class="n">br</span> <span class="o">/&gt;</span><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+                <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+            <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+            <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1200,20 +1210,30 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Resume data is stored in a JSON, like this:</p>
-<pre><code>{"research":
-    [
-
-        {
-            "Organization": "University of California, San Diego",
-            "lab": "Auditory Neurscience Laboratory",
-            "location": "La Jolla, CA",
-            "advisor": "Timothy Q Gentner",
-            "start": "2015",
-            "end": "now",
-            "title": "PhD Student"
-        }
-    ]
-}</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="p">{</span><span class="s2">"research"</span><span class="p">:</span>
+    <span class="p">[</span>
+        
+        <span class="p">{</span>
+            <span class="s2">"Organization"</span><span class="p">:</span> <span class="s2">"University of California, San Diego"</span><span class="p">,</span>
+            <span class="s2">"lab"</span><span class="p">:</span> <span class="s2">"Auditory Neurscience Laboratory"</span><span class="p">,</span>
+            <span class="s2">"location"</span><span class="p">:</span> <span class="s2">"La Jolla, CA"</span><span class="p">,</span>
+            <span class="s2">"advisor"</span><span class="p">:</span> <span class="s2">"Timothy Q Gentner"</span><span class="p">,</span>
+            <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2015"</span><span class="p">,</span>
+            <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"now"</span><span class="p">,</span>
+            <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"PhD Student"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1221,15 +1241,25 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Python and Jinja read the resume data in the json, and generate an HTML file from the template, like so:</p>
-<pre><code>data = json.load('MYJSONFILE.JSON')
+<p>Python and Jinja read the resume data in the json, and generate an HTML file from the template:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'MYJSONFILE.JSON'</span><span class="p">)</span>
 
-env = jinja2.environment.Environment(
-    loader=jinja2.FileSystemLoader('/MY/TEMPLATE/PATH')
-)
-template = env.get_template('MYTEMPLATE.TPL')
-with open('/MY/OUTPUT/PATH/MYTEMPLATE.HTML', "w") as f:
-    f.write(template.render(**data))</code></pre>
+<span class="n">env</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span>
+    <span class="n">loader</span><span class="o">=</span><span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="s1">'/MY/TEMPLATE/PATH'</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">'MYTEMPLATE.TPL'</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'/MY/OUTPUT/PATH/MYTEMPLATE.HTML'</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1237,7 +1267,7 @@ with open('/MY/OUTPUT/PATH/MYTEMPLATE.HTML', "w") as f:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>That's basically it.</strong> There's is a bunch you can do from there, but so long as you know some basic Python, HTML, and CSS, you can make a great resume or CV. For a full CV example check out either <a href="https://github.com/timsainb/curriculum_vitae">my repo on GitHub</a>, or the <a href="https://github.com/craffel/craffel.github.io">one I based mine off of</a>.</p>
+<p><strong>That's basically it.</strong> There is a bunch you can do from there, but so long as you know some basic Python, HTML, and CSS, you can make a great resume or CV. For a full CV example check out either <a href="https://github.com/timsainb/curriculum_vitae">my repo on GitHub</a>, or the <a href="https://github.com/craffel/craffel.github.io">one I based mine off of</a>.</p>
 </div>
 </div>
 </div>
