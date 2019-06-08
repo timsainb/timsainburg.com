@@ -12,7 +12,8 @@ SITEURL_ABS = 'https://timsainburg.com'
 PATH = 'content'
 STATIC_PATHS = ['assets', 'content/assets']
 EXTRA_PATH_METADATA = {
-	'assets/html/curriculumvitae.html': {'path':'curriculumvitae.html'}
+	'assets/html/curriculumvitae.html': {'path':'curriculumvitae.html'},
+	'assets/CNAME': {'path':'CNAME'}
 }
 
 ARTICLE_EXCLUDES = [
