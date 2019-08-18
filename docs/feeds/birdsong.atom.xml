@@ -988,7 +988,7 @@ h6:hover .anchor-link {
 &lt;img ,="" max_width="800px" src="assets/img/parallels_fig1.png" style="float:center" width="80%"/&gt;
 &lt;/p&gt;&lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;b&gt;a-d&lt;/b&gt; UMAP projections of syllables from a single example bird from each species (Bengalese finch, California thrasher, Cassin's vireo, European starling). &lt;b&gt;e-h&lt;/b&gt; Sequence-transitions between syllables from the same bird as a-d &lt;b&gt;i-h&lt;/b&gt; Markov model abstraction of e-h&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;a-d&lt;/span&gt; UMAP projections of syllables from a single example bird from each species (Bengalese finch, California thrasher, Cassin's vireo, European starling). &lt;span style="font-style: normal; font-weight:bold"&gt;e-h&lt;/span&gt; Sequence-transitions between syllables from the same bird as a-d &lt;span style="font-style: normal; font-weight:bold"&gt;i-h&lt;/span&gt; Markov model abstraction of e-h&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
