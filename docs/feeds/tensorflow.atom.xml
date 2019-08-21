@@ -1304,10 +1304,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="57824b51-4569-49c0-b61c-a4e294ffb516"&gt;&lt;/div&gt;
+&lt;div id="9e20870b-952a-4423-86b9-a6bb82428b4a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#57824b51-4569-49c0-b61c-a4e294ffb516');
+var element = $('#9e20870b-952a-4423-86b9-a6bb82428b4a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "d9788f25d63e446d874b6b406799b036", "version_major": 2, "version_minor": 0}
