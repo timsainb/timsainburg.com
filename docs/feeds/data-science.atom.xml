@@ -1003,7 +1003,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="General-stats"&gt;General stats&lt;a class="anchor-link" href="#General-stats"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;In total, I've created around 600 posts&lt;/li&gt;
-&lt;li&gt;tagged with 1,768 different tage, 543 of which are unique.&lt;/li&gt;
+&lt;li&gt;Posts are tagged with 1,768 different tags, 543 of which are unique.&lt;/li&gt;
 &lt;li&gt;The 10 most frequent tags are: 
 &lt;code&gt;'syntax', 'Birdsong', 'hierarchy', 'Language', 'Language Acquisition', 'sequence learning', 'Recursion', 'zebra finch', 'vocalization', 'Markov Models'&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;58% of tags are unique&lt;/li&gt;
