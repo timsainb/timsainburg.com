@@ -4,9 +4,124 @@
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -85,12 +200,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -103,27 +226,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -319,7 +454,9 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -329,11 +466,24 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -581,6 +731,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -619,7 +772,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -741,6 +894,10 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 
 
 
@@ -757,16 +914,24 @@ div.output_unrecognized a:hover {
 }
 
 
+
+
+
 .rendered_html pre,
+
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
-.rendered_html td,
 
-
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -782,6 +947,11 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -832,8 +1002,15 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -933,47 +1110,8 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;video autoplay="" loop="" muted="" playsinline="" src="assets/video/GAIAandNewArch2_face_transition_tsne3.mp4" style="text-align:center;width:100%;max-width:800px"&gt;&lt;/video&gt;
@@ -982,32 +1120,28 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 0: Interpolations between nearest neighbors in a 10D-&lt;a href="https://arxiv.org/abs/1802.03426"&gt;UMAP&lt;/a&gt; embedding of the network latent space.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The &lt;strong&gt;Generative Adversarial Interpolative Autoencoder (GAIA; &lt;a href="assets/PDF/GAIA.pdf"&gt;Paper&lt;/a&gt;; &lt;a href="https://github.com/timsainb/GAIA"&gt;Code&lt;/a&gt;)&lt;/strong&gt; is novel hybrid between the Generative Adversarial Network (GAN) and the Autoencoder (AE). The purpose of GAIA is to overcome three issues which exist in GANs and AEs:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="1.-GANs-are-not-bidirectional"&gt;1. GANs are not bidirectional&lt;a class="anchor-link" href="#1.-GANs-are-not-bidirectional"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;While autoencoders are capable of translating from the image domain ($X$) to the latent space of a neural network ($Z$; $X \rightarrow Z$) via the encoder, and from latent space back to the image domain via the decoder ($Z \rightarrow X$), GANs only have a decoder (generator), and can only translate from $Z \rightarrow X$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="2.-Autoencoders-produce-blurry-images"&gt;2. Autoencoders produce blurry images&lt;a class="anchor-link" href="#2.-Autoencoders-produce-blurry-images"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Autoencoders are trained with pixel-wise error functions. As a result, when there are sharp contrasts in images and images are being compressed, autoencoders will smooth over those contrasts, &lt;a href="https://www.youtube.com/watch?v=XNZIN7Jh3Sg"&gt;producing images which do not look very realistic&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The problem of overcoming the blurry pixel-wise smoothing inherent to auto-encoders was first addressed by &lt;a href="https://arxiv.org/abs/1512.09300"&gt;Larsen et al., (2015)&lt;/a&gt;. Larsen proposed to combine a GAN and a Variational Autoencoders (VAE) together, where the GAN autoencodes a high-level feature layer in the discriminator of the GAN. This works well, producing an autoencoder which generates images which are abstractly similar to the input image, but not exactly the same (See Figure 1 below).&lt;/p&gt;
@@ -1016,8 +1150,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
 &lt;img src="assets/img/cae.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
@@ -1027,8 +1160,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="3.-Autoencoder-latent-spaces-are-not-convex"&gt;3. Autoencoder latent spaces are not convex&lt;a class="anchor-link" href="#3.-Autoencoder-latent-spaces-are-not-convex"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Generative latent-spaces exhibit the powerful property of being able to smoothly interpolate between real-world signals in a high-dimensional space by linearly interpolating between their latent-space representations. Interpolations in a low-dimensional latent space often produce comprehensible representations when projected back into high-dimensional space. However, in the latent spaces of many network architectures (such as AEs) linear interpolations are not necessarily justified, because latent-space projections are not trained explicitly to form a convex set.&lt;/p&gt;
 &lt;p&gt;A convex set is a set of points in which the line connecting any pair of two points will fall within the rest of the set. For example, in Figure 2A, the purple distribution represents data  projected into a two-dimensional latent space, and the surrounding whitespace represents regions of latent space which do not correspond to the data distribution. This distribution would be non-convex, because a line connecting two points in the distribution (e.g. the black points in Figure 2A) contains regions which do not belong to the data distribution (the red region). In an AE, if the red region of the interpolation were to be sampled from, projections back into the high-dimensional space will not necessarily correspond to realistic exemplars of $X$, because that region of $Z$ does not belong to the true data distribution.&lt;/p&gt;
@@ -1036,8 +1168,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;img src="assets/img/convex.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto"/&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 2: Convexity in Autoencoder latent spaces&lt;/p&gt;
@@ -1045,24 +1176,21 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Generative-Adversarial-Interpolative-Autoencoder-(GAIA)"&gt;Generative Adversarial Interpolative Autoencoder (GAIA)&lt;a class="anchor-link" href="#Generative-Adversarial-Interpolative-Autoencoder-(GAIA)"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Our model, GAIA, acts as a GAN in which both the generator and the discriminator are AEs. We use an autoencoder for the discriminator (as in &lt;a href="https://arxiv.org/abs/1703.10717"&gt;BEGAN&lt;/a&gt;), and an autoencoder for the generator (as in &lt;a href="https://arxiv.org/abs/1512.09300"&gt;VAE-GAN&lt;/a&gt;). We then train the Generator to create images which autoencode well in the discriminator, and the discriminator to autoencode real images well, and generated images poorly. The generator also generates &lt;strong&gt;interpolated samples in latent space&lt;/strong&gt; which are discriminated by the discriminator, thus training the network explicitly to produce samples which can be interpolated between.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
 &lt;img src="assets/img/GAIA_model_new.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto"/&gt;
@@ -1072,8 +1200,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In full, the loss of the discriminator, as in BEGAN, is to minimize pixel-wise error of real data, and maximize pixel-wise error of generated data (including interpolations):
 \begin{equation}
@@ -1094,35 +1221,30 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Structure-consistency"&gt;Structure-consistency&lt;a class="anchor-link" href="#Structure-consistency"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;VAEs and GANs force the latent distribution of a dataset of faces to into a pre-defined distribution, for example the Gaussian or uniform distributions. This approach presents a number of advantages, such as ensuring latent space convexity and thus being better able to sample from the distribution. However, these benefits are gained at the loss of respecting the structure distribution of the original dataset in high-dimensional space. To better respect the original high-dimensional structure of the dataset, we impose a regularization between the latent space representations of the data ($Z$), and the original high dimensional dataset ($X$).&lt;/p&gt;
 &lt;p&gt;For each minibatch presented to the network, we compute a loss for the distance between the log of the pairwise Euclidean distances of samples in $X$ and $Z$ space:&lt;/p&gt;
-&lt;p&gt;$$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\frac{(X_i - X_j)^2}{\frac{1}{N}\sum_{i,j}(X_i - X_j)^2} \right) - log_2 \left( 1+\frac{(Z_i - Z_j)^2}{\frac{1}{N}\sum_{i,j}(Z_i - Z_j)^2} \right)\right]^2$$&lt;/p&gt;
-&lt;p&gt;We then apply this error term to the generator to encourage the pairwise distances of the batch in latent space to be similar to the pairwise distances of the minibatch in the original high-dimensional space. A hyperparameter ($\alpha$) is used to balance the emphasis of the structure loss against the loss of the reconstruction/adversarial losses, which was set at half the learning rate ($1^{-4}/2$).&lt;/p&gt;
+$$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\frac{(X_i - X_j)^2}{\frac{1}{N}\sum_{i,j}(X_i - X_j)^2} \right) - log_2 \left( 1+\frac{(Z_i - Z_j)^2}{\frac{1}{N}\sum_{i,j}(Z_i - Z_j)^2} \right)\right]^2$$&lt;p&gt;We then apply this error term to the generator to encourage the pairwise distances of the batch in latent space to be similar to the pairwise distances of the minibatch in the original high-dimensional space. A hyperparameter ($\alpha$) is used to balance the emphasis of the structure loss against the loss of the reconstruction/adversarial losses, which was set at half the learning rate ($1^{-4}/2$).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Attribute-vectors"&gt;Attribute vectors&lt;a class="anchor-link" href="#Attribute-vectors"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We find that, like several other generative models (e.g. &lt;a href="https://arxiv.org/abs/1511.06434"&gt;DCGAN&lt;/a&gt;, &lt;a href="https://blog.openai.com/glow/"&gt;Glow&lt;/a&gt;, &lt;a href="https://arxiv.org/abs/1512.09300"&gt;VAE-GAN&lt;/a&gt;), our model captures high level features vectors without being explicitly taught.&lt;/p&gt;
 &lt;p&gt;We capture these high level features by training a linear model to predice $Z$ given each images annotated features in CELEBA. We then add or subtract these features to latent representations of images, producing the figure below. We find that these high level features are captured linearly in latent space.&lt;/p&gt;
@@ -1130,8 +1252,7 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/face_attribs6_model.mp4" style="text-align:center;width:100%;max-width:900px"&gt;&lt;/video&gt;
@@ -1140,8 +1261,7 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/face_attribs8_model.mp4" style="text-align:center;width:100%;max-width:900px"&gt;&lt;/video&gt;
@@ -1150,16 +1270,14 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 4: Attribute vectors progressively added and subtracted to an image from the CELEBA-HQ dataset.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
 &lt;img src="assets/img/attributes_model.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
@@ -1169,16 +1287,14 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Rotation"&gt;Rotation&lt;a class="anchor-link" href="#Rotation"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;We used the same technique as above on the relative positions of facial landmarks to attain a head rotation vector (the distance from the nose to the mean of the left mouth/eye vs right mouth/eye). We find that, while certain features like the nose position rotate as expected, rotation in the face as a whole is very unrealistic beyond very slight perturbation.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/rotation.mp4" style="text-align:center;width:100%;max-width:600px"&gt;&lt;/video&gt;
@@ -1187,24 +1303,21 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 6: Rotation vector progressively added and subtracted to an image from the CELEBA-HQ dataset.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Conclusions"&gt;Conclusions&lt;a class="anchor-link" href="#Conclusions"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We propose a novel architecture of GAN in which both the generator and discriminator are AEs. In this architecture, a pixel-wise loss can be passed across the discriminator producing autoencoded images without blurry reconstructions. Further, using the adversarial loss of the GAN, we train the generator's AE explicitly on interpolations between samples projected into latent space, promoting a convex latent space representation. This method more explicitly lends itself to interpolations between complex signals using a neural network latent space, while still respecting the high-dimensional structure of the input data.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Future-directions"&gt;Future directions&lt;a class="anchor-link" href="#Future-directions"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Use different network architectures for autoencoder (Convnet, Densenet, LSTM, proGAN)&lt;/li&gt;
@@ -1221,6 +1334,17 @@ The loss of the generator is to minimize the error across the descriminator for 
 &lt;/li&gt;
 &lt;li&gt;Pass the decoder interpolations in pixel space which it will learn are &lt;em&gt;fake&lt;/em&gt; to ensure that the generator will produce samples further from pixel-wise interpolations.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1258,9 +1382,124 @@ The loss of the generator is to minimize the error across the descriminator for 
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -1339,12 +1578,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -1357,27 +1604,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -1573,7 +1832,9 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -1583,11 +1844,24 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -1835,6 +2109,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -1873,7 +2150,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -1995,6 +2272,10 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 
 
 
@@ -2011,16 +2292,24 @@ div.output_unrecognized a:hover {
 }
 
 
+
+
+
 .rendered_html pre,
+
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
-.rendered_html td,
 
-
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -2036,6 +2325,11 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -2086,8 +2380,15 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -2187,47 +2488,8 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
-&lt;style type="text/css"&gt;
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-&lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Load-packages"&gt;Load packages&lt;a class="anchor-link" href="#Load-packages"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2251,8 +2513,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Specify-which-GPU-to-use"&gt;Specify which GPU to use&lt;a class="anchor-link" href="#Specify-which-GPU-to-use"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2275,8 +2536,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Create-the-Variational-Autoencoder-object"&gt;Create the Variational Autoencoder object&lt;a class="anchor-link" href="#Create-the-Variational-Autoencoder-object"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2405,8 +2665,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="TRAIN"&gt;TRAIN&lt;a class="anchor-link" href="#TRAIN"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2544,10 +2803,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="09e6155a-dd92-4f47-b44c-7cf6cc4703dc"&gt;&lt;/div&gt;
+&lt;div id="b32aeedb-f095-4ea4-b06f-936176fa746c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#09e6155a-dd92-4f47-b44c-7cf6cc4703dc');
+var element = $('#b32aeedb-f095-4ea4-b06f-936176fa746c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -2556,10 +2815,10 @@ var element = $('#09e6155a-dd92-4f47-b44c-7cf6cc4703dc');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="806e4890-b16b-4538-bd62-068e7925061c"&gt;&lt;/div&gt;
+&lt;div id="d797a715-9c0b-4a96-83f7-60de25ca5b9b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#806e4890-b16b-4538-bd62-068e7925061c');
+var element = $('#d797a715-9c0b-4a96-83f7-60de25ca5b9b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2582,10 +2841,10 @@ var element = $('#806e4890-b16b-4538-bd62-068e7925061c');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9ced9d8e-8c21-417f-8fb3-9f206cf4888d"&gt;&lt;/div&gt;
+&lt;div id="81a59df7-d81a-4bc8-b57a-62108738a66b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9ced9d8e-8c21-417f-8fb3-9f206cf4888d');
+var element = $('#81a59df7-d81a-4bc8-b57a-62108738a66b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2594,10 +2853,10 @@ var element = $('#9ced9d8e-8c21-417f-8fb3-9f206cf4888d');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="733961f4-df3d-452e-8e2a-f995e331896e"&gt;&lt;/div&gt;
+&lt;div id="e87bcd9d-7478-4542-a549-9863ec5b0079"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#733961f4-df3d-452e-8e2a-f995e331896e');
+var element = $('#e87bcd9d-7478-4542-a549-9863ec5b0079');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2606,10 +2865,10 @@ var element = $('#733961f4-df3d-452e-8e2a-f995e331896e');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="64e697fa-2d5a-4323-9213-d21c90d59508"&gt;&lt;/div&gt;
+&lt;div id="1b90fe4a-a08d-4690-b178-fd24f9a89b7e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#64e697fa-2d5a-4323-9213-d21c90d59508');
+var element = $('#1b90fe4a-a08d-4690-b178-fd24f9a89b7e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2618,10 +2877,10 @@ var element = $('#64e697fa-2d5a-4323-9213-d21c90d59508');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="25d018fe-3e83-448a-b737-2f92aa5afa38"&gt;&lt;/div&gt;
+&lt;div id="d612dfbc-cede-49d1-8877-5f8c9df01ef6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#25d018fe-3e83-448a-b737-2f92aa5afa38');
+var element = $('#d612dfbc-cede-49d1-8877-5f8c9df01ef6');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2630,10 +2889,10 @@ var element = $('#25d018fe-3e83-448a-b737-2f92aa5afa38');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="92911b63-9822-4130-a7cc-dd30cf2124c8"&gt;&lt;/div&gt;
+&lt;div id="f6d9ffa5-9d41-4205-9870-7c6a050eefbd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#92911b63-9822-4130-a7cc-dd30cf2124c8');
+var element = $('#f6d9ffa5-9d41-4205-9870-7c6a050eefbd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2642,10 +2901,10 @@ var element = $('#92911b63-9822-4130-a7cc-dd30cf2124c8');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9405ca7c-92ab-465a-bbc8-e34ef4dafedf"&gt;&lt;/div&gt;
+&lt;div id="3fa9c6ac-b7dd-490c-a0e2-378daceed0ea"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9405ca7c-92ab-465a-bbc8-e34ef4dafedf');
+var element = $('#3fa9c6ac-b7dd-490c-a0e2-378daceed0ea');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2654,10 +2913,10 @@ var element = $('#9405ca7c-92ab-465a-bbc8-e34ef4dafedf');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3ea90fc2-522f-4f3f-89f0-47af51168473"&gt;&lt;/div&gt;
+&lt;div id="e8557185-9253-4050-a0fe-5198cad5c8a1"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3ea90fc2-522f-4f3f-89f0-47af51168473');
+var element = $('#e8557185-9253-4050-a0fe-5198cad5c8a1');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2666,10 +2925,10 @@ var element = $('#3ea90fc2-522f-4f3f-89f0-47af51168473');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c9f04312-53e0-4caa-90ac-3a7a8b4e7b8a"&gt;&lt;/div&gt;
+&lt;div id="c3891730-7543-4eb0-95ff-e7c5ddd4537c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c9f04312-53e0-4caa-90ac-3a7a8b4e7b8a');
+var element = $('#c3891730-7543-4eb0-95ff-e7c5ddd4537c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2678,10 +2937,10 @@ var element = $('#c9f04312-53e0-4caa-90ac-3a7a8b4e7b8a');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="a8cdd436-d63d-44c2-9ac8-62f94616d5e3"&gt;&lt;/div&gt;
+&lt;div id="4f5ce6c8-7ab1-408d-b81a-73095d86b091"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a8cdd436-d63d-44c2-9ac8-62f94616d5e3');
+var element = $('#4f5ce6c8-7ab1-408d-b81a-73095d86b091');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2690,10 +2949,10 @@ var element = $('#a8cdd436-d63d-44c2-9ac8-62f94616d5e3');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3001b38b-bd82-43d2-af77-2b1f15ce6b13"&gt;&lt;/div&gt;
+&lt;div id="17407726-57c4-43a9-9eca-cc1f5266cae0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3001b38b-bd82-43d2-af77-2b1f15ce6b13');
+var element = $('#17407726-57c4-43a9-9eca-cc1f5266cae0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2716,10 +2975,10 @@ var element = $('#3001b38b-bd82-43d2-af77-2b1f15ce6b13');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8b93fc81-a3fe-4d13-b446-feaee6f835d9"&gt;&lt;/div&gt;
+&lt;div id="05be22fa-a6b8-4dfa-9626-45b102584f11"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8b93fc81-a3fe-4d13-b446-feaee6f835d9');
+var element = $('#05be22fa-a6b8-4dfa-9626-45b102584f11');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2728,10 +2987,10 @@ var element = $('#8b93fc81-a3fe-4d13-b446-feaee6f835d9');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ad5fe26c-20a1-4e38-996c-94ba38eb683a"&gt;&lt;/div&gt;
+&lt;div id="62baeca4-2ab8-4837-a843-fcfe20ee85fa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ad5fe26c-20a1-4e38-996c-94ba38eb683a');
+var element = $('#62baeca4-2ab8-4837-a843-fcfe20ee85fa');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2740,10 +2999,10 @@ var element = $('#ad5fe26c-20a1-4e38-996c-94ba38eb683a');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3392c0c5-6112-45e1-bb80-99a26e4c94a4"&gt;&lt;/div&gt;
+&lt;div id="81d806e0-9415-4539-9b36-adbd549df9bd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3392c0c5-6112-45e1-bb80-99a26e4c94a4');
+var element = $('#81d806e0-9415-4539-9b36-adbd549df9bd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2752,10 +3011,10 @@ var element = $('#3392c0c5-6112-45e1-bb80-99a26e4c94a4');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b80f45ad-c0ea-494a-8933-c6cf3c53afc8"&gt;&lt;/div&gt;
+&lt;div id="c0d735a1-6043-4d22-b7fe-da5e611fdec0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b80f45ad-c0ea-494a-8933-c6cf3c53afc8');
+var element = $('#c0d735a1-6043-4d22-b7fe-da5e611fdec0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2764,10 +3023,10 @@ var element = $('#b80f45ad-c0ea-494a-8933-c6cf3c53afc8');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3f329fca-cfc0-45b2-9d4a-eb2c51b9ae8c"&gt;&lt;/div&gt;
+&lt;div id="fdacf8f7-0cc6-40bf-b66a-1c65249e4f43"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3f329fca-cfc0-45b2-9d4a-eb2c51b9ae8c');
+var element = $('#fdacf8f7-0cc6-40bf-b66a-1c65249e4f43');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2776,10 +3035,10 @@ var element = $('#3f329fca-cfc0-45b2-9d4a-eb2c51b9ae8c');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="fca13900-5efb-4b0b-9fa3-c0e0f1659aaa"&gt;&lt;/div&gt;
+&lt;div id="cd89c926-33b2-461d-b59b-a8316a62d527"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fca13900-5efb-4b0b-9fa3-c0e0f1659aaa');
+var element = $('#cd89c926-33b2-461d-b59b-a8316a62d527');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2788,10 +3047,10 @@ var element = $('#fca13900-5efb-4b0b-9fa3-c0e0f1659aaa');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4b25ae1e-b878-4705-a0f4-40b6fb335639"&gt;&lt;/div&gt;
+&lt;div id="b4eabbb1-75c2-4c7f-a581-2e5c2c8297f7"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4b25ae1e-b878-4705-a0f4-40b6fb335639');
+var element = $('#b4eabbb1-75c2-4c7f-a581-2e5c2c8297f7');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2800,10 +3059,10 @@ var element = $('#4b25ae1e-b878-4705-a0f4-40b6fb335639');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="71252d32-f63d-4fc8-b520-019713bd9623"&gt;&lt;/div&gt;
+&lt;div id="0ea1ea9f-836d-4842-8a5b-39e40a7107e6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#71252d32-f63d-4fc8-b520-019713bd9623');
+var element = $('#0ea1ea9f-836d-4842-8a5b-39e40a7107e6');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2812,10 +3071,10 @@ var element = $('#71252d32-f63d-4fc8-b520-019713bd9623');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6b75b7eb-8af5-4724-9e36-8275c328be60"&gt;&lt;/div&gt;
+&lt;div id="adb2a442-7f75-4755-a71a-908b96511e5b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6b75b7eb-8af5-4724-9e36-8275c328be60');
+var element = $('#adb2a442-7f75-4755-a71a-908b96511e5b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2824,10 +3083,10 @@ var element = $('#6b75b7eb-8af5-4724-9e36-8275c328be60');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="460041a7-53c4-4986-b2cb-66a234e17c5e"&gt;&lt;/div&gt;
+&lt;div id="5b08f328-a91d-4aaf-8642-4c45bd50a12f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#460041a7-53c4-4986-b2cb-66a234e17c5e');
+var element = $('#5b08f328-a91d-4aaf-8642-4c45bd50a12f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2850,10 +3109,10 @@ var element = $('#460041a7-53c4-4986-b2cb-66a234e17c5e');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="29812642-71ea-4fa3-8f4d-5673568abede"&gt;&lt;/div&gt;
+&lt;div id="a00cc05b-7426-4b09-8a1e-80c4a1090eeb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#29812642-71ea-4fa3-8f4d-5673568abede');
+var element = $('#a00cc05b-7426-4b09-8a1e-80c4a1090eeb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2862,10 +3121,10 @@ var element = $('#29812642-71ea-4fa3-8f4d-5673568abede');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="329ac8e7-9e97-4769-a53a-19742341bd27"&gt;&lt;/div&gt;
+&lt;div id="e8d400b3-a686-4254-8760-e7f591d3e3a4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#329ac8e7-9e97-4769-a53a-19742341bd27');
+var element = $('#e8d400b3-a686-4254-8760-e7f591d3e3a4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2874,10 +3133,10 @@ var element = $('#329ac8e7-9e97-4769-a53a-19742341bd27');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5660cd4e-187d-418c-b3d6-b5bdb5bdb357"&gt;&lt;/div&gt;
+&lt;div id="8b97eb25-51cb-4805-8278-26e372af87fc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5660cd4e-187d-418c-b3d6-b5bdb5bdb357');
+var element = $('#8b97eb25-51cb-4805-8278-26e372af87fc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2886,10 +3145,10 @@ var element = $('#5660cd4e-187d-418c-b3d6-b5bdb5bdb357');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9fe16b75-e3ff-4725-a7f7-52e7850f28d4"&gt;&lt;/div&gt;
+&lt;div id="b278bebf-27b3-4510-a638-5f0bb6427cfc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9fe16b75-e3ff-4725-a7f7-52e7850f28d4');
+var element = $('#b278bebf-27b3-4510-a638-5f0bb6427cfc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2898,10 +3157,10 @@ var element = $('#9fe16b75-e3ff-4725-a7f7-52e7850f28d4');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9a05266c-1c54-42b6-97bb-74236a08c871"&gt;&lt;/div&gt;
+&lt;div id="c5b31010-c591-4814-99a1-302f4a527368"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9a05266c-1c54-42b6-97bb-74236a08c871');
+var element = $('#c5b31010-c591-4814-99a1-302f4a527368');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2910,10 +3169,10 @@ var element = $('#9a05266c-1c54-42b6-97bb-74236a08c871');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="639aa942-8524-4b6a-98b4-698ba8bd3a0b"&gt;&lt;/div&gt;
+&lt;div id="2bfb20d5-8571-42bc-a787-7339bfd41b5a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#639aa942-8524-4b6a-98b4-698ba8bd3a0b');
+var element = $('#2bfb20d5-8571-42bc-a787-7339bfd41b5a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2922,10 +3181,10 @@ var element = $('#639aa942-8524-4b6a-98b4-698ba8bd3a0b');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1ff1fb60-3dd2-49d9-b0b4-9d421609e9cb"&gt;&lt;/div&gt;
+&lt;div id="749a3728-0d0c-4010-b13b-8906b73631c2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1ff1fb60-3dd2-49d9-b0b4-9d421609e9cb');
+var element = $('#749a3728-0d0c-4010-b13b-8906b73631c2');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2934,10 +3193,10 @@ var element = $('#1ff1fb60-3dd2-49d9-b0b4-9d421609e9cb');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9e6fea98-68a7-4ddc-a2ea-e5cea621da15"&gt;&lt;/div&gt;
+&lt;div id="79bba40b-463e-4c5f-a054-2a64fa9698ee"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9e6fea98-68a7-4ddc-a2ea-e5cea621da15');
+var element = $('#79bba40b-463e-4c5f-a054-2a64fa9698ee');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2946,10 +3205,10 @@ var element = $('#9e6fea98-68a7-4ddc-a2ea-e5cea621da15');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="619820ac-56ef-4992-b0b4-995d30a1245c"&gt;&lt;/div&gt;
+&lt;div id="c7b98f09-b679-4997-aea0-8044eff9d830"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#619820ac-56ef-4992-b0b4-995d30a1245c');
+var element = $('#c7b98f09-b679-4997-aea0-8044eff9d830');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2958,10 +3217,10 @@ var element = $('#619820ac-56ef-4992-b0b4-995d30a1245c');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ce96c2dd-fe10-4dc9-b019-1f1e620fdc62"&gt;&lt;/div&gt;
+&lt;div id="9107c40b-9afb-436a-894c-f5de455bd673"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ce96c2dd-fe10-4dc9-b019-1f1e620fdc62');
+var element = $('#9107c40b-9afb-436a-894c-f5de455bd673');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2984,10 +3243,10 @@ var element = $('#ce96c2dd-fe10-4dc9-b019-1f1e620fdc62');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5f5969af-f493-4090-bf00-c3ef650a2a26"&gt;&lt;/div&gt;
+&lt;div id="970b2664-810f-4350-9586-b00670e8ad8b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5f5969af-f493-4090-bf00-c3ef650a2a26');
+var element = $('#970b2664-810f-4350-9586-b00670e8ad8b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2996,10 +3255,10 @@ var element = $('#5f5969af-f493-4090-bf00-c3ef650a2a26');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c1d84c79-2dcd-41b9-abe8-46d050c441fd"&gt;&lt;/div&gt;
+&lt;div id="50af1ded-2a7a-4ecc-8528-d30c9dcbfc04"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c1d84c79-2dcd-41b9-abe8-46d050c441fd');
+var element = $('#50af1ded-2a7a-4ecc-8528-d30c9dcbfc04');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3008,10 +3267,10 @@ var element = $('#c1d84c79-2dcd-41b9-abe8-46d050c441fd');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e9a60a05-1991-4b37-a55f-a64484b80da3"&gt;&lt;/div&gt;
+&lt;div id="46876528-aca8-4bbf-bba3-36f443a6162c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e9a60a05-1991-4b37-a55f-a64484b80da3');
+var element = $('#46876528-aca8-4bbf-bba3-36f443a6162c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3020,10 +3279,10 @@ var element = $('#e9a60a05-1991-4b37-a55f-a64484b80da3');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c32fefc9-d71d-476f-a1ef-49451063219d"&gt;&lt;/div&gt;
+&lt;div id="a51c2203-6edc-438a-908f-33f98d47667d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c32fefc9-d71d-476f-a1ef-49451063219d');
+var element = $('#a51c2203-6edc-438a-908f-33f98d47667d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3032,10 +3291,10 @@ var element = $('#c32fefc9-d71d-476f-a1ef-49451063219d');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="4d888292-aa0d-49af-9a28-be5a561a91b6"&gt;&lt;/div&gt;
+&lt;div id="d7cefee5-0eec-4022-aa83-2a593d82bcce"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4d888292-aa0d-49af-9a28-be5a561a91b6');
+var element = $('#d7cefee5-0eec-4022-aa83-2a593d82bcce');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3044,10 +3303,10 @@ var element = $('#4d888292-aa0d-49af-9a28-be5a561a91b6');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d39a1656-6bac-47c5-9bb0-a107c75e15b2"&gt;&lt;/div&gt;
+&lt;div id="81a29fa4-b5d3-4255-9fc6-e9138cc37565"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d39a1656-6bac-47c5-9bb0-a107c75e15b2');
+var element = $('#81a29fa4-b5d3-4255-9fc6-e9138cc37565');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3056,10 +3315,10 @@ var element = $('#d39a1656-6bac-47c5-9bb0-a107c75e15b2');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="377b07e4-1433-42a0-8c36-f54448861b26"&gt;&lt;/div&gt;
+&lt;div id="b70bf606-316a-4632-ba75-deea084131fa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#377b07e4-1433-42a0-8c36-f54448861b26');
+var element = $('#b70bf606-316a-4632-ba75-deea084131fa');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3068,10 +3327,10 @@ var element = $('#377b07e4-1433-42a0-8c36-f54448861b26');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="406a4a3a-4eca-40ba-81b4-a1dd360b24ad"&gt;&lt;/div&gt;
+&lt;div id="7d6cd967-713e-4c1a-b4da-527dbf36aeef"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#406a4a3a-4eca-40ba-81b4-a1dd360b24ad');
+var element = $('#7d6cd967-713e-4c1a-b4da-527dbf36aeef');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3080,10 +3339,10 @@ var element = $('#406a4a3a-4eca-40ba-81b4-a1dd360b24ad');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ff7af14d-8f04-42e4-bfe8-8e1861ba1d57"&gt;&lt;/div&gt;
+&lt;div id="44a71af3-4f2b-429a-8c68-6d6302062b2e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ff7af14d-8f04-42e4-bfe8-8e1861ba1d57');
+var element = $('#44a71af3-4f2b-429a-8c68-6d6302062b2e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3092,10 +3351,10 @@ var element = $('#ff7af14d-8f04-42e4-bfe8-8e1861ba1d57');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5f44def8-ef22-4cc5-ab2d-39578c126f50"&gt;&lt;/div&gt;
+&lt;div id="a5186f9a-ce7d-4ad2-8a3a-ad82fffbee56"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5f44def8-ef22-4cc5-ab2d-39578c126f50');
+var element = $('#a5186f9a-ce7d-4ad2-8a3a-ad82fffbee56');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3118,10 +3377,10 @@ var element = $('#5f44def8-ef22-4cc5-ab2d-39578c126f50');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="52e223c0-2838-4338-a76b-aa6a7bf5a111"&gt;&lt;/div&gt;
+&lt;div id="a6ff902c-a266-4851-ba70-87c9a89bdcdd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#52e223c0-2838-4338-a76b-aa6a7bf5a111');
+var element = $('#a6ff902c-a266-4851-ba70-87c9a89bdcdd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3130,10 +3389,10 @@ var element = $('#52e223c0-2838-4338-a76b-aa6a7bf5a111');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="92400a2e-ef60-4019-994f-26264a20d48a"&gt;&lt;/div&gt;
+&lt;div id="7b99221a-a4b6-4808-a2d6-091085c7d83f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#92400a2e-ef60-4019-994f-26264a20d48a');
+var element = $('#7b99221a-a4b6-4808-a2d6-091085c7d83f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3142,10 +3401,10 @@ var element = $('#92400a2e-ef60-4019-994f-26264a20d48a');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d0e46ff0-67bc-407e-a4d3-b5f984881f16"&gt;&lt;/div&gt;
+&lt;div id="425b511e-6b72-4341-a315-5d6f17c49551"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d0e46ff0-67bc-407e-a4d3-b5f984881f16');
+var element = $('#425b511e-6b72-4341-a315-5d6f17c49551');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3154,10 +3413,10 @@ var element = $('#d0e46ff0-67bc-407e-a4d3-b5f984881f16');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e8bb373c-5ef0-4ed1-9f7d-f3e99b213e27"&gt;&lt;/div&gt;
+&lt;div id="3ed2c2de-f01f-4caf-838b-42bc26019a55"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e8bb373c-5ef0-4ed1-9f7d-f3e99b213e27');
+var element = $('#3ed2c2de-f01f-4caf-838b-42bc26019a55');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3166,10 +3425,10 @@ var element = $('#e8bb373c-5ef0-4ed1-9f7d-f3e99b213e27');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d5205c88-eb0b-4b4c-b373-1a29dad2333a"&gt;&lt;/div&gt;
+&lt;div id="2503cc83-c3f5-4c1d-b416-7bff4764b589"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d5205c88-eb0b-4b4c-b373-1a29dad2333a');
+var element = $('#2503cc83-c3f5-4c1d-b416-7bff4764b589');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3178,10 +3437,10 @@ var element = $('#d5205c88-eb0b-4b4c-b373-1a29dad2333a');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b5b81aca-18de-4249-a1c6-337acaec6d90"&gt;&lt;/div&gt;
+&lt;div id="2b3e9355-2cec-46b0-9337-ef50ccb3b295"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b5b81aca-18de-4249-a1c6-337acaec6d90');
+var element = $('#2b3e9355-2cec-46b0-9337-ef50ccb3b295');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3190,10 +3449,10 @@ var element = $('#b5b81aca-18de-4249-a1c6-337acaec6d90');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8cc8b7ad-3398-4f83-bd43-72b6d25b05a0"&gt;&lt;/div&gt;
+&lt;div id="6209da70-4764-436e-baf9-0e56c24648cb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8cc8b7ad-3398-4f83-bd43-72b6d25b05a0');
+var element = $('#6209da70-4764-436e-baf9-0e56c24648cb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3202,10 +3461,10 @@ var element = $('#8cc8b7ad-3398-4f83-bd43-72b6d25b05a0');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="f1ca83e1-db45-4e1d-b284-56a76ddb94fc"&gt;&lt;/div&gt;
+&lt;div id="c3e7c88c-848f-4306-972e-f8a16ede1d59"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f1ca83e1-db45-4e1d-b284-56a76ddb94fc');
+var element = $('#c3e7c88c-848f-4306-972e-f8a16ede1d59');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3214,10 +3473,10 @@ var element = $('#f1ca83e1-db45-4e1d-b284-56a76ddb94fc');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="11ffdbd2-c1b1-4641-8f37-c5adcb121be0"&gt;&lt;/div&gt;
+&lt;div id="f7674cd7-392f-4d82-a3e9-1ebef9701f55"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#11ffdbd2-c1b1-4641-8f37-c5adcb121be0');
+var element = $('#f7674cd7-392f-4d82-a3e9-1ebef9701f55');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3226,10 +3485,10 @@ var element = $('#11ffdbd2-c1b1-4641-8f37-c5adcb121be0');
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8f5eef97-714b-4e7e-917f-340b3a57a452"&gt;&lt;/div&gt;
+&lt;div id="ec84d918-7dbc-497f-b29d-ae5cdfff1065"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8f5eef97-714b-4e7e-917f-340b3a57a452');
+var element = $('#ec84d918-7dbc-497f-b29d-ae5cdfff1065');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -3261,8 +3520,7 @@ var element = $('#8f5eef97-714b-4e7e-917f-340b3a57a452');
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="Plot-latent-space-representations"&gt;Plot latent space representations&lt;a class="anchor-link" href="#Plot-latent-space-representations"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -3288,10 +3546,10 @@ var element = $('#8f5eef97-714b-4e7e-917f-340b3a57a452');
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="707512ad-0af2-419c-804f-d4f64e0e0294"&gt;&lt;/div&gt;
+&lt;div id="881dd635-d4c2-4c7b-ae37-3e30304a93d9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#707512ad-0af2-419c-804f-d4f64e0e0294');
+var element = $('#881dd635-d4c2-4c7b-ae37-3e30304a93d9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}

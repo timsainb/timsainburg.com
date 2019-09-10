@@ -1,0 +1,120 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+    <title>Bird brain atlases</title>
+    <meta name="date" content="2019-09-09 22:28" />
+    <meta name="category" content="pages" />
+    <meta name="authors" content="Tim Sainburg" />
+    <meta name="slug" content="songbird-brain-atlases" />
+    <meta name="summary" content="bird-brain-atlases" />
+
+</head>
+
+<body>
+
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/atlases.css">
+    <!--for accordian-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+        $(document).ready(function (e) {
+            $('#starling').load('../assets/html/brain_atlases/starling_regions.html');
+            $('#zebra_finch').load('../assets/html/brain_atlases/zebra_finch_regions.html');
+            $('#pigeon').load('../assets/html/brain_atlases/pigeon_regions.html');
+            $('#canary').load('../assets/html/brain_atlases/canary_regions.html');
+            $('#moustached_bat').load('../assets/html/brain_atlases/moustached_bat_regions.html');
+
+        });
+
+    </script>
+
+<p>This is a page with figures, 3D atlases, and some quick data from the <a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/">brain atlas datasets</a>, analysed using the <a href="https://github.com/timsainb/birdbrain">birdbrain python package</a>. If you use any of this data, please cite the corresponding dataset. If you want to explore the datasets more extensively, use the python package.</p>
+
+    <div>    
+    <iframe style= "padding-top: 1em", src ='../assets/html/brain_atlases_3d/starling-nuclei.html' width="100%", height= "500px" frameborder="0"/>
+    </iframe>
+    <p style="text-align:center; font-style:italic">European starling nuclei. <a href="../assets/html/brain_atlases_3d/starling-nuclei.html">Full screen</a></p>
+    </div>
+    <h5>More 3D views:</h5>
+
+    <table class="region-stats">
+        <tr>
+            <th scope="col">European Starling</th>
+            <th scope="col">Zebra finch</th>
+            <th scope="col">Pigeon</th>
+            <th scope="col">Canary</th>
+            <th scope="col">Moustached bat</th>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling-nuclei.html">Nuclei</a></td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling-brainregions.html">Brain regions</a></td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+            </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling-tracts.html">Tracts</a></td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling-skull.html">Skull</a></td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+            <td>TODO</td>
+        </tr>
+
+    </table>
+
+    <h5>Brain regions</h5>
+    <div class="regions">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">European starling</a></li>
+                <li><a href="#tabs-2">Zebra finch</a></li>
+                <li><a href="#tabs-3">Pigeon</a></li>
+                <li><a href="#tabs-4">Canary</a></li>
+                <li><a href="#tabs-5">Moustached bat</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div id="starling"></div>
+            </div>
+            <div id="tabs-2">
+                <div id="zebra_finch"></div>
+            </div>
+            <div id="tabs-3">
+                <div id="pigeon"></div>
+            </div>
+            <div id="tabs-4">
+                <div id="canary"></div>
+            </div>
+            <div id="tabs-5">
+                <div id="moustached_bat"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
