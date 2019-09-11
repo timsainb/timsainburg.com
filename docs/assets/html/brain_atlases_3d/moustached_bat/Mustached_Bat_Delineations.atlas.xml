@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created by Amira, www.vsg3d.com -->
+<Atlas>
+ <Area abbrev="Exterior" value="1" id="empty" name="Exterior">
+  <color g="0" r="0" b="0"/>
+  <Surface>Exterior</Surface>
+ </Area>
+ <Area abbrev="Inferior.Colliculus_IC" value="2" id="empty" name="Inferior.Colliculus_IC">
+  <color g="0" r="255" b="0"/>
+  <Surface>Inferior.Colliculus_IC</Surface>
+ </Area>
+ <Area abbrev="Commissure.of.Inferior.Colliculus_cic" value="3" id="empty" name="Commissure.of.Inferior.Colliculus_cic">
+  <color g="158" r="255" b="0"/>
+  <Surface>Commissure.of.Inferior.Colliculus_cic</Surface>
+ </Area>
+ <Area abbrev="Dorsal.Nuc.Lateral.Lemniscus_DLL" value="4" id="empty" name="Dorsal.Nuc.Lateral.Lemniscus_DLL">
+  <color g="255" r="0" b="200"/>
+  <Surface>Dorsal.Nuc.Lateral.Lemniscus_DLL</Surface>
+ </Area>
+ <Area abbrev="Cochlear.Nucleus_and_CN8_CN" value="5" id="empty" name="Cochlear.Nucleus_and_CN8_CN">
+  <color g="255" r="1" b="0"/>
+  <Surface>Cochlear.Nucleus_and_CN8_CN</Surface>
+ </Area>
+ <Area abbrev="Medial.Gen.Body_MG" value="6" id="empty" name="Medial.Gen.Body_MG">
+  <color g="0" r="0" b="255"/>
+  <Surface>Medial.Gen.Body_MG</Surface>
+ </Area>
+ <Area abbrev="Ventral.Nuc.Lateral.Lemniscus_VLL" value="7" id="empty" name="Ventral.Nuc.Lateral.Lemniscus_VLL">
+  <color g="128" r="0" b="100"/>
+  <Surface>Ventral.Nuc.Lateral.Lemniscus_VLL</Surface>
+ </Area>
+ <Area abbrev="Medial.Nuc.Trapezoid.Body_Tz" value="8" id="empty" name="Medial.Nuc.Trapezoid.Body_Tz">
+  <color g="63" r="128" b="49"/>
+  <Surface>Medial.Nuc.Trapezoid.Body_Tz</Surface>
+ </Area>
+ <Area abbrev="Superior.Cerebellar.Peduncle_scp" value="9" id="empty" name="Superior.Cerebellar.Peduncle_scp">
+  <color g="207" r="128" b="0"/>
+  <Surface>Superior.Cerebellar.Peduncle_scp</Surface>
+ </Area>
+ <Area abbrev="Anterior.Commissure_ac" value="10" id="empty" name="Anterior.Commissure_ac">
+  <color g="255" r="0" b="182"/>
+  <Surface>Anterior.Commissure_ac</Surface>
+ </Area>
+ <Area abbrev="Medial.Cerebellar.Peduncle_mcp" value="11" id="empty" name="Medial.Cerebellar.Peduncle_mcp">
+  <color g="0" r="0" b="103"/>
+  <Surface>Medial.Cerebellar.Peduncle_mcp</Surface>
+ </Area>
+ <Area abbrev="Central.Gray_CG" value="12" id="empty" name="Central.Gray_CG">
+  <color g="230" r="61" b="98"/>
+  <Surface>Central.Gray_CG</Surface>
+ </Area>
+ <Area abbrev="Superior.Colliculus_SC" value="13" id="empty" name="Superior.Colliculus_SC">
+  <color g="0" r="205" b="98"/>
+  <Surface>Superior.Colliculus_SC</Surface>
+ </Area>
+ <Area abbrev="Caudate_C" value="14" id="empty" name="Caudate_C">
+  <color g="128" r="255" b="255"/>
+  <Surface>Caudate_C</Surface>
+ </Area>
+ <Area abbrev="Putamen_P" value="15" id="empty" name="Putamen_P">
+  <color g="133" r="153" b="126"/>
+  <Surface>Putamen_P</Surface>
+ </Area>
+ <Area abbrev="Globus.Pallidus_GP" value="16" id="empty" name="Globus.Pallidus_GP">
+  <color g="128" r="0" b="0"/>
+  <Surface>Globus.Pallidus_GP</Surface>
+ </Area>
+ <Area abbrev="Genu.Corpus.Callosum_gcc" value="17" id="empty" name="Genu.Corpus.Callosum_gcc">
+  <color g="255" r="253" b="0"/>
+  <Surface>Genu.Corpus.Callosum_gcc</Surface>
+ </Area>
+ <Area abbrev="External.Capsule_ec" value="18" id="empty" name="External.Capsule_ec">
+  <color g="188" r="161" b="255"/>
+  <Surface>External.Capsule_ec</Surface>
+ </Area>
+ <Area abbrev="Internal.Capsule_ic" value="19" id="empty" name="Internal.Capsule_ic">
+  <color g="0" r="35" b="165"/>
+  <Surface>Internal.Capsule_ic</Surface>
+ </Area>
+ <Area abbrev="Hippocampus_Hip" value="20" id="empty" name="Hippocampus_Hip">
+  <color g="52" r="232" b="202"/>
+  <Surface>Hippocampus_Hip</Surface>
+ </Area>
+ <Area abbrev="Fimbria_Fornix.Bundle_fi_f" value="21" id="empty" name="Fimbria_Fornix.Bundle_fi_f">
+  <color g="255" r="170" b="126"/>
+  <Surface>Fimbria_Fornix.Bundle_fi_f</Surface>
+ </Area>
+ <Area abbrev="Superior.Olivary.Complex_SO" value="22" id="empty" name="Superior.Olivary.Complex_SO">
+  <color g="230" r="89" b="202"/>
+  <Surface>Superior.Olivary.Complex_SO</Surface>
+ </Area>
+ <Area abbrev="Olfactory.Bulb_OB" value="23" id="empty" name="Olfactory.Bulb_OB">
+  <color g="207" r="212" b="63"/>
+  <Surface>Olfactory.Bulb_OB</Surface>
+ </Area>
+ <Area abbrev="Inter.Nucleus.Lateral.Lemniscus_ILL" value="24" id="empty" name="Inter.Nucleus.Lateral.Lemniscus_ILL">
+  <color g="191" r="255" b="191"/>
+  <Surface>Inter.Nucleus.Lateral.Lemniscus_ILL</Surface>
+ </Area>
+ <Area abbrev="General.Cortex_Neo" value="25" id="empty" name="General.Cortex_Neo">
+  <color g="107" r="110" b="110"/>
+  <Surface>General.Cortex_Neo</Surface>
+ </Area>
+ <Area abbrev="General.Cerebellum_Cb" value="26" id="empty" name="General.Cerebellum_Cb">
+  <color g="191" r="184" b="189"/>
+  <Surface>General.Cerebellum_Cb</Surface>
+ </Area>
+ <Area abbrev="Forceps.Minor_fmi" value="27" id="empty" name="Forceps.Minor_fmi">
+  <color g="209" r="4" b="0"/>
+  <Surface>Forceps.Minor_fmi</Surface>
+ </Area>
+ <Area abbrev="Septal.Nucleus_S" value="28" id="empty" name="Septal.Nucleus_S">
+  <color g="26" r="137" b="26"/>
+  <Surface>Septal.Nucleus_S</Surface>
+ </Area>
+ <Area abbrev="Cerebral.Peduncle_cp" value="29" id="empty" name="Cerebral.Peduncle_cp">
+  <color g="128" r="0" b="227"/>
+  <Surface>Cerebral.Peduncle_cp</Surface>
+ </Area>
+ <Area abbrev="Amygdala_A" value="30" id="empty" name="Amygdala_A">
+  <color g="128" r="255" b="128"/>
+  <Surface>Amygdala_A</Surface>
+ </Area>
+ <Area abbrev="Forceps.Major_fmj" value="31" id="empty" name="Forceps.Major_fmj">
+  <color g="89" r="68" b="140"/>
+  <Surface>Forceps.Major_fmj</Surface>
+ </Area>
+ <Area abbrev="Deep.Cerebral.White.Matter_dcwm" value="32" id="empty" name="Deep.Cerebral.White.Matter_dcwm">
+  <color g="131" r="77" b="63"/>
+  <Surface>Deep.Cerebral.White.Matter_dcwm</Surface>
+ </Area>
+ <Area abbrev="Anterior.Olfactory.Nucleus_AON" value="33" id="empty" name="Anterior.Olfactory.Nucleus_AON">
+  <color g="126" r="255" b="35"/>
+  <Surface>Anterior.Olfactory.Nucleus_AON</Surface>
+ </Area>
+ <Area abbrev="Accessory.Olfactory.Bulb_AOB" value="34" id="empty" name="Accessory.Olfactory.Bulb_AOB">
+  <color g="246" r="0" b="10"/>
+  <Surface>Accessory.Olfactory.Bulb_AOB</Surface>
+ </Area>
+ <Area abbrev="Nucleus.Accumbens_Acb" value="35" id="empty" name="Nucleus.Accumbens_Acb">
+  <color g="255" r="255" b="128"/>
+  <Surface>Nucleus.Accumbens_Acb</Surface>
+ </Area>
+ <Area abbrev="Pontine.Gray_CGPn" value="36" id="empty" name="Pontine.Gray_CGPn">
+  <color g="0" r="52" b="191"/>
+  <Surface>Pontine.Gray_CGPn</Surface>
+ </Area>
+ <Area abbrev="Pyramidal.Tract_py" value="37" id="empty" name="Pyramidal.Tract_py">
+  <color g="63" r="0" b="49"/>
+  <Surface>Pyramidal.Tract_py</Surface>
+ </Area>
+ <Area abbrev="Nucleus.of.Central.Acoustic.Tract_CAT" value="38" id="empty" name="Nucleus.of.Central.Acoustic.Tract_CAT">
+  <color g="0" r="177" b="170"/>
+  <Surface>Nucleus.of.Central.Acoustic.Tract_CAT</Surface>
+ </Area>
+ <Area abbrev="Inferior.Cerebellar.Peduncle_icp" value="39" id="empty" name="Inferior.Cerebellar.Peduncle_icp">
+  <color g="0" r="177" b="20"/>
+  <Surface>Inferior.Cerebellar.Peduncle_icp</Surface>
+ </Area>
+ <Area abbrev="Hypothalamus_H" value="40" id="empty" name="Hypothalamus_H">
+  <color g="66" r="230" b="0"/>
+  <Surface>Hypothalamus_H</Surface>
+ </Area>
+ <Area abbrev="General.Thalamus_Thal" value="41" id="empty" name="General.Thalamus_Thal">
+  <color g="179" r="31" b="163"/>
+  <Surface>General.Thalamus_Thal</Surface>
+ </Area>
+</Atlas>

@@ -4,12 +4,13 @@
 
 <head>
 
-    <title>Bird brain atlases</title>
+    <title>Brain atlases</title>
     <meta name="date" content="2019-09-09 22:28" />
     <meta name="category" content="pages" />
     <meta name="authors" content="Tim Sainburg" />
-    <meta name="slug" content="songbird-brain-atlases" />
-    <meta name="summary" content="bird-brain-atlases" />
+    <meta name="slug" content="brain-atlases" />
+    <meta name="summary" content="Web based songbird and moustached bat brain atlas viewer" />
+    <meta name="githuburl" content="https://github.com/timsainb/birdbrain" />
 
 </head>
 
@@ -37,14 +38,15 @@
 
     </script>
 
-<p>This is a page with figures, 3D atlases, and some quick data from the <a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/">brain atlas datasets</a>, analysed using the <a href="https://github.com/timsainb/birdbrain">birdbrain python package</a>. If you use any of this data, please cite the corresponding dataset. If you want to explore the datasets more extensively, use the python package.</p>
+<p>This is a page with figures, 3D atlases, and some quick data from the <a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/">brain atlas datasets</a>, analysed using the <a href="https://github.com/timsainb/birdbrain">birdbrain python package</a>. If you use any of this data, please cite the corresponding dataset. If you want to explore the datasets more extensively, use the python package (or any other software for looking at imaging data).</p>
 
     <div>    
-    <iframe style= "padding-top: 1em", src ='../assets/html/brain_atlases_3d/starling-nuclei.html' width="100%", height= "500px" frameborder="0"/>
+    <iframe style= "padding-top: 1em", src ='../assets/html/brain_atlases_3d/starling/starling-nuclei.html' width="100%", height= "500px" frameborder="0"/>
     </iframe>
-    <p style="text-align:center; font-style:italic">European starling nuclei. <a href="../assets/html/brain_atlases_3d/starling-nuclei.html">Full screen</a></p>
+    <p style="text-align:center; font-style:italic">European starling nuclei. Left click + drag to rotate. Right click + drag to move rotation axis. <a href="../assets/html/brain_atlases_3d/starling/starling-nuclei.html">Full screen</a></p>
     </div>
-    <h5>More 3D views:</h5>
+    <h5>More 3D views</h5>
+    <p>Hint: if you want to plot an individual brain region, go into the controls menu and make all of the other regions invisible. </p>
 
     <table class="region-stats">
         <tr>
@@ -55,32 +57,32 @@
             <th scope="col">Moustached bat</th>
         </tr>
         <tr>
-            <td><a href="../assets/html/brain_atlases_3d/starling-nuclei.html">Nuclei</a></td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/zebra_finch/zebra-finch-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/pigeon/pigeon_atlas.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat-brainregions.html">Brain regions</a></td>
         </tr>
         <tr>
-            <td><a href="../assets/html/brain_atlases_3d/starling-brainregions.html">Brain regions</a></td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-brainregions.html">Brain regions</a></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-brainregions.html">Bran regions</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat-Tdi_dti_color.html">DTI</a></td>
             </tr>
         <tr>
-            <td><a href="../assets/html/brain_atlases_3d/starling-tracts.html">Tracts</a></td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-tracts.html">Tracts</a></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-tracts.html">Tracts</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat_skull.html">Skull</a></td>
         </tr>
         <tr>
-            <td><a href="../assets/html/brain_atlases_3d/starling-skull.html">Skull</a></td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
-            <td>TODO</td>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-skull.html">Skull</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached-bat-t2w.html">t2w</a></td>
         </tr>
 
     </table>
@@ -114,6 +116,86 @@
 
         </div>
     </div>
+
+    <h5>Citations</h5>
+
+    <p>If you use this data, please cite the respecitve atlas papers:</p>
+    
+    <h6>Zebra finch </h6>
+    
+    <pre><code>
+    @article{poirier2008three,
+      title={A three-dimensional MRI atlas of the zebra finch brain in stereotaxic coordinates},
+      author={Poirier, Colline and Vellema, Michiel and Verhoye, Marleen and Van Meir, Vincent and Wild, J Martin and Balthazart, Jacques and Van Der Linden, Annemie},
+      journal={Neuroimage},
+      volume={41},
+      number={1},
+      pages={1--6},
+      year={2008},
+      publisher={Elsevier}
+    }
+</code></pre>
+    
+    <h6>European starling</h6>
+    
+    <pre><code>
+    @article{de2016three,
+      title={A three-dimensional digital atlas of the starling brain},
+      author={De Groof, Geert and George, Isabelle and Touj, Sara and Stacho, Martin and Jonckers, Elisabeth and Cousillas, Hugo and Hausberger, Martine and G{\"u}nt{\"u}rk{\"u}n, Onur and Van der Linden, Annemie},
+      journal={Brain Structure and Function},
+      volume={221},
+      number={4},
+      pages={1899--1909},
+      year={2016},
+      publisher={Springer}
+    }
+</code></pre>
+    
+    
+    <h6>Canary</h6>
+    
+    <pre><code>
+    @article{vellema2011customizable,
+      title={A customizable 3-dimensional digital atlas of the canary brain in multiple modalities},
+      author={Vellema, Michiel and Verschueren, Jacob and Van Meir, Vincent and Van der Linden, Annemie},
+      journal={Neuroimage},
+      volume={57},
+      number={2},
+      pages={352--361},
+      year={2011},
+      publisher={Elsevier}
+    }
+    
+</code></pre>
+    
+    <h6>Pigeon</h6>
+    
+    <pre><code>
+    @article{gunturkun20133,
+      title={A 3-dimensional digital atlas of the ascending sensory and the descending motor systems in the pigeon brain},
+      author={G{\"u}nt{\"u}rk{\"u}n, Onur and Verhoye, Marleen and De Groof, Geert and Van der Linden, Annemie},
+      journal={Brain Structure and Function},
+      volume={218},
+      number={1},
+      pages={269--281},
+      year={2013},
+      publisher={Springer}
+    }
+</code></pre>
+    
+    <h6>Mustached bat</h6>
+    
+    <pre><code>
+    @article{washington2018three,
+      title={A three-dimensional digital neurological atlas of the mustached bat (Pteronotus parnellii)},
+      author={Washington, Stuart D and Hamaide, Julie and Jeurissen, Ben and Van Steenkiste, Gwendolyn and Huysmans, Toon and Sijbers, Jan and Deleye, Steven and Kanwal, Jagmeet S and De Groof, Geert and Liang, Sayuan and others},
+      journal={NeuroImage},
+      volume={183},
+      pages={300--313},
+      year={2018},
+      publisher={Elsevier}
+    }
+    </code></pre>
 
 
 </body>
