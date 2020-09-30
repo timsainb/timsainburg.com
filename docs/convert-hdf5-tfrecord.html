@@ -1498,7 +1498,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.autonotebook</span> <span class="k">import</span> <span class="n">tqdm</span> <span class="c1"># just a progressbar</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.autonotebook</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1"># just a progressbar</span>
 <span class="n">n_observations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mydata</span><span class="p">[</span><span class="s2">"float32_labels"</span><span class="p">])</span>  <span class="c1"># how many items are in your dataset</span>
 <span class="c1"># loop through hdf5 of examples, save to tfrecord</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">'myfile.tfrecord'</span><span class="p">))</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
@@ -1543,10 +1543,10 @@ h6:hover .anchor-link {
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="5320571a-5764-4f9f-bf31-5c152bba2a2d"></div>
+<div id="8137e295-0e44-4b14-9e40-822f4cf1677b"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#5320571a-5764-4f9f-bf31-5c152bba2a2d');
+var element = $('#8137e295-0e44-4b14-9e40-822f4cf1677b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "d9788f25d63e446d874b6b406799b036", "version_major": 2, "version_minor": 0}
@@ -1691,9 +1691,9 @@ var element = $('#5320571a-5764-4f9f-bf31-5c152bba2a2d');
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
+    <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">tensorflow.io</span> <span class="k">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
+    <span class="kn">from</span> <span class="nn">tensorflow.io</span> <span class="kn">import</span> <span class="n">FixedLenFeature</span><span class="p">,</span> <span class="n">parse_single_example</span>
 </pre></div>
 </div>
 </div>

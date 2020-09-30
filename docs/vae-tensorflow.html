@@ -1232,9 +1232,9 @@ h6:hover .anchor-link {
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="k">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">layers</span>
 <span class="kn">import</span> <span class="nn">tensorflow.contrib</span> <span class="k">as</span> <span class="nn">tf_contrib</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span> <span class="k">as</span> <span class="n">tqdm</span> <span class="c1"># progress bar</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span> <span class="k">as</span> <span class="n">tqdm</span> <span class="c1"># progress bar</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
@@ -1284,7 +1284,7 @@ h6:hover .anchor-link {
 
 
 <span class="k">class</span> <span class="nc">VAE</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initialize_network</span><span class="p">()</span>
 
@@ -1450,7 +1450,7 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># load mnist dataset</span>
-<span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
+<span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="kn">import</span> <span class="n">input_data</span>
 
 <span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">"MNIST_data"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1533,10 +1533,10 @@ h6:hover .anchor-link {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="bd024c3c-61e4-45bd-a8cf-03338c21e404"></div>
+<div id="eaab1aa2-fd63-473a-b13e-d9584dd87406"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#bd024c3c-61e4-45bd-a8cf-03338c21e404');
+var element = $('#eaab1aa2-fd63-473a-b13e-d9584dd87406');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -1545,10 +1545,10 @@ var element = $('#bd024c3c-61e4-45bd-a8cf-03338c21e404');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="aca3f56f-4ba7-4f05-914c-c774763678d2"></div>
+<div id="5dcf5f71-b5ae-4de3-b285-0bb5a42450ef"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#aca3f56f-4ba7-4f05-914c-c774763678d2');
+var element = $('#5dcf5f71-b5ae-4de3-b285-0bb5a42450ef');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1571,10 +1571,10 @@ var element = $('#aca3f56f-4ba7-4f05-914c-c774763678d2');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="62c7eecf-903a-46a9-bf7a-fa0121e02336"></div>
+<div id="70f6ceac-8f8c-4406-9266-88f347afa283"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#62c7eecf-903a-46a9-bf7a-fa0121e02336');
+var element = $('#70f6ceac-8f8c-4406-9266-88f347afa283');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1583,10 +1583,10 @@ var element = $('#62c7eecf-903a-46a9-bf7a-fa0121e02336');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ccae6b5c-1826-45bc-8deb-902fa6b9645a"></div>
+<div id="dd6ca991-3879-442a-9273-171686437dde"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#ccae6b5c-1826-45bc-8deb-902fa6b9645a');
+var element = $('#dd6ca991-3879-442a-9273-171686437dde');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1595,10 +1595,10 @@ var element = $('#ccae6b5c-1826-45bc-8deb-902fa6b9645a');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="62e73480-1c62-450c-b122-3827f9787228"></div>
+<div id="13affe65-6a64-4557-bbb8-6c8d2dbd4d2a"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#62e73480-1c62-450c-b122-3827f9787228');
+var element = $('#13affe65-6a64-4557-bbb8-6c8d2dbd4d2a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1607,10 +1607,10 @@ var element = $('#62e73480-1c62-450c-b122-3827f9787228');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="14fbc91f-5845-452b-9926-8b27acec3af7"></div>
+<div id="f7019ac1-06f8-4f33-b4f9-8006565095d5"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#14fbc91f-5845-452b-9926-8b27acec3af7');
+var element = $('#f7019ac1-06f8-4f33-b4f9-8006565095d5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1619,10 +1619,10 @@ var element = $('#14fbc91f-5845-452b-9926-8b27acec3af7');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="e88b779e-b76a-4dc9-8d0b-ce34dc850af1"></div>
+<div id="d8916e92-5d2c-48b5-aac3-a6e414b989a9"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#e88b779e-b76a-4dc9-8d0b-ce34dc850af1');
+var element = $('#d8916e92-5d2c-48b5-aac3-a6e414b989a9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1631,10 +1631,10 @@ var element = $('#e88b779e-b76a-4dc9-8d0b-ce34dc850af1');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="573efd5f-dcce-4e6f-8a70-f5438021a015"></div>
+<div id="155a8d2c-0b59-4032-a304-02f35982307e"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#573efd5f-dcce-4e6f-8a70-f5438021a015');
+var element = $('#155a8d2c-0b59-4032-a304-02f35982307e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1643,10 +1643,10 @@ var element = $('#573efd5f-dcce-4e6f-8a70-f5438021a015');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="7face174-2754-44e3-ba2d-f181cfb97c56"></div>
+<div id="b6acf746-0755-44ea-ab96-5b90a33aca41"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#7face174-2754-44e3-ba2d-f181cfb97c56');
+var element = $('#b6acf746-0755-44ea-ab96-5b90a33aca41');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1655,10 +1655,10 @@ var element = $('#7face174-2754-44e3-ba2d-f181cfb97c56');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="a85c13ef-d56e-40de-b74e-e800d57d91f8"></div>
+<div id="86e1908f-a802-4979-85ec-145cb4073352"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#a85c13ef-d56e-40de-b74e-e800d57d91f8');
+var element = $('#86e1908f-a802-4979-85ec-145cb4073352');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1667,10 +1667,10 @@ var element = $('#a85c13ef-d56e-40de-b74e-e800d57d91f8');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="9f53d311-cfde-41d7-a576-a00488137d01"></div>
+<div id="420ddeea-db2d-45f1-b73d-738aef61dba3"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#9f53d311-cfde-41d7-a576-a00488137d01');
+var element = $('#420ddeea-db2d-45f1-b73d-738aef61dba3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1679,10 +1679,10 @@ var element = $('#9f53d311-cfde-41d7-a576-a00488137d01');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="592c4a16-e62e-4c85-8194-736e9b51c59b"></div>
+<div id="3db26f2d-a648-4f5b-9bfe-79adad2e9d26"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#592c4a16-e62e-4c85-8194-736e9b51c59b');
+var element = $('#3db26f2d-a648-4f5b-9bfe-79adad2e9d26');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1705,10 +1705,10 @@ var element = $('#592c4a16-e62e-4c85-8194-736e9b51c59b');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="31725561-4f41-4122-9068-72dd932bfc1c"></div>
+<div id="766af4d9-30a1-4850-975a-4f9db53cba47"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#31725561-4f41-4122-9068-72dd932bfc1c');
+var element = $('#766af4d9-30a1-4850-975a-4f9db53cba47');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1717,10 +1717,10 @@ var element = $('#31725561-4f41-4122-9068-72dd932bfc1c');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="5c5b5331-83b9-450b-b152-e92aabe352f1"></div>
+<div id="02a43124-8821-447d-9d76-daf9b87e648c"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#5c5b5331-83b9-450b-b152-e92aabe352f1');
+var element = $('#02a43124-8821-447d-9d76-daf9b87e648c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1729,10 +1729,10 @@ var element = $('#5c5b5331-83b9-450b-b152-e92aabe352f1');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="859d5065-1ff5-4887-9a2d-827981a826f9"></div>
+<div id="eeb74ae7-c5eb-4fb2-94b2-65d98f4a81c1"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#859d5065-1ff5-4887-9a2d-827981a826f9');
+var element = $('#eeb74ae7-c5eb-4fb2-94b2-65d98f4a81c1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1741,10 +1741,10 @@ var element = $('#859d5065-1ff5-4887-9a2d-827981a826f9');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="5f494cf5-8dc5-45dd-afc4-596b6059eec6"></div>
+<div id="8e67b70f-732b-45ae-b5b9-bbb85cca5840"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#5f494cf5-8dc5-45dd-afc4-596b6059eec6');
+var element = $('#8e67b70f-732b-45ae-b5b9-bbb85cca5840');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1753,10 +1753,10 @@ var element = $('#5f494cf5-8dc5-45dd-afc4-596b6059eec6');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="4e746b34-455b-4b26-84ad-f93fbd73bafa"></div>
+<div id="18a18f93-4de9-487c-939e-8389963f8ba3"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#4e746b34-455b-4b26-84ad-f93fbd73bafa');
+var element = $('#18a18f93-4de9-487c-939e-8389963f8ba3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1765,10 +1765,10 @@ var element = $('#4e746b34-455b-4b26-84ad-f93fbd73bafa');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="45dfee69-d29d-44ae-adcf-70cd71d5293b"></div>
+<div id="86ee2298-c0c6-4535-b806-68da13b8d4ee"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#45dfee69-d29d-44ae-adcf-70cd71d5293b');
+var element = $('#86ee2298-c0c6-4535-b806-68da13b8d4ee');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1777,10 +1777,10 @@ var element = $('#45dfee69-d29d-44ae-adcf-70cd71d5293b');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="19d08378-d516-42c6-a82f-0412ae15843f"></div>
+<div id="05f5d90b-2bd0-4ec0-9143-fcc41919f23f"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#19d08378-d516-42c6-a82f-0412ae15843f');
+var element = $('#05f5d90b-2bd0-4ec0-9143-fcc41919f23f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1789,10 +1789,10 @@ var element = $('#19d08378-d516-42c6-a82f-0412ae15843f');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="80e4226d-cc67-45e2-9c84-3f57e8f305f8"></div>
+<div id="7fe05fd0-24c5-4bcd-a35c-d34a75b21995"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#80e4226d-cc67-45e2-9c84-3f57e8f305f8');
+var element = $('#7fe05fd0-24c5-4bcd-a35c-d34a75b21995');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1801,10 +1801,10 @@ var element = $('#80e4226d-cc67-45e2-9c84-3f57e8f305f8');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="fba46a36-cfc1-4304-9998-5f67213c1fae"></div>
+<div id="598e20c8-2322-4b9c-9f2e-2ad4cf5e6abc"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#fba46a36-cfc1-4304-9998-5f67213c1fae');
+var element = $('#598e20c8-2322-4b9c-9f2e-2ad4cf5e6abc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1813,10 +1813,10 @@ var element = $('#fba46a36-cfc1-4304-9998-5f67213c1fae');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="75aa2bb2-399d-4dc7-abb7-a0a3130cbca4"></div>
+<div id="c8f9137a-5822-471c-af9e-71ae23ede08b"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#75aa2bb2-399d-4dc7-abb7-a0a3130cbca4');
+var element = $('#c8f9137a-5822-471c-af9e-71ae23ede08b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1839,10 +1839,10 @@ var element = $('#75aa2bb2-399d-4dc7-abb7-a0a3130cbca4');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="b989f74a-80aa-4045-981c-99af2789cf24"></div>
+<div id="47bbdeec-272c-4db1-9b22-b80e0bfc631c"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#b989f74a-80aa-4045-981c-99af2789cf24');
+var element = $('#47bbdeec-272c-4db1-9b22-b80e0bfc631c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1851,10 +1851,10 @@ var element = $('#b989f74a-80aa-4045-981c-99af2789cf24');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="7d0ed9e9-5a79-4c6f-8f68-81356cdd665d"></div>
+<div id="ac27d35e-2ad6-4328-8362-8b4508494f68"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#7d0ed9e9-5a79-4c6f-8f68-81356cdd665d');
+var element = $('#ac27d35e-2ad6-4328-8362-8b4508494f68');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1863,10 +1863,10 @@ var element = $('#7d0ed9e9-5a79-4c6f-8f68-81356cdd665d');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="4e1e4a94-2161-4b5a-b942-0d41f9944fe8"></div>
+<div id="13ccfb81-fde5-471f-b3d9-9308531a9e85"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#4e1e4a94-2161-4b5a-b942-0d41f9944fe8');
+var element = $('#13ccfb81-fde5-471f-b3d9-9308531a9e85');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1875,10 +1875,10 @@ var element = $('#4e1e4a94-2161-4b5a-b942-0d41f9944fe8');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="19edfd2d-1b75-40a3-936c-88895c762d4d"></div>
+<div id="a9b13c6e-e6fb-4664-98e7-81c9637c2a70"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#19edfd2d-1b75-40a3-936c-88895c762d4d');
+var element = $('#a9b13c6e-e6fb-4664-98e7-81c9637c2a70');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1887,10 +1887,10 @@ var element = $('#19edfd2d-1b75-40a3-936c-88895c762d4d');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="30c10e91-d9ad-44f6-8d99-151c444ae0ee"></div>
+<div id="9fa6b597-818f-486e-9f3d-566ea14a2f89"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#30c10e91-d9ad-44f6-8d99-151c444ae0ee');
+var element = $('#9fa6b597-818f-486e-9f3d-566ea14a2f89');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1899,10 +1899,10 @@ var element = $('#30c10e91-d9ad-44f6-8d99-151c444ae0ee');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="bdf22218-8435-4c8e-8f12-071ef6e8f158"></div>
+<div id="484f786a-d529-4c0a-8146-8c238fd8aaf9"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#bdf22218-8435-4c8e-8f12-071ef6e8f158');
+var element = $('#484f786a-d529-4c0a-8146-8c238fd8aaf9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1911,10 +1911,10 @@ var element = $('#bdf22218-8435-4c8e-8f12-071ef6e8f158');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="bd277474-1d2b-4dca-bef2-277866d84ec0"></div>
+<div id="160030a2-269b-4464-8414-4f663465d972"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#bd277474-1d2b-4dca-bef2-277866d84ec0');
+var element = $('#160030a2-269b-4464-8414-4f663465d972');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1923,10 +1923,10 @@ var element = $('#bd277474-1d2b-4dca-bef2-277866d84ec0');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="b1847c23-78ee-450f-9fc0-2fdba67a6b80"></div>
+<div id="64747a6a-2b20-44f4-8c35-d401afd2ffcf"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#b1847c23-78ee-450f-9fc0-2fdba67a6b80');
+var element = $('#64747a6a-2b20-44f4-8c35-d401afd2ffcf');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1935,10 +1935,10 @@ var element = $('#b1847c23-78ee-450f-9fc0-2fdba67a6b80');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="720b6941-75cc-4dfb-a31a-03cf7bd224c7"></div>
+<div id="49ccf739-fceb-46ab-b165-bdfde8863c56"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#720b6941-75cc-4dfb-a31a-03cf7bd224c7');
+var element = $('#49ccf739-fceb-46ab-b165-bdfde8863c56');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1947,10 +1947,10 @@ var element = $('#720b6941-75cc-4dfb-a31a-03cf7bd224c7');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="24c82f85-5c15-45e9-b85d-55469907783d"></div>
+<div id="add56a19-e781-40e5-a3dd-b16b80ede192"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#24c82f85-5c15-45e9-b85d-55469907783d');
+var element = $('#add56a19-e781-40e5-a3dd-b16b80ede192');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1973,10 +1973,10 @@ var element = $('#24c82f85-5c15-45e9-b85d-55469907783d');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="f85acb43-1a85-4787-b957-cce25cced4f7"></div>
+<div id="fd9910f2-d5ee-42f7-b96c-f4709f01ef59"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#f85acb43-1a85-4787-b957-cce25cced4f7');
+var element = $('#fd9910f2-d5ee-42f7-b96c-f4709f01ef59');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1985,10 +1985,10 @@ var element = $('#f85acb43-1a85-4787-b957-cce25cced4f7');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="84015e84-717b-4594-abed-6cb0cb15cd44"></div>
+<div id="c4c96a3b-4433-43f4-83d2-b0ba4f693065"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#84015e84-717b-4594-abed-6cb0cb15cd44');
+var element = $('#c4c96a3b-4433-43f4-83d2-b0ba4f693065');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1997,10 +1997,10 @@ var element = $('#84015e84-717b-4594-abed-6cb0cb15cd44');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="be29d02b-7438-47dd-9b71-3cf9d2d4e749"></div>
+<div id="de2adccb-ca6e-4278-81a1-0ba955a4918c"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#be29d02b-7438-47dd-9b71-3cf9d2d4e749');
+var element = $('#de2adccb-ca6e-4278-81a1-0ba955a4918c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2009,10 +2009,10 @@ var element = $('#be29d02b-7438-47dd-9b71-3cf9d2d4e749');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d9840615-f0f7-4612-98d9-6e486d51cbba"></div>
+<div id="531c1477-5808-49a2-a6a9-a39c939ed81e"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#d9840615-f0f7-4612-98d9-6e486d51cbba');
+var element = $('#531c1477-5808-49a2-a6a9-a39c939ed81e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2021,10 +2021,10 @@ var element = $('#d9840615-f0f7-4612-98d9-6e486d51cbba');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c09bf851-0712-49c7-ba0c-fb0b76f2f686"></div>
+<div id="a182fdc8-b2c0-448a-ac3a-006f69c8ba0b"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#c09bf851-0712-49c7-ba0c-fb0b76f2f686');
+var element = $('#a182fdc8-b2c0-448a-ac3a-006f69c8ba0b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2033,10 +2033,10 @@ var element = $('#c09bf851-0712-49c7-ba0c-fb0b76f2f686');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="e7a16e8f-c2bb-4a95-bb97-4ac2b94b8f96"></div>
+<div id="0ac6bb9b-0450-456f-82ac-8199c52c1279"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#e7a16e8f-c2bb-4a95-bb97-4ac2b94b8f96');
+var element = $('#0ac6bb9b-0450-456f-82ac-8199c52c1279');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2045,10 +2045,10 @@ var element = $('#e7a16e8f-c2bb-4a95-bb97-4ac2b94b8f96');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="9600acde-750b-48a9-af76-d92838c3beac"></div>
+<div id="11d9b0c1-a90d-4ca7-9def-24362f03facc"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#9600acde-750b-48a9-af76-d92838c3beac');
+var element = $('#11d9b0c1-a90d-4ca7-9def-24362f03facc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2057,10 +2057,10 @@ var element = $('#9600acde-750b-48a9-af76-d92838c3beac');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="2bcbfd63-1634-48b7-8cf3-f015aeecab54"></div>
+<div id="daea9a23-12d6-4106-a7d5-654bd3f9628a"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#2bcbfd63-1634-48b7-8cf3-f015aeecab54');
+var element = $('#daea9a23-12d6-4106-a7d5-654bd3f9628a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2069,10 +2069,10 @@ var element = $('#2bcbfd63-1634-48b7-8cf3-f015aeecab54');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="63132235-b774-48f4-aaae-191acbff47bb"></div>
+<div id="7ed5c03f-244a-4c8b-9a5a-e4261486ad52"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#63132235-b774-48f4-aaae-191acbff47bb');
+var element = $('#7ed5c03f-244a-4c8b-9a5a-e4261486ad52');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2081,10 +2081,10 @@ var element = $('#63132235-b774-48f4-aaae-191acbff47bb');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="f2d786eb-2179-48f0-994a-0e210040083e"></div>
+<div id="cf781dbe-5d8a-459c-8572-ff6f3a799097"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#f2d786eb-2179-48f0-994a-0e210040083e');
+var element = $('#cf781dbe-5d8a-459c-8572-ff6f3a799097');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2107,10 +2107,10 @@ var element = $('#f2d786eb-2179-48f0-994a-0e210040083e');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c9977c51-647e-4f4f-ad6d-4fdabef47c79"></div>
+<div id="69c58630-4a2d-412e-8bd5-ea1d37da960d"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#c9977c51-647e-4f4f-ad6d-4fdabef47c79');
+var element = $('#69c58630-4a2d-412e-8bd5-ea1d37da960d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2119,10 +2119,10 @@ var element = $('#c9977c51-647e-4f4f-ad6d-4fdabef47c79');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="e31e7bea-7bb5-409b-8999-ca24bbc07800"></div>
+<div id="598d2535-331e-4594-ad55-c5f02e488704"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#e31e7bea-7bb5-409b-8999-ca24bbc07800');
+var element = $('#598d2535-331e-4594-ad55-c5f02e488704');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2131,10 +2131,10 @@ var element = $('#e31e7bea-7bb5-409b-8999-ca24bbc07800');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="bea1be91-0bc2-4fba-b703-2e460fb346a2"></div>
+<div id="4296ff17-009e-4d14-a4fa-9b9515cff36d"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#bea1be91-0bc2-4fba-b703-2e460fb346a2');
+var element = $('#4296ff17-009e-4d14-a4fa-9b9515cff36d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2143,10 +2143,10 @@ var element = $('#bea1be91-0bc2-4fba-b703-2e460fb346a2');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="1ae6aa07-b816-42e1-a7d8-4711c6bfc8cd"></div>
+<div id="6d3f0b4d-afe4-4fd6-8b0a-8e481d7ed4d5"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#1ae6aa07-b816-42e1-a7d8-4711c6bfc8cd');
+var element = $('#6d3f0b4d-afe4-4fd6-8b0a-8e481d7ed4d5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2155,10 +2155,10 @@ var element = $('#1ae6aa07-b816-42e1-a7d8-4711c6bfc8cd');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="95d705a6-7c17-4be5-8e4f-f7b1a1aff3e2"></div>
+<div id="c109c822-9b66-4517-8057-51b926775ca8"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#95d705a6-7c17-4be5-8e4f-f7b1a1aff3e2');
+var element = $('#c109c822-9b66-4517-8057-51b926775ca8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2167,10 +2167,10 @@ var element = $('#95d705a6-7c17-4be5-8e4f-f7b1a1aff3e2');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ef76b165-92f6-46d0-a99c-6ffc66028fd9"></div>
+<div id="2290bee6-5c4b-45bb-b233-fa2fddaab895"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#ef76b165-92f6-46d0-a99c-6ffc66028fd9');
+var element = $('#2290bee6-5c4b-45bb-b233-fa2fddaab895');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2179,10 +2179,10 @@ var element = $('#ef76b165-92f6-46d0-a99c-6ffc66028fd9');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c5fb0511-9454-4c73-8d73-9109b25c933c"></div>
+<div id="12f65cd9-71bf-4f73-b461-035716bf13b4"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#c5fb0511-9454-4c73-8d73-9109b25c933c');
+var element = $('#12f65cd9-71bf-4f73-b461-035716bf13b4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2191,10 +2191,10 @@ var element = $('#c5fb0511-9454-4c73-8d73-9109b25c933c');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="15653459-c781-4fdf-bb9e-6708619f3d42"></div>
+<div id="a0e25273-2460-4296-aff6-e157648eb999"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#15653459-c781-4fdf-bb9e-6708619f3d42');
+var element = $('#a0e25273-2460-4296-aff6-e157648eb999');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2203,10 +2203,10 @@ var element = $('#15653459-c781-4fdf-bb9e-6708619f3d42');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="48a1c7b8-930b-41f4-a8d8-021ccf388e99"></div>
+<div id="17f79279-592c-4022-8a6e-ce44a4c7a34a"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#48a1c7b8-930b-41f4-a8d8-021ccf388e99');
+var element = $('#17f79279-592c-4022-8a6e-ce44a4c7a34a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2215,10 +2215,10 @@ var element = $('#48a1c7b8-930b-41f4-a8d8-021ccf388e99');
 </div>
 <div class="output_area">
 <div class="prompt"></div>
-<div id="01d5c1a9-a212-4299-b0ca-d9e92dbaf568"></div>
+<div id="3f48daa5-519a-46d2-8e3e-f586c69c3c3f"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#01d5c1a9-a212-4299-b0ca-d9e92dbaf568');
+var element = $('#3f48daa5-519a-46d2-8e3e-f586c69c3c3f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2276,10 +2276,10 @@ var element = $('#01d5c1a9-a212-4299-b0ca-d9e92dbaf568');
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="075f93f7-a769-4c9e-b726-fd7ab180763e"></div>
+<div id="a472dcea-dc8d-4212-9091-3499304908f6"></div>
 <div class="output_subarea output_widget_view">
 <script type="text/javascript">
-var element = $('#075f93f7-a769-4c9e-b726-fd7ab180763e');
+var element = $('#a472dcea-dc8d-4212-9091-3499304908f6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}
