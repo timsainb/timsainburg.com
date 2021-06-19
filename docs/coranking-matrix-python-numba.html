@@ -10,30 +10,19 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="./theme/academicons/css/academicons.css">
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/academicons/css/academicons.css">
 
 
-    <link href="http://timsainburg.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Sainburg Atom">
 
 
     <link rel="shortcut icon" href="theme/img/starling-small.ico" type="image/x-icon">
     <link rel="icon" href="theme/img/starling-small.ico" type="image/x-icon">
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-136580158-1', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 <meta name="author" content="Tim Sainburg" />
 <meta name="description" content="Quickly computing a coranking matrix in python with numba" />
@@ -43,11 +32,11 @@
 <meta property="og:title" content="Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba"/>
 <meta property="og:description" content="Quickly computing a coranking matrix in python with numba"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./coranking-matrix-python-numba.html"/>
+<meta property="og:url" content="/coranking-matrix-python-numba.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2020-05-19 08:01:00-07:00"/>
+<meta property="article:published_time" content="2021-07-19 08:01:00-07:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="./author/tim-sainburg.html">
+<meta property="article:author" content="/author/tim-sainburg.html">
 <meta property="article:section" content="dimensionality reduction"/>
 <meta property="article:tag" content="umap"/>
 <meta property="article:tag" content="coranking matrix"/>
@@ -63,16 +52,16 @@
   <aside>
     <div>
       <a href="https://timsainburg.com">
-        <img src="./theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
+        <img src="/theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
       </a>
-      <h2><a href=".">Tim Sainburg</a></h2>
+      <h2><a href="">Tim Sainburg</a></h2>
 
 <p>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</p>
       <nav>
         <ul class="list">
-          <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
-          <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
+          <li><a href="/pages/about-me.html#about-me">About me</a></li>
+          <li><a href="/pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
+          <li><a href="/pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
         </ul>
@@ -97,7 +86,7 @@
       
     <h1 id="coranking-matrix-python-numba">Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba</h1>
     <p>
-      Posted on Tue 19 May 2020 in <a href="./category/dimensionality-reduction.html">dimensionality reduction</a>
+      Posted on Mon 19 July 2021 in <a href="/category/dimensionality-reduction.html">dimensionality reduction</a>
 
     </p>
   </header>
@@ -1223,13 +1212,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fast-computation-of-coranking-matrix-in-python-with-parallelization-and-numba">Fast computation of coranking matrix in python with parallelization and numba<a class="anchor-link" href="#Fast-computation-of-coranking-matrix-in-python-with-parallelization-and-numba">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>For our recent <a href="https://arxiv.org/abs/2009.12981">Parmetric UMAP</a> paper, I was asked by a reviewer to compute some rank based metrics to compare embedding quality, based on the co-ranking matrix. Looking through available software, I found a few packages: [Quadra] (<a href="https://github.com/jlmelville/quadra">https://github.com/jlmelville/quadra</a>) in R, <a href="https://github.com/samueljackson92/coranking">coranking</a> in python  and <a href="https://data.mendeley.com/datasets/jbjd5fmggh/2/files/e192606c-dcd1-45f8-9bab-ed7f4f9d4f6a">pyDRMetrics</a> in python. These were great starting points, but unfortunately, the computation of the coranking matrix for a bigger dataset like MNIST would have taken hours to days (longer?) with each of these packages, so I wrote my own, trying to speed up computation. On my computer, I brought down the computation time of the coranking matrix to around 10 minutes. So, as a resource to anyone looking,</p>
 
 </div>
@@ -1556,10 +1538,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-<div id="4f8fd4bb-fa18-4204-a2b0-afd7e1581131"></div>
+<div id="104b8c14-c85a-4df9-992a-44c7c463ffdc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4f8fd4bb-fa18-4204-a2b0-afd7e1581131');
+var element = $('#104b8c14-c85a-4df9-992a-44c7c463ffdc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1578,10 +1560,10 @@ var element = $('#4f8fd4bb-fa18-4204-a2b0-afd7e1581131');
 
  
  
-<div id="c7b0d52f-d062-42b3-993e-fb96e38f5d4c"></div>
+<div id="c7c2d772-6260-4913-999d-b216975b29e9"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c7b0d52f-d062-42b3-993e-fb96e38f5d4c');
+var element = $('#c7c2d772-6260-4913-999d-b216975b29e9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1600,10 +1582,10 @@ var element = $('#c7b0d52f-d062-42b3-993e-fb96e38f5d4c');
 
  
  
-<div id="4c0975a0-8aab-4582-93ac-094bc69be5a4"></div>
+<div id="a87f7918-4f96-4219-a949-9f692f2f3a1e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4c0975a0-8aab-4582-93ac-094bc69be5a4');
+var element = $('#a87f7918-4f96-4219-a949-9f692f2f3a1e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1622,10 +1604,10 @@ var element = $('#4c0975a0-8aab-4582-93ac-094bc69be5a4');
 
  
  
-<div id="2314df05-868d-4c2f-91eb-a653a3181dba"></div>
+<div id="6eff8666-dd60-42ee-9ea2-c976d22ba046"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2314df05-868d-4c2f-91eb-a653a3181dba');
+var element = $('#6eff8666-dd60-42ee-9ea2-c976d22ba046');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1644,10 +1626,10 @@ var element = $('#2314df05-868d-4c2f-91eb-a653a3181dba');
 
  
  
-<div id="d7e736b6-be63-44b7-a3d7-8236e14bd777"></div>
+<div id="4d45ab46-7032-4fc9-9eb1-ba3ceffb8ae5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d7e736b6-be63-44b7-a3d7-8236e14bd777');
+var element = $('#4d45ab46-7032-4fc9-9eb1-ba3ceffb8ae5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1666,10 +1648,10 @@ var element = $('#d7e736b6-be63-44b7-a3d7-8236e14bd777');
 
  
  
-<div id="f9ea9f66-51a5-4065-8df9-36f8cfcf29df"></div>
+<div id="5920a1a3-697e-4653-bbcf-9a3b2f062c02"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#f9ea9f66-51a5-4065-8df9-36f8cfcf29df');
+var element = $('#5920a1a3-697e-4653-bbcf-9a3b2f062c02');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1688,10 +1670,10 @@ var element = $('#f9ea9f66-51a5-4065-8df9-36f8cfcf29df');
 
  
  
-<div id="d80e7c3e-63c9-4701-9b09-628ee6c6760f"></div>
+<div id="82b542af-9675-4c81-8fee-590f076decfd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d80e7c3e-63c9-4701-9b09-628ee6c6760f');
+var element = $('#82b542af-9675-4c81-8fee-590f076decfd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1710,10 +1692,10 @@ var element = $('#d80e7c3e-63c9-4701-9b09-628ee6c6760f');
 
  
  
-<div id="c77aa5fb-d028-4225-bcf1-ff624913bdb5"></div>
+<div id="3e867e3d-f8ce-4c45-a717-ef2579a9fdab"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c77aa5fb-d028-4225-bcf1-ff624913bdb5');
+var element = $('#3e867e3d-f8ce-4c45-a717-ef2579a9fdab');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1732,10 +1714,10 @@ var element = $('#c77aa5fb-d028-4225-bcf1-ff624913bdb5');
 
  
  
-<div id="17626851-b058-455a-8b44-e40865d14307"></div>
+<div id="2ece7bc1-c473-43dd-b229-2dedd78b3f48"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#17626851-b058-455a-8b44-e40865d14307');
+var element = $('#2ece7bc1-c473-43dd-b229-2dedd78b3f48');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "65ba9f4509624d0589439ff892137f31", "version_major": 2, "version_minor": 0}
@@ -1774,10 +1756,10 @@ var element = $('#17626851-b058-455a-8b44-e40865d14307');
 
  
  
-<div id="3b6a8844-b069-418e-8df4-038325315604"></div>
+<div id="5097efb2-c7ac-4006-9040-8434a5d7943b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3b6a8844-b069-418e-8df4-038325315604');
+var element = $('#5097efb2-c7ac-4006-9040-8434a5d7943b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1796,10 +1778,10 @@ var element = $('#3b6a8844-b069-418e-8df4-038325315604');
 
  
  
-<div id="d5186835-7c5b-4cd0-9d67-a9be53dda4a3"></div>
+<div id="39e7fee6-9c49-48a4-a98e-fe3e87f39aee"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d5186835-7c5b-4cd0-9d67-a9be53dda4a3');
+var element = $('#39e7fee6-9c49-48a4-a98e-fe3e87f39aee');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1818,10 +1800,10 @@ var element = $('#d5186835-7c5b-4cd0-9d67-a9be53dda4a3');
 
  
  
-<div id="9be9243b-0902-4b7c-a48f-42bb841a10e1"></div>
+<div id="2f086dc5-61fb-43ba-9435-fe60ed161fa6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#9be9243b-0902-4b7c-a48f-42bb841a10e1');
+var element = $('#2f086dc5-61fb-43ba-9435-fe60ed161fa6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1840,10 +1822,10 @@ var element = $('#9be9243b-0902-4b7c-a48f-42bb841a10e1');
 
  
  
-<div id="5d5cf999-727b-4b6e-b8fa-de7524fa6fd4"></div>
+<div id="36cc0cc4-3b13-4ed9-b020-08396154b541"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5d5cf999-727b-4b6e-b8fa-de7524fa6fd4');
+var element = $('#36cc0cc4-3b13-4ed9-b020-08396154b541');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1862,10 +1844,10 @@ var element = $('#5d5cf999-727b-4b6e-b8fa-de7524fa6fd4');
 
  
  
-<div id="fd864bcc-efc5-489c-b2e4-8946aeb63f1a"></div>
+<div id="190cf972-afde-428d-be96-57b6d8c8a500"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fd864bcc-efc5-489c-b2e4-8946aeb63f1a');
+var element = $('#190cf972-afde-428d-be96-57b6d8c8a500');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1884,10 +1866,10 @@ var element = $('#fd864bcc-efc5-489c-b2e4-8946aeb63f1a');
 
  
  
-<div id="0c6de122-c871-4115-9f7c-b10c24a3c65b"></div>
+<div id="386e6acd-de8b-4a64-bd71-072c0256c921"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#0c6de122-c871-4115-9f7c-b10c24a3c65b');
+var element = $('#386e6acd-de8b-4a64-bd71-072c0256c921');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1906,10 +1888,10 @@ var element = $('#0c6de122-c871-4115-9f7c-b10c24a3c65b');
 
  
  
-<div id="c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6"></div>
+<div id="3ccd4bfb-692d-4add-81c4-e88516c72fb2"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6');
+var element = $('#3ccd4bfb-692d-4add-81c4-e88516c72fb2');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1928,10 +1910,10 @@ var element = $('#c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6');
 
  
  
-<div id="fd379cdf-76ce-4a8b-aa05-28c10a6be928"></div>
+<div id="bf944dbc-3bb6-4434-8018-ad29f1c36abe"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#fd379cdf-76ce-4a8b-aa05-28c10a6be928');
+var element = $('#bf944dbc-3bb6-4434-8018-ad29f1c36abe');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1950,10 +1932,10 @@ var element = $('#fd379cdf-76ce-4a8b-aa05-28c10a6be928');
 
  
  
-<div id="22e1e0a4-8ea6-403b-9428-cd71b7a35f4a"></div>
+<div id="6b395cd8-1027-451a-8dc0-511cbd41c844"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#22e1e0a4-8ea6-403b-9428-cd71b7a35f4a');
+var element = $('#6b395cd8-1027-451a-8dc0-511cbd41c844');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "1b48a8f74d4b414b907464d88d9e2c87", "version_major": 2, "version_minor": 0}
@@ -1992,10 +1974,10 @@ var element = $('#22e1e0a4-8ea6-403b-9428-cd71b7a35f4a');
 
  
  
-<div id="9ff90946-edc1-4335-8e1a-8ccc267a83c0"></div>
+<div id="ae239299-18ce-42bc-b14f-42c804fa8687"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#9ff90946-edc1-4335-8e1a-8ccc267a83c0');
+var element = $('#ae239299-18ce-42bc-b14f-42c804fa8687');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2014,10 +1996,10 @@ var element = $('#9ff90946-edc1-4335-8e1a-8ccc267a83c0');
 
  
  
-<div id="cc6246aa-c562-447c-9a53-2a2ee9956620"></div>
+<div id="491aefbe-2c9d-4871-9735-339e55d421da"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#cc6246aa-c562-447c-9a53-2a2ee9956620');
+var element = $('#491aefbe-2c9d-4871-9735-339e55d421da');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2036,10 +2018,10 @@ var element = $('#cc6246aa-c562-447c-9a53-2a2ee9956620');
 
  
  
-<div id="2a1838cb-3477-434d-9178-6218c1230f0b"></div>
+<div id="4fab4b3e-255e-414a-b421-e553a71cecec"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2a1838cb-3477-434d-9178-6218c1230f0b');
+var element = $('#4fab4b3e-255e-414a-b421-e553a71cecec');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2058,10 +2040,10 @@ var element = $('#2a1838cb-3477-434d-9178-6218c1230f0b');
 
  
  
-<div id="921d4fd0-f742-4879-8241-6543d1e9e7e8"></div>
+<div id="72983407-60a7-47d5-bdc6-b37bd4466935"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#921d4fd0-f742-4879-8241-6543d1e9e7e8');
+var element = $('#72983407-60a7-47d5-bdc6-b37bd4466935');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2080,10 +2062,10 @@ var element = $('#921d4fd0-f742-4879-8241-6543d1e9e7e8');
 
  
  
-<div id="1381cc8a-449c-4609-9246-c0e8b19b7ef9"></div>
+<div id="ccc976dc-7591-4663-8bef-ff92bcc2b5e9"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#1381cc8a-449c-4609-9246-c0e8b19b7ef9');
+var element = $('#ccc976dc-7591-4663-8bef-ff92bcc2b5e9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2102,10 +2084,10 @@ var element = $('#1381cc8a-449c-4609-9246-c0e8b19b7ef9');
 
  
  
-<div id="c94708a9-f8d8-4c4a-9e44-e1627f127855"></div>
+<div id="471855cb-bfba-4e16-b7be-2102aeae25d8"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c94708a9-f8d8-4c4a-9e44-e1627f127855');
+var element = $('#471855cb-bfba-4e16-b7be-2102aeae25d8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2124,10 +2106,10 @@ var element = $('#c94708a9-f8d8-4c4a-9e44-e1627f127855');
 
  
  
-<div id="9bd6daab-d56c-46c5-b4a9-a0b76e63974e"></div>
+<div id="7c089b8a-090e-4547-ba1c-0c83531527f6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#9bd6daab-d56c-46c5-b4a9-a0b76e63974e');
+var element = $('#7c089b8a-090e-4547-ba1c-0c83531527f6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2146,10 +2128,10 @@ var element = $('#9bd6daab-d56c-46c5-b4a9-a0b76e63974e');
 
  
  
-<div id="ed594b3d-3e77-40b7-a32f-94e24beaa282"></div>
+<div id="599ce1cb-8229-4c68-8881-d8fbd7234370"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ed594b3d-3e77-40b7-a32f-94e24beaa282');
+var element = $('#599ce1cb-8229-4c68-8881-d8fbd7234370');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2168,10 +2150,10 @@ var element = $('#ed594b3d-3e77-40b7-a32f-94e24beaa282');
 
  
  
-<div id="bf4ad50e-2a93-4cbc-b1f3-56e35536bea5"></div>
+<div id="ccdb64c1-ae0c-473d-ade0-e293d65ffef1"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#bf4ad50e-2a93-4cbc-b1f3-56e35536bea5');
+var element = $('#ccdb64c1-ae0c-473d-ade0-e293d65ffef1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "5586a2eb6bff4846910dbdff72960a7e", "version_major": 2, "version_minor": 0}
@@ -2386,10 +2368,10 @@ var element = $('#bf4ad50e-2a93-4cbc-b1f3-56e35536bea5');
 
  
  
-<div id="85109650-6030-4ac9-961f-40cff1a81a0f"></div>
+<div id="c768931b-fe74-4767-9537-3d994938dfb0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#85109650-6030-4ac9-961f-40cff1a81a0f');
+var element = $('#c768931b-fe74-4767-9537-3d994938dfb0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "7a816b74fd1e444896e582a3fad97af0", "version_major": 2, "version_minor": 0}
@@ -2428,10 +2410,10 @@ var element = $('#85109650-6030-4ac9-961f-40cff1a81a0f');
 
  
  
-<div id="82148e1c-0fa4-41e7-8ddd-10e843a7d9bc"></div>
+<div id="edbcbe48-d39f-406e-9147-b594fe0840a4"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#82148e1c-0fa4-41e7-8ddd-10e843a7d9bc');
+var element = $('#edbcbe48-d39f-406e-9147-b594fe0840a4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4b9eed29cbd8492e9f617acba475be27", "version_major": 2, "version_minor": 0}
@@ -2470,10 +2452,10 @@ var element = $('#82148e1c-0fa4-41e7-8ddd-10e843a7d9bc');
 
  
  
-<div id="a207f552-8ee9-472b-b31a-ff621ad2ee64"></div>
+<div id="2700dfe0-8a55-40ca-b1e2-01e7befe4ff9"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a207f552-8ee9-472b-b31a-ff621ad2ee64');
+var element = $('#2700dfe0-8a55-40ca-b1e2-01e7befe4ff9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "55e871453049487e925e7d599dfe0005", "version_major": 2, "version_minor": 0}
@@ -2567,9 +2549,9 @@ var element = $('#a207f552-8ee9-472b-b31a-ff621ad2ee64');
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="./tag/umap.html">umap</a>
-      <a href="./tag/coranking-matrix.html">coranking matrix</a>
-      <a href="./tag/metrics.html">metrics</a>
+      <a href="/tag/umap.html">umap</a>
+      <a href="/tag/coranking-matrix.html">coranking matrix</a>
+      <a href="/tag/metrics.html">metrics</a>
     </p>
   </div>
 
@@ -2595,7 +2577,7 @@ var element = $('#a207f552-8ee9-472b-b31a-ff621ad2ee64');
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " Tim Sainburg ",
-  "url" : ".",
+  "url" : "",
   "image": "img/TSainburg.jpg",
   "description": ""
 }
