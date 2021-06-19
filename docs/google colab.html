@@ -71,7 +71,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -97,8 +97,7 @@
       
     <h1 id="google colab">Making Jupyter notebooks Google Colab ready</h1>
     <p>
-          Posted on Fri 07 June 2019 in <a href="./category/python.html">python</a>
-
+      Posted on Fri 07 June 2019 in <a href="./category/python.html">python</a>
 
     </p>
   </header>
@@ -1148,8 +1147,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1221,6 +1225,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Jupyter notebooks are great for sharing code, but the step between showing people the code you produced, and allowing them to run that code can be difficult. Notebooks that you're running within your own environment usually relies on external code that makes it difficult to just copy a notebook and run it. In an ideal world, we want people to be able to run our notebooks as easily as look at them.</p>
 <p>Google Colab is a great bridge to allow you to quickly run someone else's notebooks, but Colab still requires that you have the right code dependencies available. Here is a quick fix that I have been using to run Colab Notebooks that require external dependencies easily. An example can be seen in my <a href="https://github.com/timsainb/tensorflow2-generative-models/">Tensorflow 2 Generative Models repository</a>.</p>
+
 </div>
 </div>
 </div>
@@ -1232,13 +1237,14 @@ h6:hover .anchor-link {
 <li>Install the requisite dependencies</li>
 <li>Add a link to open the notebook in Colab</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Installing-dependencies">Installing dependencies<a class="anchor-link" href="#Installing-dependencies">¶</a></h3>
+<h3 id="Installing-dependencies">Installing dependencies<a class="anchor-link" href="#Installing-dependencies">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -1247,36 +1253,40 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The easiest way to install packages in Colab is simply to run a command line script e.g. <code>!pip install numpy</code>. However, you don't want to run that command when you're not in Colab. So instead, you need to test whether or not you're in Colab. To do this, all you need to do is test if google.colab is an available module: <code>"google.colab" in sys.modules</code>. Since google.colab is a colab specific module, if it's available, you are in Colab.</p>
 <p>So to install the requisite dependencies, lets first make a list of the dependencies we're going to need to install:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">colab_requirements</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">"pip install tf-nightly-gpu-2.0-preview==2.0.0.dev20190513"</span><span class="p">,</span>
-    <span class="s2">"pip install tfp-nightly==0.7.0.dev20190508"</span><span class="p">,</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colab_requirements</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;pip install tf-nightly-gpu-2.0-preview==2.0.0.dev20190513&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pip install tfp-nightly==0.7.0.dev20190508&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Then we test if we are in Colab, and if so, <code>pip install</code> the requirements (using subprocess):</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">subprocess</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">subprocess</span>
 
 <span class="k">def</span> <span class="nf">run_subprocess_command</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
     <span class="c1"># run the command</span>
@@ -1289,23 +1299,27 @@ h6:hover .anchor-link {
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">colab_requirements</span><span class="p">:</span>
         <span class="n">run_subprocess_command</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>When code isn't on pip, you can still install it, just pip install from the GitHub repo. To make a GitHub repo, all you need to do is create a <a href="https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html#setup-py-description"><code>setup.py</code></a></p>
 <p>This can be really useful for submitting issues on github. For example, if you're reporting a Minimal Reproducable example on a specific nightly version of a GitHub repo, you can just pip install the that commit in colab, and reproduce your error. For example:</p>
+
 <pre><code>pip install git+git://github.com/YOURUSERNAME/YOURREPOSITORY.git@YOUR_COMMIT_HASH</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adding-a-link-to-open-the-notebook-in-Colab">Adding a link to open the notebook in Colab<a class="anchor-link" href="#Adding-a-link-to-open-the-notebook-in-Colab">¶</a></h3>
+<h3 id="Adding-a-link-to-open-the-notebook-in-Colab">Adding a link to open the notebook in Colab<a class="anchor-link" href="#Adding-a-link-to-open-the-notebook-in-Colab">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -1314,24 +1328,31 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Adding a link to open the colab notebook as also really easy, and can even be created as a badge.</p>
 <p>You just need to link to</p>
+
 <pre><code>https://colab.research.google.com/github/MYUSERNAME/MYREPOSITORY/blob/MYBRANCH/PATH/TO/MYNOTEBOOK.ipynb</code></pre>
 <p>For example, here is the code to create this link to a Variational Autoencoder Colab notebook:</p>
-<p><a href="https://colab.research.google.com/github/timsainb/tensorflow2-generative-models/blob/master/1.0-Variational-Autoencoder-fashion-mnist.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<p><a href="https://colab.research.google.com/github/timsainb/tensorflow2-generative-models/blob/master/1.0-Variational-Autoencoder-fashion-mnist.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+
 <pre><code>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/timsainb/tensorflow2-generative-models/blob/master/1.0-Variational-Autoencoder-fashion-mnist.ipynb)</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1393,8 +1414,7 @@ h6:hover .anchor-link {
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

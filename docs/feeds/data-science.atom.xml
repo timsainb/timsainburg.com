@@ -1042,8 +1042,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1113,7 +1118,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;iframe allowfullscreen="" frameborder="0" height="600px" src="assets/html/graph_network.html" style="background:#f9f9f9" width="100%"&gt;&lt;/iframe&gt;
+&lt;iframe src="assets/html/graph_network.html" frameborder="0" allowfullscreen width="100%" height="600px" style="background:#f9f9f9"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1130,34 +1135,37 @@ h6:hover .anchor-link {
 &lt;p&gt;I'm finishing up the fourth year of my PhD, meaning that I've spent a fair amount of time reading papers over the past few years. In my first year, I decided I was going to try to stay consistent with the way that I read and took notes on papers, so it would be easier to look back when I needed a quick reference. To that end, I created a private wordpress.com blog, and everytime (ok, most times) I read a paper, I'd take some quick notes as a Wordpress post. Each post contains a few bulletpoints about the content of the paper, my take, author names, a link to the paper, a few tags (e.g. birdsong, langauge, machine learning), plus screenshots of the main figures that I want to remember. It only takes &amp;lt;1 minute to add the extra metadata, and makes it much easier to index.&lt;/p&gt;
 &lt;p&gt;The main benefit for me is that when I'm trying to remember a paper I read recently, I can either search for it on my blog, or scroll down the page. In addition, I keep other notes, research idea, or even links to websites I like or resources I find useful as posts on the site as well. I categorize them all as either papers, datasets, research ideas, etc. If you're a new graduate student, or just someone looking for a good easy way to take notes, I recommend it. It's nice to have an easy cloud-based WYSIWIG editor for notes, as compared to this blog (timsainburg.com), where every post is a &lt;a href="https://github.com/danielfrg/pelican-ipynb"&gt;Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now that I've got quite a few papers on there (still fewer than I should / would have liked), it seems like a good time to look back through and reflect on what I've been reading over the years. Plus, quick, fun datascience/dataviz project.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="General-stats"&gt;General stats&lt;a class="anchor-link" href="#General-stats"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id="General-stats"&gt;General stats&lt;a class="anchor-link" href="#General-stats"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;In total, I've created around 600 posts&lt;/li&gt;
 &lt;li&gt;Posts are tagged with 1,768 different tags, 543 of which are unique.&lt;/li&gt;
 &lt;li&gt;The 10 most frequent tags are: 
 &lt;code&gt;'syntax', 'Birdsong', 'hierarchy', 'Language', 'Language Acquisition', 'sequence learning', 'Recursion', 'zebra finch', 'vocalization', 'Markov Models'&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;58% of tags are unique&lt;/li&gt;
 &lt;/ul&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Creating-a-network"&gt;Creating a network&lt;a class="anchor-link" href="#Creating-a-network"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I subsetted those ~600 posts, taking only posts about research papers/chapters/etc. I then created a network in (using NetworkX) of my posts. To do so, I converted the XML data from Wordpress's RSS feed (you can do this pretty easily with any RSS feed).&lt;/p&gt;
+&lt;h3 id="Creating-a-network"&gt;Creating a network&lt;a class="anchor-link" href="#Creating-a-network"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I subsetted those ~600 posts, taking only posts about research papers/chapters/etc. I then created a network in (using NetworkX) of my posts. To do so, I converted the XML data from Wordpress's RSS feed (you can do this pretty easily with any RSS feed).&lt;/p&gt;
 &lt;p&gt;In the network, each post is a single node, and the links between nodes are whether or not any two pairs of posts have overlapping tags. The weight of the edges (links) is computed as $\sum^{tag}_{tags}{\frac{1}{freq_{tag}}}$, where $tags$ are set of overlapping tags between the two nodes, and $freq_{tag}$ is the frequency of each tag occurring in the set of all tags. The point being that less frequent tags should be weighted as more important connections.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Clustering-the-network"&gt;Clustering the network&lt;a class="anchor-link" href="#Clustering-the-network"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I clustered using the community package for python, based upon the &lt;a href="https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008/meta#artAbst"&gt;Louvain algorithm&lt;/a&gt;. The algorithm found 9 clusters, which correspond to each of the colors in the graph above. Here are a few example clusters:&lt;/p&gt;
+&lt;h3 id="Clustering-the-network"&gt;Clustering the network&lt;a class="anchor-link" href="#Clustering-the-network"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I clustered using the community package for python, based upon the &lt;a href="https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008/meta#artAbst"&gt;Louvain algorithm&lt;/a&gt;. The algorithm found 9 clusters, which correspond to each of the colors in the graph above. Here are a few example clusters:&lt;/p&gt;
 &lt;p&gt;&lt;h6 style="color: rgb(239,133,54)"&gt;Cluster #1: machine learning&lt;/h6&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;adversarially learned inference&lt;/li&gt;
@@ -1182,24 +1190,27 @@ h6:hover .anchor-link {
 &lt;li&gt;neural lateralization of vocal control in a passerine bird&lt;/li&gt;
 &lt;li&gt;precise auditory–vocal mirroring in neurons for learned vocal communication&lt;/li&gt;
 &lt;/ul&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Plotting"&gt;Plotting&lt;a class="anchor-link" href="#Plotting"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First I generated the positions of each node in the network using the &lt;a href="https://doi.org/10.1016/0020-0190(89)90102-6"&gt;Kamada Kawai method&lt;/a&gt;. I then plotted using the &lt;a href="http://sigmajs.org"&gt;sigma.js&lt;/a&gt; package. To do so, I took the nodes and edges from my network and dumped it as a JSON for sigma.js to read, then put together the javascript and HTML to plot the network. You can see the results above.&lt;/p&gt;
+&lt;h3 id="Plotting"&gt;Plotting&lt;a class="anchor-link" href="#Plotting"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;First I generated the positions of each node in the network using the &lt;a href="https://doi.org/10.1016/0020-0190(89)90102-6"&gt;Kamada Kawai method&lt;/a&gt;. I then plotted using the &lt;a href="http://sigmajs.org"&gt;sigma.js&lt;/a&gt; package. To do so, I took the nodes and edges from my network and dumped it as a JSON for sigma.js to read, then put together the javascript and HTML to plot the network. You can see the results above.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h5 id="A-few-takeaways:"&gt;A few takeaways:&lt;a class="anchor-link" href="#A-few-takeaways:"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
+&lt;h5 id="A-few-takeaways:"&gt;A few takeaways:&lt;a class="anchor-link" href="#A-few-takeaways:"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;ul&gt;
 &lt;li&gt;I would like to read more papers from a wider array of disciplines&lt;/li&gt;
 &lt;li&gt;I need to take notes on more things that I read&lt;/li&gt;
 &lt;li&gt;Most of the papers that I've read (or at least taken notes on) have fallen into the same five or six categories. &lt;/li&gt;
 &lt;/ul&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1207,21 +1218,26 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Here's a still of the what network should look like, in case you can't see it:
-&lt;img src="assets/img/graph_still.png"/&gt;&lt;/p&gt;
+&lt;img src='assets/img/graph_still.png' /&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1251,4 +1267,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="research notes"></category><category term="sigma.js"></category><category term="network science"></category><category term="plotting"></category><category term="data science"></category><category term="wordpress"></category><category term="xml"></category><category term="rss"></category></entry></feed>
+</content><category term="data science"></category><category term="research notes"></category><category term="sigma.js"></category><category term="network science"></category><category term="plotting"></category><category term="data science"></category><category term="wordpress"></category><category term="xml"></category><category term="rss"></category></entry></feed>

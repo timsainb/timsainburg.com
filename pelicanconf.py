@@ -27,7 +27,7 @@ DEFAULT_LANG = 'en'
 MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATHS = ['./plugins']
-PLUGINS = ['ipynb.markup']
+#PLUGINS = ['ipynb.markup']
 IPYNB_USE_METACELL = True
 IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
@@ -40,6 +40,11 @@ LINKS = (
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
 SITELOGO = 'img/TSainburg.jpg'
 FAVICON = 'theme/img/starling-small.ico'
+
+PLUGINS = ['i18n_subsites','ipynb.markup' ]
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.i18n'],
+}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

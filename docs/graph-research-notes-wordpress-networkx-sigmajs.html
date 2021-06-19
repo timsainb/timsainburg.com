@@ -76,7 +76,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -102,8 +102,7 @@
       
     <h1 id="graph-research-notes-wordpress-networkx-sigmajs">Plotting my research notes with NetworkX and sigma.js</h1>
     <p>
-          Posted on Sat 21 September 2019 in <a href="./category/data-science.html">data science</a>
-
+      Posted on Sat 21 September 2019 in <a href="./category/data-science.html">data science</a>
 
     </p>
   </header>
@@ -1153,8 +1152,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1224,7 +1228,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<iframe allowfullscreen="" frameborder="0" height="600px" src="assets/html/graph_network.html" style="background:#f9f9f9" width="100%"></iframe>
+<iframe src="assets/html/graph_network.html" frameborder="0" allowfullscreen width="100%" height="600px" style="background:#f9f9f9"></iframe>
 </div>
 </div>
 </div>
@@ -1241,34 +1245,37 @@ h6:hover .anchor-link {
 <p>I'm finishing up the fourth year of my PhD, meaning that I've spent a fair amount of time reading papers over the past few years. In my first year, I decided I was going to try to stay consistent with the way that I read and took notes on papers, so it would be easier to look back when I needed a quick reference. To that end, I created a private wordpress.com blog, and everytime (ok, most times) I read a paper, I'd take some quick notes as a Wordpress post. Each post contains a few bulletpoints about the content of the paper, my take, author names, a link to the paper, a few tags (e.g. birdsong, langauge, machine learning), plus screenshots of the main figures that I want to remember. It only takes &lt;1 minute to add the extra metadata, and makes it much easier to index.</p>
 <p>The main benefit for me is that when I'm trying to remember a paper I read recently, I can either search for it on my blog, or scroll down the page. In addition, I keep other notes, research idea, or even links to websites I like or resources I find useful as posts on the site as well. I categorize them all as either papers, datasets, research ideas, etc. If you're a new graduate student, or just someone looking for a good easy way to take notes, I recommend it. It's nice to have an easy cloud-based WYSIWIG editor for notes, as compared to this blog (timsainburg.com), where every post is a <a href="https://github.com/danielfrg/pelican-ipynb">Jupyter notebook</a>.</p>
 <p>Now that I've got quite a few papers on there (still fewer than I should / would have liked), it seems like a good time to look back through and reflect on what I've been reading over the years. Plus, quick, fun datascience/dataviz project.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="General-stats">General stats<a class="anchor-link" href="#General-stats">¶</a></h3><ul>
+<h3 id="General-stats">General stats<a class="anchor-link" href="#General-stats">&#182;</a></h3><ul>
 <li>In total, I've created around 600 posts</li>
 <li>Posts are tagged with 1,768 different tags, 543 of which are unique.</li>
 <li>The 10 most frequent tags are: 
 <code>'syntax', 'Birdsong', 'hierarchy', 'Language', 'Language Acquisition', 'sequence learning', 'Recursion', 'zebra finch', 'vocalization', 'Markov Models'</code></li>
 <li>58% of tags are unique</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Creating-a-network">Creating a network<a class="anchor-link" href="#Creating-a-network">¶</a></h3><p>I subsetted those ~600 posts, taking only posts about research papers/chapters/etc. I then created a network in (using NetworkX) of my posts. To do so, I converted the XML data from Wordpress's RSS feed (you can do this pretty easily with any RSS feed).</p>
+<h3 id="Creating-a-network">Creating a network<a class="anchor-link" href="#Creating-a-network">&#182;</a></h3><p>I subsetted those ~600 posts, taking only posts about research papers/chapters/etc. I then created a network in (using NetworkX) of my posts. To do so, I converted the XML data from Wordpress's RSS feed (you can do this pretty easily with any RSS feed).</p>
 <p>In the network, each post is a single node, and the links between nodes are whether or not any two pairs of posts have overlapping tags. The weight of the edges (links) is computed as $\sum^{tag}_{tags}{\frac{1}{freq_{tag}}}$, where $tags$ are set of overlapping tags between the two nodes, and $freq_{tag}$ is the frequency of each tag occurring in the set of all tags. The point being that less frequent tags should be weighted as more important connections.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Clustering-the-network">Clustering the network<a class="anchor-link" href="#Clustering-the-network">¶</a></h3><p>I clustered using the community package for python, based upon the <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008/meta#artAbst">Louvain algorithm</a>. The algorithm found 9 clusters, which correspond to each of the colors in the graph above. Here are a few example clusters:</p>
+<h3 id="Clustering-the-network">Clustering the network<a class="anchor-link" href="#Clustering-the-network">&#182;</a></h3><p>I clustered using the community package for python, based upon the <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2008/10/P10008/meta#artAbst">Louvain algorithm</a>. The algorithm found 9 clusters, which correspond to each of the colors in the graph above. Here are a few example clusters:</p>
 <p><h6 style="color: rgb(239,133,54)">Cluster #1: machine learning</h6></p>
 <ul>
 <li>adversarially learned inference</li>
@@ -1293,24 +1300,27 @@ h6:hover .anchor-link {
 <li>neural lateralization of vocal control in a passerine bird</li>
 <li>precise auditory–vocal mirroring in neurons for learned vocal communication</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Plotting">Plotting<a class="anchor-link" href="#Plotting">¶</a></h3><p>First I generated the positions of each node in the network using the <a href="https://doi.org/10.1016/0020-0190(89)90102-6">Kamada Kawai method</a>. I then plotted using the <a href="http://sigmajs.org">sigma.js</a> package. To do so, I took the nodes and edges from my network and dumped it as a JSON for sigma.js to read, then put together the javascript and HTML to plot the network. You can see the results above.</p>
+<h3 id="Plotting">Plotting<a class="anchor-link" href="#Plotting">&#182;</a></h3><p>First I generated the positions of each node in the network using the <a href="https://doi.org/10.1016/0020-0190(89)90102-6">Kamada Kawai method</a>. I then plotted using the <a href="http://sigmajs.org">sigma.js</a> package. To do so, I took the nodes and edges from my network and dumped it as a JSON for sigma.js to read, then put together the javascript and HTML to plot the network. You can see the results above.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="A-few-takeaways:">A few takeaways:<a class="anchor-link" href="#A-few-takeaways:">¶</a></h5><ul>
+<h5 id="A-few-takeaways:">A few takeaways:<a class="anchor-link" href="#A-few-takeaways:">&#182;</a></h5><ul>
 <li>I would like to read more papers from a wider array of disciplines</li>
 <li>I need to take notes on more things that I read</li>
 <li>Most of the papers that I've read (or at least taken notes on) have fallen into the same five or six categories. </li>
 </ul>
+
 </div>
 </div>
 </div>
@@ -1318,21 +1328,26 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here's a still of the what network should look like, in case you can't see it:
-<img src="assets/img/graph_still.png"/></p>
+<img src='assets/img/graph_still.png' /></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1399,8 +1414,7 @@ h6:hover .anchor-link {
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

@@ -71,7 +71,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -97,8 +97,7 @@
       
     <h1 id="parametric-umap">Parametric UMAP</h1>
     <p>
-          Posted on Sat 03 October 2020 in <a href="./category/machine-learning.html">Machine Learning</a>
-
+      Posted on Sat 03 October 2020 in <a href="./category/machine-learning.html">Machine Learning</a>
 
     </p>
   </header>
@@ -1148,8 +1147,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1221,6 +1225,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our new paper, <a href="https://arxiv.org/abs/2009.12981">"Parametric UMAP: learning embeddings with deep neural networks for representation and semi-supervised learning" (Sainburg, McInnes, Gentner, 2020)</a> is posted on arXiv. In the paper, we propose a parametric variation of UMAP, which is normally a non-parametric algorithm.</p>
 <p>The idea is simple: instead of optimizing UMAP over embeddings we optimize over a neural network.</p>
+
 </div>
 </div>
 </div>
@@ -1228,8 +1233,9 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center; clear:both">
-<img src="assets/img/parametric-umap.png" style="display:inline-block"/>
-<p style="text-align:center;font-style:italic">Overview of UMAP (A → B) and Parametric UMAP (A → C). See paper for more info.</p>
+      <img src="assets/img/parametric-umap.png" style="display:inline-block">
+
+<p style="text-align:center;font-style:italic">Overview of UMAP (A → B) and Parametric UMAP (A → C). See paper for more info.</p> 
 </div>
 </div>
 </div>
@@ -1239,6 +1245,7 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the paper, we explain how it was done, and why UMAP is so well suited to deep learning applications.</p>
 <p>After exploring and characterizing Parametric UMAP's embeddings (speed, embeding quality, downstream tasks), we looked at how Parametric UMAP could be extended to novel deep learning applications like classification and autoencoding.</p>
+
 </div>
 </div>
 </div>
@@ -1246,8 +1253,9 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center; clear:both">
-<img src="assets/img/parametric-umap-extensions.png" style="display:inline-block"/>
-<p style="text-align:center;font-style:italic">Extending Parametric UMAP. See paper for more info.</p>
+      <img src="assets/img/parametric-umap-extensions.png" style="display:inline-block">
+
+<p style="text-align:center;font-style:italic">Extending Parametric UMAP. See paper for more info.</p> 
 </div>
 </div>
 </div>
@@ -1256,6 +1264,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here's a twitter thread going into some detail:</p>
+
 </div>
 </div>
 </div>
@@ -1264,8 +1273,8 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
 <div class="centerblock" style="display:inline-block">
-<blockquote class="twitter-tweet"><p dir="ltr" lang="en">New paper "Parametric UMAP: learning embeddings with deep neural networks for representation and semi-supervised learning" with <a href="https://twitter.com/leland_mcinnes?ref_src=twsrc%5Etfw">@leland_mcinnes</a> and <a href="https://twitter.com/TqGentner?ref_src=twsrc%5Etfw">@TqGentner</a>! 1/<a href="https://t.co/2x5YTZPSXU">https://t.co/2x5YTZPSXU</a> <a href="https://t.co/WJ7ECE0DI4">pic.twitter.com/WJ7ECE0DI4</a></p>— Tim Sainburg (@tim_sainburg) <a href="https://twitter.com/tim_sainburg/status/1310975420271980551?ref_src=twsrc%5Etfw">September 29, 2020</a></blockquote> <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">New paper &quot;Parametric UMAP: learning embeddings with deep neural networks for representation and semi-supervised learning&quot; with <a href="https://twitter.com/leland_mcinnes?ref_src=twsrc%5Etfw">@leland_mcinnes</a> and <a href="https://twitter.com/TqGentner?ref_src=twsrc%5Etfw">@TqGentner</a>! 1/<a href="https://t.co/2x5YTZPSXU">https://t.co/2x5YTZPSXU</a> <a href="https://t.co/WJ7ECE0DI4">pic.twitter.com/WJ7ECE0DI4</a></p>&mdash; Tim Sainburg (@tim_sainburg) <a href="https://twitter.com/tim_sainburg/status/1310975420271980551?ref_src=twsrc%5Etfw">September 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
+</div>    
 </div>
 </div>
 </div>
@@ -1274,6 +1283,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The code for then paper is <a href="https://github.com/timsainb/ParametricUMAP_paper">available online</a> and is added to <a href="https://github.com/lmcinnes/umap/tree/0.5dev">v0.5</a> of UMAP.</p>
+
 </div>
 </div>
 </div>
@@ -1281,9 +1291,12 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Feel free to reach out if you have any questions!</p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1345,8 +1358,7 @@ h6:hover .anchor-link {
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

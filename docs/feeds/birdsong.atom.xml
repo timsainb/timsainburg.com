@@ -1042,8 +1042,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1114,6 +1119,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;My new paper, "Parallels in the sequential organization of birdsong and human speech" was published in Nature Communications this past week (&lt;a href="https://rdcu.be/bO1Ue"&gt;ReadCube link&lt;/a&gt; | &lt;a href="https://doi.org/10.1038/s41467-019-11605-y"&gt;DOI link&lt;/a&gt;). In it, we explore long- and short-distance sequential-relationships in birdsong and speech.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1122,10 +1128,10 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/img/parallels_fig1.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;&lt;/div&gt;
+  &lt;img style="float:center",  src="assets/img/parallels_fig1.png", width="80%" max_width="800px"&gt;
+&lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;a-d&lt;/span&gt; UMAP projections of syllables from a single example bird from each species (Bengalese finch, California thrasher, Cassin's vireo, European starling). &lt;span style="font-style: normal; font-weight:bold"&gt;e-h&lt;/span&gt; Sequence-transitions between syllables from the same bird as a-d &lt;span style="font-style: normal; font-weight:bold"&gt;i-h&lt;/span&gt; Markov model abstraction of e-h&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;a-d&lt;/span&gt; UMAP projections of syllables from a single example bird from each species (Bengalese finch, California thrasher, Cassin's vireo, European starling). &lt;span style="font-style: normal; font-weight:bold"&gt;e-h&lt;/span&gt; Sequence-transitions between syllables from the same bird as a-d &lt;span style="font-style: normal; font-weight:bold"&gt;i-h&lt;/span&gt; Markov model abstraction of e-h&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1133,30 +1139,39 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Abstract"&gt;Abstract&lt;a class="anchor-link" href="#Abstract"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;Human speech possesses a rich hierarchical structure that allows for meaning to be altered by words spaced far apart in time. Conversely, the sequential structure of nonhuman communication is thought to follow non-hierarchical Markovian dynamics operating over only short distances. Here, we show that human speech and birdsong share a similar sequential structure indicative of both hierarchical and Markovian organization. We analyze the sequential dynamics of song from multiple songbird species and speech from multiple languages by modeling the information content of signals as a function of the sequential distance between vocal elements. Across short sequence-distances, an exponential decay dominates the information in speech and birdsong, consistent with underlying Markovian processes. At longer sequence-distances, the decay in information follows a power law, consistent with underlying hierarchical processes. Thus, the sequential organization of acoustic elements in two learned vocal communication signals (speech and birdsong) shows functionally equivalent dynamics, governed by similar processes.&lt;/p&gt;
+&lt;h3 id="Abstract"&gt;Abstract&lt;a class="anchor-link" href="#Abstract"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;&lt;p&gt;Human speech possesses a rich hierarchical structure that allows for meaning to be altered by words spaced far apart in time. Conversely, the sequential structure of nonhuman communication is thought to follow non-hierarchical Markovian dynamics operating over only short distances. Here, we show that human speech and birdsong share a similar sequential structure indicative of both hierarchical and Markovian organization. We analyze the sequential dynamics of song from multiple songbird species and speech from multiple languages by modeling the information content of signals as a function of the sequential distance between vocal elements. Across short sequence-distances, an exponential decay dominates the information in speech and birdsong, consistent with underlying Markovian processes. At longer sequence-distances, the decay in information follows a power law, consistent with underlying hierarchical processes. Thus, the sequential organization of acoustic elements in two learned vocal communication signals (speech and birdsong) shows functionally equivalent dynamics, governed by similar processes.&lt;/p&gt;
 &lt;/blockquote&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Twitter-thread"&gt;Twitter thread&lt;a class="anchor-link" href="#Twitter-thread"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I wrote a short twitter thread describing the main results.&lt;/p&gt;
+&lt;h3 id="Twitter-thread"&gt;Twitter thread&lt;a class="anchor-link" href="#Twitter-thread"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I wrote a short twitter thread describing the main results.&lt;/p&gt;
 &lt;style&gt;
 twitterwidget::shadow .Tweet-ancestorContents {display: none;}
 twitterwidget::shadow .EmbeddedTweet-ancestor  {display: none;}
 twitterwidget::shadow .EmbeddedTweet-ancestor--repliesRefresh  {display: none;}
 &lt;/style&gt;&lt;div style="text-align:center"&gt;
 &lt;div class="centerblock" style="display:inline-block"&gt;
-&lt;blockquote class="twitter-tweet"&gt;&lt;p dir="ltr" lang="en"&gt;Our paper "Parallels in the sequential organization of birdsong and human speech" is out today in &lt;a href="https://twitter.com/NatureComms?ref_src=twsrc%5Etfw"&gt;@NatureComms&lt;/a&gt; with &lt;a href="https://twitter.com/bradtheilman?ref_src=twsrc%5Etfw"&gt;@bradtheilman&lt;/a&gt; &lt;a href="https://twitter.com/TheNeuralCoder?ref_src=twsrc%5Etfw"&gt;@TheNeuralCoder&lt;/a&gt; and &lt;a href="https://twitter.com/TqGentner?ref_src=twsrc%5Etfw"&gt;@TqGentner&lt;/a&gt;! &lt;a href="https://t.co/jHYrXyRwB6"&gt;https://t.co/jHYrXyRwB6&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972534931529728?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;We modeled the sequential relationships between elements of birdsong and speech as Mutual Information (MI) decay and compared them to hierarchical and Markovian models of sequential organization. &lt;a href="https://t.co/TQrAu8QkUN"&gt;pic.twitter.com/TQrAu8QkUN&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972538647724032?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;Markovian relationships decay exponentially in MI as a function of sequential-distance, while a power-law MI decay is indicative of hierarchical organization. &lt;a href="https://t.co/DnGFHhhQkr"&gt;pic.twitter.com/DnGFHhhQkr&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972542447767552?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;In four speech datasets (English, Japanese, German, Calabrian) we found that MI decay showed signs of both Markovian and hierarchical organization, where Markovian organization was primarily observed in short-distance within-word relationships. &lt;a href="https://t.co/BNJBRZo5Uv"&gt;pic.twitter.com/BNJBRZo5Uv&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972547824840705?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;In birdsong (European starling, Cassin's vireo, Bengalese finch, California thrasher) we found MI decayed in a similar way. Long-range relationships between vocal elements showed signs of both hierarchical and Markovian organization. &lt;a href="https://t.co/eFNkPmNJWh"&gt;pic.twitter.com/eFNkPmNJWh&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972553000587264?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;Collectively, our results reveal a common structure in both the short- and long-range sequential dependencies in birdsong and speech. At short timescales, information decay is largely exponential, indicating structure that is governed by Markovian processes.&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972555487870976?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;Throughout vocal sequences, however, and especially for long-timescale dependencies, a power law, indicative of non-Markovian hierarchical processes, governs information decay in both birdsong and speech.&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972556259614720?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p dir="ltr" lang="en"&gt;More to explore and more to come! Let me know what you all think!&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972557043978240?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;/div&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Our paper &amp;quot;Parallels in the sequential organization of birdsong and human speech&amp;quot; is out today in &lt;a href="https://twitter.com/NatureComms?ref_src=twsrc%5Etfw"&gt;@NatureComms&lt;/a&gt; with &lt;a href="https://twitter.com/bradtheilman?ref_src=twsrc%5Etfw"&gt;@bradtheilman&lt;/a&gt; &lt;a href="https://twitter.com/TheNeuralCoder?ref_src=twsrc%5Etfw"&gt;@TheNeuralCoder&lt;/a&gt; and &lt;a href="https://twitter.com/TqGentner?ref_src=twsrc%5Etfw"&gt;@TqGentner&lt;/a&gt;! &lt;a href="https://t.co/jHYrXyRwB6"&gt;https://t.co/jHYrXyRwB6&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972534931529728?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;We modeled the sequential relationships between elements of birdsong and speech as Mutual Information (MI) decay and compared them to hierarchical and Markovian models of sequential organization. &lt;a href="https://t.co/TQrAu8QkUN"&gt;pic.twitter.com/TQrAu8QkUN&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972538647724032?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;Markovian relationships decay exponentially in MI as a function of sequential-distance, while a power-law MI decay is indicative of hierarchical organization. &lt;a href="https://t.co/DnGFHhhQkr"&gt;pic.twitter.com/DnGFHhhQkr&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972542447767552?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;In four speech datasets (English, Japanese, German, Calabrian) we found that MI decay showed signs of both Markovian and hierarchical organization, where Markovian organization was primarily observed in short-distance within-word relationships. &lt;a href="https://t.co/BNJBRZo5Uv"&gt;pic.twitter.com/BNJBRZo5Uv&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972547824840705?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;In birdsong (European starling, Cassin&amp;#39;s vireo, Bengalese finch, California thrasher) we found MI decayed in a similar way. Long-range relationships between vocal elements showed signs of both hierarchical and Markovian organization. &lt;a href="https://t.co/eFNkPmNJWh"&gt;pic.twitter.com/eFNkPmNJWh&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972553000587264?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;Collectively, our results reveal a common structure in both the short- and long-range sequential dependencies in birdsong and speech. At short timescales, information decay is largely exponential, indicating structure that is governed by Markovian processes.&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972555487870976?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;Throughout vocal sequences, however, and especially for long-timescale dependencies, a power law, indicative of non-Markovian hierarchical processes, governs information decay in both birdsong and speech.&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972556259614720?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;More to explore and more to come! Let me know what you all think!&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1160972557043978240?ref_src=twsrc%5Etfw"&gt;August 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;/div&gt;    
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1164,21 +1179,26 @@ twitterwidget::shadow .EmbeddedTweet-ancestor--repliesRefresh  {display: none;}
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Code"&gt;Code&lt;a class="anchor-link" href="#Code"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The code is all available on &lt;a href="https://github.com/timsainb/ParallelsBirdsongLanguagePaper"&gt;GitHub&lt;/a&gt; and most of the datasets we used for our study are available online!&lt;/p&gt;
+&lt;h3 id="Code"&gt;Code&lt;a class="anchor-link" href="#Code"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The code is all available on &lt;a href="https://github.com/timsainb/ParallelsBirdsongLanguagePaper"&gt;GitHub&lt;/a&gt; and most of the datasets we used for our study are available online!&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1208,7 +1228,7 @@ twitterwidget::shadow .EmbeddedTweet-ancestor--repliesRefresh  {display: none;}
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="birdsong"></category><category term="language"></category><category term="speech"></category><category term="finch"></category><category term="starling"></category><category term="vireo"></category><category term="thrasher"></category><category term="syntax"></category><category term="phonology"></category></entry><entry><title>CCN 2018 Conference presentation: Learned context dependent categorical perception in a songbird</title><link href="http://timsainburg.com/CCN2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/CCN2018.html</id><summary type="html">&lt;p&gt;My conference poster and oral presentation from CCN 2018 on the context dependent categorical perception behavior I designed for songbirds&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="Birdsong"></category><category term="birdsong"></category><category term="language"></category><category term="speech"></category><category term="finch"></category><category term="starling"></category><category term="vireo"></category><category term="thrasher"></category><category term="syntax"></category><category term="phonology"></category></entry><entry><title>CCN 2018 Conference presentation: Learned context dependent categorical perception in a songbird</title><link href="http://timsainburg.com/CCN2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/CCN2018.html</id><summary type="html">&lt;p&gt;My conference poster and oral presentation from CCN 2018 on the context dependent categorical perception behavior I designed for songbirds&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2251,8 +2271,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -2324,6 +2349,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In September I published a short conference paper at &lt;a href="https://ccneuro.org/2019/"&gt;CCN&lt;/a&gt; 2018, which is a new (2017) conference that is focused on the interface between computational neuroscience, cognitive science, and arfficial intelligence.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://ccneuro.org/2018/Papers/ViewPapers.asp?PaperNum=1147"&gt;My conference paper&lt;/a&gt; was selected for an oral presentation, which is embedded below. The topic of the presentation is part of my PhD thesis, and explores the role of context in categorization, perception, and decision making. We use a novel set of tools that I developed (now located at &lt;a href="https://github.com/timsainb/AVGN"&gt;github.com/timsainb/AVGN&lt;/a&gt;), where latent representations (from variational autoencoders) of birdsong are linearly sampled from to produce smoothly varying stimuli for a category learning task. In this task, we were successfully able to bias categorical perception in songbirds based upon contextual information, and are currently in the process of studying the neural mechanisms underlying that contextual bias in perception.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2333,7 +2359,8 @@ h6:hover .anchor-link {
 &lt;p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;div class="youtube_container"&gt;
-&lt;iframe allowfullscreen="" class="youtube_video" frameborder="0" src="//www.youtube.com/embed/XAU-CKGback"&gt;&lt;/iframe&gt;
+&lt;iframe src="//www.youtube.com/embed/XAU-CKGback" 
+frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/p&gt;
@@ -2345,20 +2372,25 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I also co-authored &lt;a href="https://ccneuro.org/2018/Papers/ViewPapers.asp?PaperNum=1247"&gt;a second paper&lt;/a&gt; at the same conference with the lead author Marvin Thielk, that goes more into depth about the perceptual and neural representations of acoustic categories in European starlings. Other &lt;a href="https://ccneuro.org/2018/videos.asp"&gt;videos&lt;/a&gt; and &lt;a href="https://ccneuro.org/2018/Papers/AcceptedPapers.asp"&gt;papers&lt;/a&gt; from the conference are available on the CCN website as well!&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -2388,7 +2420,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="context"></category><category term="category learning"></category></entry><entry><title>Songbird Data Science Workshop 2018: AVGN video</title><link href="http://timsainburg.com/songbird-data-science-workshop-2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/songbird-data-science-workshop-2018.html</id><summary type="html">&lt;p&gt;My presentation at the Songbird Data Science Workshop at Birdsong 2018&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="birdsong"></category><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="context"></category><category term="category learning"></category></entry><entry><title>Songbird Data Science Workshop 2018: AVGN video</title><link href="http://timsainburg.com/songbird-data-science-workshop-2018.html" rel="alternate"></link><published>2019-03-19T10:01:00-07:00</published><updated>2019-03-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-19:/songbird-data-science-workshop-2018.html</id><summary type="html">&lt;p&gt;My presentation at the Songbird Data Science Workshop at Birdsong 2018&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3431,8 +3463,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -3503,6 +3540,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;As part of &lt;a href="https://dornsife.usc.edu/conferences/birdsong/"&gt;Birdsong 2018: Out on a Limb&lt;/a&gt; satellite to Neuroscience (SfN) 2018 conference last November, &lt;a href="https://github.com/NickleDave"&gt;David Nicholson&lt;/a&gt; organized a Songbird Data Science Workshop discussing new algorithms and methods that sit at the interface between data science, birdsong, and machine learning.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3510,7 +3548,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/sds.png" style="width:300p; text-align:center!important; margin:0 auto"/&gt;
+&lt;img src="assets/img/sds.png"  style="width:300p; text-align:center!important; margin:0 auto" /&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;The flyer for the Birdsong Data Science Workshop 2018&lt;/p&gt;
 &lt;/div&gt;
@@ -3525,6 +3563,7 @@ h6:hover .anchor-link {
 &lt;li&gt;Generating novel syllables to explore the vocalization space of songbirds. 
 The presentation is embedded below. &lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3532,7 +3571,7 @@ The presentation is embedded below. &lt;/li&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="https://github.com/timsainb/AVGN/raw/master/src_img/animalvocalizationfigure.png" style="width:300p; text-align:center!important; margin:0 auto"/&gt;
+&lt;img src="https://github.com/timsainb/AVGN/raw/master/src_img/animalvocalizationfigure.png"  style="width:300p; text-align:center!important; margin:0 auto" /&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;An overview of the AVGN package&lt;/p&gt;
 &lt;/div&gt;
@@ -3544,24 +3583,29 @@ The presentation is embedded below. &lt;/li&gt;
 &lt;p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;div class="youtube_container"&gt;
-&lt;iframe allowfullscreen="" class="youtube_video" frameborder="0" src="//www.youtube.com/embed/0T2UU8-NCbM"&gt;&lt;/iframe&gt;
+&lt;iframe src="//www.youtube.com/embed/0T2UU8-NCbM" 
+frameborder="0" allowfullscreen class="youtube_video"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/p&gt; 
 &lt;p style="text-align:center;font-style:italic"&gt;My presentation at Birdsong 2018&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -3591,7 +3635,7 @@ The presentation is embedded below. &lt;/li&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="UMAP"></category><category term="GAIA"></category><category term="GAN"></category><category term="unsupervised learning"></category></entry><entry><title>birdbrain: a library for viewing songbird (and bat) brain atlases</title><link href="http://timsainburg.com/birdbrain-library-python.html" rel="alternate"></link><published>2019-03-15T10:01:00-07:00</published><updated>2019-03-15T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-15:/birdbrain-library-python.html</id><summary type="html">&lt;p&gt;A python package for use with the songbird brain atlases focusing on stereotactic localization of the European starling, Canary, Zebra finch, Pigeon, and Mustached bat.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="birdsong"></category><category term="birdsong"></category><category term="machine learning"></category><category term="variational autoencoder"></category><category term="UMAP"></category><category term="GAIA"></category><category term="GAN"></category><category term="unsupervised learning"></category></entry><entry><title>birdbrain: a library for viewing songbird (and bat) brain atlases</title><link href="http://timsainburg.com/birdbrain-library-python.html" rel="alternate"></link><published>2019-03-15T10:01:00-07:00</published><updated>2019-03-15T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-03-15:/birdbrain-library-python.html</id><summary type="html">&lt;p&gt;A python package for use with the songbird brain atlases focusing on stereotactic localization of the European starling, Canary, Zebra finch, Pigeon, and Mustached bat.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4634,8 +4678,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -4706,6 +4755,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I wrote a small &lt;a href="https://github.com/timsainb/birdbrain"&gt;python library called birdbrain&lt;/a&gt; for viewing the &lt;a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/"&gt;songbird/bat brain atlas' made available from the Bio-Imaging Lab at the University of Antwerp&lt;/a&gt;. It is currently a work-in-progress, but it works with all of the atlases currently on their website.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4713,7 +4763,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/navigation-example.gif" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
+&lt;img src="assets/img/navigation-example.gif"  style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" /&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p style="text-align:center;font-style:italic"&gt;Figure 1: An example navigation of the European starling dataset&lt;/p&gt;
 &lt;/div&gt;
@@ -4729,6 +4779,7 @@ h6:hover .anchor-link {
 &lt;li&gt;Export high resolution plots of recording sites mapped onto the 2D and 3D images. &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you're interested in any of these, or have new ideas to add to package, let me know!&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4737,27 +4788,31 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/starling_skull_rotation.gif" style="float:left" width="45%"/&gt;
-&lt;img ,="" src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/field_l.png" style="float:left" width="45%"/&gt;
+  &lt;img style="float:left",  src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/starling_skull_rotation.gif", width="45%"&gt;
+  &lt;img style="float:left",  src="https://raw.githubusercontent.com/timsainb/birdbrain/master/assets/img/field_l.png", width="45%"&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;Figure 2: (left) Nuclei plotted in their respective brain regions (right) nuclei plotted over 2D MRI image&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;Figure 2: (left) Nuclei plotted in their respective brain regions (right) nuclei plotted over 2D MRI image&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -4787,7 +4842,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="MRI"></category><category term="atlas"></category><category term="songbird"></category><category term="canary"></category><category term="zebra finch"></category><category term="mustached bat"></category><category term="european starling"></category><category term="pigeon"></category><category term="brain"></category><category term="python"></category></entry><entry><title>Live behavioral updates on Gentnerlab Website</title><link href="http://timsainburg.com/gentnerlab-website.html" rel="alternate"></link><published>2019-02-11T10:01:00-08:00</published><updated>2019-02-11T10:01:00-08:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-02-11:/gentnerlab-website.html</id><summary type="html">&lt;p&gt;Live plotting of PyOperant behaviors&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="Birdsong"></category><category term="MRI"></category><category term="atlas"></category><category term="songbird"></category><category term="canary"></category><category term="zebra finch"></category><category term="mustached bat"></category><category term="european starling"></category><category term="pigeon"></category><category term="brain"></category><category term="python"></category></entry><entry><title>Live behavioral updates on Gentnerlab Website</title><link href="http://timsainburg.com/gentnerlab-website.html" rel="alternate"></link><published>2019-02-11T10:01:00-08:00</published><updated>2019-02-11T10:01:00-08:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-02-11:/gentnerlab-website.html</id><summary type="html">&lt;p&gt;Live plotting of PyOperant behaviors&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5830,8 +5885,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -5902,12 +5962,12 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;
+    &lt;p&gt;
         This weekend I updated our &lt;a href="http://gentnerlab.ucsd.edu/"&gt;lab website&lt;/a&gt; to a new HTML/CSS theme and to include all of the current members of the lab.
     &lt;/p&gt;
-&lt;p&gt;
+       &lt;p&gt;
         In addition, I updated a private section of the website that live-plots, scheduling, and animal behavioral information throughout the day. A screenshot is shown below. 
-        &lt;/p&gt;
+        &lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5916,7 +5976,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/website.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/&gt;
+&lt;img src="assets/img/website.png"  style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5925,24 +5985,29 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
+
 &lt;p&gt;
            The Alerts section holds warning about any potentially malfunctioning hardware or software. The Bird Duty information shows which labmates are scheduled to take care of husbandry duties each week. We use a web form to keep track of who did behaviors and when, which is shown below bird duty information. In the All Summary section, each different bird, and statistics on their behaviors throughout the day are plotted. Finally, we have a section with custom behavioral plots for each individual bird. 
     &lt;/p&gt;
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -5972,4 +6037,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="pyoperant"></category><category term="RPiOperant"></category><category term="operant conditioning"></category><category term="behavior"></category></entry></feed>
+</content><category term="Birdsong"></category><category term="pyoperant"></category><category term="RPiOperant"></category><category term="operant conditioning"></category><category term="behavior"></category></entry></feed>

@@ -1042,8 +1042,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1113,28 +1118,29 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;last section&lt;/a&gt; I talked about reconstructing images based upon their layer activations at different levels of a deep neural network. This time, we're going to try to modify images by transferring styles between different layers of the network. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;last section&lt;/a&gt; I talked about reconstructing images based upon their layer activations at different levels of a deep neural network. This time, we're going to try to modify images by transferring styles between different layers of the network. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are a few sections to this series:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Deepdream,-modifying-images-with-neural-network-filters-and-classes"&gt;Deepdream, modifying images with neural network filters and classes&lt;a class="anchor-link" href="#Deepdream,-modifying-images-with-neural-network-filters-and-classes"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In the second section, we synthesized images by generating an image of noise, and modifying that image until it maximally activated a neuron/filter in a deep neural network. Here, we want to use those filters to modify images. To do that, instead of starting with noise, we can try starting from an image. The midpoint between the starting and the generated image can have features that look styled by the CNN's filters:&lt;/p&gt;
+&lt;h2 id="Deepdream,-modifying-images-with-neural-network-filters-and-classes"&gt;Deepdream, modifying images with neural network filters and classes&lt;a class="anchor-link" href="#Deepdream,-modifying-images-with-neural-network-filters-and-classes"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In the second section, we synthesized images by generating an image of noise, and modifying that image until it maximally activated a neuron/filter in a deep neural network. Here, we want to use those filters to modify images. To do that, instead of starting with noise, we can try starting from an image. The midpoint between the starting and the generated image can have features that look styled by the CNN's filters:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/deepdream-filters-all.jpg" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/deepdream-filters-all.jpg", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at different levels of the VGG16 CNN architecture.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at different levels of the VGG16 CNN architecture.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1145,11 +1151,11 @@ h6:hover .anchor-link {
 &lt;p&gt;We can do the same thing with feature classes, by activating the final layer of the network:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/deepdream_features.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/deepdream_features.png", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1160,14 +1166,14 @@ h6:hover .anchor-link {
 &lt;p&gt;We can also visualize those classes during each step of gradient ascent.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;video controls="" height="480" style="text-align:center; display:block; margin:auto" width="640"&gt;
-&lt;source src="assets/feature_viz/deepdream.mp4" type="video/mp4"/&gt;
+&lt;video width="640" height="480"  style="text-align:center; display:block; margin:auto" controls&gt;
+  &lt;source src="assets/feature_viz/deepdream.mp4" type="video/mp4"&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;
-&lt;/p&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Manipulation of an image  of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt;, to class activations in the final layer of VGG16.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Manipulation of an image  of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt;, to class activations in the final layer of VGG16.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1175,7 +1181,7 @@ Your browser does not support the video tag.
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Style-transfer"&gt;Style transfer&lt;a class="anchor-link" href="#Style-transfer"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id="Style-transfer"&gt;Style transfer&lt;a class="anchor-link" href="#Style-transfer"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1186,11 +1192,11 @@ Your browser does not support the video tag.
 &lt;p&gt;Here, we transfer the activation profile of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; to an image of the painting &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;The Starry Night&lt;/a&gt; by Van Gogh.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/starry_night-style-transfer.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/starry_night-style-transfer.png", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Stylizations of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1200,9 +1206,12 @@ Your browser does not support the video tag.
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;All the code needed to reproduce these images and videos are available in &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self contained Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;That's it! This is the final section. Thanks for reading.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1232,7 +1241,7 @@ Your browser does not support the video tag.
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 3: Reconstructing images from layer activations</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images.html" rel="alternate"></link><published>2020-05-19T10:01:00-07:00</published><updated>2020-05-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-reconstructing-images.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at how much information is contained about the original image by trying to reconstruct the image based upon layer activations.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="Neural networks"></category><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 3: Reconstructing images from layer activations</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images.html" rel="alternate"></link><published>2020-05-19T10:01:00-07:00</published><updated>2020-05-19T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-reconstructing-images.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at how much information is contained about the original image by trying to reconstruct the image based upon layer activations.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2275,8 +2284,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -2346,21 +2360,23 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;last section&lt;/a&gt; I talked about visualizing neural network featres by synthesizing images to maximally activate artificial neurons, and looking at activations to specific images, to try to see what those neurons are doing. This time, we're going to see how much information is contained in neurons in different layers of the network by trying to reconstruct images based upon the original layer activations. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;last section&lt;/a&gt; I talked about visualizing neural network featres by synthesizing images to maximally activate artificial neurons, and looking at activations to specific images, to try to see what those neurons are doing. This time, we're going to see how much information is contained in neurons in different layers of the network by trying to reconstruct images based upon the original layer activations. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are a few sections to this series:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Synthesizing-reconstructed-images-based-upon-their-activations-in-different-layers-of-a-neural-network"&gt;Synthesizing reconstructed images based upon their activations in different layers of a neural network&lt;a class="anchor-link" href="#Synthesizing-reconstructed-images-based-upon-their-activations-in-different-layers-of-a-neural-network"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The final thing I wanted to try was reconstructing the image based upon activations in different layers of the neural network. To do this, I start with white noise, then perform the same optimization steps as in the maximum activation sections, but instead of maximally activating a neuron, I try to get the neurons activation across each layer to be identical to the activation of the original image. In the first few layers, you get perfect reconsdtruction. Further on into the network, after spatial information is lost from max-pooling layers, there is some image distortion. Finally, at the latest layers, it appears as if no information is present.&lt;/p&gt;
+&lt;h2 id="Synthesizing-reconstructed-images-based-upon-their-activations-in-different-layers-of-a-neural-network"&gt;Synthesizing reconstructed images based upon their activations in different layers of a neural network&lt;a class="anchor-link" href="#Synthesizing-reconstructed-images-based-upon-their-activations-in-different-layers-of-a-neural-network"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The final thing I wanted to try was reconstructing the image based upon activations in different layers of the neural network. To do this, I start with white noise, then perform the same optimization steps as in the maximum activation sections, but instead of maximally activating a neuron, I try to get the neurons activation across each layer to be identical to the activation of the original image. In the first few layers, you get perfect reconsdtruction. Further on into the network, after spatial information is lost from max-pooling layers, there is some image distortion. Finally, at the latest layers, it appears as if no information is present.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2369,11 +2385,11 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/reconstructions-no-tricks.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/reconstructions-no-tricks.png", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Reconstructions of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; based only upon the activations of neurons at each layer of the VGG16 neural network. Reconstructed images are produced by modifying the image to produce the same layer-activations as in the original image.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Reconstructions of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; based only upon the activations of neurons at each layer of the VGG16 neural network. Reconstructed images are produced by modifying the image to produce the same layer-activations as in the original image.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2384,11 +2400,11 @@ h6:hover .anchor-link {
 &lt;p&gt;I also played around with using some of the techniques in the class visualization to smooth the image and look for higher level features. This helped in finding at least a little bit more structure in the later layers.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/reconstructions-with-tricks.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/reconstructions-with-tricks.png", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Reconstructions of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; based only upon the activations of neurons at each layer of the VGG16 neural network. Reconstructed images are produced by modifying the image to produce the same layer-activations as in the original image. These reconstructions use smoothing, and some normalization with each iteration.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Reconstructions of an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins&lt;/a&gt; based only upon the activations of neurons at each layer of the VGG16 neural network. Reconstructed images are produced by modifying the image to produce the same layer-activations as in the original image. These reconstructions use smoothing, and some normalization with each iteration.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2398,9 +2414,12 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;All the code needed to reproduce these images and videos are available in &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self contained Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;next section&lt;/a&gt;, we'll use the methods from the first three sections to transfer style to images using methods similar to &lt;a href="https://github.com/google/deepdream"&gt;DeepDream&lt;/a&gt;.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -2430,7 +2449,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 2: Visualizing features and receptive fields</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features.html" rel="alternate"></link><published>2020-05-19T09:01:00-07:00</published><updated>2020-05-19T09:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-visualizing-features.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at visualizing classes.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="Neural networks"></category><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 2: Visualizing features and receptive fields</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features.html" rel="alternate"></link><published>2020-05-19T09:01:00-07:00</published><updated>2020-05-19T09:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-visualizing-features.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at visualizing classes.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3473,8 +3492,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -3544,42 +3568,23 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;last section&lt;/a&gt; I talked about visualizing neural network classes by synthesizing images to maximally activate class labels. This time, we're going to do the same thing with convolutional filters rather than class labels. In addition, we'll play with a few other ways to look at the receptive fields of convolutional filters. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;last section&lt;/a&gt; I talked about visualizing neural network classes by synthesizing images to maximally activate class labels. This time, we're going to do the same thing with convolutional filters rather than class labels. In addition, we'll play with a few other ways to look at the receptive fields of convolutional filters. All the figured here are generated from a single &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self-contained Jupyter notebook&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are a few sections to this series:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons"&gt;Synthesizing images that maximally activate convolutional filters / artificial neurons&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can use the same technique as above to synthesize images that maximally activate any neuron in the neural network. This will give us some idea about what that neuron is doing. Like the human visual stream, early neurons are responsive to simple textures and colors, while later neurons respond most strongly to complex patterns. As you move further into the network, the patterns have spatial structure that spans a larger range of the image. Below are a sample of a few images synthesized to maximally activate neurons at each layer of VGG 16. Note that for convolutional layers, these activations are maximized for each convolutional filter across the entire image, not just individual artifical neurons (we'll take a look at individual receptive fields in below).&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;div style="text-align:center"&gt;
-&lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/features_all_rotate.jpg" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Image synthesized to maximally activate filters from lower to higher layers in VGG16.&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons"&gt;Synthesizing images that maximally activate receptive fields of individual neurons&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The previous example shows the maximum activation for a convolutional filter across a whole image. We could also pinpoint a single neuron (filter) and find an image that maximally activates that neuron. Because single neurons in CNNs are only receptive to a small region of the image (the receptive field), the synthesized image should only end up changing that region of the image. Here, we'll maximally activate single neurons to take a look at their receptive field. Deeper into the network receptive fields get larger, and more complex.&lt;/p&gt;
+&lt;h2 id="Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons"&gt;Synthesizing images that maximally activate convolutional filters / artificial neurons&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can use the same technique as above to synthesize images that maximally activate any neuron in the neural network. This will give us some idea about what that neuron is doing. Like the human visual stream, early neurons are responsive to simple textures and colors, while later neurons respond most strongly to complex patterns. As you move further into the network, the patterns have spatial structure that spans a larger range of the image. Below are a sample of a few images synthesized to maximally activate neurons at each layer of VGG 16. Note that for convolutional layers, these activations are maximized for each convolutional filter across the entire image, not just individual artifical neurons (we'll take a look at individual receptive fields in below).&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3588,11 +3593,33 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/all_receptive_fields_flipped.jpg" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/features_all_rotate.jpg", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Image synthesized to maximally activate filters from lower to higher layers in VGG16.&lt;/p&gt; 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons"&gt;Synthesizing images that maximally activate receptive fields of individual neurons&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The previous example shows the maximum activation for a convolutional filter across a whole image. We could also pinpoint a single neuron (filter) and find an image that maximally activates that neuron. Because single neurons in CNNs are only receptive to a small region of the image (the receptive field), the synthesized image should only end up changing that region of the image. Here, we'll maximally activate single neurons to take a look at their receptive field. Deeper into the network receptive fields get larger, and more complex.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p align="center"&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/all_receptive_fields_flipped.jpg", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center; clear:both"&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3603,11 +3630,11 @@ h6:hover .anchor-link {
 &lt;p&gt;It might also be useful to take a look at those receptive fields, zoomed in.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/all_receptive_fields_zoom_rotate.jpg" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/all_receptive_fields_zoom_rotate.jpg", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image. Zoomed into recepetive field area.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image. Zoomed into recepetive field area.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3615,7 +3642,8 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network"&gt;Visualizing activation maps from neurons in different layers of a network&lt;a class="anchor-link" href="#Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Another common way of visualizing features of a neural network is to take a look at what neurons are activated across an image for each filter type in a layer. Early in the network, there will be neurons that are specifically interested in colors or edges. Later, images respond to more complex features, sparsely present throughout the image.&lt;/p&gt;
+&lt;h2 id="Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network"&gt;Visualizing activation maps from neurons in different layers of a network&lt;a class="anchor-link" href="#Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Another common way of visualizing features of a neural network is to take a look at what neurons are activated across an image for each filter type in a layer. Early in the network, there will be neurons that are specifically interested in colors or edges. Later, images respond to more complex features, sparsely present throughout the image.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3624,11 +3652,11 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/all_filter_activations.jpg" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/all_filter_activations.jpg", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Activation maps for convolutional filters in response to an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins.&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Activation maps for convolutional filters in response to an image of &lt;a href="assets/feature_viz/all_filter_activations.jpg"&gt;Astronaut Eileen Collins.&lt;/a&gt;&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3638,9 +3666,12 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;All the code needed to reproduce these images and videos are available in &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self contained Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;next section&lt;/a&gt;, we'll try to see whether enough information is contained in the CNN filters to reconstruct the image at different layers. Thanks for reading.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -3670,7 +3701,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 1: Visualizing classes</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes.html" rel="alternate"></link><published>2020-05-19T08:01:00-07:00</published><updated>2020-05-19T08:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-visualizing-classes.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at visualizing classes.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="Neural networks"></category><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry><entry><title>Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 1: Visualizing classes</title><link href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes.html" rel="alternate"></link><published>2020-05-19T08:01:00-07:00</published><updated>2020-05-19T08:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/tensorflow-2-feature-visualization-visualizing-classes.html</id><summary type="html">&lt;p&gt;A few examples of feature visualization in convolutional neural networks with Tensorflow 2.0. In this part, we look at visualizing classes.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4713,8 +4744,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -4784,38 +4820,40 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I spent some time playing around with  visualizing neural network features and artificial neuron receptive fields using Tensorflow 2.X. I wrote this code because I wanted to visualize the neural network features for a project I'm currently working on, but the best library out there (&lt;a href="https://github.com/tensorflow/lucid"&gt;Lucid&lt;/a&gt;) is written for Tensorflow 1.X. In my implementation, I &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;provide a self-contained Jupyter notebook&lt;/a&gt; that visualizes features for the VGG16 convolutional neural networks (these methods would translate to any network). I didn't read very much into how other people have done feature visualizations, so there is likely some overlap, but some of the methods I use might be novel.&lt;/p&gt;
+&lt;h3 id="Summary"&gt;Summary&lt;a class="anchor-link" href="#Summary"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;I spent some time playing around with  visualizing neural network features and artificial neuron receptive fields using Tensorflow 2.X. I wrote this code because I wanted to visualize the neural network features for a project I'm currently working on, but the best library out there (&lt;a href="https://github.com/tensorflow/lucid"&gt;Lucid&lt;/a&gt;) is written for Tensorflow 1.X. In my implementation, I &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;provide a self-contained Jupyter notebook&lt;/a&gt; that visualizes features for the VGG16 convolutional neural networks (these methods would translate to any network). I didn't read very much into how other people have done feature visualizations, so there is likely some overlap, but some of the methods I use might be novel.&lt;/p&gt;
 &lt;p&gt;There are a few sections to this series:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes"&gt;Visualizing classes&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;Visualizing features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images"&gt;Reconstructing images from features&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer"&gt;Transferring features between images&lt;/a&gt;&lt;/strong&gt; &lt;a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"&gt;&lt;img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Network-outline"&gt;Network outline&lt;a class="anchor-link" href="#Network-outline"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The network we're going to use here is VGG16, a classic neural network architecture that performs very well on the ImageNet dataset. VGG16 is very simple, it's just a few convolutional layers mixed with max pooling layers, and finally a few fully connected layers.&lt;/p&gt;
+&lt;h3 id="Network-outline"&gt;Network outline&lt;a class="anchor-link" href="#Network-outline"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The network we're going to use here is VGG16, a classic neural network architecture that performs very well on the ImageNet dataset. VGG16 is very simple, it's just a few convolutional layers mixed with max pooling layers, and finally a few fully connected layers.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="470px" src="assets/feature_viz/vgg16.png" style="float:center" width="470px"/&gt;
-&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;VGG network outline. (&lt;a href="https://www.cs.toronto.edu/~frossard/post/vgg16/"&gt;image source&lt;/a&gt;)&lt;/span&gt;&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/vgg16.png", width="470px" max_width="470px"&gt;
 &lt;/div&gt;
-
-
-
+&lt;/p&gt;
+&lt;div style="text-align:center; clear:both"&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;VGG network outline. (&lt;a href="https://www.cs.toronto.edu/~frossard/post/vgg16/"&gt;image source&lt;/a&gt;)&lt;/p&gt; 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Synthesizing-images-that-maximally-activate-class-labels"&gt;Synthesizing images that maximally activate class labels&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-class-labels"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;I'm going to start with visualizing class labels because I think that these visualizations are the most visually intuitive: they are somewhat reminiscent of things you will see in real life. The point of this method is to start with an image of random noise, then iteratively manipulate that noise until it maximally activates a class label in an artificial neural network. In other words, we are shifting the pixels around in an image until the neural network thinks it looks like the thing it was trained to perceive (for example, a dog, cat, or firetruck). The network is trained to know what these images look like, so it expects to see certain features in that image. By manipulating the image to be percieved as that class (e.g. dog) the image will begin to possess features of that image (e.g. ears, paws).&lt;/p&gt;
+&lt;h2 id="Synthesizing-images-that-maximally-activate-class-labels"&gt;Synthesizing images that maximally activate class labels&lt;a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-class-labels"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;I'm going to start with visualizing class labels because I think that these visualizations are the most visually intuitive: they are somewhat reminiscent of things you will see in real life. The point of this method is to start with an image of random noise, then iteratively manipulate that noise until it maximally activates a class label in an artificial neural network. In other words, we are shifting the pixels around in an image until the neural network thinks it looks like the thing it was trained to perceive (for example, a dog, cat, or firetruck). The network is trained to know what these images look like, so it expects to see certain features in that image. By manipulating the image to be percieved as that class (e.g. dog) the image will begin to possess features of that image (e.g. ears, paws).&lt;/p&gt;
 &lt;p&gt;The main technique here is just generating a random, and then performing gradient ascent on that image until your neuron of interest in the network is maximally activated. There are some tricks to that though. The main one (in my experience) is manipulating the the frequency of the features the network is interested in. If you train directly from noise, the network will mostly care about high-frequencies, and the resulting image won't have very much global coherency. To deal with this, I ended up doing two things: (1) gradually zooming in over each iteration of training. and (2) blurring the image between each epoch of training. As a result, the generated images look a little airbrushed, but you can see some more global structure, for example entire heads or bodies of birds.&lt;/p&gt;
 &lt;p&gt;Below, you can see some synthesized images for a few ImageNet classes from the VGG16 network.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4824,15 +4862,15 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/VGG_classes.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Classes visualized from a pretrained VGG network&lt;/span&gt;&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/VGG_classes.png", width="80%" max_width="800px"&gt;
 &lt;/div&gt;
-
-
-
+&lt;/p&gt;
+&lt;div style="text-align:center; clear:both"&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Classes visualized from a pretrained VGG network&lt;/p&gt; 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4840,14 +4878,14 @@ h6:hover .anchor-link {
 &lt;p&gt;We can also visualize those classes during each step of gradient ascent.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;video controls="" height="480" style="text-align:center; display:block; margin:auto" width="640"&gt;
-&lt;source src="assets/feature_viz/classes.mp4" type="video/mp4"/&gt;
+&lt;video width="640" height="480" style="text-align:center; display:block; margin:auto" controls&gt;
+  &lt;source src="assets/feature_viz/classes.mp4" type="video/mp4"&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;
-&lt;/p&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;VGG classes for each step of synthesis&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;VGG classes for each step of synthesis&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4858,11 +4896,11 @@ Your browser does not support the video tag.
 &lt;p&gt;Just for fun, here's one of a few classes of birds:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p align="center"&gt;
-&lt;img ,="" max_width="800px" src="assets/feature_viz/birds.png" style="float:center" width="80%"/&gt;
-&lt;/p&gt;
+  &lt;img style="float:center",  src="assets/feature_viz/birds.png", width="80%" max_width="800px"&gt;
+    &lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Bird textures synthesized from VGG16 classes.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;&lt;span style="font-style: normal; font-weight:bold"&gt;Bird textures synthesized from VGG16 classes.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4872,9 +4910,12 @@ Your browser does not support the video tag.
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;All the code needed to reproduce these images and videos are available in &lt;a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks"&gt;self contained Jupyter notebooks&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the &lt;a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features"&gt;next section&lt;/a&gt;, we'll try something similar to visualize filters and receptive fields throughout different layers of the network. Thanks for reading.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -4904,4 +4945,4 @@ Your browser does not support the video tag.
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry></feed>
+</content><category term="Neural networks"></category><category term="VGG16"></category><category term="tensorflow"></category><category term="neural networks"></category><category term="convolutional neural networks"></category><category term="receptive fields"></category></entry></feed>

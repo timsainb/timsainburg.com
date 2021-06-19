@@ -73,7 +73,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -99,8 +99,7 @@
       
     <h1 id="open-ephys-raspberry-pi-4">OpenEphys on the Raspberry Pi 4</h1>
     <p>
-          Posted on Sat 21 September 2019 in <a href="./category/neuroscience.html">neuroscience</a>
-
+      Posted on Sat 21 September 2019 in <a href="./category/neuroscience.html">neuroscience</a>
 
     </p>
   </header>
@@ -1150,8 +1149,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1222,6 +1226,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This summer Raspberry Pi released their new <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Model B</a> which features a number of new improvements, including two USB 3.0 ports, processors that tout ~3x performance increase over the last model, and up to 4GB ram.</p>
+
 </div>
 </div>
 </div>
@@ -1229,8 +1234,9 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center; clear:both">
-<img src="assets/img/rpi4.png" style="display:inline-block"/>
-<p style="text-align:center;font-style:italic">Updates for the raspberry pi 4</p>
+      <img src="assets/img/rpi4.png" style="display:inline-block">
+
+<p style="text-align:center;font-style:italic">Updates for the raspberry pi 4</p> 
 </div>
 </div>
 </div>
@@ -1239,6 +1245,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>At the same time, I've been setting up a new rig to run chronic electrophysiology experiments in <a href="http://gentnerlab.ucsd.edu/">our lab</a>, using the OpenEphys open source neural acquisition board, while the behaviors for the experiment are all running off of the <a href="https://github.com/theilmbh/RPiOperant">RPiOperant board</a> we designed in lab over the past two years (primarily designed by <a href="http://bradtheilman.com/">Brad Theilman</a>):</p>
+
 </div>
 </div>
 </div>
@@ -1246,10 +1253,10 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center; clear:both; width:100%">
-<img ,="" src="assets/img/open-ephys-board.jpg" style="display:inline-block; float:left" width="60%"/>
-<img ,="" src="assets/img/magpiboard.png" style="display:inline-block; float:right" width="40%"/>
+      <img src="assets/img/open-ephys-board.jpg", width="60%" style="display:inline-block; float:left">
+      <img src="assets/img/magpiboard.png", width="40%" style="display:inline-block; float:right">
 </div><div style="text-align:center; clear:both; width:100%; padding-top:15px">
-<p style="text-align:center;font-style:italic">(left) The OpenEphys Acquisition board (right) Outline of the PiOperant board without components</p>
+<p style="text-align:center;font-style:italic">(left) The OpenEphys Acquisition board (right) Outline of the PiOperant board without components</p> 
 </div>
 </div>
 </div>
@@ -1258,6 +1265,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can see a general outline of the rig in the following diagram, where the RPiOperant is powered by a Raspberry Pi that runs our <a href="https://github.com/gentnerlab/pyoperant">PyOperant python package</a> controlling behaviors on a physical panel that the bird interacts with. Neural data is then recorded on the Open Ephys acquisition board, and outputted to a desktop computer via a USB3 cable.</p>
+
 </div>
 </div>
 </div>
@@ -1265,10 +1273,11 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<img src="assets/img/pioperant-outline.png" style="display:inline-block"/>
+    <img src="assets/img/pioperant-outline.png" style="display:inline-block">
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic">(left) Experimental design with desktop (right) experimental design without.</p>
+
+<p style="text-align:center;font-style:italic">(left) Experimental design with desktop (right) experimental design without.</p> 
 </div>
 </div>
 </div>
@@ -1277,6 +1286,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With the updated specs on the raspberry pi however, we can potentially scrap the desktop computer, and run Open Ephys directly on the raspberry pi:</p>
+
 </div>
 </div>
 </div>
@@ -1284,10 +1294,11 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<img src="assets/img/pioperant outline-no-desktop.png" style="display:inline-block"/>
+      <img src="assets/img/pioperant outline-no-desktop.png" style="display:inline-block">
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic">(left) Experimental design with desktop (right) experimental design without.</p>
+
+<p style="text-align:center;font-style:italic">(left) Experimental design with desktop (right) experimental design without.</p> 
 </div>
 </div>
 </div>
@@ -1296,6 +1307,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here's how it worked:</p>
+
 </div>
 </div>
 </div>
@@ -1304,8 +1316,8 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
 <div class="centerblock" style="display:inline-block">
-<blockquote class="twitter-tweet"><p dir="ltr" lang="en">In case anyone was wondering, yes, you can run <a href="https://twitter.com/OpenEphys?ref_src=twsrc%5Etfw">@OpenEphys</a> on the new <a href="https://twitter.com/Raspberry_Pi?ref_src=twsrc%5Etfw">@Raspberry_Pi</a> 4 <a href="https://t.co/sSgxtDqOn3">pic.twitter.com/sSgxtDqOn3</a></p>— Tim Sainburg (@tim_sainburg) <a href="https://twitter.com/tim_sainburg/status/1164252464155021314?ref_src=twsrc%5Etfw">August 21, 2019</a></blockquote> <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
-</div>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">In case anyone was wondering, yes, you can run <a href="https://twitter.com/OpenEphys?ref_src=twsrc%5Etfw">@OpenEphys</a> on the new <a href="https://twitter.com/Raspberry_Pi?ref_src=twsrc%5Etfw">@Raspberry_Pi</a> 4 <a href="https://t.co/sSgxtDqOn3">pic.twitter.com/sSgxtDqOn3</a></p>&mdash; Tim Sainburg (@tim_sainburg) <a href="https://twitter.com/tim_sainburg/status/1164252464155021314?ref_src=twsrc%5Etfw">August 21, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
+</div>    
 </div>
 </div>
 </div>
@@ -1314,27 +1326,29 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I used the 2GB ram board, but next time would definitely go with the 4GB.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-to-install-Open-Ephys-on-the-Raspberry-Pi">How to install Open Ephys on the Raspberry Pi<a class="anchor-link" href="#How-to-install-Open-Ephys-on-the-Raspberry-Pi">¶</a></h3><h5 id="1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi">1) Flash raspian to an SD card and set up your Raspberry Pi<a class="anchor-link" href="#1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi">¶</a></h5><p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/">There are a million tutorials out there on how to set up a raspberry pi, so I won't belabor the point</a>. I used Raspian buster with all reccomended software.</p>
-<h5 id="2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi">2) Install Open Ephys GUI on the Raspberry Pi<a class="anchor-link" href="#2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi">¶</a></h5><p><a href="https://open-ephys.atlassian.net/wiki/spaces/OEW/pages/491546/Linux">I followed these instructions, building from source</a>.
+<h3 id="How-to-install-Open-Ephys-on-the-Raspberry-Pi">How to install Open Ephys on the Raspberry Pi<a class="anchor-link" href="#How-to-install-Open-Ephys-on-the-Raspberry-Pi">&#182;</a></h3><h5 id="1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi">1) Flash raspian to an SD card and set up your Raspberry Pi<a class="anchor-link" href="#1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi">&#182;</a></h5><p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/">There are a million tutorials out there on how to set up a raspberry pi, so I won't belabor the point</a>. I used Raspian buster with all reccomended software.</p>
+<h5 id="2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi">2) Install Open Ephys GUI on the Raspberry Pi<a class="anchor-link" href="#2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi">&#182;</a></h5><p><a href="https://open-ephys.atlassian.net/wiki/spaces/OEW/pages/491546/Linux">I followed these instructions, building from source</a>.
 Here you're going to run into a few issues if you follow these directions directly:</p>
 <ol>
 <li>ZeroMQ needs to be installed from a raspberry pi repository</li>
 <li><a href="https://github.com/open-ephys/plugin-GUI/issues/314">You need an ARM version of the frontpanel library</a></li>
 <li>You need to install the boost library</li>
 </ol>
-<h5 id="And-the-fix-to-each-of-those-things:">And the fix to each of those things:<a class="anchor-link" href="#And-the-fix-to-each-of-those-things:">¶</a></h5><blockquote><p><strong>ZeroMQ needs to be installed from a raspberry pi repository</strong></p>
+<h5 id="And-the-fix-to-each-of-those-things:">And the fix to each of those things:<a class="anchor-link" href="#And-the-fix-to-each-of-those-things:">&#182;</a></h5><blockquote><p><strong>ZeroMQ needs to be installed from a raspberry pi repository</strong></p>
 </blockquote>
 <p>I think I followed <a href="https://github.com/MonsieurV/ZeroMQ-RPi">these instructions</a>, but you can find the answer to this one with a quick google.</p>
 <blockquote><p><strong>You need an ARM version of the frontpanel library</strong></p>
 </blockquote>
 <p>As of this posting the ARM version of the frontpanel library is not on the <a href="https://github.com/open-ephys/plugin-GUI">OpenEphys GUI repository</a>. Luckily, the after posting <a href="https://github.com/open-ephys/plugin-GUI/issues/314">an issue in the GitHub repo</a>, I was quickly sent an ARM version of the frontpanel library from the Open Ephys team. If the library isn't put on the repo soon, I would just send a quick email to the open ephys team asking for it! The file will be <code>libokFrontPanel.so</code>, and you'll just need to replace the one located in <code>Builds/Linux/build/libokFrontPanel.so</code> before building open-ephys.</p>
 <p>Without the ARM version of frontpanel you will run into this error:</p>
+
 <pre><code>Building RhythmNode.so
 /home/pi/github/plugin-GUI/Builds/Linux/build/libokFrontPanel.so: file not recognized: file format not recognized
 collect2: error: ld returned 1 exit status
@@ -1344,10 +1358,12 @@ make: *** [Makefile.plugins:77: ../../Source/Plugins/RhythmNode] Error 2</code><
 <blockquote><p><strong>You need to install the boost library</strong></p>
 </blockquote>
 <p>Without the boost library you will run into this error:</p>
+
 <pre><code>Loading Plugin: RhythmNode... ../../Source/Processors/PluginManager/PluginManager.cpp:177: Failed to load plugin DLL: libboost_chrono.so.1.62.0: cannot open shared object file: No such file or directory
 
 Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManager/PluginManager.cpp:177: Failed to load plugin DLL: libboost_chrono.so.1.62.0: cannot open shared object file: No such file or directory</code></pre>
 <p>The solution is just to install the correct version of Boost: <code>sudo apt-get install libboost1.62-*</code></p>
+
 </div>
 </div>
 </div>
@@ -1355,9 +1371,12 @@ Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManage
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Thats it! Feel free to reach out if you have any questions.</p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1408,8 +1427,7 @@ Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManage
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

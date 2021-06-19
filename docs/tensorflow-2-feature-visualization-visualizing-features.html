@@ -73,7 +73,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -99,8 +99,7 @@
       
     <h1 id="tensorflow-2-feature-visualization-visualizing-features">Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 2: Visualizing features and receptive fields</h1>
     <p>
-          Posted on Tue 19 May 2020 in <a href="./category/neural-networks.html">Neural networks</a>
-
+      Posted on Tue 19 May 2020 in <a href="./category/neural-networks.html">Neural networks</a>
 
     </p>
   </header>
@@ -1150,8 +1149,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1221,42 +1225,23 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h3><p>In the <a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">last section</a> I talked about visualizing neural network classes by synthesizing images to maximally activate class labels. This time, we're going to do the same thing with convolutional filters rather than class labels. In addition, we'll play with a few other ways to look at the receptive fields of convolutional filters. All the figured here are generated from a single <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self-contained Jupyter notebook</a>.</p>
+<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h3><p>In the <a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">last section</a> I talked about visualizing neural network classes by synthesizing images to maximally activate class labels. This time, we're going to do the same thing with convolutional filters rather than class labels. In addition, we'll play with a few other ways to look at the receptive fields of convolutional filters. All the figured here are generated from a single <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self-contained Jupyter notebook</a>.</p>
 <p>There are a few sections to this series:</p>
 <ol>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">Visualizing classes</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features">Visualizing features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">Reconstructing images from features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer">Transferring features between images</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">Visualizing classes</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features">Visualizing features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">Reconstructing images from features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer">Transferring features between images</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons">Synthesizing images that maximally activate convolutional filters / artificial neurons<a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons">¶</a></h2><p>We can use the same technique as above to synthesize images that maximally activate any neuron in the neural network. This will give us some idea about what that neuron is doing. Like the human visual stream, early neurons are responsive to simple textures and colors, while later neurons respond most strongly to complex patterns. As you move further into the network, the patterns have spatial structure that spans a larger range of the image. Below are a sample of a few images synthesized to maximally activate neurons at each layer of VGG 16. Note that for convolutional layers, these activations are maximized for each convolutional filter across the entire image, not just individual artifical neurons (we'll take a look at individual receptive fields in below).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div style="text-align:center">
-<p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/features_all_rotate.jpg" style="float:center" width="80%"/>
-</p>
-</div>
-<div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Image synthesized to maximally activate filters from lower to higher layers in VGG16.</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons">Synthesizing images that maximally activate receptive fields of individual neurons<a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons">¶</a></h2><p>The previous example shows the maximum activation for a convolutional filter across a whole image. We could also pinpoint a single neuron (filter) and find an image that maximally activates that neuron. Because single neurons in CNNs are only receptive to a small region of the image (the receptive field), the synthesized image should only end up changing that region of the image. Here, we'll maximally activate single neurons to take a look at their receptive field. Deeper into the network receptive fields get larger, and more complex.</p>
+<h2 id="Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons">Synthesizing images that maximally activate convolutional filters / artificial neurons<a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-convolutional-filters-/-artificial-neurons">&#182;</a></h2><p>We can use the same technique as above to synthesize images that maximally activate any neuron in the neural network. This will give us some idea about what that neuron is doing. Like the human visual stream, early neurons are responsive to simple textures and colors, while later neurons respond most strongly to complex patterns. As you move further into the network, the patterns have spatial structure that spans a larger range of the image. Below are a sample of a few images synthesized to maximally activate neurons at each layer of VGG 16. Note that for convolutional layers, these activations are maximized for each convolutional filter across the entire image, not just individual artifical neurons (we'll take a look at individual receptive fields in below).</p>
+
 </div>
 </div>
 </div>
@@ -1265,11 +1250,33 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/all_receptive_fields_flipped.jpg" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/features_all_rotate.jpg", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Image synthesized to maximally activate filters from lower to higher layers in VGG16.</p> 
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons">Synthesizing images that maximally activate receptive fields of individual neurons<a class="anchor-link" href="#Synthesizing-images-that-maximally-activate-receptive-fields-of-individual-neurons">&#182;</a></h2><p>The previous example shows the maximum activation for a convolutional filter across a whole image. We could also pinpoint a single neuron (filter) and find an image that maximally activates that neuron. Because single neurons in CNNs are only receptive to a small region of the image (the receptive field), the synthesized image should only end up changing that region of the image. Here, we'll maximally activate single neurons to take a look at their receptive field. Deeper into the network receptive fields get larger, and more complex.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div style="text-align:center">
+<p align="center">
+  <img style="float:center",  src="assets/feature_viz/all_receptive_fields_flipped.jpg", width="80%" max_width="800px">
+    </p>
+</div>
+<div style="text-align:center; clear:both">
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image.</p> 
 </div>
 </div>
 </div>
@@ -1280,11 +1287,11 @@ h6:hover .anchor-link {
 <p>It might also be useful to take a look at those receptive fields, zoomed in.</p>
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/all_receptive_fields_zoom_rotate.jpg" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/all_receptive_fields_zoom_rotate.jpg", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image. Zoomed into recepetive field area.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Synthesized image to maximally activate a single artificial neuron with a receptive field in the center of the image. Zoomed into recepetive field area.</p> 
 </div>
 </div>
 </div>
@@ -1292,7 +1299,8 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network">Visualizing activation maps from neurons in different layers of a network<a class="anchor-link" href="#Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network">¶</a></h2><p>Another common way of visualizing features of a neural network is to take a look at what neurons are activated across an image for each filter type in a layer. Early in the network, there will be neurons that are specifically interested in colors or edges. Later, images respond to more complex features, sparsely present throughout the image.</p>
+<h2 id="Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network">Visualizing activation maps from neurons in different layers of a network<a class="anchor-link" href="#Visualizing-activation-maps-from-neurons-in-different-layers-of-a-network">&#182;</a></h2><p>Another common way of visualizing features of a neural network is to take a look at what neurons are activated across an image for each filter type in a layer. Early in the network, there will be neurons that are specifically interested in colors or edges. Later, images respond to more complex features, sparsely present throughout the image.</p>
+
 </div>
 </div>
 </div>
@@ -1301,11 +1309,11 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/all_filter_activations.jpg" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/all_filter_activations.jpg", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Activation maps for convolutional filters in response to an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins.</a></span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Activation maps for convolutional filters in response to an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins.</a></p> 
 </div>
 </div>
 </div>
@@ -1315,9 +1323,12 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>All the code needed to reproduce these images and videos are available in <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self contained Jupyter notebooks</a>.</p>
 <p>In the <a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">next section</a>, we'll try to see whether enough information is contained in the CNN filters to reconstruct the image at different layers. Thanks for reading.</p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1381,8 +1392,7 @@ h6:hover .anchor-link {
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

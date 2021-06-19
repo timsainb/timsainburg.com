@@ -1042,8 +1042,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1114,6 +1119,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;This summer Raspberry Pi released their new &lt;a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/"&gt;Raspberry Pi 4 Model B&lt;/a&gt; which features a number of new improvements, including two USB 3.0 ports, processors that tout ~3x performance increase over the last model, and up to 4GB ram.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1121,8 +1127,9 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;img src="assets/img/rpi4.png" style="display:inline-block"/&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;Updates for the raspberry pi 4&lt;/p&gt;
+      &lt;img src="assets/img/rpi4.png" style="display:inline-block"&gt;
+
+&lt;p style="text-align:center;font-style:italic"&gt;Updates for the raspberry pi 4&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1131,6 +1138,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;At the same time, I've been setting up a new rig to run chronic electrophysiology experiments in &lt;a href="http://gentnerlab.ucsd.edu/"&gt;our lab&lt;/a&gt;, using the OpenEphys open source neural acquisition board, while the behaviors for the experiment are all running off of the &lt;a href="https://github.com/theilmbh/RPiOperant"&gt;RPiOperant board&lt;/a&gt; we designed in lab over the past two years (primarily designed by &lt;a href="http://bradtheilman.com/"&gt;Brad Theilman&lt;/a&gt;):&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1138,10 +1146,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center; clear:both; width:100%"&gt;
-&lt;img ,="" src="assets/img/open-ephys-board.jpg" style="display:inline-block; float:left" width="60%"/&gt;
-&lt;img ,="" src="assets/img/magpiboard.png" style="display:inline-block; float:right" width="40%"/&gt;
+      &lt;img src="assets/img/open-ephys-board.jpg", width="60%" style="display:inline-block; float:left"&gt;
+      &lt;img src="assets/img/magpiboard.png", width="40%" style="display:inline-block; float:right"&gt;
 &lt;/div&gt;&lt;div style="text-align:center; clear:both; width:100%; padding-top:15px"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;(left) The OpenEphys Acquisition board (right) Outline of the PiOperant board without components&lt;/p&gt;
+&lt;p style="text-align:center;font-style:italic"&gt;(left) The OpenEphys Acquisition board (right) Outline of the PiOperant board without components&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1150,6 +1158,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;You can see a general outline of the rig in the following diagram, where the RPiOperant is powered by a Raspberry Pi that runs our &lt;a href="https://github.com/gentnerlab/pyoperant"&gt;PyOperant python package&lt;/a&gt; controlling behaviors on a physical panel that the bird interacts with. Neural data is then recorded on the Open Ephys acquisition board, and outputted to a desktop computer via a USB3 cable.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1157,10 +1166,11 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/pioperant-outline.png" style="display:inline-block"/&gt;
+    &lt;img src="assets/img/pioperant-outline.png" style="display:inline-block"&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;(left) Experimental design with desktop (right) experimental design without.&lt;/p&gt;
+
+&lt;p style="text-align:center;font-style:italic"&gt;(left) Experimental design with desktop (right) experimental design without.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1169,6 +1179,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;With the updated specs on the raspberry pi however, we can potentially scrap the desktop computer, and run Open Ephys directly on the raspberry pi:&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1176,10 +1187,11 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
-&lt;img src="assets/img/pioperant outline-no-desktop.png" style="display:inline-block"/&gt;
+      &lt;img src="assets/img/pioperant outline-no-desktop.png" style="display:inline-block"&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center; clear:both"&gt;
-&lt;p style="text-align:center;font-style:italic"&gt;(left) Experimental design with desktop (right) experimental design without.&lt;/p&gt;
+
+&lt;p style="text-align:center;font-style:italic"&gt;(left) Experimental design with desktop (right) experimental design without.&lt;/p&gt; 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1188,6 +1200,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Here's how it worked:&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1196,8 +1209,8 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;div style="text-align:center"&gt;
 &lt;div class="centerblock" style="display:inline-block"&gt;
-&lt;blockquote class="twitter-tweet"&gt;&lt;p dir="ltr" lang="en"&gt;In case anyone was wondering, yes, you can run &lt;a href="https://twitter.com/OpenEphys?ref_src=twsrc%5Etfw"&gt;@OpenEphys&lt;/a&gt; on the new &lt;a href="https://twitter.com/Raspberry_Pi?ref_src=twsrc%5Etfw"&gt;@Raspberry_Pi&lt;/a&gt; 4 &lt;a href="https://t.co/sSgxtDqOn3"&gt;pic.twitter.com/sSgxtDqOn3&lt;/a&gt;&lt;/p&gt;— Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1164252464155021314?ref_src=twsrc%5Etfw"&gt;August 21, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"&gt;&lt;/script&gt;
-&lt;/div&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;In case anyone was wondering, yes, you can run &lt;a href="https://twitter.com/OpenEphys?ref_src=twsrc%5Etfw"&gt;@OpenEphys&lt;/a&gt; on the new &lt;a href="https://twitter.com/Raspberry_Pi?ref_src=twsrc%5Etfw"&gt;@Raspberry_Pi&lt;/a&gt; 4 &lt;a href="https://t.co/sSgxtDqOn3"&gt;pic.twitter.com/sSgxtDqOn3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tim Sainburg (@tim_sainburg) &lt;a href="https://twitter.com/tim_sainburg/status/1164252464155021314?ref_src=twsrc%5Etfw"&gt;August 21, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;    
+&lt;/div&gt;    
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1206,27 +1219,29 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;I used the 2GB ram board, but next time would definitely go with the 4GB.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="How-to-install-Open-Ephys-on-the-Raspberry-Pi"&gt;How to install Open Ephys on the Raspberry Pi&lt;a class="anchor-link" href="#How-to-install-Open-Ephys-on-the-Raspberry-Pi"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;h5 id="1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi"&gt;1) Flash raspian to an SD card and set up your Raspberry Pi&lt;a class="anchor-link" href="#1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a href="https://www.raspberrypi.org/documentation/installation/installing-images/"&gt;There are a million tutorials out there on how to set up a raspberry pi, so I won't belabor the point&lt;/a&gt;. I used Raspian buster with all reccomended software.&lt;/p&gt;
-&lt;h5 id="2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi"&gt;2) Install Open Ephys GUI on the Raspberry Pi&lt;a class="anchor-link" href="#2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a href="https://open-ephys.atlassian.net/wiki/spaces/OEW/pages/491546/Linux"&gt;I followed these instructions, building from source&lt;/a&gt;.
+&lt;h3 id="How-to-install-Open-Ephys-on-the-Raspberry-Pi"&gt;How to install Open Ephys on the Raspberry Pi&lt;a class="anchor-link" href="#How-to-install-Open-Ephys-on-the-Raspberry-Pi"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;h5 id="1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi"&gt;1) Flash raspian to an SD card and set up your Raspberry Pi&lt;a class="anchor-link" href="#1)-Flash-raspian-to-an-SD-card-and-set-up-your-Raspberry-Pi"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a href="https://www.raspberrypi.org/documentation/installation/installing-images/"&gt;There are a million tutorials out there on how to set up a raspberry pi, so I won't belabor the point&lt;/a&gt;. I used Raspian buster with all reccomended software.&lt;/p&gt;
+&lt;h5 id="2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi"&gt;2) Install Open Ephys GUI on the Raspberry Pi&lt;a class="anchor-link" href="#2)-Install-Open-Ephys-GUI-on-the-Raspberry-Pi"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&lt;a href="https://open-ephys.atlassian.net/wiki/spaces/OEW/pages/491546/Linux"&gt;I followed these instructions, building from source&lt;/a&gt;.
 Here you're going to run into a few issues if you follow these directions directly:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;ZeroMQ needs to be installed from a raspberry pi repository&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/open-ephys/plugin-GUI/issues/314"&gt;You need an ARM version of the frontpanel library&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;You need to install the boost library&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h5 id="And-the-fix-to-each-of-those-things:"&gt;And the fix to each of those things:&lt;a class="anchor-link" href="#And-the-fix-to-each-of-those-things:"&gt;¶&lt;/a&gt;&lt;/h5&gt;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;ZeroMQ needs to be installed from a raspberry pi repository&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id="And-the-fix-to-each-of-those-things:"&gt;And the fix to each of those things:&lt;a class="anchor-link" href="#And-the-fix-to-each-of-those-things:"&gt;&amp;#182;&lt;/a&gt;&lt;/h5&gt;&lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;ZeroMQ needs to be installed from a raspberry pi repository&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;I think I followed &lt;a href="https://github.com/MonsieurV/ZeroMQ-RPi"&gt;these instructions&lt;/a&gt;, but you can find the answer to this one with a quick google.&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;You need an ARM version of the frontpanel library&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;As of this posting the ARM version of the frontpanel library is not on the &lt;a href="https://github.com/open-ephys/plugin-GUI"&gt;OpenEphys GUI repository&lt;/a&gt;. Luckily, the after posting &lt;a href="https://github.com/open-ephys/plugin-GUI/issues/314"&gt;an issue in the GitHub repo&lt;/a&gt;, I was quickly sent an ARM version of the frontpanel library from the Open Ephys team. If the library isn't put on the repo soon, I would just send a quick email to the open ephys team asking for it! The file will be &lt;code&gt;libokFrontPanel.so&lt;/code&gt;, and you'll just need to replace the one located in &lt;code&gt;Builds/Linux/build/libokFrontPanel.so&lt;/code&gt; before building open-ephys.&lt;/p&gt;
 &lt;p&gt;Without the ARM version of frontpanel you will run into this error:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;Building RhythmNode.so
 /home/pi/github/plugin-GUI/Builds/Linux/build/libokFrontPanel.so: file not recognized: file format not recognized
 collect2: error: ld returned 1 exit status
@@ -1236,10 +1251,12 @@ make: *** [Makefile.plugins:77: ../../Source/Plugins/RhythmNode] Error 2&lt;/cod
 &lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;You need to install the boost library&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Without the boost library you will run into this error:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;Loading Plugin: RhythmNode... ../../Source/Processors/PluginManager/PluginManager.cpp:177: Failed to load plugin DLL: libboost_chrono.so.1.62.0: cannot open shared object file: No such file or directory
 
 Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManager/PluginManager.cpp:177: Failed to load plugin DLL: libboost_chrono.so.1.62.0: cannot open shared object file: No such file or directory&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The solution is just to install the correct version of Boost: &lt;code&gt;sudo apt-get install libboost1.62-*&lt;/code&gt;&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1247,9 +1264,12 @@ Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManage
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Thats it! Feel free to reach out if you have any questions.&lt;/p&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+ 
+
 
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1279,4 +1299,4 @@ Loading Plugin: IntanRecordingController... ../../Source/Processors/PluginManage
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="raspberry pi"></category><category term="open ephys"></category><category term="neuroscience"></category><category term="neural recordings"></category><category term="open science"></category></entry></feed>
+</content><category term="neuroscience"></category><category term="raspberry pi"></category><category term="open ephys"></category><category term="neuroscience"></category><category term="neural recordings"></category><category term="open science"></category></entry></feed>

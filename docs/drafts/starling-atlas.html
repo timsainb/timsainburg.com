@@ -69,7 +69,7 @@
       <nav>
         <ul class="list">
           <li><a href="../pages/about-me.html#about-me">About me</a></li>
-          <li><a href="../pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="../pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="../pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -95,8 +95,7 @@
       
     <h1 id="starling-atlas">starling-atlas</h1>
     <p>
-          Posted on Fri 15 March 2019 in <a href="../category/birdsong.html">Birdsong</a>
-
+      Posted on Fri 15 March 2019 in <a href="../category/birdsong.html">Birdsong</a>
 
     </p>
   </header>
@@ -1146,8 +1145,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1216,94 +1220,128 @@ h6:hover .anchor-link {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 2
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">birdbrain</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">birdbrain</span>
 <span class="n">birdbrain</span><span class="o">.</span><span class="vm">__file__</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>'/mnt/cube/tsainbur/Projects/github_repos/birdbrain/birdbrain/__init__.py'</pre>
+<pre>&#39;/mnt/cube/tsainbur/Projects/github_repos/birdbrain/birdbrain/__init__.py&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">birdbrain.atlas</span> <span class="kn">import</span> <span class="n">atlas</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">birdbrain.atlas</span> <span class="kn">import</span> <span class="n">atlas</span>
 <span class="kn">from</span> <span class="nn">birdbrain.utils</span> <span class="kn">import</span> <span class="n">um_to_vox</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">birdbrain.visualization.plotting_3d</span> <span class="kn">import</span> <span class="n">plot_regions_3d</span><span class="p">,</span> <span class="n">rotate_plot</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/tqdm/autonotebook/__init__.py:14: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
-  " (e.g. in jupyter console)", TqdmExperimentalWarning)
+  &#34; (e.g. in jupyter console)&#34;, TqdmExperimentalWarning)
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dset_dir</span> <span class="o">=</span> <span class="s1">'/mnt/cube/tsainbur/Projects/github_repos/birdbrain/data/processed/starling/'</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dset_dir</span> <span class="o">=</span> <span class="s1">&#39;/mnt/cube/tsainbur/Projects/github_repos/birdbrain/data/processed/starling/&#39;</span>
 
 <span class="n">starling_atlas</span> <span class="o">=</span> <span class="n">atlas</span><span class="p">(</span>
-    <span class="n">species</span> <span class="o">=</span> <span class="s1">'starling'</span><span class="p">,</span>
+    <span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;starling&#39;</span><span class="p">,</span>
     <span class="n">dset_dir</span> <span class="o">=</span> <span class="n">dset_dir</span><span class="p">,</span>
     <span class="n">um_mult</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="n">smoothing</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Brain'</span><span class="p">,</span> <span class="s1">'Nuclei'</span>\<span class="p">],</span>
+    <span class="n">smoothing</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Brain&#39;</span><span class="p">,</span> <span class="s1">&#39;Nuclei&#39;</span>\<span class="p">],</span>
     <span class="n">updated_y_sinus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>qform_code 32 not valid; setting to 0
 qform_code 32 not valid; setting to 0
 </pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Data already download
 Loading brain labels...
@@ -1311,248 +1349,402 @@ Getting voxel data from .img files...
 </pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>qform_code 32 not valid; setting to 0
 qform_code 32 not valid; setting to 0
 </pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="93fac801-a657-4200-abaf-72822809e422"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="3f9ef29d-c1cb-40c5-b962-4aead659f585"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#93fac801-a657-4200-abaf-72822809e422');
+var element = $('#3f9ef29d-c1cb-40c5-b962-4aead659f585');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre></pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="89919053-f7ad-48ae-964f-a3c7dd677405"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="7b01ad62-e1db-408a-ace8-050588b5c54c"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#89919053-f7ad-48ae-964f-a3c7dd677405');
+var element = $('#7b01ad62-e1db-408a-ace8-050588b5c54c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre></pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="c3eaa3ba-e825-45cd-8b36-ec0519688af5"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="19875852-0763-49ac-88fc-dbe9f984dc58"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c3eaa3ba-e825-45cd-8b36-ec0519688af5');
+var element = $('#19875852-0763-49ac-88fc-dbe9f984dc58');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Getting location for each nucleus/region from voxel data...
 </pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="661a26f3-a022-4b29-8ec4-14bd893c2e9e"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="8205d651-58b6-45ec-9a6b-354a83157e28"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#661a26f3-a022-4b29-8ec4-14bd893c2e9e');
+var element = $('#8205d651-58b6-45ec-9a6b-354a83157e28');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Atlas created
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span>\
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>\
 <span class="n">nuclei</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="n">reg</span><span class="p">,</span> <span class="s2">"Nuclei"</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">reg</span><span class="p">,</span> <span class="s2">&quot;Nuclei&quot;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span>
         <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="p">[</span>
-            <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="o">.</span><span class="n">type_</span> <span class="o">==</span> <span class="s2">"Nuclei"</span>
+            <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="o">.</span><span class="n">type_</span> <span class="o">==</span> <span class="s2">&quot;Nuclei&quot;</span>
         <span class="p">]</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">values</span>
     <span class="p">)</span>
 <span class="p">]</span>
 <span class="n">brain_regions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="n">reg</span><span class="p">,</span> <span class="s2">"Brainregions"</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">reg</span><span class="p">,</span> <span class="s2">&quot;Brainregions&quot;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">reg</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span>
         <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="p">[</span>
-            <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="o">.</span><span class="n">type_</span> <span class="o">==</span> <span class="s2">"Brainregions"</span>
+            <span class="n">starling_atlas</span><span class="o">.</span><span class="n">brain_labels</span><span class="o">.</span><span class="n">type_</span> <span class="o">==</span> <span class="s2">&quot;Brainregions&quot;</span>
         <span class="p">]</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">values</span>
     <span class="p">)</span>
 <span class="p">]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot</span><span class="p">,</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">plot_regions_3d</span><span class="p">(</span><span class="n">starling_atlas</span><span class="p">,</span> <span class="n">regions_to_plot</span> <span class="o">=</span> <span class="n">nuclei</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">downsample_pct</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot</span><span class="p">,</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">plot_regions_3d</span><span class="p">(</span><span class="n">starling_atlas</span><span class="p">,</span> <span class="n">regions_to_plot</span> <span class="o">=</span> <span class="n">nuclei</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">downsample_pct</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
                              <span class="n">polygon_simplification</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
                              <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="25967313-1a98-4f85-ac64-57f7f91d53c7"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="2bec296f-526f-4bfb-a4d5-9519ebc6cda0"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#25967313-1a98-4f85-ac64-57f7f91d53c7');
+var element = $('#2bec296f-526f-4bfb-a4d5-9519ebc6cda0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre></pre>
 </div>
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="a60c3cc6-2e6e-45c4-bfed-d7a8ad91586b"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="77a378f9-df45-48c0-85b4-68c6e094890b"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a60c3cc6-2e6e-45c4-bfed-d7a8ad91586b');
+var element = $('#77a378f9-df45-48c0-85b4-68c6e094890b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "9f9ed3bcd6994d0996a44b6b21862cb0", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="130bf9d4-93e5-4a16-afd1-5410447fb68b"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="f055c488-5658-4e4a-9e69-09dc81756a23"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#130bf9d4-93e5-4a16-afd1-5410447fb68b');
+var element = $('#f055c488-5658-4e4a-9e69-09dc81756a23');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "0c8a40814b57435389d11c21494931db", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="5941eb16-4be9-4882-a0f5-53b0a320548a"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="bd463cac-7646-469c-b905-e3421a9c0ee4"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5941eb16-4be9-4882-a0f5-53b0a320548a');
+var element = $('#bd463cac-7646-469c-b905-e3421a9c0ee4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "b7006ccc8301455391c054f388bd7857", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="4dc15100-e044-49ac-82af-a42e3ba401d3"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="efd506a9-b3ca-4775-b20d-34e69d6c64c0"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4dc15100-e044-49ac-82af-a42e3ba401d3');
+var element = $('#efd506a9-b3ca-4775-b20d-34e69d6c64c0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "47cfae8022b14fe6b14cde33a5ceedf8", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
 </div>
+
 <div class="output_area">
-<div class="prompt"></div>
-<div id="5d10c0d3-ac03-4d84-b64d-1add0f7471b4"></div>
-<div class="output_subarea output_widget_view">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="d52bf88c-0df8-4272-a8f4-bbb94baf02e3"></div>
+<div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5d10c0d3-ac03-4d84-b64d-1add0f7471b4');
+var element = $('#d52bf88c-0df8-4272-a8f4-bbb94baf02e3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "0af607544fac4f0aa3dbf4ef189c882c", "version_major": 2, "version_minor": 0}
 </script>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">nuclei</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nuclei</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[['Field_L', 'Nuclei'], ['NCM', 'Nuclei']]</pre>
+<pre>[[&#39;Field_L&#39;, &#39;Nuclei&#39;], [&#39;NCM&#39;, &#39;Nuclei&#39;]]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'Field_L'</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Field_L&#39;</span><span class="p">]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>region                                 Field_L
 type_                                   Nuclei
@@ -1561,45 +1753,67 @@ region_bounds    [89, 165, 112, 133, 167, 196]
 coords_vox                     [149, 124, 181]
 Name: Field_L, dtype: object</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'Field_L'</span><span class="p">]</span><span class="o">.</span><span class="n">region_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">'Field_L'</span><span class="p">]</span><span class="o">.</span><span class="n">region_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Field_L&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">region_bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Field_L&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">region_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>22.0</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="p">[</span><span class="s1">'reg'</span><span class="p">]</span><span class="o">.</span><span class="n">coords_vox</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">starling_atlas</span><span class="o">.</span><span class="n">region_vox</span><span class="p">[</span><span class="s1">&#39;reg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coords_vox</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_text output_error">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -1617,13 +1831,13 @@ Name: Field_L, dtype: object</pre>
 
 <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
 
-<span class="ansi-red-fg">KeyError</span>: 'reg'
+<span class="ansi-red-fg">KeyError</span>: &#39;reg&#39;
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
 <span class="ansi-green-fg">&lt;ipython-input-10-269713233a32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>starling_atlas<span class="ansi-blue-fg">.</span>region_vox<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'reg'</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>coords_vox
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>starling_atlas<span class="ansi-blue-fg">.</span>region_vox<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;reg&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>coords_vox
 
 <span class="ansi-green-fg">/mnt/cube/tsainbur/conda_envs/tpy3/lib/python3.6/site-packages/pandas/core/frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-fg">(self, key)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2925</span>             <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>columns<span class="ansi-blue-fg">.</span>nlevels <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
@@ -1647,23 +1861,29 @@ During handling of the above exception, another exception occurred:
 
 <span class="ansi-green-fg">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg">()</span>
 
-<span class="ansi-red-fg">KeyError</span>: 'reg'</pre>
+<span class="ansi-red-fg">KeyError</span>: &#39;reg&#39;</pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1710,8 +1930,7 @@ During handling of the above exception, another exception occurred:
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

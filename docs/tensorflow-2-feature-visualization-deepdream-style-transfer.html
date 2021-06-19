@@ -73,7 +73,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -99,8 +99,7 @@
       
     <h1 id="tensorflow-2-feature-visualization-deepdream-style-transfer">Visualizing features, receptive fields, and classes in neural networks from "scratch" with Tensorflow 2. Part 4: DeepDream and style transfer</h1>
     <p>
-          Posted on Tue 19 May 2020 in <a href="./category/neural-networks.html">Neural networks</a>
-
+      Posted on Tue 19 May 2020 in <a href="./category/neural-networks.html">Neural networks</a>
 
     </p>
   </header>
@@ -1150,8 +1149,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1221,28 +1225,29 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h3><p>In the <a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">last section</a> I talked about reconstructing images based upon their layer activations at different levels of a deep neural network. This time, we're going to try to modify images by transferring styles between different layers of the network. All the figured here are generated from a single <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self-contained Jupyter notebook</a>.</p>
+<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h3><p>In the <a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">last section</a> I talked about reconstructing images based upon their layer activations at different levels of a deep neural network. This time, we're going to try to modify images by transferring styles between different layers of the network. All the figured here are generated from a single <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self-contained Jupyter notebook</a>.</p>
 <p>There are a few sections to this series:</p>
 <ol>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">Visualizing classes</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features">Visualizing features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">Reconstructing images from features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
-<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer">Transferring features between images</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-classes">Visualizing classes</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.0-Visualizing-classes.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-visualizing-features">Visualizing features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.1-Visualize-receptive-fields-and-features.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-reconstructing-images">Reconstructing images from features</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.2-Reconstructing-images-from-layer-activation.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
+<li><strong><a href="http://timsainburg.com/tensorflow-2-feature-visualization-deepdream-style-transfer">Transferring features between images</a></strong> <a href="https://colab.research.google.com/github/timsainb/tensorflow-2-feature-visualization-notebooks/blob/master/0.3-Visualize-deepdream-style-transfer.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Deepdream,-modifying-images-with-neural-network-filters-and-classes">Deepdream, modifying images with neural network filters and classes<a class="anchor-link" href="#Deepdream,-modifying-images-with-neural-network-filters-and-classes">¶</a></h2><p>In the second section, we synthesized images by generating an image of noise, and modifying that image until it maximally activated a neuron/filter in a deep neural network. Here, we want to use those filters to modify images. To do that, instead of starting with noise, we can try starting from an image. The midpoint between the starting and the generated image can have features that look styled by the CNN's filters:</p>
+<h2 id="Deepdream,-modifying-images-with-neural-network-filters-and-classes">Deepdream, modifying images with neural network filters and classes<a class="anchor-link" href="#Deepdream,-modifying-images-with-neural-network-filters-and-classes">&#182;</a></h2><p>In the second section, we synthesized images by generating an image of noise, and modifying that image until it maximally activated a neuron/filter in a deep neural network. Here, we want to use those filters to modify images. To do that, instead of starting with noise, we can try starting from an image. The midpoint between the starting and the generated image can have features that look styled by the CNN's filters:</p>
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/deepdream-filters-all.jpg" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/deepdream-filters-all.jpg", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at different levels of the VGG16 CNN architecture.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at different levels of the VGG16 CNN architecture.</p> 
 </div>
 </div>
 </div>
@@ -1253,11 +1258,11 @@ h6:hover .anchor-link {
 <p>We can do the same thing with feature classes, by activating the final layer of the network:</p>
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/deepdream_features.png" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/deepdream_features.png", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.</p> 
 </div>
 </div>
 </div>
@@ -1268,14 +1273,14 @@ h6:hover .anchor-link {
 <p>We can also visualize those classes during each step of gradient ascent.</p>
 <div style="text-align:center">
 <p align="center">
-<video controls="" height="480" style="text-align:center; display:block; margin:auto" width="640">
-<source src="assets/feature_viz/deepdream.mp4" type="video/mp4"/>
+<video width="640" height="480"  style="text-align:center; display:block; margin:auto" controls>
+  <source src="assets/feature_viz/deepdream.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-</p>
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Manipulation of an image  of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a>, to class activations in the final layer of VGG16.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Manipulation of an image  of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a>, to class activations in the final layer of VGG16.</p> 
 </div>
 </div>
 </div>
@@ -1283,7 +1288,7 @@ Your browser does not support the video tag.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Style-transfer">Style transfer<a class="anchor-link" href="#Style-transfer">¶</a></h4>
+<h4 id="Style-transfer">Style transfer<a class="anchor-link" href="#Style-transfer">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -1294,11 +1299,11 @@ Your browser does not support the video tag.
 <p>Here, we transfer the activation profile of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> to an image of the painting <a href="assets/feature_viz/all_filter_activations.jpg">The Starry Night</a> by Van Gogh.</p>
 <div style="text-align:center">
 <p align="center">
-<img ,="" max_width="800px" src="assets/feature_viz/starry_night-style-transfer.png" style="float:center" width="80%"/>
-</p>
+  <img style="float:center",  src="assets/feature_viz/starry_night-style-transfer.png", width="80%" max_width="800px">
+    </p>
 </div>
 <div style="text-align:center; clear:both">
-<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.</span></p>
+<p style="text-align:center;font-style:italic"><span style="font-style: normal; font-weight:bold">Stylizations of an image of <a href="assets/feature_viz/all_filter_activations.jpg">Astronaut Eileen Collins</a> by modifying the activations of neurons at the class layer of the VGG16 CNN architecture.</p> 
 </div>
 </div>
 </div>
@@ -1308,9 +1313,12 @@ Your browser does not support the video tag.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>All the code needed to reproduce these images and videos are available in <a href="https://github.com/timsainb/tensorflow-2-feature-visualization-notebooks">self contained Jupyter notebooks</a>.</p>
 <p>That's it! This is the final section. Thanks for reading.</p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1374,8 +1382,7 @@ Your browser does not support the video tag.
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>

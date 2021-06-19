@@ -74,7 +74,7 @@
       <nav>
         <ul class="list">
           <li><a href="./pages/about-me.html#about-me">About me</a></li>
-          <li><a href="./pages/brain-atlases.html#brain-atlases">Brain atlases</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
           <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
@@ -100,8 +100,7 @@
       
     <h1 id="gaia">Generative Adversarial Interpolative Autoencoding (GAIA)</h1>
     <p>
-          Posted on Sun 07 October 2018 in <a href="./category/machine-learning.html">Machine Learning</a>
-
+      Posted on Sun 07 October 2018 in <a href="./category/machine-learning.html">Machine Learning</a>
 
     </p>
   </header>
@@ -1151,8 +1150,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1223,7 +1227,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<video autoplay="" loop="" muted="" playsinline="" src="assets/video/GAIAandNewArch2_face_transition_tsne3.mp4" style="text-align:center;width:100%;max-width:800px"></video>
+<video style="text-align:center;width:100%;max-width:800px" autoplay muted playsinline loop src="assets/video/GAIAandNewArch2_face_transition_tsne3.mp4"/> 
 </div>
 </div>
 </div>
@@ -1231,7 +1235,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p style="text-align:center;font-style:italic">Figure 0: Interpolations between nearest neighbors in a 10D-<a href="https://arxiv.org/abs/1802.03426">UMAP</a> embedding of the network latent space.</p>
+<p style="text-align:center;font-style:italic">Figure 0: Interpolations between nearest neighbors in a 10D-<a href = "https://arxiv.org/abs/1802.03426">UMAP</a> embedding of the network latent space.</p>
 </div>
 </div>
 </div>
@@ -1239,22 +1243,25 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <strong>Generative Adversarial Interpolative Autoencoder (GAIA; <a href="assets/PDF/GAIA.pdf">Paper</a>; <a href="https://github.com/timsainb/GAIA">Code</a>)</strong> is novel hybrid between the Generative Adversarial Network (GAN) and the Autoencoder (AE). The purpose of GAIA is to overcome three issues which exist in GANs and AEs:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-GANs-are-not-bidirectional">1. GANs are not bidirectional<a class="anchor-link" href="#1.-GANs-are-not-bidirectional">¶</a></h3><p>While autoencoders are capable of translating from the image domain ($X$) to the latent space of a neural network ($Z$; $X \rightarrow Z$) via the encoder, and from latent space back to the image domain via the decoder ($Z \rightarrow X$), GANs only have a decoder (generator), and can only translate from $Z \rightarrow X$.</p>
+<h3 id="1.-GANs-are-not-bidirectional">1. GANs are not bidirectional<a class="anchor-link" href="#1.-GANs-are-not-bidirectional">&#182;</a></h3><p>While autoencoders are capable of translating from the image domain ($X$) to the latent space of a neural network ($Z$; $X \rightarrow Z$) via the encoder, and from latent space back to the image domain via the decoder ($Z \rightarrow X$), GANs only have a decoder (generator), and can only translate from $Z \rightarrow X$.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Autoencoders-produce-blurry-images">2. Autoencoders produce blurry images<a class="anchor-link" href="#2.-Autoencoders-produce-blurry-images">¶</a></h3><p>Autoencoders are trained with pixel-wise error functions. As a result, when there are sharp contrasts in images and images are being compressed, autoencoders will smooth over those contrasts, <a href="https://www.youtube.com/watch?v=XNZIN7Jh3Sg">producing images which do not look very realistic</a>.</p>
+<h3 id="2.-Autoencoders-produce-blurry-images">2. Autoencoders produce blurry images<a class="anchor-link" href="#2.-Autoencoders-produce-blurry-images">&#182;</a></h3><p>Autoencoders are trained with pixel-wise error functions. As a result, when there are sharp contrasts in images and images are being compressed, autoencoders will smooth over those contrasts, <a href="https://www.youtube.com/watch?v=XNZIN7Jh3Sg">producing images which do not look very realistic</a>.</p>
 <p>The problem of overcoming the blurry pixel-wise smoothing inherent to auto-encoders was first addressed by <a href="https://arxiv.org/abs/1512.09300">Larsen et al., (2015)</a>. Larsen proposed to combine a GAN and a Variational Autoencoders (VAE) together, where the GAN autoencodes a high-level feature layer in the discriminator of the GAN. This works well, producing an autoencoder which generates images which are abstractly similar to the input image, but not exactly the same (See Figure 1 below).</p>
 <p>A number of other architectures have also been developed to add inference to GANs. These methods, however, are indirect and tend to produce samples, like the VAE-GAN, which are similar but do not match exactly to the original input image. Most recently <a href="https://blog.openai.com/glow/">Glow</a> is a fully invertible generative model which (because it is fully invertible) does not produce blurry images at the endpoints. Our method attempts to do the same, using classic GAN/AE learning algorithm and with different constraints on latent structure.</p>
+
 </div>
 </div>
 </div>
@@ -1262,7 +1269,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div style="text-align:center">
-<img src="assets/img/cae.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/>
+<img src="assets/img/cae.png"  style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" />
 </div></p>
 <p div="text-align:center;font-style:italic">Figure 1: Comparing reconstructions using out method to several other GAN based inference methods. <b>A</b> <a href="https://arxiv.org/abs/1512.09300">VAE-GAN</a> <b>B</b> <a href="https://arxiv.org/abs/1701.04722">Adversarial Variational Bayes</a> <b>C</b> <a href="https://arxiv.org/abs/1703.10717">BEGAN</a> <b>D</b> <a href="https://arxiv.org/abs/1606.00704">Adversarially Learned Inference</a> <b>E</b> <a href="https://arxiv.org/abs/1704.02304">Adversarial Generator-Encoder</a> <b>F</b> GAIA (ours) </p>
 </div>
@@ -1271,15 +1278,16 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Autoencoder-latent-spaces-are-not-convex">3. Autoencoder latent spaces are not convex<a class="anchor-link" href="#3.-Autoencoder-latent-spaces-are-not-convex">¶</a></h3><p>Generative latent-spaces exhibit the powerful property of being able to smoothly interpolate between real-world signals in a high-dimensional space by linearly interpolating between their latent-space representations. Interpolations in a low-dimensional latent space often produce comprehensible representations when projected back into high-dimensional space. However, in the latent spaces of many network architectures (such as AEs) linear interpolations are not necessarily justified, because latent-space projections are not trained explicitly to form a convex set.</p>
+<h3 id="3.-Autoencoder-latent-spaces-are-not-convex">3. Autoencoder latent spaces are not convex<a class="anchor-link" href="#3.-Autoencoder-latent-spaces-are-not-convex">&#182;</a></h3><p>Generative latent-spaces exhibit the powerful property of being able to smoothly interpolate between real-world signals in a high-dimensional space by linearly interpolating between their latent-space representations. Interpolations in a low-dimensional latent space often produce comprehensible representations when projected back into high-dimensional space. However, in the latent spaces of many network architectures (such as AEs) linear interpolations are not necessarily justified, because latent-space projections are not trained explicitly to form a convex set.</p>
 <p>A convex set is a set of points in which the line connecting any pair of two points will fall within the rest of the set. For example, in Figure 2A, the purple distribution represents data  projected into a two-dimensional latent space, and the surrounding whitespace represents regions of latent space which do not correspond to the data distribution. This distribution would be non-convex, because a line connecting two points in the distribution (e.g. the black points in Figure 2A) contains regions which do not belong to the data distribution (the red region). In an AE, if the red region of the interpolation were to be sampled from, projections back into the high-dimensional space will not necessarily correspond to realistic exemplars of $X$, because that region of $Z$ does not belong to the true data distribution.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="assets/img/convex.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto"/></p>
+<p><img src="assets/img/convex.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto" /></p>
 <p style="text-align:center;font-style:italic">Figure 2: Convexity in Autoencoder latent spaces</p>
 </div>
 </div>
@@ -1287,7 +1295,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generative-Adversarial-Interpolative-Autoencoder-(GAIA)">Generative Adversarial Interpolative Autoencoder (GAIA)<a class="anchor-link" href="#Generative-Adversarial-Interpolative-Autoencoder-(GAIA)">¶</a></h2>
+<h2 id="Generative-Adversarial-Interpolative-Autoencoder-(GAIA)">Generative Adversarial Interpolative Autoencoder (GAIA)<a class="anchor-link" href="#Generative-Adversarial-Interpolative-Autoencoder-(GAIA)">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1295,6 +1303,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our model, GAIA, acts as a GAN in which both the generator and the discriminator are AEs. We use an autoencoder for the discriminator (as in <a href="https://arxiv.org/abs/1703.10717">BEGAN</a>), and an autoencoder for the generator (as in <a href="https://arxiv.org/abs/1512.09300">VAE-GAN</a>). We then train the Generator to create images which autoencode well in the discriminator, and the discriminator to autoencode real images well, and generated images poorly. The generator also generates <strong>interpolated samples in latent space</strong> which are discriminated by the discriminator, thus training the network explicitly to produce samples which can be interpolated between.</p>
+
 </div>
 </div>
 </div>
@@ -1302,7 +1311,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div style="text-align:center">
-<img src="assets/img/GAIA_model_new.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto"/>
+<img src="assets/img/GAIA_model_new.png" style="width:100%;max-width:450px; text-align:center!important; margin:0 auto" />
 </div></p>
 <p style="text-align:center;font-style:italic">Figure 3. The network architecture of GAIA.</p>
 </div>
@@ -1326,13 +1335,14 @@ The loss of the generator is to minimize the error across the descriminator for 
 &amp; \lVert G(Z_{interp})-D(G({Z}_{interp}))\rVert_1
 \end{aligned}
 \end{equation}</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Structure-consistency">Structure-consistency<a class="anchor-link" href="#Structure-consistency">¶</a></h3>
+<h3 id="Structure-consistency">Structure-consistency<a class="anchor-link" href="#Structure-consistency">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -1342,13 +1352,14 @@ The loss of the generator is to minimize the error across the descriminator for 
 <p>VAEs and GANs force the latent distribution of a dataset of faces to into a pre-defined distribution, for example the Gaussian or uniform distributions. This approach presents a number of advantages, such as ensuring latent space convexity and thus being better able to sample from the distribution. However, these benefits are gained at the loss of respecting the structure distribution of the original dataset in high-dimensional space. To better respect the original high-dimensional structure of the dataset, we impose a regularization between the latent space representations of the data ($Z$), and the original high dimensional dataset ($X$).</p>
 <p>For each minibatch presented to the network, we compute a loss for the distance between the log of the pairwise Euclidean distances of samples in $X$ and $Z$ space:</p>
 $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\frac{(X_i - X_j)^2}{\frac{1}{N}\sum_{i,j}(X_i - X_j)^2} \right) - log_2 \left( 1+\frac{(Z_i - Z_j)^2}{\frac{1}{N}\sum_{i,j}(Z_i - Z_j)^2} \right)\right]^2$$<p>We then apply this error term to the generator to encourage the pairwise distances of the batch in latent space to be similar to the pairwise distances of the minibatch in the original high-dimensional space. A hyperparameter ($\alpha$) is used to balance the emphasis of the structure loss against the loss of the reconstruction/adversarial losses, which was set at half the learning rate ($1^{-4}/2$).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Attribute-vectors">Attribute vectors<a class="anchor-link" href="#Attribute-vectors">¶</a></h3>
+<h3 id="Attribute-vectors">Attribute vectors<a class="anchor-link" href="#Attribute-vectors">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -1357,6 +1368,7 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We find that, like several other generative models (e.g. <a href="https://arxiv.org/abs/1511.06434">DCGAN</a>, <a href="https://blog.openai.com/glow/">Glow</a>, <a href="https://arxiv.org/abs/1512.09300">VAE-GAN</a>), our model captures high level features vectors without being explicitly taught.</p>
 <p>We capture these high level features by training a linear model to predice $Z$ given each images annotated features in CELEBA. We then add or subtract these features to latent representations of images, producing the figure below. We find that these high level features are captured linearly in latent space.</p>
+
 </div>
 </div>
 </div>
@@ -1364,7 +1376,7 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/face_attribs6_model.mp4" style="text-align:center;width:100%;max-width:900px"></video>
+<video controls style="text-align:center;width:100%;max-width:900px" autoplay muted playsinline loop src="assets/video/face_attribs6_model.mp4"/> 
 </div>
 </div>
 </div>
@@ -1373,7 +1385,7 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/face_attribs8_model.mp4" style="text-align:center;width:100%;max-width:900px"></video>
+<video controls style="text-align:center;width:100%;max-width:900px" autoplay muted playsinline loop src="assets/video/face_attribs8_model.mp4"/> 
 </div>
 </div>
 </div>
@@ -1389,7 +1401,7 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div style="text-align:center">
-<img src="assets/img/attributes_model.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto"/>
+<img src="assets/img/attributes_model.png" style="width:100%;max-width:900px; text-align:center!important; margin:0 auto" />
 </div></p>
 <p style="text-align:center;font-style:italic">Figure 5. The attributes vectors learned by the model, passed through the decoder of the generator.</p>
 </div>
@@ -1398,7 +1410,8 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Rotation">Rotation<a class="anchor-link" href="#Rotation">¶</a></h3><p>We used the same technique as above on the relative positions of facial landmarks to attain a head rotation vector (the distance from the nose to the mean of the left mouth/eye vs right mouth/eye). We find that, while certain features like the nose position rotate as expected, rotation in the face as a whole is very unrealistic beyond very slight perturbation.</p>
+<h3 id="Rotation">Rotation<a class="anchor-link" href="#Rotation">&#182;</a></h3><p>We used the same technique as above on the relative positions of facial landmarks to attain a head rotation vector (the distance from the nose to the mean of the left mouth/eye vs right mouth/eye). We find that, while certain features like the nose position rotate as expected, rotation in the face as a whole is very unrealistic beyond very slight perturbation.</p>
+
 </div>
 </div>
 </div>
@@ -1406,8 +1419,8 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div style="text-align:center">
-<video autoplay="" controls="" loop="" muted="" playsinline="" src="assets/video/rotation.mp4" style="text-align:center;width:100%;max-width:600px"></video>
-</div>
+<video controls style="text-align:center;width:100%;max-width:600px" autoplay muted playsinline loop src="assets/video/rotation.mp4"/> 
+    </div>
 </div>
 </div>
 </div>
@@ -1421,14 +1434,15 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">¶</a></h2><p>We propose a novel architecture of GAN in which both the generator and discriminator are AEs. In this architecture, a pixel-wise loss can be passed across the discriminator producing autoencoded images without blurry reconstructions. Further, using the adversarial loss of the GAN, we train the generator's AE explicitly on interpolations between samples projected into latent space, promoting a convex latent space representation. This method more explicitly lends itself to interpolations between complex signals using a neural network latent space, while still respecting the high-dimensional structure of the input data.</p>
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>We propose a novel architecture of GAN in which both the generator and discriminator are AEs. In this architecture, a pixel-wise loss can be passed across the discriminator producing autoencoded images without blurry reconstructions. Further, using the adversarial loss of the GAN, we train the generator's AE explicitly on interpolations between samples projected into latent space, promoting a convex latent space representation. This method more explicitly lends itself to interpolations between complex signals using a neural network latent space, while still respecting the high-dimensional structure of the input data.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Future-directions">Future directions<a class="anchor-link" href="#Future-directions">¶</a></h3><ul>
+<h3 id="Future-directions">Future directions<a class="anchor-link" href="#Future-directions">&#182;</a></h3><ul>
 <li>Use different network architectures for autoencoder (Convnet, Densenet, LSTM, proGAN)</li>
 <li>Use different datasets (birdsong, human speech)</li>
 <li>Improve upon latent space interpolations <ul>
@@ -1443,20 +1457,25 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 </li>
 <li>Pass the decoder interpolations in pixel space which it will learn are <em>fake</em> to ensure that the generator will produce samples further from pixel-wise interpolations.</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1521,8 +1540,7 @@ $$\mathcal{L}_{dist}(X,Z) = \frac{1}{B}\sum_{i,j}^{B} \left[ log_2 \left( 1+\fra
 
     <footer>
 <p>&copy; Tim Sainburg </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
-
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
 
 </p>    </footer>
   </main>
