@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - dimensionality reduction</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/dimensionality-reduction.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2020-05-19T08:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba</title><link href="http://timsainburg.com/coranking-matrix-python-numba.html" rel="alternate"></link><published>2020-05-19T08:01:00-07:00</published><updated>2020-05-19T08:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-05-19:/coranking-matrix-python-numba.html</id><summary type="html">&lt;p&gt;Quickly computing a coranking matrix in python with numba&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - dimensionality reduction</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/dimensionality-reduction.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2021-07-19T08:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba</title><link href="http://timsainburg.com/coranking-matrix-python-numba.html" rel="alternate"></link><published>2021-07-19T08:01:00-07:00</published><updated>2021-07-19T08:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2021-07-19:/coranking-matrix-python-numba.html</id><summary type="html">&lt;p&gt;Quickly computing a coranking matrix in python with numba&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1118,13 +1118,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Fast-computation-of-coranking-matrix-in-python-with-parallelization-and-numba"&gt;Fast computation of coranking matrix in python with parallelization and numba&lt;a class="anchor-link" href="#Fast-computation-of-coranking-matrix-in-python-with-parallelization-and-numba"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;For our recent &lt;a href="https://arxiv.org/abs/2009.12981"&gt;Parmetric UMAP&lt;/a&gt; paper, I was asked by a reviewer to compute some rank based metrics to compare embedding quality, based on the co-ranking matrix. Looking through available software, I found a few packages: [Quadra] (&lt;a href="https://github.com/jlmelville/quadra"&gt;https://github.com/jlmelville/quadra&lt;/a&gt;) in R, &lt;a href="https://github.com/samueljackson92/coranking"&gt;coranking&lt;/a&gt; in python  and &lt;a href="https://data.mendeley.com/datasets/jbjd5fmggh/2/files/e192606c-dcd1-45f8-9bab-ed7f4f9d4f6a"&gt;pyDRMetrics&lt;/a&gt; in python. These were great starting points, but unfortunately, the computation of the coranking matrix for a bigger dataset like MNIST would have taken hours to days (longer?) with each of these packages, so I wrote my own, trying to speed up computation. On my computer, I brought down the computation time of the coranking matrix to around 10 minutes. So, as a resource to anyone looking,&lt;/p&gt;
 
 &lt;/div&gt;
@@ -1451,10 +1444,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-&lt;div id="4f8fd4bb-fa18-4204-a2b0-afd7e1581131"&gt;&lt;/div&gt;
+&lt;div id="1338fc9f-2368-4db1-bad8-f907c889ed68"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4f8fd4bb-fa18-4204-a2b0-afd7e1581131');
+var element = $('#1338fc9f-2368-4db1-bad8-f907c889ed68');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1473,10 +1466,10 @@ var element = $('#4f8fd4bb-fa18-4204-a2b0-afd7e1581131');
 
  
  
-&lt;div id="c7b0d52f-d062-42b3-993e-fb96e38f5d4c"&gt;&lt;/div&gt;
+&lt;div id="8e06ff39-4a33-4713-aaef-a1eb9a25d2a9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c7b0d52f-d062-42b3-993e-fb96e38f5d4c');
+var element = $('#8e06ff39-4a33-4713-aaef-a1eb9a25d2a9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1495,10 +1488,10 @@ var element = $('#c7b0d52f-d062-42b3-993e-fb96e38f5d4c');
 
  
  
-&lt;div id="4c0975a0-8aab-4582-93ac-094bc69be5a4"&gt;&lt;/div&gt;
+&lt;div id="e678c0f1-58e9-4e9c-b0cd-2f95f7975c5b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4c0975a0-8aab-4582-93ac-094bc69be5a4');
+var element = $('#e678c0f1-58e9-4e9c-b0cd-2f95f7975c5b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1517,10 +1510,10 @@ var element = $('#4c0975a0-8aab-4582-93ac-094bc69be5a4');
 
  
  
-&lt;div id="2314df05-868d-4c2f-91eb-a653a3181dba"&gt;&lt;/div&gt;
+&lt;div id="9ec86b36-3ecc-41aa-8458-916f532e0ffc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2314df05-868d-4c2f-91eb-a653a3181dba');
+var element = $('#9ec86b36-3ecc-41aa-8458-916f532e0ffc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1539,10 +1532,10 @@ var element = $('#2314df05-868d-4c2f-91eb-a653a3181dba');
 
  
  
-&lt;div id="d7e736b6-be63-44b7-a3d7-8236e14bd777"&gt;&lt;/div&gt;
+&lt;div id="7406de0e-1d20-4815-a2f2-0eab194b8de3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d7e736b6-be63-44b7-a3d7-8236e14bd777');
+var element = $('#7406de0e-1d20-4815-a2f2-0eab194b8de3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1561,10 +1554,10 @@ var element = $('#d7e736b6-be63-44b7-a3d7-8236e14bd777');
 
  
  
-&lt;div id="f9ea9f66-51a5-4065-8df9-36f8cfcf29df"&gt;&lt;/div&gt;
+&lt;div id="55527172-674a-4edf-abf4-bc058278bd21"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f9ea9f66-51a5-4065-8df9-36f8cfcf29df');
+var element = $('#55527172-674a-4edf-abf4-bc058278bd21');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1583,10 +1576,10 @@ var element = $('#f9ea9f66-51a5-4065-8df9-36f8cfcf29df');
 
  
  
-&lt;div id="d80e7c3e-63c9-4701-9b09-628ee6c6760f"&gt;&lt;/div&gt;
+&lt;div id="aa5f0df1-386c-423e-b7e1-8de7176549fd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d80e7c3e-63c9-4701-9b09-628ee6c6760f');
+var element = $('#aa5f0df1-386c-423e-b7e1-8de7176549fd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1605,10 +1598,10 @@ var element = $('#d80e7c3e-63c9-4701-9b09-628ee6c6760f');
 
  
  
-&lt;div id="c77aa5fb-d028-4225-bcf1-ff624913bdb5"&gt;&lt;/div&gt;
+&lt;div id="6b02b96f-171d-40ed-9a3c-1b24011a4e8c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c77aa5fb-d028-4225-bcf1-ff624913bdb5');
+var element = $('#6b02b96f-171d-40ed-9a3c-1b24011a4e8c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1627,10 +1620,10 @@ var element = $('#c77aa5fb-d028-4225-bcf1-ff624913bdb5');
 
  
  
-&lt;div id="17626851-b058-455a-8b44-e40865d14307"&gt;&lt;/div&gt;
+&lt;div id="673e75df-dcd9-4d01-8c45-ba406af226e1"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#17626851-b058-455a-8b44-e40865d14307');
+var element = $('#673e75df-dcd9-4d01-8c45-ba406af226e1');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "65ba9f4509624d0589439ff892137f31", "version_major": 2, "version_minor": 0}
@@ -1669,10 +1662,10 @@ var element = $('#17626851-b058-455a-8b44-e40865d14307');
 
  
  
-&lt;div id="3b6a8844-b069-418e-8df4-038325315604"&gt;&lt;/div&gt;
+&lt;div id="4737ef16-4e8e-45f3-bc7a-e9df8b44a815"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3b6a8844-b069-418e-8df4-038325315604');
+var element = $('#4737ef16-4e8e-45f3-bc7a-e9df8b44a815');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1691,10 +1684,10 @@ var element = $('#3b6a8844-b069-418e-8df4-038325315604');
 
  
  
-&lt;div id="d5186835-7c5b-4cd0-9d67-a9be53dda4a3"&gt;&lt;/div&gt;
+&lt;div id="72b62054-1093-44d5-b565-15130f9ab411"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d5186835-7c5b-4cd0-9d67-a9be53dda4a3');
+var element = $('#72b62054-1093-44d5-b565-15130f9ab411');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1713,10 +1706,10 @@ var element = $('#d5186835-7c5b-4cd0-9d67-a9be53dda4a3');
 
  
  
-&lt;div id="9be9243b-0902-4b7c-a48f-42bb841a10e1"&gt;&lt;/div&gt;
+&lt;div id="1138b659-01f9-4839-9f40-849692ed8292"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9be9243b-0902-4b7c-a48f-42bb841a10e1');
+var element = $('#1138b659-01f9-4839-9f40-849692ed8292');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1735,10 +1728,10 @@ var element = $('#9be9243b-0902-4b7c-a48f-42bb841a10e1');
 
  
  
-&lt;div id="5d5cf999-727b-4b6e-b8fa-de7524fa6fd4"&gt;&lt;/div&gt;
+&lt;div id="44df151d-cf1f-4a4d-833e-e371c7dd835e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5d5cf999-727b-4b6e-b8fa-de7524fa6fd4');
+var element = $('#44df151d-cf1f-4a4d-833e-e371c7dd835e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1757,10 +1750,10 @@ var element = $('#5d5cf999-727b-4b6e-b8fa-de7524fa6fd4');
 
  
  
-&lt;div id="fd864bcc-efc5-489c-b2e4-8946aeb63f1a"&gt;&lt;/div&gt;
+&lt;div id="b158b11d-30ce-4ef9-ab2f-4addf4c7fca6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fd864bcc-efc5-489c-b2e4-8946aeb63f1a');
+var element = $('#b158b11d-30ce-4ef9-ab2f-4addf4c7fca6');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1779,10 +1772,10 @@ var element = $('#fd864bcc-efc5-489c-b2e4-8946aeb63f1a');
 
  
  
-&lt;div id="0c6de122-c871-4115-9f7c-b10c24a3c65b"&gt;&lt;/div&gt;
+&lt;div id="0edaee52-efe4-4b16-8a42-7d6dbcc1c651"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0c6de122-c871-4115-9f7c-b10c24a3c65b');
+var element = $('#0edaee52-efe4-4b16-8a42-7d6dbcc1c651');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1801,10 +1794,10 @@ var element = $('#0c6de122-c871-4115-9f7c-b10c24a3c65b');
 
  
  
-&lt;div id="c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6"&gt;&lt;/div&gt;
+&lt;div id="fd4db7c7-f578-4b74-99cd-a15b88ff21a2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6');
+var element = $('#fd4db7c7-f578-4b74-99cd-a15b88ff21a2');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1823,10 +1816,10 @@ var element = $('#c6263bd2-6080-49fc-a8b8-e3e31b2b1cd6');
 
  
  
-&lt;div id="fd379cdf-76ce-4a8b-aa05-28c10a6be928"&gt;&lt;/div&gt;
+&lt;div id="c50a8b98-1586-4e6e-8ee9-a4ee67eb9f43"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fd379cdf-76ce-4a8b-aa05-28c10a6be928');
+var element = $('#c50a8b98-1586-4e6e-8ee9-a4ee67eb9f43');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1845,10 +1838,10 @@ var element = $('#fd379cdf-76ce-4a8b-aa05-28c10a6be928');
 
  
  
-&lt;div id="22e1e0a4-8ea6-403b-9428-cd71b7a35f4a"&gt;&lt;/div&gt;
+&lt;div id="b41b1e79-a911-430f-8c32-c2e4147a71df"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#22e1e0a4-8ea6-403b-9428-cd71b7a35f4a');
+var element = $('#b41b1e79-a911-430f-8c32-c2e4147a71df');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "1b48a8f74d4b414b907464d88d9e2c87", "version_major": 2, "version_minor": 0}
@@ -1887,10 +1880,10 @@ var element = $('#22e1e0a4-8ea6-403b-9428-cd71b7a35f4a');
 
  
  
-&lt;div id="9ff90946-edc1-4335-8e1a-8ccc267a83c0"&gt;&lt;/div&gt;
+&lt;div id="597376b7-bcbd-4ff0-9132-02d6833fd642"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9ff90946-edc1-4335-8e1a-8ccc267a83c0');
+var element = $('#597376b7-bcbd-4ff0-9132-02d6833fd642');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1909,10 +1902,10 @@ var element = $('#9ff90946-edc1-4335-8e1a-8ccc267a83c0');
 
  
  
-&lt;div id="cc6246aa-c562-447c-9a53-2a2ee9956620"&gt;&lt;/div&gt;
+&lt;div id="7c5438c4-4d2d-4200-a071-c4268f480bbe"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cc6246aa-c562-447c-9a53-2a2ee9956620');
+var element = $('#7c5438c4-4d2d-4200-a071-c4268f480bbe');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1931,10 +1924,10 @@ var element = $('#cc6246aa-c562-447c-9a53-2a2ee9956620');
 
  
  
-&lt;div id="2a1838cb-3477-434d-9178-6218c1230f0b"&gt;&lt;/div&gt;
+&lt;div id="4c8fd109-ec81-4074-a7a4-46bb6dec57ac"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2a1838cb-3477-434d-9178-6218c1230f0b');
+var element = $('#4c8fd109-ec81-4074-a7a4-46bb6dec57ac');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1953,10 +1946,10 @@ var element = $('#2a1838cb-3477-434d-9178-6218c1230f0b');
 
  
  
-&lt;div id="921d4fd0-f742-4879-8241-6543d1e9e7e8"&gt;&lt;/div&gt;
+&lt;div id="44c79d68-d93b-43dd-ba8a-2363e38a9ce5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#921d4fd0-f742-4879-8241-6543d1e9e7e8');
+var element = $('#44c79d68-d93b-43dd-ba8a-2363e38a9ce5');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1975,10 +1968,10 @@ var element = $('#921d4fd0-f742-4879-8241-6543d1e9e7e8');
 
  
  
-&lt;div id="1381cc8a-449c-4609-9246-c0e8b19b7ef9"&gt;&lt;/div&gt;
+&lt;div id="0e32fdbe-3eb8-4d71-90f0-1e5d074cfa2c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1381cc8a-449c-4609-9246-c0e8b19b7ef9');
+var element = $('#0e32fdbe-3eb8-4d71-90f0-1e5d074cfa2c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1997,10 +1990,10 @@ var element = $('#1381cc8a-449c-4609-9246-c0e8b19b7ef9');
 
  
  
-&lt;div id="c94708a9-f8d8-4c4a-9e44-e1627f127855"&gt;&lt;/div&gt;
+&lt;div id="472a6f1c-0577-4ed6-8900-54e59b9526a3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c94708a9-f8d8-4c4a-9e44-e1627f127855');
+var element = $('#472a6f1c-0577-4ed6-8900-54e59b9526a3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2019,10 +2012,10 @@ var element = $('#c94708a9-f8d8-4c4a-9e44-e1627f127855');
 
  
  
-&lt;div id="9bd6daab-d56c-46c5-b4a9-a0b76e63974e"&gt;&lt;/div&gt;
+&lt;div id="7cd3a5c8-68cd-4f01-a2d0-015ed60af67e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9bd6daab-d56c-46c5-b4a9-a0b76e63974e');
+var element = $('#7cd3a5c8-68cd-4f01-a2d0-015ed60af67e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2041,10 +2034,10 @@ var element = $('#9bd6daab-d56c-46c5-b4a9-a0b76e63974e');
 
  
  
-&lt;div id="ed594b3d-3e77-40b7-a32f-94e24beaa282"&gt;&lt;/div&gt;
+&lt;div id="4a5d26e3-e748-4ec9-aecc-4befd983a3bf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ed594b3d-3e77-40b7-a32f-94e24beaa282');
+var element = $('#4a5d26e3-e748-4ec9-aecc-4befd983a3bf');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2063,10 +2056,10 @@ var element = $('#ed594b3d-3e77-40b7-a32f-94e24beaa282');
 
  
  
-&lt;div id="bf4ad50e-2a93-4cbc-b1f3-56e35536bea5"&gt;&lt;/div&gt;
+&lt;div id="b72e40aa-928e-4b7d-a87c-59231d9dc101"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bf4ad50e-2a93-4cbc-b1f3-56e35536bea5');
+var element = $('#b72e40aa-928e-4b7d-a87c-59231d9dc101');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "5586a2eb6bff4846910dbdff72960a7e", "version_major": 2, "version_minor": 0}
@@ -2281,10 +2274,10 @@ var element = $('#bf4ad50e-2a93-4cbc-b1f3-56e35536bea5');
 
  
  
-&lt;div id="85109650-6030-4ac9-961f-40cff1a81a0f"&gt;&lt;/div&gt;
+&lt;div id="52ccdaf3-a3d1-43fd-8a29-a16f2f8b637c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#85109650-6030-4ac9-961f-40cff1a81a0f');
+var element = $('#52ccdaf3-a3d1-43fd-8a29-a16f2f8b637c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "7a816b74fd1e444896e582a3fad97af0", "version_major": 2, "version_minor": 0}
@@ -2323,10 +2316,10 @@ var element = $('#85109650-6030-4ac9-961f-40cff1a81a0f');
 
  
  
-&lt;div id="82148e1c-0fa4-41e7-8ddd-10e843a7d9bc"&gt;&lt;/div&gt;
+&lt;div id="d8d5a738-d80f-4cee-a044-607972a13f04"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#82148e1c-0fa4-41e7-8ddd-10e843a7d9bc');
+var element = $('#d8d5a738-d80f-4cee-a044-607972a13f04');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "4b9eed29cbd8492e9f617acba475be27", "version_major": 2, "version_minor": 0}
@@ -2365,10 +2358,10 @@ var element = $('#82148e1c-0fa4-41e7-8ddd-10e843a7d9bc');
 
  
  
-&lt;div id="a207f552-8ee9-472b-b31a-ff621ad2ee64"&gt;&lt;/div&gt;
+&lt;div id="fc617ad2-89d0-4e85-b87a-525bd6754948"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a207f552-8ee9-472b-b31a-ff621ad2ee64');
+var element = $('#fc617ad2-89d0-4e85-b87a-525bd6754948');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "55e871453049487e925e7d599dfe0005", "version_major": 2, "version_minor": 0}

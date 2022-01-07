@@ -10,19 +10,30 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/academicons/css/academicons.css">
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/academicons/css/academicons.css">
 
 
+    <link href="http://timsainburg.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Sainburg Atom">
 
 
     <link rel="shortcut icon" href="theme/img/starling-small.ico" type="image/x-icon">
     <link rel="icon" href="theme/img/starling-small.ico" type="image/x-icon">
 
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-136580158-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="Tim Sainburg" />
 <meta name="description" content="Quickly computing a coranking matrix in python with numba" />
@@ -32,11 +43,11 @@
 <meta property="og:title" content="Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba"/>
 <meta property="og:description" content="Quickly computing a coranking matrix in python with numba"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/coranking-matrix-python-numba.html"/>
+<meta property="og:url" content="./coranking-matrix-python-numba.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2021-07-19 08:01:00-07:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/tim-sainburg.html">
+<meta property="article:author" content="./author/tim-sainburg.html">
 <meta property="article:section" content="dimensionality reduction"/>
 <meta property="article:tag" content="umap"/>
 <meta property="article:tag" content="coranking matrix"/>
@@ -52,16 +63,16 @@
   <aside>
     <div>
       <a href="https://timsainburg.com">
-        <img src="/theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
+        <img src="./theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
       </a>
-      <h2><a href="">Tim Sainburg</a></h2>
+      <h2><a href=".">Tim Sainburg</a></h2>
 
 <p>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</p>
       <nav>
         <ul class="list">
-          <li><a href="/pages/about-me.html#about-me">About me</a></li>
-          <li><a href="/pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
-          <li><a href="/pages/cv.html#cv">Curriculum Vitae</a></li>
+          <li><a href="./pages/about-me.html#about-me">About me</a></li>
+          <li><a href="./pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
+          <li><a href="./pages/cv.html#cv">Curriculum Vitae</a></li>
 
           <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
         </ul>
@@ -86,7 +97,7 @@
       
     <h1 id="coranking-matrix-python-numba">Fast computation of a coranking matrix for dimensionality reduction with python, joblib, and numba</h1>
     <p>
-      Posted on Mon 19 July 2021 in <a href="/category/dimensionality-reduction.html">dimensionality reduction</a>
+      Posted on Mon 19 July 2021 in <a href="./category/dimensionality-reduction.html">dimensionality reduction</a>
 
     </p>
   </header>
@@ -1538,10 +1549,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-<div id="104b8c14-c85a-4df9-992a-44c7c463ffdc"></div>
+<div id="1338fc9f-2368-4db1-bad8-f907c889ed68"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#104b8c14-c85a-4df9-992a-44c7c463ffdc');
+var element = $('#1338fc9f-2368-4db1-bad8-f907c889ed68');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1560,10 +1571,10 @@ var element = $('#104b8c14-c85a-4df9-992a-44c7c463ffdc');
 
  
  
-<div id="c7c2d772-6260-4913-999d-b216975b29e9"></div>
+<div id="8e06ff39-4a33-4713-aaef-a1eb9a25d2a9"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c7c2d772-6260-4913-999d-b216975b29e9');
+var element = $('#8e06ff39-4a33-4713-aaef-a1eb9a25d2a9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1582,10 +1593,10 @@ var element = $('#c7c2d772-6260-4913-999d-b216975b29e9');
 
  
  
-<div id="a87f7918-4f96-4219-a949-9f692f2f3a1e"></div>
+<div id="e678c0f1-58e9-4e9c-b0cd-2f95f7975c5b"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#a87f7918-4f96-4219-a949-9f692f2f3a1e');
+var element = $('#e678c0f1-58e9-4e9c-b0cd-2f95f7975c5b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1604,10 +1615,10 @@ var element = $('#a87f7918-4f96-4219-a949-9f692f2f3a1e');
 
  
  
-<div id="6eff8666-dd60-42ee-9ea2-c976d22ba046"></div>
+<div id="9ec86b36-3ecc-41aa-8458-916f532e0ffc"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#6eff8666-dd60-42ee-9ea2-c976d22ba046');
+var element = $('#9ec86b36-3ecc-41aa-8458-916f532e0ffc');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1626,10 +1637,10 @@ var element = $('#6eff8666-dd60-42ee-9ea2-c976d22ba046');
 
  
  
-<div id="4d45ab46-7032-4fc9-9eb1-ba3ceffb8ae5"></div>
+<div id="7406de0e-1d20-4815-a2f2-0eab194b8de3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4d45ab46-7032-4fc9-9eb1-ba3ceffb8ae5');
+var element = $('#7406de0e-1d20-4815-a2f2-0eab194b8de3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1648,10 +1659,10 @@ var element = $('#4d45ab46-7032-4fc9-9eb1-ba3ceffb8ae5');
 
  
  
-<div id="5920a1a3-697e-4653-bbcf-9a3b2f062c02"></div>
+<div id="55527172-674a-4edf-abf4-bc058278bd21"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5920a1a3-697e-4653-bbcf-9a3b2f062c02');
+var element = $('#55527172-674a-4edf-abf4-bc058278bd21');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1670,10 +1681,10 @@ var element = $('#5920a1a3-697e-4653-bbcf-9a3b2f062c02');
 
  
  
-<div id="82b542af-9675-4c81-8fee-590f076decfd"></div>
+<div id="aa5f0df1-386c-423e-b7e1-8de7176549fd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#82b542af-9675-4c81-8fee-590f076decfd');
+var element = $('#aa5f0df1-386c-423e-b7e1-8de7176549fd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1692,10 +1703,10 @@ var element = $('#82b542af-9675-4c81-8fee-590f076decfd');
 
  
  
-<div id="3e867e3d-f8ce-4c45-a717-ef2579a9fdab"></div>
+<div id="6b02b96f-171d-40ed-9a3c-1b24011a4e8c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3e867e3d-f8ce-4c45-a717-ef2579a9fdab');
+var element = $('#6b02b96f-171d-40ed-9a3c-1b24011a4e8c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1714,10 +1725,10 @@ var element = $('#3e867e3d-f8ce-4c45-a717-ef2579a9fdab');
 
  
  
-<div id="2ece7bc1-c473-43dd-b229-2dedd78b3f48"></div>
+<div id="673e75df-dcd9-4d01-8c45-ba406af226e1"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2ece7bc1-c473-43dd-b229-2dedd78b3f48');
+var element = $('#673e75df-dcd9-4d01-8c45-ba406af226e1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "65ba9f4509624d0589439ff892137f31", "version_major": 2, "version_minor": 0}
@@ -1756,10 +1767,10 @@ var element = $('#2ece7bc1-c473-43dd-b229-2dedd78b3f48');
 
  
  
-<div id="5097efb2-c7ac-4006-9040-8434a5d7943b"></div>
+<div id="4737ef16-4e8e-45f3-bc7a-e9df8b44a815"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5097efb2-c7ac-4006-9040-8434a5d7943b');
+var element = $('#4737ef16-4e8e-45f3-bc7a-e9df8b44a815');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1778,10 +1789,10 @@ var element = $('#5097efb2-c7ac-4006-9040-8434a5d7943b');
 
  
  
-<div id="39e7fee6-9c49-48a4-a98e-fe3e87f39aee"></div>
+<div id="72b62054-1093-44d5-b565-15130f9ab411"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#39e7fee6-9c49-48a4-a98e-fe3e87f39aee');
+var element = $('#72b62054-1093-44d5-b565-15130f9ab411');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1800,10 +1811,10 @@ var element = $('#39e7fee6-9c49-48a4-a98e-fe3e87f39aee');
 
  
  
-<div id="2f086dc5-61fb-43ba-9435-fe60ed161fa6"></div>
+<div id="1138b659-01f9-4839-9f40-849692ed8292"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2f086dc5-61fb-43ba-9435-fe60ed161fa6');
+var element = $('#1138b659-01f9-4839-9f40-849692ed8292');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1822,10 +1833,10 @@ var element = $('#2f086dc5-61fb-43ba-9435-fe60ed161fa6');
 
  
  
-<div id="36cc0cc4-3b13-4ed9-b020-08396154b541"></div>
+<div id="44df151d-cf1f-4a4d-833e-e371c7dd835e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#36cc0cc4-3b13-4ed9-b020-08396154b541');
+var element = $('#44df151d-cf1f-4a4d-833e-e371c7dd835e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1844,10 +1855,10 @@ var element = $('#36cc0cc4-3b13-4ed9-b020-08396154b541');
 
  
  
-<div id="190cf972-afde-428d-be96-57b6d8c8a500"></div>
+<div id="b158b11d-30ce-4ef9-ab2f-4addf4c7fca6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#190cf972-afde-428d-be96-57b6d8c8a500');
+var element = $('#b158b11d-30ce-4ef9-ab2f-4addf4c7fca6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1866,10 +1877,10 @@ var element = $('#190cf972-afde-428d-be96-57b6d8c8a500');
 
  
  
-<div id="386e6acd-de8b-4a64-bd71-072c0256c921"></div>
+<div id="0edaee52-efe4-4b16-8a42-7d6dbcc1c651"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#386e6acd-de8b-4a64-bd71-072c0256c921');
+var element = $('#0edaee52-efe4-4b16-8a42-7d6dbcc1c651');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1888,10 +1899,10 @@ var element = $('#386e6acd-de8b-4a64-bd71-072c0256c921');
 
  
  
-<div id="3ccd4bfb-692d-4add-81c4-e88516c72fb2"></div>
+<div id="fd4db7c7-f578-4b74-99cd-a15b88ff21a2"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3ccd4bfb-692d-4add-81c4-e88516c72fb2');
+var element = $('#fd4db7c7-f578-4b74-99cd-a15b88ff21a2');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1910,10 +1921,10 @@ var element = $('#3ccd4bfb-692d-4add-81c4-e88516c72fb2');
 
  
  
-<div id="bf944dbc-3bb6-4434-8018-ad29f1c36abe"></div>
+<div id="c50a8b98-1586-4e6e-8ee9-a4ee67eb9f43"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#bf944dbc-3bb6-4434-8018-ad29f1c36abe');
+var element = $('#c50a8b98-1586-4e6e-8ee9-a4ee67eb9f43');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1932,10 +1943,10 @@ var element = $('#bf944dbc-3bb6-4434-8018-ad29f1c36abe');
 
  
  
-<div id="6b395cd8-1027-451a-8dc0-511cbd41c844"></div>
+<div id="b41b1e79-a911-430f-8c32-c2e4147a71df"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#6b395cd8-1027-451a-8dc0-511cbd41c844');
+var element = $('#b41b1e79-a911-430f-8c32-c2e4147a71df');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "1b48a8f74d4b414b907464d88d9e2c87", "version_major": 2, "version_minor": 0}
@@ -1974,10 +1985,10 @@ var element = $('#6b395cd8-1027-451a-8dc0-511cbd41c844');
 
  
  
-<div id="ae239299-18ce-42bc-b14f-42c804fa8687"></div>
+<div id="597376b7-bcbd-4ff0-9132-02d6833fd642"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ae239299-18ce-42bc-b14f-42c804fa8687');
+var element = $('#597376b7-bcbd-4ff0-9132-02d6833fd642');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1996,10 +2007,10 @@ var element = $('#ae239299-18ce-42bc-b14f-42c804fa8687');
 
  
  
-<div id="491aefbe-2c9d-4871-9735-339e55d421da"></div>
+<div id="7c5438c4-4d2d-4200-a071-c4268f480bbe"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#491aefbe-2c9d-4871-9735-339e55d421da');
+var element = $('#7c5438c4-4d2d-4200-a071-c4268f480bbe');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2018,10 +2029,10 @@ var element = $('#491aefbe-2c9d-4871-9735-339e55d421da');
 
  
  
-<div id="4fab4b3e-255e-414a-b421-e553a71cecec"></div>
+<div id="4c8fd109-ec81-4074-a7a4-46bb6dec57ac"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#4fab4b3e-255e-414a-b421-e553a71cecec');
+var element = $('#4c8fd109-ec81-4074-a7a4-46bb6dec57ac');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2040,10 +2051,10 @@ var element = $('#4fab4b3e-255e-414a-b421-e553a71cecec');
 
  
  
-<div id="72983407-60a7-47d5-bdc6-b37bd4466935"></div>
+<div id="44c79d68-d93b-43dd-ba8a-2363e38a9ce5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#72983407-60a7-47d5-bdc6-b37bd4466935');
+var element = $('#44c79d68-d93b-43dd-ba8a-2363e38a9ce5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2062,10 +2073,10 @@ var element = $('#72983407-60a7-47d5-bdc6-b37bd4466935');
 
  
  
-<div id="ccc976dc-7591-4663-8bef-ff92bcc2b5e9"></div>
+<div id="0e32fdbe-3eb8-4d71-90f0-1e5d074cfa2c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ccc976dc-7591-4663-8bef-ff92bcc2b5e9');
+var element = $('#0e32fdbe-3eb8-4d71-90f0-1e5d074cfa2c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2084,10 +2095,10 @@ var element = $('#ccc976dc-7591-4663-8bef-ff92bcc2b5e9');
 
  
  
-<div id="471855cb-bfba-4e16-b7be-2102aeae25d8"></div>
+<div id="472a6f1c-0577-4ed6-8900-54e59b9526a3"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#471855cb-bfba-4e16-b7be-2102aeae25d8');
+var element = $('#472a6f1c-0577-4ed6-8900-54e59b9526a3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2106,10 +2117,10 @@ var element = $('#471855cb-bfba-4e16-b7be-2102aeae25d8');
 
  
  
-<div id="7c089b8a-090e-4547-ba1c-0c83531527f6"></div>
+<div id="7cd3a5c8-68cd-4f01-a2d0-015ed60af67e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#7c089b8a-090e-4547-ba1c-0c83531527f6');
+var element = $('#7cd3a5c8-68cd-4f01-a2d0-015ed60af67e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2128,10 +2139,10 @@ var element = $('#7c089b8a-090e-4547-ba1c-0c83531527f6');
 
  
  
-<div id="599ce1cb-8229-4c68-8881-d8fbd7234370"></div>
+<div id="4a5d26e3-e748-4ec9-aecc-4befd983a3bf"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#599ce1cb-8229-4c68-8881-d8fbd7234370');
+var element = $('#4a5d26e3-e748-4ec9-aecc-4befd983a3bf');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2150,10 +2161,10 @@ var element = $('#599ce1cb-8229-4c68-8881-d8fbd7234370');
 
  
  
-<div id="ccdb64c1-ae0c-473d-ade0-e293d65ffef1"></div>
+<div id="b72e40aa-928e-4b7d-a87c-59231d9dc101"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#ccdb64c1-ae0c-473d-ade0-e293d65ffef1');
+var element = $('#b72e40aa-928e-4b7d-a87c-59231d9dc101');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "5586a2eb6bff4846910dbdff72960a7e", "version_major": 2, "version_minor": 0}
@@ -2368,10 +2379,10 @@ var element = $('#ccdb64c1-ae0c-473d-ade0-e293d65ffef1');
 
  
  
-<div id="c768931b-fe74-4767-9537-3d994938dfb0"></div>
+<div id="52ccdaf3-a3d1-43fd-8a29-a16f2f8b637c"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c768931b-fe74-4767-9537-3d994938dfb0');
+var element = $('#52ccdaf3-a3d1-43fd-8a29-a16f2f8b637c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "7a816b74fd1e444896e582a3fad97af0", "version_major": 2, "version_minor": 0}
@@ -2410,10 +2421,10 @@ var element = $('#c768931b-fe74-4767-9537-3d994938dfb0');
 
  
  
-<div id="edbcbe48-d39f-406e-9147-b594fe0840a4"></div>
+<div id="d8d5a738-d80f-4cee-a044-607972a13f04"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#edbcbe48-d39f-406e-9147-b594fe0840a4');
+var element = $('#d8d5a738-d80f-4cee-a044-607972a13f04');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4b9eed29cbd8492e9f617acba475be27", "version_major": 2, "version_minor": 0}
@@ -2452,10 +2463,10 @@ var element = $('#edbcbe48-d39f-406e-9147-b594fe0840a4');
 
  
  
-<div id="2700dfe0-8a55-40ca-b1e2-01e7befe4ff9"></div>
+<div id="fc617ad2-89d0-4e85-b87a-525bd6754948"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2700dfe0-8a55-40ca-b1e2-01e7befe4ff9');
+var element = $('#fc617ad2-89d0-4e85-b87a-525bd6754948');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "55e871453049487e925e7d599dfe0005", "version_major": 2, "version_minor": 0}
@@ -2549,9 +2560,9 @@ var element = $('#2700dfe0-8a55-40ca-b1e2-01e7befe4ff9');
   </div>
   <div class="tag-cloud">
     <p>
-      <a href="/tag/umap.html">umap</a>
-      <a href="/tag/coranking-matrix.html">coranking matrix</a>
-      <a href="/tag/metrics.html">metrics</a>
+      <a href="./tag/umap.html">umap</a>
+      <a href="./tag/coranking-matrix.html">coranking matrix</a>
+      <a href="./tag/metrics.html">metrics</a>
     </p>
   </div>
 
@@ -2577,7 +2588,7 @@ var element = $('#2700dfe0-8a55-40ca-b1e2-01e7befe4ff9');
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " Tim Sainburg ",
-  "url" : "",
+  "url" : ".",
   "image": "img/TSainburg.jpg",
   "description": ""
 }
