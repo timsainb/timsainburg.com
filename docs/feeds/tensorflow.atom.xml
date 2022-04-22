@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - Tensorflow</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/tensorflow.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2019-04-29T10:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>Converting from HDF5 to tfrecord and reading tfrecords into tensorflow</title><link href="http://timsainburg.com/convert-hdf5-tfrecord.html" rel="alternate"></link><published>2019-04-29T10:01:00-07:00</published><updated>2019-04-29T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-04-29:/convert-hdf5-tfrecord.html</id><summary type="html">&lt;p&gt;How to convert hdf5 files to tfrecord files, and read them into tensorflow.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - Tensorflow</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/tensorflow.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2019-04-29T10:01:00-07:00</updated><subtitle>Postdoc @ Harvard studying Neuroscience, Ethology, Psychology, Anthropogeny, and Machine Learning</subtitle><entry><title>Converting from HDF5 to tfrecord and reading tfrecords into tensorflow</title><link href="http://timsainburg.com/convert-hdf5-tfrecord.html" rel="alternate"></link><published>2019-04-29T10:01:00-07:00</published><updated>2019-04-29T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2019-04-29:/convert-hdf5-tfrecord.html</id><summary type="html">&lt;p&gt;How to convert hdf5 files to tfrecord files, and read them into tensorflow.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1528,10 +1528,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-&lt;div id="e6c90e1d-fd77-4840-a62d-1739c7cdccce"&gt;&lt;/div&gt;
+&lt;div id="b3990611-bfda-4c75-ada7-6b7ddcd43460"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e6c90e1d-fd77-4840-a62d-1739c7cdccce');
+var element = $('#b3990611-bfda-4c75-ada7-6b7ddcd43460');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "d9788f25d63e446d874b6b406799b036", "version_major": 2, "version_minor": 0}

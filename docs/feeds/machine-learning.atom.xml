@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - Machine Learning</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/machine-learning.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2020-10-03T10:01:00-07:00</updated><subtitle>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</subtitle><entry><title>Parametric UMAP</title><link href="http://timsainburg.com/parametric-umap.html" rel="alternate"></link><published>2020-10-03T10:01:00-07:00</published><updated>2020-10-03T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-10-03:/parametric-umap.html</id><summary type="html">&lt;p&gt;Our new paper, "Parametric UMAP: learning embeddings with deep neural networks for representation and semi-supervised learning" is on arXiv.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tim Sainburg - Machine Learning</title><link href="http://timsainburg.com/" rel="alternate"></link><link href="http://timsainburg.com/feeds/machine-learning.atom.xml" rel="self"></link><id>http://timsainburg.com/</id><updated>2020-10-03T10:01:00-07:00</updated><subtitle>Postdoc @ Harvard studying Neuroscience, Ethology, Psychology, Anthropogeny, and Machine Learning</subtitle><entry><title>Parametric UMAP</title><link href="http://timsainburg.com/parametric-umap.html" rel="alternate"></link><published>2020-10-03T10:01:00-07:00</published><updated>2020-10-03T10:01:00-07:00</updated><author><name>Tim Sainburg</name></author><id>tag:timsainburg.com,2020-10-03:/parametric-umap.html</id><summary type="html">&lt;p&gt;Our new paper, "Parametric UMAP: learning embeddings with deep neural networks for representation and semi-supervised learning" is on arXiv.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4088,10 +4088,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-&lt;div id="15166b1c-088d-4f78-8507-690b20c4b3af"&gt;&lt;/div&gt;
+&lt;div id="7d8c9927-8f1a-4916-9ac4-f4fd5365d920"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#15166b1c-088d-4f78-8507-690b20c4b3af');
+var element = $('#7d8c9927-8f1a-4916-9ac4-f4fd5365d920');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "df32dc6451e84786bd10af017bfed04d", "version_major": 2, "version_minor": 0}
@@ -4110,10 +4110,10 @@ var element = $('#15166b1c-088d-4f78-8507-690b20c4b3af');
 
  
  
-&lt;div id="21194f9d-fd3c-4753-9c37-6071ad644fdc"&gt;&lt;/div&gt;
+&lt;div id="19461800-06d0-4bcb-b9f0-15b0df557e5b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#21194f9d-fd3c-4753-9c37-6071ad644fdc');
+var element = $('#19461800-06d0-4bcb-b9f0-15b0df557e5b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4158,10 +4158,10 @@ var element = $('#21194f9d-fd3c-4753-9c37-6071ad644fdc');
 
  
  
-&lt;div id="706b5cfd-bbf2-4358-aaa2-5ee85701deaf"&gt;&lt;/div&gt;
+&lt;div id="e0f0f843-6f70-473f-b93f-abd909ba5e2c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#706b5cfd-bbf2-4358-aaa2-5ee85701deaf');
+var element = $('#e0f0f843-6f70-473f-b93f-abd909ba5e2c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4180,10 +4180,10 @@ var element = $('#706b5cfd-bbf2-4358-aaa2-5ee85701deaf');
 
  
  
-&lt;div id="603a072e-87d1-4d4e-9214-954a8e166c62"&gt;&lt;/div&gt;
+&lt;div id="31b05303-f45d-41f8-a10a-e198d865aad3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#603a072e-87d1-4d4e-9214-954a8e166c62');
+var element = $('#31b05303-f45d-41f8-a10a-e198d865aad3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4202,10 +4202,10 @@ var element = $('#603a072e-87d1-4d4e-9214-954a8e166c62');
 
  
  
-&lt;div id="7b5a3d60-8ce0-4f5b-adf1-43a822d8c68f"&gt;&lt;/div&gt;
+&lt;div id="7f95b350-d3f9-4126-bab1-fa6f8bae55af"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7b5a3d60-8ce0-4f5b-adf1-43a822d8c68f');
+var element = $('#7f95b350-d3f9-4126-bab1-fa6f8bae55af');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4224,10 +4224,10 @@ var element = $('#7b5a3d60-8ce0-4f5b-adf1-43a822d8c68f');
 
  
  
-&lt;div id="ab919556-c052-43c8-95b1-db0d1aae67bd"&gt;&lt;/div&gt;
+&lt;div id="cc4be173-c345-4730-8979-cfd1b0ecd876"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ab919556-c052-43c8-95b1-db0d1aae67bd');
+var element = $('#cc4be173-c345-4730-8979-cfd1b0ecd876');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4246,10 +4246,10 @@ var element = $('#ab919556-c052-43c8-95b1-db0d1aae67bd');
 
  
  
-&lt;div id="1447f39d-d99c-4a0f-bf05-1036f19546d6"&gt;&lt;/div&gt;
+&lt;div id="c8c96e03-8de8-40d5-bf17-fba720f0fbe4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1447f39d-d99c-4a0f-bf05-1036f19546d6');
+var element = $('#c8c96e03-8de8-40d5-bf17-fba720f0fbe4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4268,10 +4268,10 @@ var element = $('#1447f39d-d99c-4a0f-bf05-1036f19546d6');
 
  
  
-&lt;div id="8b1ee58d-6bdc-4f7e-a051-53d1b158a2c2"&gt;&lt;/div&gt;
+&lt;div id="29c2b1f5-596d-4216-a73a-8928db4f3f9b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8b1ee58d-6bdc-4f7e-a051-53d1b158a2c2');
+var element = $('#29c2b1f5-596d-4216-a73a-8928db4f3f9b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4290,10 +4290,10 @@ var element = $('#8b1ee58d-6bdc-4f7e-a051-53d1b158a2c2');
 
  
  
-&lt;div id="05cc8ef2-c615-4c64-94b9-5663bca490a3"&gt;&lt;/div&gt;
+&lt;div id="40bc37a1-729f-4a45-bedc-cfbd3a81f0bb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#05cc8ef2-c615-4c64-94b9-5663bca490a3');
+var element = $('#40bc37a1-729f-4a45-bedc-cfbd3a81f0bb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4312,10 +4312,10 @@ var element = $('#05cc8ef2-c615-4c64-94b9-5663bca490a3');
 
  
  
-&lt;div id="34735d25-0e52-45ba-a0a5-8b02c416e4e4"&gt;&lt;/div&gt;
+&lt;div id="d3857954-e7c0-47b1-b6b2-7b38b8258049"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#34735d25-0e52-45ba-a0a5-8b02c416e4e4');
+var element = $('#d3857954-e7c0-47b1-b6b2-7b38b8258049');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4334,10 +4334,10 @@ var element = $('#34735d25-0e52-45ba-a0a5-8b02c416e4e4');
 
  
  
-&lt;div id="0385fe93-a05a-4f3a-b15a-db93d35663de"&gt;&lt;/div&gt;
+&lt;div id="89799e35-7f6f-47c9-bc71-75a4cc21bebb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0385fe93-a05a-4f3a-b15a-db93d35663de');
+var element = $('#89799e35-7f6f-47c9-bc71-75a4cc21bebb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4356,10 +4356,10 @@ var element = $('#0385fe93-a05a-4f3a-b15a-db93d35663de');
 
  
  
-&lt;div id="7f88c1e9-755f-436a-a0bf-ab47266a0118"&gt;&lt;/div&gt;
+&lt;div id="f52e96ff-06c6-4e67-a932-bbc1f0a392ca"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7f88c1e9-755f-436a-a0bf-ab47266a0118');
+var element = $('#f52e96ff-06c6-4e67-a932-bbc1f0a392ca');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4404,10 +4404,10 @@ var element = $('#7f88c1e9-755f-436a-a0bf-ab47266a0118');
 
  
  
-&lt;div id="a063500c-ceca-41eb-a1af-b4b289422fdb"&gt;&lt;/div&gt;
+&lt;div id="f9c0612c-d8b8-421f-a0cd-1cf6b05efd71"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a063500c-ceca-41eb-a1af-b4b289422fdb');
+var element = $('#f9c0612c-d8b8-421f-a0cd-1cf6b05efd71');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4426,10 +4426,10 @@ var element = $('#a063500c-ceca-41eb-a1af-b4b289422fdb');
 
  
  
-&lt;div id="ce7ab49f-dd1f-48b3-ae55-990e0af2e064"&gt;&lt;/div&gt;
+&lt;div id="a41386f9-e03c-48fb-a11b-49cec010fa52"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ce7ab49f-dd1f-48b3-ae55-990e0af2e064');
+var element = $('#a41386f9-e03c-48fb-a11b-49cec010fa52');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4448,10 +4448,10 @@ var element = $('#ce7ab49f-dd1f-48b3-ae55-990e0af2e064');
 
  
  
-&lt;div id="0c93c9c3-2c2a-466c-9d63-ea92f44eef42"&gt;&lt;/div&gt;
+&lt;div id="23ad09a1-5ca1-445a-ab48-e0b6f023ee45"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0c93c9c3-2c2a-466c-9d63-ea92f44eef42');
+var element = $('#23ad09a1-5ca1-445a-ab48-e0b6f023ee45');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4470,10 +4470,10 @@ var element = $('#0c93c9c3-2c2a-466c-9d63-ea92f44eef42');
 
  
  
-&lt;div id="7ab795b0-4f8a-48fd-993e-48aa296d8e27"&gt;&lt;/div&gt;
+&lt;div id="7c793fc0-9f35-436c-b8f8-e226e1dd174d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7ab795b0-4f8a-48fd-993e-48aa296d8e27');
+var element = $('#7c793fc0-9f35-436c-b8f8-e226e1dd174d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4492,10 +4492,10 @@ var element = $('#7ab795b0-4f8a-48fd-993e-48aa296d8e27');
 
  
  
-&lt;div id="b6414392-5a08-483c-b617-0b0cf57659b5"&gt;&lt;/div&gt;
+&lt;div id="affe6479-957a-40ec-9004-1b2a0d170857"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b6414392-5a08-483c-b617-0b0cf57659b5');
+var element = $('#affe6479-957a-40ec-9004-1b2a0d170857');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4514,10 +4514,10 @@ var element = $('#b6414392-5a08-483c-b617-0b0cf57659b5');
 
  
  
-&lt;div id="3e3170a1-8e97-44e2-a5dd-0d6d1765bbb8"&gt;&lt;/div&gt;
+&lt;div id="304f893e-5df2-48b1-ab84-cf3cffb36775"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3e3170a1-8e97-44e2-a5dd-0d6d1765bbb8');
+var element = $('#304f893e-5df2-48b1-ab84-cf3cffb36775');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4536,10 +4536,10 @@ var element = $('#3e3170a1-8e97-44e2-a5dd-0d6d1765bbb8');
 
  
  
-&lt;div id="c85c53c0-e856-48be-a162-d906420faa04"&gt;&lt;/div&gt;
+&lt;div id="aff1e2c9-083d-4b82-8a28-00a17804c2b4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c85c53c0-e856-48be-a162-d906420faa04');
+var element = $('#aff1e2c9-083d-4b82-8a28-00a17804c2b4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4558,10 +4558,10 @@ var element = $('#c85c53c0-e856-48be-a162-d906420faa04');
 
  
  
-&lt;div id="8584efb6-4510-491d-a08e-4fe02621f4bb"&gt;&lt;/div&gt;
+&lt;div id="e843d475-cef5-45fe-8672-eec525e6f8ac"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8584efb6-4510-491d-a08e-4fe02621f4bb');
+var element = $('#e843d475-cef5-45fe-8672-eec525e6f8ac');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4580,10 +4580,10 @@ var element = $('#8584efb6-4510-491d-a08e-4fe02621f4bb');
 
  
  
-&lt;div id="fb5255c3-56e0-42a6-9ab2-ddcde8089429"&gt;&lt;/div&gt;
+&lt;div id="5fa1cedb-a9b8-4eb2-93f2-ac3994ee9be8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fb5255c3-56e0-42a6-9ab2-ddcde8089429');
+var element = $('#5fa1cedb-a9b8-4eb2-93f2-ac3994ee9be8');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4602,10 +4602,10 @@ var element = $('#fb5255c3-56e0-42a6-9ab2-ddcde8089429');
 
  
  
-&lt;div id="bce6a26e-e7fa-4805-ab31-28f6d55ec8fd"&gt;&lt;/div&gt;
+&lt;div id="13e6f2a9-e662-4563-974a-417823607a70"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bce6a26e-e7fa-4805-ab31-28f6d55ec8fd');
+var element = $('#13e6f2a9-e662-4563-974a-417823607a70');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4650,10 +4650,10 @@ var element = $('#bce6a26e-e7fa-4805-ab31-28f6d55ec8fd');
 
  
  
-&lt;div id="841c89e3-e1d0-4e74-9411-274f6794f008"&gt;&lt;/div&gt;
+&lt;div id="7ece9bac-c565-441b-ba4d-58fd41dabd47"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#841c89e3-e1d0-4e74-9411-274f6794f008');
+var element = $('#7ece9bac-c565-441b-ba4d-58fd41dabd47');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4672,10 +4672,10 @@ var element = $('#841c89e3-e1d0-4e74-9411-274f6794f008');
 
  
  
-&lt;div id="649e6268-0808-4472-b0f6-d63ce4eced2b"&gt;&lt;/div&gt;
+&lt;div id="6cb50d49-9eae-4fa2-8b50-f34036e818ec"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#649e6268-0808-4472-b0f6-d63ce4eced2b');
+var element = $('#6cb50d49-9eae-4fa2-8b50-f34036e818ec');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4694,10 +4694,10 @@ var element = $('#649e6268-0808-4472-b0f6-d63ce4eced2b');
 
  
  
-&lt;div id="5ceceb36-975d-4d1e-a9ee-fa3951cddf8c"&gt;&lt;/div&gt;
+&lt;div id="22f98c13-1420-4ca5-96a8-21d0adb44506"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5ceceb36-975d-4d1e-a9ee-fa3951cddf8c');
+var element = $('#22f98c13-1420-4ca5-96a8-21d0adb44506');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4716,10 +4716,10 @@ var element = $('#5ceceb36-975d-4d1e-a9ee-fa3951cddf8c');
 
  
  
-&lt;div id="414e0625-acbe-40bc-8a49-0a17d14ce7d2"&gt;&lt;/div&gt;
+&lt;div id="12929ec4-65bf-47f8-b514-850aa7ad5309"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#414e0625-acbe-40bc-8a49-0a17d14ce7d2');
+var element = $('#12929ec4-65bf-47f8-b514-850aa7ad5309');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4738,10 +4738,10 @@ var element = $('#414e0625-acbe-40bc-8a49-0a17d14ce7d2');
 
  
  
-&lt;div id="05566804-351b-4ec4-acd4-66a91a031882"&gt;&lt;/div&gt;
+&lt;div id="5f414105-50ee-4428-8665-34666258e0d4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#05566804-351b-4ec4-acd4-66a91a031882');
+var element = $('#5f414105-50ee-4428-8665-34666258e0d4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4760,10 +4760,10 @@ var element = $('#05566804-351b-4ec4-acd4-66a91a031882');
 
  
  
-&lt;div id="0ca6afb5-c3ce-45ab-8d56-e67d5cb4f6c5"&gt;&lt;/div&gt;
+&lt;div id="6b0bb0aa-42ce-4051-83aa-a61cea38d537"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0ca6afb5-c3ce-45ab-8d56-e67d5cb4f6c5');
+var element = $('#6b0bb0aa-42ce-4051-83aa-a61cea38d537');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4782,10 +4782,10 @@ var element = $('#0ca6afb5-c3ce-45ab-8d56-e67d5cb4f6c5');
 
  
  
-&lt;div id="aecb5057-0d62-44be-8ccf-5b85882db34f"&gt;&lt;/div&gt;
+&lt;div id="409d3d85-2c6d-4034-8059-d461d468b1dd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aecb5057-0d62-44be-8ccf-5b85882db34f');
+var element = $('#409d3d85-2c6d-4034-8059-d461d468b1dd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4804,10 +4804,10 @@ var element = $('#aecb5057-0d62-44be-8ccf-5b85882db34f');
 
  
  
-&lt;div id="71df555f-c98f-4b62-b594-ccd25f609fe3"&gt;&lt;/div&gt;
+&lt;div id="ae81fe76-e1e7-4138-9942-9a202baaf5c4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#71df555f-c98f-4b62-b594-ccd25f609fe3');
+var element = $('#ae81fe76-e1e7-4138-9942-9a202baaf5c4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4826,10 +4826,10 @@ var element = $('#71df555f-c98f-4b62-b594-ccd25f609fe3');
 
  
  
-&lt;div id="fc39104d-614a-459a-964a-c4947ec51b98"&gt;&lt;/div&gt;
+&lt;div id="82035dc9-9dcd-49c1-a8c6-f46e1c39686a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fc39104d-614a-459a-964a-c4947ec51b98');
+var element = $('#82035dc9-9dcd-49c1-a8c6-f46e1c39686a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4848,10 +4848,10 @@ var element = $('#fc39104d-614a-459a-964a-c4947ec51b98');
 
  
  
-&lt;div id="20c1c8e8-35e8-412c-9fcb-32ad2d24f2d0"&gt;&lt;/div&gt;
+&lt;div id="cb2b37ae-87b8-455b-8691-6afea0175950"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#20c1c8e8-35e8-412c-9fcb-32ad2d24f2d0');
+var element = $('#cb2b37ae-87b8-455b-8691-6afea0175950');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4896,10 +4896,10 @@ var element = $('#20c1c8e8-35e8-412c-9fcb-32ad2d24f2d0');
 
  
  
-&lt;div id="a01242db-5c40-4f44-a0d7-bc6d2624d39e"&gt;&lt;/div&gt;
+&lt;div id="8734b6b9-3a44-4f58-b3d1-84ad4c833d92"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a01242db-5c40-4f44-a0d7-bc6d2624d39e');
+var element = $('#8734b6b9-3a44-4f58-b3d1-84ad4c833d92');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4918,10 +4918,10 @@ var element = $('#a01242db-5c40-4f44-a0d7-bc6d2624d39e');
 
  
  
-&lt;div id="f7341000-f3a1-4889-a0f1-aebe266472f9"&gt;&lt;/div&gt;
+&lt;div id="282f10f3-4084-45e0-aeb3-22008c6450d9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f7341000-f3a1-4889-a0f1-aebe266472f9');
+var element = $('#282f10f3-4084-45e0-aeb3-22008c6450d9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4940,10 +4940,10 @@ var element = $('#f7341000-f3a1-4889-a0f1-aebe266472f9');
 
  
  
-&lt;div id="bc53b044-aca0-4056-abff-356e76c546e0"&gt;&lt;/div&gt;
+&lt;div id="8f994cd6-15a3-4ce9-b945-877c34bfdfe9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bc53b044-aca0-4056-abff-356e76c546e0');
+var element = $('#8f994cd6-15a3-4ce9-b945-877c34bfdfe9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4962,10 +4962,10 @@ var element = $('#bc53b044-aca0-4056-abff-356e76c546e0');
 
  
  
-&lt;div id="65e60b4e-3a0c-4b79-b63b-5a5f7d72b683"&gt;&lt;/div&gt;
+&lt;div id="dd6a682f-1269-4ca0-9504-9d67a2dbb987"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#65e60b4e-3a0c-4b79-b63b-5a5f7d72b683');
+var element = $('#dd6a682f-1269-4ca0-9504-9d67a2dbb987');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -4984,10 +4984,10 @@ var element = $('#65e60b4e-3a0c-4b79-b63b-5a5f7d72b683');
 
  
  
-&lt;div id="9b787f01-ac28-4609-adc5-f600d3fb765c"&gt;&lt;/div&gt;
+&lt;div id="610b156a-f11e-4082-8b63-91abf6b2a6cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9b787f01-ac28-4609-adc5-f600d3fb765c');
+var element = $('#610b156a-f11e-4082-8b63-91abf6b2a6cf');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5006,10 +5006,10 @@ var element = $('#9b787f01-ac28-4609-adc5-f600d3fb765c');
 
  
  
-&lt;div id="7137bdd6-5e56-48c8-bb3d-3d9ec0bff8ed"&gt;&lt;/div&gt;
+&lt;div id="5167b504-10d4-4aa1-a12e-4e0b683c0398"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7137bdd6-5e56-48c8-bb3d-3d9ec0bff8ed');
+var element = $('#5167b504-10d4-4aa1-a12e-4e0b683c0398');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5028,10 +5028,10 @@ var element = $('#7137bdd6-5e56-48c8-bb3d-3d9ec0bff8ed');
 
  
  
-&lt;div id="9e059852-c3a7-451c-ac78-a3e3e21e1edb"&gt;&lt;/div&gt;
+&lt;div id="942ee8ef-747d-4196-9cc3-103e284d76ea"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9e059852-c3a7-451c-ac78-a3e3e21e1edb');
+var element = $('#942ee8ef-747d-4196-9cc3-103e284d76ea');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5050,10 +5050,10 @@ var element = $('#9e059852-c3a7-451c-ac78-a3e3e21e1edb');
 
  
  
-&lt;div id="709424cd-a305-44ac-81a4-8f492cc6890e"&gt;&lt;/div&gt;
+&lt;div id="b10b13cc-a1d9-4b7f-aafa-36b7ec86cce3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#709424cd-a305-44ac-81a4-8f492cc6890e');
+var element = $('#b10b13cc-a1d9-4b7f-aafa-36b7ec86cce3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5072,10 +5072,10 @@ var element = $('#709424cd-a305-44ac-81a4-8f492cc6890e');
 
  
  
-&lt;div id="cc1232e4-c4e4-4051-ae12-5a1a02f73e3b"&gt;&lt;/div&gt;
+&lt;div id="b932b9f6-9dee-46b7-980f-07cd0b49f3d0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cc1232e4-c4e4-4051-ae12-5a1a02f73e3b');
+var element = $('#b932b9f6-9dee-46b7-980f-07cd0b49f3d0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5094,10 +5094,10 @@ var element = $('#cc1232e4-c4e4-4051-ae12-5a1a02f73e3b');
 
  
  
-&lt;div id="2ed4125f-7e5b-4753-a473-3a279a360227"&gt;&lt;/div&gt;
+&lt;div id="cada5bb5-d4c7-4196-8b8a-6f24984b9282"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2ed4125f-7e5b-4753-a473-3a279a360227');
+var element = $('#cada5bb5-d4c7-4196-8b8a-6f24984b9282');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5142,10 +5142,10 @@ var element = $('#2ed4125f-7e5b-4753-a473-3a279a360227');
 
  
  
-&lt;div id="37956060-41d8-46cb-a2a6-7287775540d3"&gt;&lt;/div&gt;
+&lt;div id="179eb24c-66ed-4488-9e71-8a9796f3b947"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#37956060-41d8-46cb-a2a6-7287775540d3');
+var element = $('#179eb24c-66ed-4488-9e71-8a9796f3b947');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5164,10 +5164,10 @@ var element = $('#37956060-41d8-46cb-a2a6-7287775540d3');
 
  
  
-&lt;div id="f3db16d4-f88b-4641-9fa5-ce4c6a868034"&gt;&lt;/div&gt;
+&lt;div id="21a8767f-62ce-496d-a3ef-bb1a3e895258"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f3db16d4-f88b-4641-9fa5-ce4c6a868034');
+var element = $('#21a8767f-62ce-496d-a3ef-bb1a3e895258');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5186,10 +5186,10 @@ var element = $('#f3db16d4-f88b-4641-9fa5-ce4c6a868034');
 
  
  
-&lt;div id="5bcbbade-5fbe-43ac-accf-b2da8097d64d"&gt;&lt;/div&gt;
+&lt;div id="d0ae2469-bf0f-4714-8ba2-5083aa2f8a13"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5bcbbade-5fbe-43ac-accf-b2da8097d64d');
+var element = $('#d0ae2469-bf0f-4714-8ba2-5083aa2f8a13');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5208,10 +5208,10 @@ var element = $('#5bcbbade-5fbe-43ac-accf-b2da8097d64d');
 
  
  
-&lt;div id="7e70964e-c5e3-431b-82bd-c5bd8050d286"&gt;&lt;/div&gt;
+&lt;div id="f0053b56-230a-428c-9b1f-863404c1be46"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7e70964e-c5e3-431b-82bd-c5bd8050d286');
+var element = $('#f0053b56-230a-428c-9b1f-863404c1be46');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5230,10 +5230,10 @@ var element = $('#7e70964e-c5e3-431b-82bd-c5bd8050d286');
 
  
  
-&lt;div id="9ed376c6-5a9f-49fe-88a5-5a57569b9b36"&gt;&lt;/div&gt;
+&lt;div id="c46f9e17-d0a4-4680-bbbf-1cf1cc7b2578"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9ed376c6-5a9f-49fe-88a5-5a57569b9b36');
+var element = $('#c46f9e17-d0a4-4680-bbbf-1cf1cc7b2578');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5252,10 +5252,10 @@ var element = $('#9ed376c6-5a9f-49fe-88a5-5a57569b9b36');
 
  
  
-&lt;div id="a9198292-3288-4550-b556-002eebe30d80"&gt;&lt;/div&gt;
+&lt;div id="4a397eb0-43e9-4284-a238-4410056d1efa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#a9198292-3288-4550-b556-002eebe30d80');
+var element = $('#4a397eb0-43e9-4284-a238-4410056d1efa');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5274,10 +5274,10 @@ var element = $('#a9198292-3288-4550-b556-002eebe30d80');
 
  
  
-&lt;div id="4ac3e88a-5663-4400-83b1-e1c26318a299"&gt;&lt;/div&gt;
+&lt;div id="908aedbf-d00a-4bc6-ab4b-7b2261ca80ad"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4ac3e88a-5663-4400-83b1-e1c26318a299');
+var element = $('#908aedbf-d00a-4bc6-ab4b-7b2261ca80ad');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5296,10 +5296,10 @@ var element = $('#4ac3e88a-5663-4400-83b1-e1c26318a299');
 
  
  
-&lt;div id="b3af1988-46fe-4166-9773-106e045c177a"&gt;&lt;/div&gt;
+&lt;div id="9d84ebd9-e0fa-4d5e-895f-3fd7f87c675d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b3af1988-46fe-4166-9773-106e045c177a');
+var element = $('#9d84ebd9-e0fa-4d5e-895f-3fd7f87c675d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5318,10 +5318,10 @@ var element = $('#b3af1988-46fe-4166-9773-106e045c177a');
 
  
  
-&lt;div id="50abe519-2337-4a5d-9604-8629a52d0215"&gt;&lt;/div&gt;
+&lt;div id="635c69ba-cca9-4bc6-9329-105cf6ddbffd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#50abe519-2337-4a5d-9604-8629a52d0215');
+var element = $('#635c69ba-cca9-4bc6-9329-105cf6ddbffd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5340,10 +5340,10 @@ var element = $('#50abe519-2337-4a5d-9604-8629a52d0215');
 
  
  
-&lt;div id="645edf16-0786-449f-9df7-3e9cbbfa60e0"&gt;&lt;/div&gt;
+&lt;div id="d72850a7-2483-4c8a-abdb-4ce9facf14c9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#645edf16-0786-449f-9df7-3e9cbbfa60e0');
+var element = $('#d72850a7-2483-4c8a-abdb-4ce9facf14c9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -5432,10 +5432,10 @@ var element = $('#645edf16-0786-449f-9df7-3e9cbbfa60e0');
 
  
  
-&lt;div id="b157ba4b-3a7f-44f8-b518-e260b2f1d400"&gt;&lt;/div&gt;
+&lt;div id="0563fb24-ad72-4972-a2af-d667283142b5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b157ba4b-3a7f-44f8-b518-e260b2f1d400');
+var element = $('#0563fb24-ad72-4972-a2af-d667283142b5');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "6d81462755594d9b9230f95c97801e33", "version_major": 2, "version_minor": 0}
