@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/academicons/css/academicons.css">
+
+
+
+
+    <link rel="shortcut icon" href="theme/img/starling-small.ico" type="image/x-icon">
+    <link rel="icon" href="theme/img/starling-small.ico" type="image/x-icon">
+
+
+
+    <meta name="author" content="Tim Sainburg" />
+    <meta name="description" content="" />
+<meta property="og:site_name" content="Tim Sainburg"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Tim Sainburg"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="img/TSainburg.jpg">
+
+  <title>Tim Sainburg &ndash; Bird brain atlases</title>
+
+</head>
+<body>
+
+
+  <aside>
+    <div>
+      <a href="https://timsainburg.com">
+        <img src="/theme/img/TSainburg.jpg" alt="Tim Sainburg" title="Tim Sainburg">
+      </a>
+      <h2><a href="">Tim Sainburg</a></h2>
+
+<p>PhD Student @ UCSD studying Psychology, Neuroscience, Anthropogeny, Animal Communication, and Machine Learning</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/pages/bird-brain-atlases.html#bird-brain-atlases">Bird brain atlases</a></li>
+          <li><a href="/pages/cv.html#cv">Curriculum Vitae</a></li>
+
+          <li><a href="http://gentnerlab.ucsd.edu" target="_blank">Gentner Lab</a></li>
+        </ul>
+      </nav>
+
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="http://twitter.com/tim_sainburg" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="http://github.com/timsainb" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-envelope" href="mailto:tsainbur@ucsd.edu" target="_blank"><i class="fa fa-envelope"></i></a></li>
+        <li><a class="sc-google-scholar" href="https://scholar.google.com/citations?user=Koqjwg8AAAAJ" target="_blank"><i class="fa fa-google-scholar"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    
+    <h1 id="bird-brain-atlases">Bird brain atlases</h1>
+  </header>
+  <div>
+
+
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/atlases.css">
+    <!--for accordian-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+        $(document).ready(function (e) {
+            $('#starling').load('../assets/html/brain_atlases/starling_regions.html');
+            $('#zebra_finch').load('../assets/html/brain_atlases/zebra_finch_regions.html');
+            $('#pigeon').load('../assets/html/brain_atlases/pigeon_regions.html');
+            $('#canary').load('../assets/html/brain_atlases/canary_regions.html');
+            $('#moustached_bat').load('../assets/html/brain_atlases/moustached_bat_regions.html');
+
+        });
+
+    </script>
+
+<p>This is a page with figures, 3D atlases, and some quick data from the <a href="https://www.uantwerpen.be/en/research-groups/bio-imaging-lab/research/mri-atlases/starling-brain-atlas/">brain atlas datasets</a>, analysed using the <a href="https://github.com/timsainb/birdbrain">birdbrain python package</a>. If you use any of this data, please cite the corresponding dataset. If you want to explore the datasets more extensively, use the python package (or any other software for looking at imaging data).</p>
+
+    <div>    
+    <iframe style="padding-top: 1em" , src="../assets/html/brain_atlases_3d/starling/starling-nuclei.html" width="100%" , height="500px" frameborder="0" />
+    </iframe>
+    <p style="text-align:center; font-style:italic">European starling nuclei. Left click + drag to rotate. Right click + drag to move rotation axis. <a href="../assets/html/brain_atlases_3d/starling/starling-nuclei.html">Full screen</a></p>
+    </div>
+    <h5>More 3D views</h5>
+    <p>Hint: if you want to plot an individual brain region, go into the controls menu and make all of the other regions invisible. </p>
+
+    <table class="region-stats">
+        <tr>
+            <th scope="col">European Starling</th>
+            <th scope="col">Zebra finch</th>
+            <th scope="col">Pigeon</th>
+            <th scope="col">Canary</th>
+            <th scope="col">Moustached bat</th>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/zebra_finch/zebra-finch-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/pigeon/pigeon_atlas.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-nuclei.html">Nuclei</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat-brainregions.html">Brain regions</a></td>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-brainregions.html">Brain regions</a></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-brainregions.html">Bran regions</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat-Tdi_dti_color.html">DTI</a></td>
+            </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-tracts.html">Tracts</a></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/canary/canary-tracts.html">Tracts</a></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached_bat_skull.html">Skull</a></td>
+        </tr>
+        <tr>
+            <td><a href="../assets/html/brain_atlases_3d/starling/starling-skull.html">Skull</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="../assets/html/brain_atlases_3d/moustached_bat/moustached-bat-t2w.html">t2w</a></td>
+        </tr>
+
+    </table>
+
+    <h5>Brain regions</h5>
+    <p>All descriptive statistics here are back-of-the-envelope and based upon voxels in the corresponding atlas. The estimation of number of neurons assumes equal density and is based on the volume presented in <a href="https://doi.org/10.1073/pnas.1517131113">Olkowicz (2016)</a></p>
+    <div class="regions">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">European starling</a></li>
+                <li><a href="#tabs-2">Zebra finch</a></li>
+                <li><a href="#tabs-3">Pigeon</a></li>
+                <li><a href="#tabs-4">Canary</a></li>
+                <li><a href="#tabs-5">Moustached bat</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div id="starling"></div>
+            </div>
+            <div id="tabs-2">
+                <div id="zebra_finch"></div>
+            </div>
+            <div id="tabs-3">
+                <div id="pigeon"></div>
+            </div>
+            <div id="tabs-4">
+                <div id="canary"></div>
+            </div>
+            <div id="tabs-5">
+                <div id="moustached_bat"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <h5>Citations</h5>
+
+    <p>If you use this data, please cite the respecitve atlas papers:</p>
+    
+    <h6>Zebra finch </h6>
+    
+    <pre><code>
+    @article{poirier2008three,
+      title={A three-dimensional MRI atlas of the zebra finch brain in stereotaxic coordinates},
+      author={Poirier, Colline and Vellema, Michiel and Verhoye, Marleen and Van Meir, Vincent and Wild, J Martin and Balthazart, Jacques and Van Der Linden, Annemie},
+      journal={Neuroimage},
+      volume={41},
+      number={1},
+      pages={1--6},
+      year={2008},
+      publisher={Elsevier}
+    }
+</code></pre>
+    
+    <h6>European starling</h6>
+    
+    <pre><code>
+    @article{de2016three,
+      title={A three-dimensional digital atlas of the starling brain},
+      author={De Groof, Geert and George, Isabelle and Touj, Sara and Stacho, Martin and Jonckers, Elisabeth and Cousillas, Hugo and Hausberger, Martine and G{\"u}nt{\"u}rk{\"u}n, Onur and Van der Linden, Annemie},
+      journal={Brain Structure and Function},
+      volume={221},
+      number={4},
+      pages={1899--1909},
+      year={2016},
+      publisher={Springer}
+    }
+</code></pre>
+    
+    
+    <h6>Canary</h6>
+    
+    <pre><code>
+    @article{vellema2011customizable,
+      title={A customizable 3-dimensional digital atlas of the canary brain in multiple modalities},
+      author={Vellema, Michiel and Verschueren, Jacob and Van Meir, Vincent and Van der Linden, Annemie},
+      journal={Neuroimage},
+      volume={57},
+      number={2},
+      pages={352--361},
+      year={2011},
+      publisher={Elsevier}
+    }
+    
+</code></pre>
+    
+    <h6>Pigeon</h6>
+    
+    <pre><code>
+    @article{gunturkun20133,
+      title={A 3-dimensional digital atlas of the ascending sensory and the descending motor systems in the pigeon brain},
+      author={G{\"u}nt{\"u}rk{\"u}n, Onur and Verhoye, Marleen and De Groof, Geert and Van der Linden, Annemie},
+      journal={Brain Structure and Function},
+      volume={218},
+      number={1},
+      pages={269--281},
+      year={2013},
+      publisher={Springer}
+    }
+</code></pre>
+    
+    <h6>Mustached bat</h6>
+    
+    <pre><code>
+    @article{washington2018three,
+      title={A three-dimensional digital neurological atlas of the mustached bat (Pteronotus parnellii)},
+      author={Washington, Stuart D and Hamaide, Julie and Jeurissen, Ben and Van Steenkiste, Gwendolyn and Huysmans, Toon and Sijbers, Jan and Deleye, Steven and Kanwal, Jagmeet S and De Groof, Geert and Liang, Sayuan and others},
+      journal={NeuroImage},
+      volume={183},
+      pages={300--313},
+      year={2018},
+      publisher={Elsevier}
+    }
+    </code></pre>
+
+
+  </div>
+</article>
+
+    <footer>
+<p>&copy; Tim Sainburg </p>
+<p>Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a> | Modified by <a href="https://timsainburg.com" target="_blank">Tim Sainburg</a>
+
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Tim Sainburg ",
+  "url" : "",
+  "image": "img/TSainburg.jpg",
+  "description": ""
+}
+</script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

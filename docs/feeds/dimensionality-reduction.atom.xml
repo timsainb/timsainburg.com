@@ -1047,75 +1047,75 @@ td.linenos .normal { color: inherit; background-color: transparent; padding-left
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.highlight .hll { background-color: #ffffcc }
-.highlight { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+ .highlight pre  .hll { background-color: #ffffcc }
+ .highlight pre  { background: #f8f8f8; }
+ .highlight pre  .c { color: #3D7B7B; font-style: italic } /* Comment */
+ .highlight pre  .err { border: 1px solid #FF0000 } /* Error */
+ .highlight pre  .k { color: #008000; font-weight: bold } /* Keyword */
+ .highlight pre  .o { color: #666666 } /* Operator */
+ .highlight pre  .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+ .highlight pre  .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+ .highlight pre  .cp { color: #9C6500 } /* Comment.Preproc */
+ .highlight pre  .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+ .highlight pre  .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+ .highlight pre  .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+ .highlight pre  .gd { color: #A00000 } /* Generic.Deleted */
+ .highlight pre  .ge { font-style: italic } /* Generic.Emph */
+ .highlight pre  .gr { color: #E40000 } /* Generic.Error */
+ .highlight pre  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+ .highlight pre  .gi { color: #008400 } /* Generic.Inserted */
+ .highlight pre  .go { color: #717171 } /* Generic.Output */
+ .highlight pre  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+ .highlight pre  .gs { font-weight: bold } /* Generic.Strong */
+ .highlight pre  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+ .highlight pre  .gt { color: #0044DD } /* Generic.Traceback */
+ .highlight pre  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+ .highlight pre  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+ .highlight pre  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+ .highlight pre  .kp { color: #008000 } /* Keyword.Pseudo */
+ .highlight pre  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+ .highlight pre  .kt { color: #B00040 } /* Keyword.Type */
+ .highlight pre  .m { color: #666666 } /* Literal.Number */
+ .highlight pre  .s { color: #BA2121 } /* Literal.String */
+ .highlight pre  .na { color: #687822 } /* Name.Attribute */
+ .highlight pre  .nb { color: #008000 } /* Name.Builtin */
+ .highlight pre  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+ .highlight pre  .no { color: #880000 } /* Name.Constant */
+ .highlight pre  .nd { color: #AA22FF } /* Name.Decorator */
+ .highlight pre  .ni { color: #717171; font-weight: bold } /* Name.Entity */
+ .highlight pre  .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+ .highlight pre  .nf { color: #0000FF } /* Name.Function */
+ .highlight pre  .nl { color: #767600 } /* Name.Label */
+ .highlight pre  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+ .highlight pre  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+ .highlight pre  .nv { color: #19177C } /* Name.Variable */
+ .highlight pre  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+ .highlight pre  .w { color: #bbbbbb } /* Text.Whitespace */
+ .highlight pre  .mb { color: #666666 } /* Literal.Number.Bin */
+ .highlight pre  .mf { color: #666666 } /* Literal.Number.Float */
+ .highlight pre  .mh { color: #666666 } /* Literal.Number.Hex */
+ .highlight pre  .mi { color: #666666 } /* Literal.Number.Integer */
+ .highlight pre  .mo { color: #666666 } /* Literal.Number.Oct */
+ .highlight pre  .sa { color: #BA2121 } /* Literal.String.Affix */
+ .highlight pre  .sb { color: #BA2121 } /* Literal.String.Backtick */
+ .highlight pre  .sc { color: #BA2121 } /* Literal.String.Char */
+ .highlight pre  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+ .highlight pre  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+ .highlight pre  .s2 { color: #BA2121 } /* Literal.String.Double */
+ .highlight pre  .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+ .highlight pre  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+ .highlight pre  .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+ .highlight pre  .sx { color: #008000 } /* Literal.String.Other */
+ .highlight pre  .sr { color: #A45A77 } /* Literal.String.Regex */
+ .highlight pre  .s1 { color: #BA2121 } /* Literal.String.Single */
+ .highlight pre  .ss { color: #19177C } /* Literal.String.Symbol */
+ .highlight pre  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+ .highlight pre  .fm { color: #0000FF } /* Name.Function.Magic */
+ .highlight pre  .vc { color: #19177C } /* Name.Variable.Class */
+ .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
+ .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
+ .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;For our recent &lt;a href="https://arxiv.org/abs/2009.12981"&gt;Parmetric UMAP&lt;/a&gt; paper, I was asked by a reviewer to compute some rank based metrics to compare embedding quality, based on the co-ranking matrix. Looking through available software, I found a few packages: [Quadra] (&lt;a href="https://github.com/jlmelville/quadra"&gt;https://github.com/jlmelville/quadra&lt;/a&gt;) in R, &lt;a href="https://github.com/samueljackson92/coranking"&gt;coranking&lt;/a&gt; in python  and &lt;a href="https://data.mendeley.com/datasets/jbjd5fmggh/2/files/e192606c-dcd1-45f8-9bab-ed7f4f9d4f6a"&gt;pyDRMetrics&lt;/a&gt; in python. These were great starting points, but unfortunately, the computation of the coranking matrix for a bigger dataset like MNIST would have taken hours to days (longer?) with each of these packages, so I wrote my own, trying to speed up computation. On my computer, I brought down the computation time of the coranking matrix to around 10 minutes. So, as a resource to anyone looking,&lt;/p&gt;
@@ -1444,10 +1444,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
  
  
-&lt;div id="62df0beb-bb5a-47ae-aea2-6593a13a53ab"&gt;&lt;/div&gt;
+&lt;div id="4504d475-5db4-495a-b5b9-3d69ea7b2503"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#62df0beb-bb5a-47ae-aea2-6593a13a53ab');
+var element = $('#4504d475-5db4-495a-b5b9-3d69ea7b2503');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1466,10 +1466,10 @@ var element = $('#62df0beb-bb5a-47ae-aea2-6593a13a53ab');
 
  
  
-&lt;div id="8b2f2cb0-10e1-465b-9083-86425b560f58"&gt;&lt;/div&gt;
+&lt;div id="e1e7c27d-2bac-40e4-9f39-e319783b3736"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8b2f2cb0-10e1-465b-9083-86425b560f58');
+var element = $('#e1e7c27d-2bac-40e4-9f39-e319783b3736');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1488,10 +1488,10 @@ var element = $('#8b2f2cb0-10e1-465b-9083-86425b560f58');
 
  
  
-&lt;div id="0ed21271-33b5-466d-85ce-e38ec8fddb3f"&gt;&lt;/div&gt;
+&lt;div id="d7656f5d-0233-4907-b646-375621bcaf4f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0ed21271-33b5-466d-85ce-e38ec8fddb3f');
+var element = $('#d7656f5d-0233-4907-b646-375621bcaf4f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1510,10 +1510,10 @@ var element = $('#0ed21271-33b5-466d-85ce-e38ec8fddb3f');
 
  
  
-&lt;div id="72aad03a-f63e-4b99-841d-72d55dbef463"&gt;&lt;/div&gt;
+&lt;div id="f35a8c62-9de1-4886-8593-1882f70bb9ec"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#72aad03a-f63e-4b99-841d-72d55dbef463');
+var element = $('#f35a8c62-9de1-4886-8593-1882f70bb9ec');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1532,10 +1532,10 @@ var element = $('#72aad03a-f63e-4b99-841d-72d55dbef463');
 
  
  
-&lt;div id="dd0eff5f-799f-4132-ba79-f02cb68b82d2"&gt;&lt;/div&gt;
+&lt;div id="a436bd4d-25ae-4d3f-be58-ce195ec74752"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#dd0eff5f-799f-4132-ba79-f02cb68b82d2');
+var element = $('#a436bd4d-25ae-4d3f-be58-ce195ec74752');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1554,10 +1554,10 @@ var element = $('#dd0eff5f-799f-4132-ba79-f02cb68b82d2');
 
  
  
-&lt;div id="6c0a7a07-3989-466c-a044-2baf7721ca47"&gt;&lt;/div&gt;
+&lt;div id="288ecd51-c5c6-4169-82f9-6da10d6f119d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6c0a7a07-3989-466c-a044-2baf7721ca47');
+var element = $('#288ecd51-c5c6-4169-82f9-6da10d6f119d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1576,10 +1576,10 @@ var element = $('#6c0a7a07-3989-466c-a044-2baf7721ca47');
 
  
  
-&lt;div id="1c01bcfb-1c72-4fcb-968f-50890516f94b"&gt;&lt;/div&gt;
+&lt;div id="671b9a05-cd14-4a73-b193-2deaa43d6554"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1c01bcfb-1c72-4fcb-968f-50890516f94b');
+var element = $('#671b9a05-cd14-4a73-b193-2deaa43d6554');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1598,10 +1598,10 @@ var element = $('#1c01bcfb-1c72-4fcb-968f-50890516f94b');
 
  
  
-&lt;div id="ade19f4b-2e71-4fe6-b870-dc929e3fbb03"&gt;&lt;/div&gt;
+&lt;div id="c316871e-18ab-44b8-89c7-78f15ee02379"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ade19f4b-2e71-4fe6-b870-dc929e3fbb03');
+var element = $('#c316871e-18ab-44b8-89c7-78f15ee02379');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1620,10 +1620,10 @@ var element = $('#ade19f4b-2e71-4fe6-b870-dc929e3fbb03');
 
  
  
-&lt;div id="9a5a07ab-c260-4ce3-9b14-c3abf42b0e57"&gt;&lt;/div&gt;
+&lt;div id="7da3a7bc-383f-414a-9564-a032afb55eef"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9a5a07ab-c260-4ce3-9b14-c3abf42b0e57');
+var element = $('#7da3a7bc-383f-414a-9564-a032afb55eef');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "65ba9f4509624d0589439ff892137f31", "version_major": 2, "version_minor": 0}
@@ -1662,10 +1662,10 @@ var element = $('#9a5a07ab-c260-4ce3-9b14-c3abf42b0e57');
 
  
  
-&lt;div id="677b55f3-ddb9-4d59-861a-1ad016b72945"&gt;&lt;/div&gt;
+&lt;div id="73a3eadc-354a-4725-857a-b4d30dcd0a9d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#677b55f3-ddb9-4d59-861a-1ad016b72945');
+var element = $('#73a3eadc-354a-4725-857a-b4d30dcd0a9d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1684,10 +1684,10 @@ var element = $('#677b55f3-ddb9-4d59-861a-1ad016b72945');
 
  
  
-&lt;div id="e51cd30d-9674-4a13-8cda-da336c94ed5b"&gt;&lt;/div&gt;
+&lt;div id="4b452d49-db82-4095-8a57-dcae1ddca787"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e51cd30d-9674-4a13-8cda-da336c94ed5b');
+var element = $('#4b452d49-db82-4095-8a57-dcae1ddca787');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1706,10 +1706,10 @@ var element = $('#e51cd30d-9674-4a13-8cda-da336c94ed5b');
 
  
  
-&lt;div id="aea9cde3-5f1f-4a93-84dc-97fef9a315af"&gt;&lt;/div&gt;
+&lt;div id="4a926005-0ec3-428c-acb3-f13bcb01bf86"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aea9cde3-5f1f-4a93-84dc-97fef9a315af');
+var element = $('#4a926005-0ec3-428c-acb3-f13bcb01bf86');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1728,10 +1728,10 @@ var element = $('#aea9cde3-5f1f-4a93-84dc-97fef9a315af');
 
  
  
-&lt;div id="c39a06b1-d94d-4f8e-9681-6684dc0c0c8a"&gt;&lt;/div&gt;
+&lt;div id="faf1828e-3cc2-43f3-98be-82922b52a2f2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c39a06b1-d94d-4f8e-9681-6684dc0c0c8a');
+var element = $('#faf1828e-3cc2-43f3-98be-82922b52a2f2');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1750,10 +1750,10 @@ var element = $('#c39a06b1-d94d-4f8e-9681-6684dc0c0c8a');
 
  
  
-&lt;div id="14b57840-160a-4f49-a979-52182b91e095"&gt;&lt;/div&gt;
+&lt;div id="64292540-89ff-46b3-b9a2-a9a6e99ffd73"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14b57840-160a-4f49-a979-52182b91e095');
+var element = $('#64292540-89ff-46b3-b9a2-a9a6e99ffd73');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1772,10 +1772,10 @@ var element = $('#14b57840-160a-4f49-a979-52182b91e095');
 
  
  
-&lt;div id="115f753e-8297-4184-812a-dfe2f753d27e"&gt;&lt;/div&gt;
+&lt;div id="19d749b6-b30b-4ece-86fb-43c223f114fa"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#115f753e-8297-4184-812a-dfe2f753d27e');
+var element = $('#19d749b6-b30b-4ece-86fb-43c223f114fa');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1794,10 +1794,10 @@ var element = $('#115f753e-8297-4184-812a-dfe2f753d27e');
 
  
  
-&lt;div id="dc65fbb2-72ed-4d88-be4b-23c16f5b41ee"&gt;&lt;/div&gt;
+&lt;div id="82ee7190-8760-4693-a9ef-18581f1f8bda"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#dc65fbb2-72ed-4d88-be4b-23c16f5b41ee');
+var element = $('#82ee7190-8760-4693-a9ef-18581f1f8bda');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1816,10 +1816,10 @@ var element = $('#dc65fbb2-72ed-4d88-be4b-23c16f5b41ee');
 
  
  
-&lt;div id="c28c7ef6-512e-41a6-9f78-f9836888ecf8"&gt;&lt;/div&gt;
+&lt;div id="d01ad994-62f4-42a2-b19b-edb283a4f19b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c28c7ef6-512e-41a6-9f78-f9836888ecf8');
+var element = $('#d01ad994-62f4-42a2-b19b-edb283a4f19b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1838,10 +1838,10 @@ var element = $('#c28c7ef6-512e-41a6-9f78-f9836888ecf8');
 
  
  
-&lt;div id="707fa4f7-dfa9-4c33-9c9d-3eeb8ce2a5dc"&gt;&lt;/div&gt;
+&lt;div id="a69efc99-4288-44bd-af2e-79751ef29312"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#707fa4f7-dfa9-4c33-9c9d-3eeb8ce2a5dc');
+var element = $('#a69efc99-4288-44bd-af2e-79751ef29312');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "1b48a8f74d4b414b907464d88d9e2c87", "version_major": 2, "version_minor": 0}
@@ -1880,10 +1880,10 @@ var element = $('#707fa4f7-dfa9-4c33-9c9d-3eeb8ce2a5dc');
 
  
  
-&lt;div id="bf9806f3-9963-48c3-9322-cf410ac80e2c"&gt;&lt;/div&gt;
+&lt;div id="8e546fa3-59b0-44a1-a910-a8f669ba3176"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#bf9806f3-9963-48c3-9322-cf410ac80e2c');
+var element = $('#8e546fa3-59b0-44a1-a910-a8f669ba3176');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1902,10 +1902,10 @@ var element = $('#bf9806f3-9963-48c3-9322-cf410ac80e2c');
 
  
  
-&lt;div id="4d7fc742-3fee-4025-b30e-215159d78c74"&gt;&lt;/div&gt;
+&lt;div id="a0108f22-e19c-4147-93e8-e2b1e6b916df"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#4d7fc742-3fee-4025-b30e-215159d78c74');
+var element = $('#a0108f22-e19c-4147-93e8-e2b1e6b916df');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1924,10 +1924,10 @@ var element = $('#4d7fc742-3fee-4025-b30e-215159d78c74');
 
  
  
-&lt;div id="21c84636-0e9b-4a99-81c6-c2964b3f8e7f"&gt;&lt;/div&gt;
+&lt;div id="6702300b-a2af-44b1-9e41-a079c5a8e5ed"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#21c84636-0e9b-4a99-81c6-c2964b3f8e7f');
+var element = $('#6702300b-a2af-44b1-9e41-a079c5a8e5ed');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1946,10 +1946,10 @@ var element = $('#21c84636-0e9b-4a99-81c6-c2964b3f8e7f');
 
  
  
-&lt;div id="502fed46-cec1-4449-b227-d6ef58939e35"&gt;&lt;/div&gt;
+&lt;div id="572ca3f3-826b-440c-9941-cd14dc3335d4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#502fed46-cec1-4449-b227-d6ef58939e35');
+var element = $('#572ca3f3-826b-440c-9941-cd14dc3335d4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1968,10 +1968,10 @@ var element = $('#502fed46-cec1-4449-b227-d6ef58939e35');
 
  
  
-&lt;div id="8902e98b-b83a-485f-bc92-3e96772dd56a"&gt;&lt;/div&gt;
+&lt;div id="3cceb28a-9f29-4219-acfa-c2a09104e454"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8902e98b-b83a-485f-bc92-3e96772dd56a');
+var element = $('#3cceb28a-9f29-4219-acfa-c2a09104e454');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -1990,10 +1990,10 @@ var element = $('#8902e98b-b83a-485f-bc92-3e96772dd56a');
 
  
  
-&lt;div id="076e9804-1f37-4745-bb96-7b811785ece9"&gt;&lt;/div&gt;
+&lt;div id="67643955-5d44-41a5-a6ca-4ecbe1358443"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#076e9804-1f37-4745-bb96-7b811785ece9');
+var element = $('#67643955-5d44-41a5-a6ca-4ecbe1358443');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2012,10 +2012,10 @@ var element = $('#076e9804-1f37-4745-bb96-7b811785ece9');
 
  
  
-&lt;div id="5e76e5b8-d4e6-487c-ba24-fec1dc07a1fc"&gt;&lt;/div&gt;
+&lt;div id="6ea59b8a-61e6-4b8d-835b-6121444eb599"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5e76e5b8-d4e6-487c-ba24-fec1dc07a1fc');
+var element = $('#6ea59b8a-61e6-4b8d-835b-6121444eb599');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2034,10 +2034,10 @@ var element = $('#5e76e5b8-d4e6-487c-ba24-fec1dc07a1fc');
 
  
  
-&lt;div id="b906b0f0-e99f-41a5-a55e-60b8028b19b8"&gt;&lt;/div&gt;
+&lt;div id="6710bc8c-1587-4eb2-b202-b3b70f943945"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b906b0f0-e99f-41a5-a55e-60b8028b19b8');
+var element = $('#6710bc8c-1587-4eb2-b202-b3b70f943945');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "", "version_major": 2, "version_minor": 0}
@@ -2056,10 +2056,10 @@ var element = $('#b906b0f0-e99f-41a5-a55e-60b8028b19b8');
 
  
  
-&lt;div id="b794fdc3-5324-4266-9a1d-07ed6ca8fde2"&gt;&lt;/div&gt;
+&lt;div id="179e2d68-b9c0-4ab2-891d-8c72869bd936"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b794fdc3-5324-4266-9a1d-07ed6ca8fde2');
+var element = $('#179e2d68-b9c0-4ab2-891d-8c72869bd936');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "5586a2eb6bff4846910dbdff72960a7e", "version_major": 2, "version_minor": 0}
@@ -2274,10 +2274,10 @@ var element = $('#b794fdc3-5324-4266-9a1d-07ed6ca8fde2');
 
  
  
-&lt;div id="babbe246-ba25-4a7f-92fc-754abaa404ae"&gt;&lt;/div&gt;
+&lt;div id="b324c96c-ed57-43f4-9b47-e05ebb9d542f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#babbe246-ba25-4a7f-92fc-754abaa404ae');
+var element = $('#b324c96c-ed57-43f4-9b47-e05ebb9d542f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "7a816b74fd1e444896e582a3fad97af0", "version_major": 2, "version_minor": 0}
@@ -2316,10 +2316,10 @@ var element = $('#babbe246-ba25-4a7f-92fc-754abaa404ae');
 
  
  
-&lt;div id="424159cd-2380-4cdf-9869-2c9c946cce88"&gt;&lt;/div&gt;
+&lt;div id="ed9918c6-85c0-42fa-806e-ba7d8e06289b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#424159cd-2380-4cdf-9869-2c9c946cce88');
+var element = $('#ed9918c6-85c0-42fa-806e-ba7d8e06289b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "4b9eed29cbd8492e9f617acba475be27", "version_major": 2, "version_minor": 0}
@@ -2358,10 +2358,10 @@ var element = $('#424159cd-2380-4cdf-9869-2c9c946cce88');
 
  
  
-&lt;div id="3993e437-4045-4be2-99ba-228bce70b2cb"&gt;&lt;/div&gt;
+&lt;div id="2780bc6f-5e64-47fa-9ecb-0b37e880a81c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3993e437-4045-4be2-99ba-228bce70b2cb');
+var element = $('#2780bc6f-5e64-47fa-9ecb-0b37e880a81c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "55e871453049487e925e7d599dfe0005", "version_major": 2, "version_minor": 0}

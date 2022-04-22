@@ -28,7 +28,10 @@ MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATHS = ['./plugins']
 #PLUGINS = ['ipynb.markup']
+from pelican_jupyter import markup as nb_markup
 IPYNB_USE_METACELL = True
+IPYNB_MARKUP_USE_FIRST_CELL = True
+
 IGNORE_FILES = ['.ipynb_checkpoints']
 #Theme
 THEME = "custom_themes/Flex-TS"
@@ -41,7 +44,7 @@ LINKS = (
 SITELOGO = 'img/TSainburg.jpg'
 FAVICON = 'theme/img/starling-small.ico'
 
-PLUGINS = ['i18n_subsites','ipynb.markup' ]
+PLUGINS = ['i18n_subsites',nb_markup]
 JINJA_ENVIRONMENT = {
     'extensions': ['jinja2.ext.i18n'],
 }
