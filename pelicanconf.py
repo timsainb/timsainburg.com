@@ -37,11 +37,11 @@ IGNORE_FILES = ['.ipynb_checkpoints']
 THEME = "custom_themes/Flex-TS"
 
 LINKS = (
-	('Gentner Lab', 'http://gentnerlab.ucsd.edu'),
+#	('Gentner Lab', 'http://gentnerlab.ucsd.edu'),
 #	('tsainbur@ucsd.edu', 'mailto:tsainbur@ucsd.edu')
 	)
 #SITELOGO = '/mnt/cube/tsainbur/Projects/github_repos/timsainburg_dot_com/timsainburg.com/imgs/TSainburg.jpg'
-SITELOGO = 'img/TSainburg.jpg'
+SITELOGO = 'img/TSainburg.png'
 FAVICON = 'theme/img/starling-small.ico'
 
 PLUGINS = ['i18n_subsites',nb_markup]
@@ -59,7 +59,7 @@ COPYRIGHT_NAME="Tim Sainburg"
 # Social widget
 SOCIAL = (('twitter', 'http://twitter.com/tim_sainburg'),
           ('github', 'http://github.com/timsainb'),
-          ('envelope', 'mailto:tsainbur@ucsd.edu'),
+          ('envelope', 'mailto:tim_sainburg@hms.harvard.edu'),
           ('google-scholar', 'https://scholar.google.com/citations?user=Koqjwg8AAAAJ'),
           )
 
